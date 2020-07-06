@@ -556,7 +556,7 @@ Fig.~\ref{fig:benchmarks} shows benchmarks of four Python t-SNE implementations,
 \begin{figure*}[htbp]
   \includegraphics[width=\textwidth]{benchmarks}
   \caption{\label{fig:benchmarks}We benchmark openTSNE (v0.4.3) against three
-	popular open-source implementations including
+	popular open-source implementations from
 	scikit-learn~\cite{pedregosa2011scikit} (v0.23.1),
 	MulticoreTSNE~\cite{Ulyanov2016} (v0.1), and
 	FIt-SNE~\cite{linderman2019fast} (v1.1.0). Benchmarks were run on a
@@ -593,7 +593,6 @@ embedding-construction process into several part, caching slow operations. This
 enables users to quickly experiment with different parameter settings and
 iterate on their final visualizations.
 
-
 \subsection*{Ease of Use}
 
 Widespread adoption of novel techniques is almost universally accompanied by
@@ -621,7 +620,38 @@ points. While the Python virtual machine introduces some performance overhead,
 the runtime is comparable to that of its pure C++ counterpart --
 \textsf{FIt-SNE}. Finally, \opentsne\ is extensible. Its modular design enables
 researchers to quickly experiment with different settings and easily
-incorporate their own components into the software.
+incorporate their own components into the software. We provide a full feature
+list and comparison to other popular t-SNE implementations in
+Table~\ref{tab:features}.
+
+\begin{table}
+\caption{\label{tab:features}We compare the feature list of \opentsne to three popular open-source implementations from scikit-learn~(v0.23.1), MulticoreTSNE (v0.1), and FIt-SNE (v1.1.0). The first section corresponds to packaging and distribution. A properly packaged library is easily accessible to users and can easily be included as a dependency in other software packages. The second section lists the two approximation schemes. The FIt-SNE approximation scheme is required for t-SNE to scale up to millions of data points. The final section provides a list of extensions and improvements to the standard t-SNE algorithm, many of which can produce markedly better visualizations than under default parameter settings.}
+
+\newcommand*\rot{\rotatebox{90}}
+\renewcommand{\arraystretch}{1.25}
+
+\begin{tabular}{r c c c c c c}
+\toprule
+\setlength\tabcolsep{6pt}
+& \rot{\textsf{scikit-learn}} & \rot{\textsf{MulticoreTSNE}} & \rot{\textsf{FIt-SNE}} & \rot{\textsf{openTSNE}} \\
+\toprule
+PyPI package & \checkmark & \checkmark & & \checkmark \\
+conda package & \checkmark & & & \checkmark \\
+Precompiled binaries & \checkmark & & & \checkmark \\
+\hline
+Barnes-Hut ($\mathcal{O}(N \log N)$) & \checkmark & \checkmark & & \checkmark \\
+FIt-SNE ($\mathcal{O}(N)$) & & & \checkmark & \checkmark \\
+\hline
+Multiscale Gaussian kernels & & & \checkmark & \checkmark \\
+Fully-custom affinity kernels & & & & \checkmark \\
+Variable degrees of freedom & & & \checkmark & \checkmark \\
+Variable exaggeration & & & \checkmark & \checkmark \\
+Better initialization & & & \checkmark & \checkmark \\
+Automatic learning rate & & & \checkmark & \checkmark \\
+Embedding new samples & & & & \checkmark \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \section*{Conclusion}
 Text for this section \ldots
@@ -950,35 +980,6 @@ dispelling the myth that UMAP is superior in this respect.
 initialization, but also provides a spectral approach, similar to that of UMAP.
 The clusters in resulting embeddings are organized in a globally coherent
 manner, leading to more interpretable visualizations.
-
-\begin{table}
-\caption{\label{tab:features}Feature list...}
-
-\newcommand*\rot{\rotatebox{90}}
-\renewcommand{\arraystretch}{1.25}
-
-\begin{tabular}{r c c c c c c}
-\toprule
-\setlength\tabcolsep{6pt}
-& \rot{\textsf{scikit-learn}} & \rot{\textsf{MulticoreTSNE}} & \rot{\textsf{FIt-SNE}} & \rot{\textsf{openTSNE}} \\
-\toprule
-PyPI package & \checkmark & \checkmark & & \checkmark \\
-conda package & \checkmark & & & \checkmark \\
-Precompiled binaries & \checkmark & & & \checkmark \\
-\hline
-Barnes-Hut ($\mathcal{O}(N \log N)$) & \checkmark & \checkmark & & \checkmark \\
-FIt-SNE ($\mathcal{O}(N)$) & & & \checkmark & \checkmark \\
-\hline
-Multiscale Gaussian kernels & & & \checkmark & \checkmark \\
-Fully-custom affinity kernels & & & & \checkmark \\
-Variable degrees of freedom & & & \checkmark & \checkmark \\
-Variable exaggeration & & & \checkmark & \checkmark \\
-Better initialization & & & \checkmark & \checkmark \\
-Automatic learning rate & & & \checkmark & \checkmark \\
-Embedding new samples & & & & \checkmark \\
-\bottomrule
-\end{tabular}
-\end{table}
 
 \section*{Availability}
 
