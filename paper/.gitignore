@@ -6,3 +6,5 @@ _minted*
 *.blg
 *.bbl
 *.aux
+*.bak
+*.dvi
