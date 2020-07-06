@@ -287,14 +287,14 @@ tsne4 = openTSNE.TSNE(dof=0.6).fit(X)
 
 \section*{Discussion}
 
-\subsection*{Uncovering Structure in High-Dimensional Data Sets}
+\subsection*{Uncovering Structure in High-Dimensional Data}
 
-Dimensionality reduction techniques implicitly assume that high-dimensional data lies on a lower-dimensional manifold, which can accurately be captured by a smaller number of dimensions. However, there is no evidence to suggest that any data set can accurately be described using only two dimensions and that any projection onto a two-dimensional plane will inevitably lead to loss of information. Therefore, it is beneficial to examine multiple embeddings, each of which provides a different perspective into the topology and other characteristics of the data. For instance, in Fig.~\ref{fig:tasic}, we show four embeddings of the same gene-expression data from the mouse brain~\cite{tasic2018shared}.
+Dimensionality reduction techniques implicitly assume that high-dimensional data lies on a lower-dimensional manifold, which can accurately be captured by a smaller number of dimensions. However, there is no evidence to suggest that any data set can accurately be described using only two dimensions and that any projection onto a two-dimensional plane will inevitably lead to loss of information. Therefore, it is beneficial to examine multiple embeddings, each of which provides a different perspective into the topology and other characteristics of the data.
 \begin{figure*}[htbp]
   \includegraphics[width=\textwidth]{tasic2018}
   \caption{\label{fig:tasic}We use openTSNE to create four different visualizations of the Tasic \textit{et al.}~\cite{tasic2018shared} data set containing 21,874 single-cells originating from the mouse neocortex. Cluster annotations and colors are taken from the original publication. Warm colors correspond to excitatory neurons, cool colors correspond to inhibitory neurons, and gray/brown colors correspond to non-neuronal cells. The standard t-SNE \textbf{(a)} emphasizes local structure while increasing perplexity \textbf{(b)} results in a more meaningful layout of the clusters. We can also combine the two perplexities by using a multiscale kernel affinity model \textbf{(c)} and obtain a good trade-off between global and local structure. Alternatively, we can inspect more fine-grained structure and reveal smaller clusters by using a more heavy-tailed kernel \textbf{(d)}.}
 \end{figure*}
-Fig.~\ref{fig:tasic}.a shows an embedding using default t-SNE parameters, which uncovers numerous clusters. Warm colors correspond to excitatory neurons, while cool colors represent inhibitory neurons. While different clusters of excitatory and inhibitory neurons appear close to one another, all clusters appear somewhat equidistant from their neighboring clusters, and the overall relations between them are not obvious. On the other hand, Fig.~\ref{fig:tasic}.b focuses on preserving larger neighborhoods of points, resulting in a more globally consistent layout where relations between clusters become more apparent. In this embedding, it is evident from the increased white-space between groups that there is one large class of excitatory neurons, and two related classes of inhibitory neurons. Unfortunately, focusing on preserving large neighborhoods often results in smaller clusters being absorbed into larger ones. Alternatively, Fig.~\ref{fig:tasic}.c uses multi-scale similarity kernels which aim to preserve both the global organization of clusters as well as prevent smaller clusters from being absorbed into larger ones. On the other hand, Fig.~\ref{fig:tasic}.d shows use the same parameter values as Fig.~\ref{fig:tasic}.a, but at a finer level of resolution. This reveals that many of the clusters are composed of other subgroups.
+For instance, in Fig.~\ref{fig:tasic}, we show four embeddings of the same gene-expression data from the mouse brain~\cite{tasic2018shared}. Fig.~\ref{fig:tasic}.a shows an embedding using default t-SNE parameters, which uncovers numerous clusters. Warm colors correspond to excitatory neurons, while cool colors represent inhibitory neurons. While different clusters of excitatory and inhibitory neurons appear close to one another, all clusters appear somewhat equidistant from their neighboring clusters, and the overall relations between them are not obvious. On the other hand, Fig.~\ref{fig:tasic}.b focuses on preserving larger neighborhoods of points, resulting in a more globally consistent layout where relations between clusters become more apparent. In this embedding, it is evident from the increased white-space between groups that there is one large class of excitatory neurons, and two related classes of inhibitory neurons. Unfortunately, focusing on preserving large neighborhoods often results in smaller clusters being absorbed into larger ones. Alternatively, Fig.~\ref{fig:tasic}.c uses multi-scale similarity kernels which aim to preserve both the global organization of clusters as well as prevent smaller clusters from being absorbed into larger ones. On the other hand, Fig.~\ref{fig:tasic}.d shows use the same parameter values as Fig.~\ref{fig:tasic}.a, but at a finer level of resolution. This reveals that many of the clusters are composed of other subgroups.
 
 When faced with a data set containing millions of data points, standard t-SNE embeddings often become unwieldy, with blurred cluster boundaries, large clusters absorbing smaller ones, and relationships between clusters becoming increasingly difficult to interpret. Fig.~\ref{fig:cao}.a contains expression profiles of over two million single cells captured at different time points in mouse development. The embedding indicates numerous clusters with some transition between time points as indicated by the color-coding, but this is largely difficult to interpret. Kobak \& Berens observed that increasing attractive forces between similar data points controlled via the \textit{exaggeration} parameter leads to more compact clusters, and subsequently more informative visualizations~\cite{kobak2019art}. For instance, \ref{fig:cao}.b doubles the default exaggeration  which begins to reveal the overall structure of the data. Doubling the exaggeration again in \ref{fig:cao}.c, we can now easily observe that the data is comprised of two main groups of cells and eight somewhat smaller clusters. The visualization also reveals a small number of very small clusters, possibly corresponding to rare cell types.
 
@@ -351,9 +351,6 @@ Text for this section \ldots
 
 \section*{Methods}
 
-This section is meant to familiarize the reader with the t-SNE algorithm and its recent extensions. This brief review is by no means comprehensive, but is self contained and introduces the mathematics upon which the \opentsne\ library is based.
-
-\subsection*{Preliminaries}
 This section is meant to familiarize the reader with the t-SNE algorithm and its recent extensions. This brief review is by no means comprehensive, but is self-contained and introduces the mathematics upon which the \opentsne\ library is based.
 
 \subsection*{Preliminaries}
@@ -427,7 +424,7 @@ Optimization is performed using batch gradient descent with the delta-bar-delta 
 
 Belkina \textit{et al.} later found that faster convergence can be achieved by increasing the learning rate to $\eta=N/12$~\cite{belkina2019automated}. The number of iterations can then safely be lowered to 750, leading to faster runtime. This convention has been adopted by most modern t-SNE implementations.
 
-\subsection*{Efficient Implementation}
+\subsection*{Efficient Approximation Schemes}
 A direct evaluation of t-SNE gradients requires $\mathcal{O}(N^2)$ operations, which makes its application impractical to any reasonably-sized data set and beckons for the development of efficient approximation schemes. Van der Maaten observed that the t-SNE gradient may be reformulated in terms of a N-body problem where data points may be interpreted as particles which attract and repel each other~\cite{van2014accelerating}. The gradient may be rewritten as
 \begin{equation}
 \frac{\partial C}{\partial \mathbf{y}_i} = 4 \left [ \sum_{j \neq i} p_{ij} q_{ij} Z \left ( \mathbf{y}_i - \mathbf{y}_j \right ) -\sum_{j \neq i} q_{ij}^2 Z \left ( \mathbf{y}_i - \mathbf{y}_j \right ) \right ], \label{eq:grad_attr_rep}
@@ -494,7 +491,7 @@ The bandwidths of each Gaussian $\sigma_{1,i}$ and $\sigma_{2,i}$ is determined 
 
 \subsection*{Variable Degrees of Freedom}
 
-Standard t-SNE is often used to reveal the clustering structure in data at one level of resolution. Different perplexity parameter values can be used to identify global cluster relationships or small, well-isolated groups. Unfortunately, varying perplexity values can be time-consuming as this involves recomputing the KNNG which is often the most expensive part of the t-SNE algorithm. Alternatively,  Kobak \textit{et al.}~\cite{kobak2019heavy} suggest that varying the degree of freedom in the t-distribution used in the embedding space during optimization can be used to explore the clustering structure at different levels of resolution. 
+Standard t-SNE reveals the clustering structure in data at one level of resolution. Different perplexity parameter values can be used to identify global cluster relationships or small, well-isolated groups. Unfortunately, varying perplexity values can be time-consuming as this involves recomputing the KNNG which is often the most expensive part of the t-SNE algorithm. Alternatively, Kobak \textit{et al.}~\cite{kobak2019heavy} suggest that varying the degree of freedom in the t-distribution used in the embedding space during optimization can be used to explore the clustering structure at different levels of resolution. 
 
 Standard t-SNE models similarities between data points in the embedding space using a t-distribution with a single degree of freedom
 
@@ -530,7 +527,7 @@ Kobak \textit{et al.}~\cite{todo} showed that the early exaggeration factor $\rh
 
 While it is difficult to claim one is better than the other, different settings of $\rho$ may uncover different properties and clustering structures. For example, in single-cell data, standard t-SNE with $\rho=1$ often uncovers distinct groups of cell-types but obscures developmental paths. This problem is exacerbated when dealing with large numbers of data points. Conversely, ForceAtlas2 has often been used to uncover trajectories and transitions between cell types, but larger clusters often absorb small, distinct groups of cells.
 
-\subsection*{Alternative Initialization Schemes}
+\subsection*{Globally Consistent Initialization Schemes}
 
 Similarly to UMAP and ForceAtlas2, t-SNE can also be viewed as a force-directed layout algorithm. The first phase of the t-SNE algorithm constructs a $k$-nearest neighbor graph, and the subsequent optimization balances the attractive and repulsive forces between data points.
 
@@ -539,26 +536,30 @@ The final positioning of data points using this class of algorithms is largely d
 \opentsne\ defaults to using the two leading principal components as initialization, but also provides a spectral approach, similar to that of UMAP. The clusters in resulting embeddings are organized in a globally coherent manner, leading to more interpretable visualizations.
 
 \begin{table}
+\caption{\label{tab:features}Feature list...}
 
 \newcommand*\rot{\rotatebox{90}}
 \renewcommand{\arraystretch}{1.25}
 
 \begin{tabular}{r c c c c c c}
+\toprule
 \setlength\tabcolsep{6pt}
-& \rot{scikit-learn} & \rot{MulticoreTSNE} & \rot{FIt-SNE} & \rot{openTSNE} \\
+& \rot{\textsf{scikit-learn}} & \rot{\textsf{MulticoreTSNE}} & \rot{\textsf{FIt-SNE}} & \rot{\textsf{openTSNE}} \\
 \toprule
 PyPI package & \checkmark & \checkmark & & \checkmark \\
 conda package & \checkmark & & & \checkmark \\
 Precompiled binaries & \checkmark & & & \checkmark \\
 \hline
-$\mathcal{O}(N \log N)$ & \checkmark & \checkmark & & \checkmark \\
-$\mathcal{O}(N)$ & & & \checkmark & \checkmark \\
+Barnes-Hut ($\mathcal{O}(N \log N)$) & \checkmark & \checkmark & & \checkmark \\
+FIt-SNE ($\mathcal{O}(N)$) & & & \checkmark & \checkmark \\
 \hline
+Multiscale Gaussian kernels & & & \checkmark & \checkmark \\
+Fully-custom affinity kernels & & & & \checkmark \\
 Variable degrees of freedom & & & \checkmark & \checkmark \\
 Variable exaggeration & & & \checkmark & \checkmark \\
-Multiscale Gaussian kernels & & & \checkmark & \checkmark \\
-Custom affinity kernels & & & & \checkmark \\
-Adding new samples & & & & \checkmark \\
+Better initialization & & & \checkmark & \checkmark \\
+Automatic learning rate & & & \checkmark & \checkmark \\
+Embedding new samples & & & & \checkmark \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -607,73 +608,6 @@ We would like to thank Dmitry Kobak for various helpful discussions and best pra
 % @settings{label, options="nameyear"}
 % b) uncomment next line
 %\nocite{label}
-
-% or include bibliography directly:
-% \begin{thebibliography}
-% \bibitem{b1}
-% \end{thebibliography}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                               %%
-%% Figures                       %%
-%%                               %%
-%% NB: this is for captions and  %%
-%% Titles. All graphics must be  %%
-%% submitted separately and NOT  %%
-%% included in the Tex document  %%
-%%                               %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%
-%% Do not use \listoffigures as most will included as separate files
-
-\section*{Figures}
-  \begin{figure}[h!]
-  \caption{\csentence{Sample figure title.}
-      A short description of the figure content
-      should go here.}
-      \end{figure}
-
-\begin{figure}[h!]
-  \caption{\csentence{Sample figure title.}
-      Figure legend text.}
-      \end{figure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                               %%
-%% Tables                        %%
-%%                               %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%% Use of \listoftables is discouraged.
-%%
-\section*{Tables}
-\begin{table}[h!]
-\caption{Sample table title. This is where the description of the table should go.}
-      \begin{tabular}{cccc}
-        \hline
-           & B1  &B2   & B3\\ \hline
-        A1 & 0.1 & 0.2 & 0.3\\
-        A2 & ... & ..  & .\\
-        A3 & ..  & .   & .\\ \hline
-      \end{tabular}
-\end{table}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                               %%
-%% Additional Files              %%
-%%                               %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section*{Additional Files}
-  \subsection*{Additional file 1 --- Sample additional file title}
-    Additional file descriptions text (including details of how to
-    view the file, if it is in a non-standard format or the file extension).  This might
-    refer to a multi-page table or a figure.
-
-  \subsection*{Additional file 2 --- Sample additional file title}
-    Additional file descriptions text.
-
 
 \end{backmatter}
 \end{document}
