@@ -284,21 +284,23 @@ visualizations~\cite{policar2019embedding}.
 
 We introduce \opentsne, a comprehensive Python library that implements t-SNE
 and all its recently proposed extensions. Most notable among these are
-\begin{enumerate} \item the implementation of efficient approximation
-			schemes~\cite{van2014accelerating,linderman2019fast}
-			allowing the embedding of millions of data points,
-		\item the addition of new samples into existing
-		embeddings~\cite{policar2019embedding}, \item better
-			initialization schemes~\cite{kobak2019umap} leading to
-			more globally consistent layouts, \item variable
-			degrees of freedom~\cite{kobak2019heavy} allowing the
-		inspection of data at different levels of resolution, \item
-			multiscale similarity kernels~\cite{kobak2019art} which
-			preserves small, well-defined clusters and uncovers
-			global relationships between clusters, and \item
-improved defaults for learning rate and the number of
-iterations~\cite{belkina2019automated} which produce embeddings at a lower
-computational cost.  \end{enumerate}
+\begin{enumerate}
+\item the implementation of efficient approximation 
+	schemes~\cite{van2014accelerating,linderman2019fast} allowing the embedding
+	of millions of data points,
+\item the addition of new samples into existing
+	embeddings~\cite{policar2019embedding},
+\item better initialization schemes~\cite{kobak2019umap} leading to more
+	globally consistent layouts,
+\item variable degrees of freedom~\cite{kobak2019heavy} allowing the inspection
+	of data at different levels of resolution,
+\item multiscale similarity kernels~\cite{kobak2019art} which preserves small,
+	well-defined clusters and uncovers global relationships between clusters,
+	and
+\item improved defaults for learning rate and the number of
+	iterations~\cite{belkina2019automated} which produce embeddings at a lower
+	computational cost.
+\end{enumerate}
 
 The library is fully compatible with the Python data-science ecosystem (e.g.,
 \textsf{numpy}, \textsf{scikit-learn}, \textsf{scanpy}) providing a familiar
@@ -361,7 +363,8 @@ any data set can accurately be described using only two dimensions and that any
 projection onto a two-dimensional plane will inevitably lead to loss of
 information. Therefore, it is beneficial to examine multiple embeddings, each
 of which provides a different perspective into the topology and other
-characteristics of the data.  \begin{figure*}[htbp]
+characteristics of the data.
+\begin{figure*}[htbp]
 	\includegraphics[width=\textwidth]{tasic2018}
 	\caption{\label{fig:tasic}We use openTSNE to create four different
 	visualizations of the Tasic \textit{et al.}~\cite{tasic2018shared} data
@@ -376,7 +379,8 @@ characteristics of the data.  \begin{figure*}[htbp]
 	and obtain a good trade-off between global and local structure.
 	Alternatively, we can inspect more fine-grained structure and reveal
 	smaller clusters by using a more heavy-tailed kernel \textbf{(d)}.}
-\end{figure*} For instance, in Fig.~\ref{fig:tasic}, we show four embeddings of
+\end{figure*}
+or instance, in Fig.~\ref{fig:tasic}, we show four embeddings of
 the same gene-expression data from the mouse brain~\cite{tasic2018shared}.
 Fig.~\ref{fig:tasic}.a shows an embedding using default t-SNE parameters, which
 uncovers numerous clusters. Warm colors correspond to excitatory neurons, while
@@ -551,7 +555,15 @@ developed a new approximation scheme -- FIt-SNE -- which further reduces the
 asymptotic time complexity to $\mathcal{O}(N)$, enabling the embedding of large
 data sets in a matter of minutes.
 
-Fig.~\ref{fig:benchmarks} shows benchmarks of four Python t-SNE implementations, including those from \textsf{scikit-learn} (v0.23.1), \textsf{MulticoreTSNE} (v0.1), \textsf{FIt-SNE} (v1.1.0), and \opentsne\ (v0.4.3). We perform benchmarks on two processors, one representing usage on a personal computer and one on a high-performance computing platform. The Intel(R) Core i7 is commonly found in consumer-grade laptop computers, while Intel(R) Xeon(R) processors are found in high-performance computing machines. Benchmarks were run with the original t-SNE parameters for 1000 iterations, as some implementations do not allow their modification.
+Fig.~\ref{fig:benchmarks} shows benchmarks of four Python t-SNE implementations,
+including those from \textsf{scikit-learn} (v0.23.1), \textsf{MulticoreTSNE}
+(v0.1), \textsf{FIt-SNE} (v1.1.0), and \opentsne\ (v0.4.3). We perform
+benchmarks on two processors, one representing usage on a personal computer and
+one on a high-performance computing platform. The Intel(R) Core i7 is commonly
+found in consumer-grade laptop computers, while Intel(R) Xeon(R) processors are
+found in high-performance computing machines. Benchmarks were run with the
+original t-SNE parameters for 1000 iterations, as some implementations do not
+allow their modification.
 
 \begin{figure*}[htbp]
   \includegraphics[width=\textwidth]{benchmarks}
@@ -625,7 +637,16 @@ list and comparison to other popular t-SNE implementations in
 Table~\ref{tab:features}.
 
 \begin{table}
-\caption{\label{tab:features}We compare the feature list of \opentsne to three popular open-source implementations from scikit-learn~(v0.23.1), MulticoreTSNE (v0.1), and FIt-SNE (v1.1.0). The first section corresponds to packaging and distribution. A properly packaged library is easily accessible to users and can easily be included as a dependency in other software packages. The second section lists the two approximation schemes. The FIt-SNE approximation scheme is required for t-SNE to scale up to millions of data points. The final section provides a list of extensions and improvements to the standard t-SNE algorithm, many of which can produce markedly better visualizations than under default parameter settings.}
+\caption{\label{tab:features}We compare the feature list of \opentsne to three
+popular open-source implementations from scikit-learn~(v0.23.1), MulticoreTSNE
+(v0.1), and FIt-SNE (v1.1.0). The first section corresponds to packaging and 
+distribution. A properly packaged library is easily accessible to users and can
+easily be included as a dependency in other software packages. The second
+section lists the two approximation schemes. The FIt-SNE approximation scheme
+is required for t-SNE to scale up to millions of data points. The final section
+provides a list of extensions and improvements to the standard t-SNE algorithm,
+many of which can produce markedly better visualizations than under default
+parameter settings.}
 
 \newcommand*\rot{\rotatebox{90}}
 \renewcommand{\arraystretch}{1.25}
