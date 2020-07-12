@@ -228,13 +228,21 @@ help in the construction of data visualizations. Popular approaches for
 dimensionality reduction include principal component analysis (PCA),
 multidimensional scaling, t-distributed stochastic neighbor embedding
 (t-SNE)~\cite{maaten2008visualizing}, and uniform manifold approximation and
-projections (UMAP)~\cite{2018arXivUMAP}. Among these, t-SNE lately received
-much attention as it can address high volumes of data and reveal meaningful
-clustering structure. Most of the recent reports on single-cell gene expression
-data start with an overview of the cell landscape, where t-SNE embeds
+projections (UMAP)~\cite{2018arXivUMAP}. 
+Among these, t-SNE lately received much attention as it can address high
+volumes of data and reveal meaningful clustering structure. Increased
+resolution and throughput of modern molecular assays has lead to frequent use
+of t-SNE in diverse fields including, but not limited to, single-cell
+transcriptomics~\cite{macosko2015highly,cao2019single,tasic2018shared}, human
+genetics~\cite{hirata2019genetic}, metagenomic
+assembly~\cite{beaulaurier2018metagenomic}, spatial organization of microbial
+communities~\cite{sheth2019spatial} and
+metabolomics~\cite{tkachev2019differences}.
+
+Reports on single cell gene expression data, our running example,
+often start with an overview of the cell landscape, where t-SNE embeds
 high-dimensional expression profiles into a two-dimensional
-space~\cite{macosko2015highly,cao2019single,tasic2018shared}.
-Figs.~\ref{fig:macosko}.a and \ref{fig:macosko}.b are examples of two such
+space. Figs.~\ref{fig:macosko}.a and \ref{fig:macosko}.b are examples of two such
 embeddings.
 
 \begin{figure*}[htbp]
@@ -364,6 +372,7 @@ embedding onto a two-dimensional plane will inevitably lead to loss of
 information. Therefore, it is beneficial to examine multiple embeddings, each
 of which provides a different perspective into the topology and other
 characteristics of the data.
+
 \begin{figure*}[htbp]
 	\includegraphics[width=\textwidth]{tasic2018}
 	\caption{\label{fig:tasic}We use openTSNE to create four different
