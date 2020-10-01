@@ -1,3 +1,16 @@
+%% BioMed_Central_Tex_Template_v1.06
+%%                                      %
+%  bmc_article.tex            ver: 1.06 %
+%                                       %
+
+%%IMPORTANT: do not delete the first line of this template
+%%It must be present to enable the BMC Submission system to
+%%recognise this template!!
+
+%%% additional documentclass options:
+%  [doublespacing]
+%  [linenumbers]   - put the line numbers on margins
+
 \documentclass[twocolumn]{bmcart}
 %\documentclass{bmcart}
 
@@ -214,7 +227,7 @@ Dimensionality reduction techniques implicitly assume that high-dimensional data
 
 \begin{figure*}[htbp]
 	\includegraphics[width=\textwidth]{tasic2018}
-	\caption{\label{fig:tasic}We use openTSNE to create four different
+	\caption{\label{fig:tasic}We use \opentsne\ to create four different
     visualizations of the Tasic \textit{et al.}~\cite{tasic2018shared} data,
     each providing a different perspective into the topology of the data.
     The data set contains 21,874 single-cells originating from the mouse
@@ -257,7 +270,7 @@ Embedding single cells into existing reference atlases can also be useful for ce
 \begin{figure*}[htbp]
   \includegraphics[width=\textwidth]{transform_hochgerner}
   \caption{\label{fig:transform}
-\openTSNE supports embedding new samples into an existing reference t-SNE landscape. For the series of visualizations shown in this figure, we first construct a t-SNE embedding for the data from Hochgerner \textit{et al.}~\cite{hochgerner2018conserved} containing 24,185 developing, single cells from the mouse hippocampus. The data contains gene expression in different neurons, supporting glia, and other vascular cells (upper left). Data points representing cells are colored according to cell-types assigned in the original publication; see the legend from Fig.~\ref{fig:tasic} to map colors to cell-type. We then embed new, hippocampal cells collected in a study by Harris \textit{et al.}~\cite{harris2018classes} using the embedding of Hochgerner \textit{et al.} data as a reference. In their study, Harris \textit{et al.} collected 6,971 single-cells and focused on identifying different types of inhibitory neurons. However, almost half of the collected cells are not neurons and were left uncharacterized. Inspecting the embeddings of these cells in the reference embedding (bottom left) reveals that in addition to inhibitory neurons, the data contains several supporting glial cells as well as a small population of endothelial cells. We can verify our approach's accuracy by inspecting marker genes for the major cell types in the reference (top row) and embedded samples (bottom row).
+\opentsne\ supports embedding new samples into an existing reference t-SNE landscape. For the series of visualizations shown in this figure, we first construct a t-SNE embedding for the data from Hochgerner \textit{et al.}~\cite{hochgerner2018conserved} containing 24,185 developing, single cells from the mouse hippocampus. The data contains gene expression in different neurons, supporting glia, and other vascular cells (upper left). Data points representing cells are colored according to cell-types assigned in the original publication; see the legend from Fig.~\ref{fig:tasic} to map colors to cell-type. We then embed new, hippocampal cells collected in a study by Harris \textit{et al.}~\cite{harris2018classes} using the embedding of Hochgerner \textit{et al.} data as a reference. In their study, Harris \textit{et al.} collected 6,971 single-cells and focused on identifying different types of inhibitory neurons. However, almost half of the collected cells are not neurons and were left uncharacterized. Inspecting the embeddings of these cells in the reference embedding (bottom left) reveals that in addition to inhibitory neurons, the data contains several supporting glial cells as well as a small population of endothelial cells. We can verify our approach's accuracy by inspecting marker genes for the major cell types in the reference (top row) and embedded samples (bottom row).
 }
 \end{figure*}
 
