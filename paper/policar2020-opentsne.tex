@@ -86,30 +86,30 @@ two such embeddings.
 
 \begin{figure*}[htbp]
   \includegraphics[width=\textwidth]{macosko2015}
-\caption{\label{fig:macosko}
-Three t-SNE embeddings demonstrate theoretical advances and corresponding implementations in
-\opentsne. The data in \textbf{(a)} and \textbf{(b)} represent 44,808
-single-cell gene-expression profiles of mouse retinal cells from Macosko
-\textit{et al.}~\cite{macosko2015highly}. The data in \textbf{(c)}
-additionally contains 27,499 expression profiles from mouse
-retinal cells from Shekhar \textit{et
-al.}~\cite{shekhar2016comprehensive}. \textbf{(a)} We construct a t-SNE
-embedding following the parameter choices from the original publication
-by Maaten \& Hinton~\cite{maaten2008visualizing}. The visualization
-shows no preservation of the global organization of clusters,
-resulting from random initialization and an affinity model focused on
-preserving local neighborhoods. \textbf{(b)} A modern t-SNE
-embedding, utilizing the latest theoretical advances and practical
-recommendations constructed using a multi-scale
-affinity model, preserving both short-range and long-range interactions
-between data points and initialized so that the global layout is
-meaningful. Unlike in \textbf{(a)}, the green and blue clusters
-representing different sub-types of amacrine and bipolar cells are now
-localized to the same regions of the space, indicating a higher level
-of similarity than to other cell types. The embedding in \textbf{(c)} shows how existing
-t-SNE reference atlases can be used to place new samples into existing
-embeddings. The positions of new data points correspond to cell types
-from the reference atlas.
+  \caption{\label{fig:macosko}
+  We use \opentsne\ to generate three t-SNE embeddings and demonstrate recent
+  theoretical advances. The data in \textbf{(a)} and \textbf{(b)} represent 44,808
+  single-cell gene-expression profiles of mouse retinal cells from Macosko
+  \textit{et al.}~\cite{macosko2015highly}. The data in \textbf{(c)}
+  additionally contains 27,499 expression profiles from mouse
+  retinal cells from Shekhar \textit{et al.}~\cite{shekhar2016comprehensive}.
+  \textbf{(a)} We construct a t-SNE
+  embedding following the parameter choices from the original publication
+  by Maaten \& Hinton~\cite{maaten2008visualizing}. The visualization
+  shows no preservation of the global organization of clusters,
+  resulting from random initialization and an affinity model focused on
+  preserving local neighborhoods. \textbf{(b)} A modern t-SNE
+  embedding, utilizing the latest theoretical advances and practical
+  recommendations constructed using a multi-scale
+  affinity model, preserving both short-range and long-range interactions
+  between data points and initialized so that the global layout is
+  as meaningful as possible. Unlike in \textbf{(a)}, the green and blue clusters
+  representing different sub-types of amacrine and bipolar cells are now
+  localized to the same regions of the space, indicating a higher level
+  of similarity than to other cell types. The embedding in \textbf{(c)} shows how existing
+  t-SNE reference atlases can be used to place new samples into existing
+  embeddings. The positions of new data points correspond to cell types
+  from the reference atlas.
 }
 \end{figure*}
 
@@ -218,13 +218,13 @@ and other data characteristics.
 	neocortex. Cluster annotations and colors are taken from the original
 	publication. Warm colors correspond to excitatory neurons, cool colors
 	correspond to inhibitory neurons, and gray/brown colors correspond to
-	non-neuronal cells. The standard t-SNE \textbf{(a)} emphasizes local
+	non-neuronal cells. Standard t-SNE \textbf{(a)} emphasizes local
 	structure while increasing perplexity \textbf{(b)} results in a more
 	meaningful layout of the clusters. We can also combine the two
 	perplexities by using a multiscale kernel affinity model \textbf{(c)}
 	and obtain a trade-off between global and local structure.
 	Alternatively, we can inspect more fine-grained structure and reveal
-smaller clusters by using a more heavy-tailed kernel \textbf{(d)}.}
+  smaller clusters by using a more heavy-tailed kernel \textbf{(d)}.}
 \end{figure*}
 
 We illustrate this point by generating four different embeddings of the data on
@@ -267,14 +267,14 @@ rare cell types.
 \begin{figure*}[htbp]
   \includegraphics[width=\textwidth]{cao2019}
   \caption{\label{fig:cao}
-Increasing the exaggeration parameter leads to compact clusters, highlighting
-	the data's global organization and emphasizing the continuity between
-	cell states. The data set from Cao \textit{et al.}~\cite{cao2019single}
+  Increasing the exaggeration parameter leads to compact clusters, highlighting
+	the data's global organization and emphasizing the continuous nature of
+	cell state transitions. The data set from Cao \textit{et al.}~\cite{cao2019single}
 	contains expression profiles from 2,058,652 single cells. The data were
 	collected from mice embryos at different developmental stages at daily
 	intervals after 9.5 to 13.5 days. \textbf{(c)} reveals that the data is
 	comprised of two main components -- the neural tube and mesenchymal
-	cells -- as well as several other smaller clusters. Additionally, the
+	cells -- as well as several other smaller clusters. The
 	colors indicate developmental progression with red indicating
 	least-developed cells and blue indicating most developed cells. The
 	overall developmental trajectory is most apparent with higher
@@ -339,7 +339,7 @@ was correct.
 \begin{figure*}[htbp]
   \includegraphics[width=\textwidth]{transform_hochgerner}
   \caption{\label{fig:transform}
-\opentsne\ supports embedding new samples into an existing reference t-SNE
+  \opentsne\ supports embedding new samples into an existing reference t-SNE
 	landscape. For the series of visualizations shown in this figure, we
 	first construct a t-SNE embedding for the data from Hochgerner
 	\textit{et al.}~\cite{hochgerner2018conserved} containing 24,185
@@ -419,7 +419,7 @@ t-SNE parameters, as some implementations do not allow their modification.
 \begin{figure*}[htbp]
   \includegraphics[width=\textwidth]{benchmarks}
   \caption{\label{fig:benchmarks}
-We benchmark \opentsne\ (v0.4.3) against three popular open-source implementations
+  We benchmark \opentsne\ (v0.4.3) against three popular open-source implementations
 	from \textsf{scikit-learn}~\cite{pedregosa2011scikit} (v0.23.1),
 	\textsf{MulticoreTSNE}~\cite{Ulyanov2016} (v0.1), and
 	\textsf{FIt-SNE}~\cite{linderman2019fast} (v1.1.0). Experiments were run on a
@@ -483,7 +483,7 @@ t-SNE implementations in Table~\ref{tab:features}.
 
 \begin{table}
 \caption{\label{tab:features}
-We compare features of \opentsne\ to three popular open-source implementations
+  We compare features of \opentsne\ to three popular open-source implementations
 	from \textsf{scikit-learn}~(v0.23.1), \textsf{MulticoreTSNE} (v0.1), and
 	\textsf{FIt-SNE} (v1.1.0).  The first section of the comparison
 	addresses packaging and distribution. A properly packaged library is
