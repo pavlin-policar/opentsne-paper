@@ -761,8 +761,8 @@ and represents the unnormalized $q_{ij}$.
 Optimization is performed with batch gradient descent using the delta-bar-delta
 update rule~\cite{jacobs1988increased}. Originally, t-SNE was run for 1000
 iterations consisting of two phases: in the first \textit{early exaggeration}
-phase, the attractive forces between data points is increased by some factor
-$\rho$, typically set to $12$, so that points in the embedding can more easily move throughout the embedding to find
+phase, the attractive forces between data points are increased by some factor
+$\rho$, typically set to $12$, so that points in the embedding can more easily move throughout the space and find
 their respective neighbors. The remaining 750 iterations are run with $\rho=1$,
 which reverts the attractive forces to their original values and produces the
 final embedding.
@@ -783,7 +783,7 @@ other~\cite{van2014accelerating}. The gradient from Eqn. (\ref{eq:tsne_gradient}
 \frac{\partial C}{\partial \mathbf{y}_i} = 4 \left [ \sum_{j \neq i} p_{ij} q_{ij} Z \left ( \mathbf{y}_i - \mathbf{y}_j \right ) -\sum_{j \neq i} q_{ij}^2 Z \left ( \mathbf{y}_i - \mathbf{y}_j \right ) \right ], \label{eq:grad_attr_rep}
 \end{equation}
 where $Z = \sum_{k \neq l}\left ( 1 + || \mathbf{y}_k - \mathbf{y}_l ||^2
-\right )^{-1}$. This equation can then be viewed as a particule simulation, where 
+\right )^{-1}$. This equation can then be viewed as a particle simulation, where 
 the two terms represent the attractive and repulsive
 forces between individual particles. Each term lends itself to efficient
 approximations, which enable us to greatly reduce the time complexity of t-SNE.
@@ -797,7 +797,7 @@ Because distances are transformed to similarities using a Gaussian kernel, and
 the bandwidth of each kernel is selected such that only a predefined number of
 neighbors fall within the main probability mass of the bell curve through the perplexity parameter, the remaining
 data points fall into the exponentially decaying tails of each Gaussian distribution.
-These data points are then assigned near-zero probabilities and do not contribute
+These data points are assigned near-zero probabilities and do not contribute
 to the overall attractive forces of data points.
 Therefore it is sufficient to calculate the attractive forces for only a
 small number of nearest neighbors instead of all $N$ points. By
@@ -816,7 +816,7 @@ space-partitioning Barnes-Hut tree approach to approximate the interaction
 between data points~\cite{van2014accelerating}. Briefly, in the 2D case, the approach splits
 the space into quadrants and entire regions may be summarized by simple statistics.
 If a query point is far away from a given quadrant, the repulsive forces exerted
-by all the points in that quadrant onto the query point are summarized by its center of mass. This
+by all the points in that quadrant onto the query point are summarized by a single point. This
 reduces the time complexity from $\mathcal{O}(N^2)$ to
 $\mathcal{O}(N \log N)$.
 
@@ -868,15 +868,14 @@ q_{j \mid i} &= \frac{\left ( 1 + || \mathbf{y}_i - \mathbf{w}_j ||^2 \right )^{
 the new data set and $\mathbf{W} = \left \{ \mathbf{w}_1, \mathbf{w}_2, \dots,
 \mathbf{w}_M \right \} \in \mathbb{R}^d$. Additionally, we omit the
 symmetrization step in Eqn.~(\ref{eq:symmetrize}).
-Plugging these
-The gradients of
-$\mathbf{w}_j$ with respect to the loss (Eqn.~\ref{eq:kl_divergence}) are:
+Plugging these terms into Eqn.~(\ref{eq:kl_divergence}), we obtain the following
+gradient
 \begin{equation}
 \frac{\partial C}{\partial \mathbf{w}_j} = 2 \sum_i \left ( p_{j \mid i} - q_{j \mid i} \right ) \left ( \mathbf{y}_i - \mathbf{w}_j \right ) \left ( 1 + || \mathbf{y}_i - \mathbf{w}_j || ^2 \right )^{-1}.
 \label{eq:gradient}
 \end{equation}
 
-As in standard t-SNE, a direct calculation of gradients takes $\mathcal{O}(N
+Similarly to standard t-SNE, a direct calculation of gradients takes $\mathcal{O}(N
 \cdot M)$ time, but it is straightforward to adapt the Barnes-Hut and FIt-SNE
 approximation schemes, reducing the time complexity to $\mathcal{O}(M \log N)$
 and $\mathcal{O}(\max \{ N, M \})$, respectively. In the FIt-SNE approximation
@@ -890,7 +889,7 @@ $\mathcal{O}(\max \{ N, M \})$ to $\mathcal{O}(M)$.
 In standard t-SNE, distances are converted to similarities through the use of
 Gaussian kernels of varying bandwidths. The bandwidths are indirectly
 determined by the user-specified perplexity parameter so that a fixed number of
-nearest data points will have non-zero similarity. One common trick for
+nearest data points will be assigned non-zero values. One common trick for
 uncovering the global relations between clusters is to increase perplexity so
 that more long-range interactions are preserved in the final embedding.
 However, one unfortunate side effect of increasing perplexity is that smaller
@@ -898,8 +897,8 @@ clusters get absorbed into larger ones.
 
 Kobak \& Berens suggest that replacing the Gaussian kernel
 with a mixture of Gaussians may provide better insight into both the local and
-global structure~\cite{kobak2019art}. Therefore, the similarities between data points in the input
-space are computed with
+global structure~\cite{kobak2019art}. For instance, the similarities between data points in the input
+space may instead be computed with
 
 \begin{align}
   p_{j\mid i} &\propto \frac{1}{\sigma_{1,i}} \exp \left ( -\mathcal{D}(\mathbf{x}_i, \mathbf{x}_j ) / 2\sigma_{1,i}^2 \right ) \notag \\
@@ -919,13 +918,14 @@ Standard t-SNE reveals the clustering structure at a single level of
 resolution. Different perplexity parameter values can be used to identify
 global cluster relationships or small, well-isolated groups. Unfortunately,
 varying perplexity values can be time-consuming as this involves recomputing
-the KNN graph which is often the most expensive part of the t-SNE algorithm.
-Alternatively, Kobak \textit{et al.}~\cite{kobak2019heavy} suggest that varying
+the $k$-nearest neighbor graph which is often the most expensive part of the t-SNE algorithm.
+Alternatively, Kobak \textit{et al.} suggest that varying
 the degree of freedom in the t-distribution can be used to explore the clustering structure at different
-levels of resolution. 
+levels of resolution~\cite{kobak2019heavy}. 
 
 Standard t-SNE models similarities between data points in the embedding space
-using a t-distribution with a single degree of freedom
+using a t-distribution with a single degree of freedom, but this can be generalized
+to allow for any parameter value
 
 \begin{equation}
 q_{ij} \propto \left ( 1 + || \mathbf{y}_i - \mathbf{y}_j ||^2 / \alpha \right )^{-\alpha} = \frac{1}{\left( 1 + || \mathbf{y}_i - \mathbf{y}_j ||^2 / \alpha \right)^\alpha }.
@@ -935,7 +935,7 @@ Eqn.~(\ref{eq:cauchy_kernel}). The gradient of the loss function then becomes
 \begin{align}
 \frac{\partial C}{\partial \mathbf{y}_i} &= 4 \sum_{j \neq i} \left ( p_{ij} - q_{ij} \right ) w_{ij}^{1/\alpha} \left ( \mathbf{y}_i - \mathbf{y}_j \right ),
 \end{align}
-which can, again, be cast as attractive and repulsive forces between particles
+which can, again, be cast as the interplay between the attractive and repulsive forces between particles
 \begin{align}
 \frac{\partial C}{\partial \mathbf{y}_i} &= 4 \sum_{j \neq i} p_{ij} w_{ij}^{1/\alpha} (\mathbf{y}_i - \mathbf{y}_j) \notag \\
 &- 4 \sum_{j \neq i} w_{ij}^{\frac{\alpha+1}{\alpha}} / Z (\mathbf{y}_i - \mathbf{y}_j).
@@ -966,29 +966,31 @@ interpreted at least partially as a loose measure of distance.
 B{\"o}hm \textit{et al.} showed that the exaggeration factor
 $\rho$ can be used to produce layouts more similar to UMAP and ForceAtlas2~\cite{bohm2020unifying}.
 By incorporating exaggeration into later phases of optimization, t-SNE is able
-introduce more white-space between clusters and better reflect the global
+introduce more white-space between clusters which better reflects the global
 relations between clusters. B{\"o}hm \textit{et al.} found that using $\rho=4$ and $\rho=30$
 produces embeddings visually similar to UMAP and ForceAtlas2, respectively.
 
 While it is difficult to claim one is better than the other, different settings
-of $\rho$ may uncover different properties and clustering structures. For
-example, in single-cell data, standard t-SNE with $\rho=1$ often uncovers
-distinct groups of cell-types but obscures developmental paths. This problem is
+of $\rho$ may uncover different properties of the data manifold. For
+example, in single-cell data, standard t-SNE often uncovers
+distinct, well-separated groups of cell-types but obscures transitional paths between cell-states. This problem is
 exacerbated when dealing with large numbers of data points. On the other hand,
-ForceAtlas2 has often been used to uncover trajectories and transitions between
-cell types, but larger clusters often absorb small, distinct groups of cells.
-Therefore one may run t-SNE with two different exaggeration settings, one to
-highlight the developmental transitions between cell types and one to identify
-clear populations of cells.
+ForceAtlas2 has been used successfuly to uncover trajectories and transitions between
+cell types. Unfortunately, when using ForceAtlas2, large clusters often absorb small, distinct groups of cells.
+One might run t-SNE with various parameter settings to avoid switching between
+different algorithms and obtain similar visualizations.
+We might generate an embedding using higher levels of exaggeration to highlight
+the developmental transitions between cell types and
+one with low levels of exaggeration to identify clear populations of cells.
 
 \subsection*{Globally Consistent Initialization Schemes}
 
 t-SNE, UMAP, and ForceAtlas2 can all be cast as force-directed layout algorithms,
-which operate on the $k$-nearest neighbor graph. Each method constructs the graph
+which operate on the $k$-nearest neighbor graph. Each method constructs the graph differently
 and specifies the attractive and repulsive forces in its own way, but ultimately,
 point positions are found by balancing the attractive and repulsive forces between data points.
 
-The final positioning of data points using this class of algorithms is largely
+The final positions of data points in this class of algorithms is largely
 dependent on the embedding initialization. UMAP found early success as it was
 able to produce visualizations that better captured the global organization of
 clusters. This was due to its initialization scheme, which initialized point
@@ -1006,10 +1008,10 @@ manner, leading to increased visualization interpretability.
 
 \section*{Availability}
 
-openTSNE is distributed under the BSD-3-Clause License and is publicly
+\opentsne\ is distributed under the BSD-3-Clause License and is publicly
 available as an open-source package at
-\url{https://github.com/pavlin-policar/openTSNE}. openTSNE is also available on
-PyPI and conda-forge. The data sets used and scripts used in this study are
+\url{https://github.com/pavlin-policar/openTSNE}. \opentsne\ is also available on
+\texttt{PyPI} and \texttt{conda-forge}. The data sets used and scripts used in this study are
 included in accompanying notebooks, publicly available at
 \url{https://github.com/pavlin-policar/opentsne-paper}.
 
