@@ -20,6 +20,8 @@
 
 \newcommand{\opentsne}{\textsf{openTSNE}}
 
+\renewcommand{\baselinestretch}{1.2}
+
 \begin{document}
 
 \title{openTSNE: a modular Python library for t-SNE dimensionality reduction and embedding}
@@ -532,11 +534,35 @@ Embedding new samples & & & & \checkmark \\
 \end{table}
 
 \section*{Conclusion}
-Text for this section \ldots
 
+Data visualization for efficient exploration and effective communication is integral to scientific progress~\cite{wong2012points}. It is of no surprise, then, that a technique called t-SNE that can embed multi-dimensional data within two-dimensional maps has gained such popularity. The t-SNE visualizations appear in numerous recent publications, including those in this journal, and are, in particular, instrumental for the advancement in specific fields of biology, such as single-cell transcriptomics. Yet, with growing data volume and the need for data integration from various experiments, the original t-SNE exhibits lack of scalability and susceptibility to batch effects. We here introduce \opentsne\, an open-source Python t-SNE library that addresses these concerns and includes recent methodological advancements. \opentsne\ can scale to millions of data records and fit local cluster exploration and global structure discovery. It is also the only existing t-SNE library that enables transfer learning in a principled manner, where new data can be embedded into existing atlases.
 
+\section*{Availability}
+
+\opentsne\ is distributed under the BSD-3-Clause License and is publicly
+available as an open-source package at
+\url{https://github.com/pavlin-policar/openTSNE}. \opentsne\ is also available
+on \textsf{PyPI} and \textsf{conda-forge}. The data sets used and scripts used
+in this study are included in accompanying notebooks, publicly available at
+\url{https://github.com/pavlin-policar/opentsne-paper}.
+
+\section*{Competing interests}
+The authors declare that they have no competing interests.
+
+\section*{Author's contributions}
+P.G.P. implemented and maintains \opentsne\ library. M.S. helped in the development of mathematical foundations and advised on the inclusion of the extensions. B.Z. initiated and supervised the project. All three co-authors wrote the manuscript.
+
+\section*{Acknowledgements}
+We want to thank Dmitry Kobak for various helpful discussions and best practices
+when using t-SNE and his contributions to the source code. We would also
+like to thank George Linderman for his help with the FIt-SNE algorithm.
+
+\bibliographystyle{bmc-mathphys} % Style BST file (bmc-mathphys, vancouver, spbasic).
+\bibliography{references}      % Bibliography file (usually '*.bib' )
+
+\eject
 \fontsize{8}{10}\selectfont
-\section*{Methods}
+\section*{Online Methods}
 
 This section is meant to familiarize the reader with the t-SNE algorithm and its
 recent extensions. We motivate each extension and introduce standard notation.
@@ -871,31 +897,5 @@ visualizations where clusters are arbitrarily positioned in the embedding space.
 initialization, but also provides a spectral approach similar to UMAP.  This
 allows clusters in resulting embeddings to be organized in a more globally
 coherent manner, leading to increased visualization interpretability.
-
-\section*{Availability}
-
-\opentsne\ is distributed under the BSD-3-Clause License and is publicly
-available as an open-source package at
-\url{https://github.com/pavlin-policar/openTSNE}. \opentsne\ is also available
-on \textsf{PyPI} and \textsf{conda-forge}. The data sets used and scripts used
-in this study are included in accompanying notebooks, publicly available at
-\url{https://github.com/pavlin-policar/opentsne-paper}.
-
-\section*{Competing interests}
-The authors declare that they have no competing interests.
-
-\section*{Author's contributions}
-P.G.P. implemented and maintains \opentsne library. M.S. helped in development
-of mathematical foundations and advised on inclusion of the extensions.
-B.Z. initiated and supervised the project. All three co-authors wrote
-the manuscript.
-
-\section*{Acknowledgements}
-We want to thank Dmitry Kobak for various helpful discussions and best practices
-when using t-SNE and his contributions to the source code. We would also
-like to thank George Linderman for his help with the FIt-SNE algorithm.
-
-\bibliographystyle{bmc-mathphys} % Style BST file (bmc-mathphys, vancouver, spbasic).
-\bibliography{references}      % Bibliography file (usually '*.bib' )
 
 \end{document}
