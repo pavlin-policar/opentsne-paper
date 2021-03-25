@@ -1,7 +1,7 @@
 %% This is file `bmc-mathphys.bst' (created: 2011-12-27)
 %% Compatible with bibtex version 0.99d.
 %%
-%% Please submit bugs or your comments to vtex@vtex.lt
+%% Please submit bugs or your comments to latex-support@vtex.lt
 %% Start subject with a "[BMC] bibtex: " + subject
 %%
 %% Sorting entries is done by name and year fields!

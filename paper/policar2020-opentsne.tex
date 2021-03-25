@@ -1,53 +1,103 @@
-% \documentclass[twocolumn]{article}
-\documentclass[letter]{article}
-\usepackage[a4paper, total={6in, 8in}]{geometry}
+%% BioMed_Central_Tex_Template_v1.06
+%%                                      %
+%  bmc_article.tex            ver: 1.06 %
+%                                       %
 
-%%% Load packages
-%\usepackage{amsthm}
-%\RequirePackage{natbib}
-%\RequirePackage[authoryear]{natbib}% uncomment this for author-year bibliography
-\usepackage{hyperref}
-\usepackage[utf8]{inputenc} %unicode support
-%\usepackage[applemac]{inputenc} %applemac support if unicode package fails
-%\usepackage[latin1]{inputenc} %UNIX support if unicode package fails
+%%IMPORTANT: do not delete the first line of this template
+%%It must be present to enable the BMC Submission system to
+%%recognise this template!!
 
-\usepackage{graphicx}
+
+%%% additional documentclass options:
+%  [doublespacing]
+%  [linenumbers]   - put the line numbers on margins
+
+\documentclass[twocolumn]{bmcart}
+
+\usepackage{amsthm,amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+
 \usepackage{minted}
 \usemintedstyle{vs}
 
 \usepackage{amsmath,amssymb}
+\usepackage{graphicx}
 \usepackage{booktabs}
 
-\newcommand{\opentsne}{\textsf{openTSNE}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                             %%
+%%  If you wish to display your graphics for   %%
+%%  your own use using includegraphic or       %%
+%%  includegraphics, then comment out the      %%
+%%  following two lines of code.               %%
+%%  NB: These line *must* be included when     %%
+%%  submitting to BMC.                         %%
+%%  All figure files must be submitted as      %%
+%%  separate graphics through the BMC          %%
+%%  submission process, not included in the    %%
+%%  submitted article.                         %%
+%%                                             %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\renewcommand{\baselinestretch}{1.2}
+%\def\includegraphic{}
+%\def\includegraphics{}
+
+%%% Put your definitions there:
+\startlocaldefs
+\newcommand{\opentsne}{\textsf{openTSNE}}
+\endlocaldefs
+
 
 \begin{document}
 
+
+\begin{frontmatter}
+\begin{fmbox}
+\dochead{Software}
+
 \title{openTSNE: a modular Python library for t-SNE dimensionality reduction and embedding}
 
-\author{
-  Pavlin G. Poli\v{c}ar\textsuperscript{1}\\
-  \texttt{pavlin.policar@fri.uni-lj.si}\\
-  \and
-  Martin Stra\v{zar}\textsuperscript{2}\\
-  \texttt{martin.strazar@gmail.com}\\
-  \and
-  Bla\v{z} Zupan\textsuperscript{1,3}\\
-  \texttt{blaz.zupan@fri.uni-lj.si}\\
+\author[
+  addressref={aff1},
+  corref={aff1},
+  email={pavlin.policar@fri.uni-lj.si}
+]{\inits{P.G.}\fnm{Pavlin G.} \snm{Poli\v{c}ar}}
+\author[
+  addressref={aff2},
+  email={martin.strazar@gmail.com}
+]{\inits{M.S.}\fnm{Martin} \snm{Stra\v{zar}}}
+\author[
+  addressref={aff1,aff3},
+  email={martin.strazar@gmail.com}
+]{\inits{B.Z.}\fnm{Bla\v{z}} \snm{Zupan}}
+
+\address[id=aff1]{
+  \orgdiv{Faculty of Computer and Information Science},
+  \orgname{University of Ljubljana},
+  \street{Ve\v{c}na pot 113},
+  \city{Ljubljana},
+  \cny{Slovenia}
+}
+\address[id=aff2]{%
+  \orgname{Broad Institute of Harvard and MIT},
+  \street{D\"{u}sternbrooker Weg 20},
+  %\postcode{}
+  \city{Cambridge},
+  \cny{U.S.A.}
+}
+\address[id=aff3]{%
+  \orgdiv{Department of Molecular and Human Genetics},
+  \orgname{Baylor College of Medicine},
+  \street{1 Baylor Plaza},
+  %\postcode{}
+  \city{Houston},
+  \cny{U.S.A.}
 }
 
-\date{
-  \textsuperscript{1}Faculty of Computer and Information Science, University of Ljubljana,\\
-  Ve\v{c}na pot 113, SI-1000 Ljubljana, Slovenia\\ \vspace{2mm}
-  \textsuperscript{2}Broad Institute of Harvard and MIT,\\
-  D\"{u}sternbrooker Weg 20, MA-02142 Cambridge, U.S.A.\\ \vspace{2mm}
-  \textsuperscript{3}Department of Molecular and Human Genetics, Baylor College of Medicine,\\
-  1 Baylor Plaza, TX-77030 Houston, U.S.A.
-}
+%\end{fmbox}% comment this for two column layout
 
-\maketitle
-
+\begin{abstractbox}
 \begin{abstract}
 Point-based visualizations of large, multi-dimensional data from molecular
 biology are often used to reveal meaningful clusters. One of the most popular
@@ -63,13 +113,22 @@ Unique to \opentsne\ is also the ability to map new data to existing embeddings,
 which can surprisingly assist in solving batch effects.
 \end{abstract}
 
-\providecommand{\keywords}[1]{\vspace{2mm}\textbf{Keywords ---} #1}
-\begin{keywords}
-t-SNE, embedding, visualization, dimensionality reduction, Python library
-\end{keywords}
+\begin{keyword}
+\kwd{t-SNE}
+\kwd{embedding}
+\kwd{visualization}
+\kwd{dimensionality reduction}
+\kwd{Python library}
+\end{keyword}
+
+\end{abstractbox}
+
+\end{fmbox}% uncomment this for two column layout
+
+\end{frontmatter}
 
 
-\section*{Introduction}
+\section*{Background}
 
 The abundance of high-dimensional data sets in molecular biology calls for
 dimensionality reduction techniques that are able to produce
@@ -141,20 +200,20 @@ We introduce \opentsne, a comprehensive Python library that implements t-SNE
 and all its recently proposed extensions, including:
 \begin{enumerate}
 \item the implementation of efficient approximation 
-	schemes~\cite{van2014accelerating,linderman2019fast} allowing the embedding
-	of millions of data points,
+  schemes~\cite{van2014accelerating,linderman2019fast} allowing the embedding
+  of millions of data points,
 \item the addition of new data samples into a fixed existing
-	embeddings~\cite{policar2019embedding},
+  embeddings~\cite{policar2019embedding},
 \item improved initialization schemes~\cite{kobak2019umap} leading to more
-	globally consistent layouts,
+  globally consistent layouts,
 \item variable degrees of freedom~\cite{kobak2019heavy} allowing the inspection
-	of data at different levels of resolution,
+  of data at different levels of resolution,
 \item multi-scale similarity kernels~\cite{kobak2019art} which preserve small,
-	well-defined clusters and uncover global relationships between clusters,
-	and
+  well-defined clusters and uncover global relationships between clusters,
+  and
 \item improved defaults for learning rate and number of
-	iterations~\cite{belkina2019automated} which produce embeddings at a lower
-	computational cost.
+  iterations~\cite{belkina2019automated} which produce embeddings at a lower
+  computational cost.
 \end{enumerate}
 
 \opentsne\ is compatible with the Python data science ecosystem and
@@ -221,20 +280,20 @@ and other data characteristics.
 \begin{figure*}[htbp]
   \center
   \includegraphics[width=0.75\textwidth]{tasic2018}
-	\caption{\label{fig:tasic}
+  \caption{\label{fig:tasic}
   We use \opentsne\ to create four different
-	visualizations of the Tasic \textit{et al.}~\cite{tasic2018shared} data,
-	each providing a different perspective into the topology of the data.
-	The data set contains 21,874 single-cells originating from the mouse
-	neocortex. Cluster annotations and colors are taken from the original
-	publication. Warm colors correspond to excitatory neurons, cool colors
-	correspond to inhibitory neurons, and gray/brown colors correspond to
-	non-neuronal cells. Standard t-SNE \textbf{(a)} emphasizes local
-	structure while increasing perplexity \textbf{(b)} results in a more
-	meaningful layout of the clusters. We can also combine the two
-	perplexities by using a multiscale kernel affinity model \textbf{(c)}
-	and obtain a trade-off between global and local structure.
-	Alternatively, we can inspect more fine-grained structure and reveal
+  visualizations of the Tasic \textit{et al.}~\cite{tasic2018shared} data,
+  each providing a different perspective into the topology of the data.
+  The data set contains 21,874 single-cells originating from the mouse
+  neocortex. Cluster annotations and colors are taken from the original
+  publication. Warm colors correspond to excitatory neurons, cool colors
+  correspond to inhibitory neurons, and gray/brown colors correspond to
+  non-neuronal cells. Standard t-SNE \textbf{(a)} emphasizes local
+  structure while increasing perplexity \textbf{(b)} results in a more
+  meaningful layout of the clusters. We can also combine the two
+  perplexities by using a multiscale kernel affinity model \textbf{(c)}
+  and obtain a trade-off between global and local structure.
+  Alternatively, we can inspect more fine-grained structure and reveal
   smaller clusters by using a more heavy-tailed kernel \textbf{(d)}.}
 \end{figure*}
 
@@ -279,22 +338,22 @@ clusters, possibly corresponding to rare cell types.
   \includegraphics[width=\textwidth]{cao2019}
   \caption{\label{fig:cao}
   Increasing the exaggeration parameter leads to compact clusters, highlighting
-	the data's global organization and emphasizing the continuous nature of
-	cell state transitions. The data set from Cao \textit{et al.}~\cite{cao2019single}
-	contains expression profiles from 2,058,652 single cells. The data were
-	collected from mice embryos at different developmental stages at daily
-	intervals after 9.5 to 13.5 days. \textbf{(c)} reveals that the data is
-	comprised of two main components -- the neural tube and mesenchymal
-	cells -- as well as several other smaller clusters. The
-	colors indicate developmental progression with red indicating
-	least-developed cells and blue indicating most developed cells. The
-	overall developmental trajectory is most apparent with higher
-	exaggeration levels, showing red cells slowly transitioning into blue
-	cells. Progressively easing the exaggeration factor uncovers finer
-	clusters within the larger groups, as shown in \textbf{(b)} with
-	exaggeration of two and subsequently in \textbf{(a)}, where we show the
-	standard t-SNE with no exaggeration. 32,011 putative doublets are
-	excluded from the visualizations.
+  the data's global organization and emphasizing the continuous nature of
+  cell state transitions. The data set from Cao \textit{et al.}~\cite{cao2019single}
+  contains expression profiles from 2,058,652 single cells. The data were
+  collected from mice embryos at different developmental stages at daily
+  intervals after 9.5 to 13.5 days. \textbf{(c)} reveals that the data is
+  comprised of two main components -- the neural tube and mesenchymal
+  cells -- as well as several other smaller clusters. The
+  colors indicate developmental progression with red indicating
+  least-developed cells and blue indicating most developed cells. The
+  overall developmental trajectory is most apparent with higher
+  exaggeration levels, showing red cells slowly transitioning into blue
+  cells. Progressively easing the exaggeration factor uncovers finer
+  clusters within the larger groups, as shown in \textbf{(b)} with
+  exaggeration of two and subsequently in \textbf{(a)}, where we show the
+  standard t-SNE with no exaggeration. 32,011 putative doublets are
+  excluded from the visualizations.
 }
 \end{figure*}
 
@@ -351,25 +410,25 @@ is correct.
   \includegraphics[width=\textwidth]{transform_hochgerner}
   \caption{\label{fig:transform}
   \opentsne\ supports embedding new samples into an existing reference t-SNE
-	landscape. For the series of visualizations shown in this figure, we
-	first construct a t-SNE embedding for the data from Hochgerner
-	\textit{et al.}~\cite{hochgerner2018conserved} containing 24,185
-	developing, single cells from the mouse hippocampus. The data contains
-	gene expression in different neurons, supporting glia, and other
-	vascular cells (upper left). Data points representing cells are colored
-	according to cell-types assigned in the original publication; see the
-	legend from Fig.~\ref{fig:tasic} to map colors to cell-type. We then
-	embed new, hippocampal cells collected in a study by Harris \textit{et
-	al.}~\cite{harris2018classes} using the embedding of Hochgerner
-	\textit{et al.} data as a reference. In their study, Harris \textit{et
-	al.} collected 6,971 single-cells and focused on identifying different
-	types of inhibitory neurons. However, almost half of the collected cells
-	are not neurons and were left uncharacterized. Inspecting the embeddings
-	of these cells in the reference embedding (bottom left) reveals that in
-	addition to inhibitory neurons, the data contains several supporting
-	glial cells as well as a small population of endothelial cells. We can
-	verify our approach's accuracy by inspecting marker genes for the major
-	cell types in the reference (top row) and embedded samples (bottom row).
+  landscape. For the series of visualizations shown in this figure, we
+  first construct a t-SNE embedding for the data from Hochgerner
+  \textit{et al.}~\cite{hochgerner2018conserved} containing 24,185
+  developing, single cells from the mouse hippocampus. The data contains
+  gene expression in different neurons, supporting glia, and other
+  vascular cells (upper left). Data points representing cells are colored
+  according to cell-types assigned in the original publication; see the
+  legend from Fig.~\ref{fig:tasic} to map colors to cell-type. We then
+  embed new, hippocampal cells collected in a study by Harris \textit{et
+  al.}~\cite{harris2018classes} using the embedding of Hochgerner
+  \textit{et al.} data as a reference. In their study, Harris \textit{et
+  al.} collected 6,971 single-cells and focused on identifying different
+  types of inhibitory neurons. However, almost half of the collected cells
+  are not neurons and were left uncharacterized. Inspecting the embeddings
+  of these cells in the reference embedding (bottom left) reveals that in
+  addition to inhibitory neurons, the data contains several supporting
+  glial cells as well as a small population of endothelial cells. We can
+  verify our approach's accuracy by inspecting marker genes for the major
+  cell types in the reference (top row) and embedded samples (bottom row).
 }
 \end{figure*}
 
@@ -431,18 +490,18 @@ t-SNE parameters, as some implementations do not allow their modification.
   \includegraphics[width=\textwidth]{benchmarks}
   \caption{\label{fig:benchmarks}
   We benchmark \opentsne\ (v0.4.3) against three popular open-source implementations
-	from \textsf{scikit-learn}~\cite{pedregosa2011scikit} (v0.23.1),
-	\textsf{MulticoreTSNE}~\cite{Ulyanov2016} (v0.1), and
-	\textsf{FIt-SNE}~\cite{linderman2019fast} (v1.1.0). Experiments were run on a
-	consumer-grade Intel Core i7-7700HQ processor found in laptop computers,
-	and on a server-grade Intel Xeon E5-2650. To generate benchmark data
-	sets of different sizes, we subsampled data from the 10X Genomics 1.3
-	million mouse brain data set five times, resulting in five different
-	data sets for each size. In total, we run each implementation on 30
-	different data sets. Notice that \opentsne\ scales similarly to \textsf{FIt-SNE},
-	as they both use the same interpolation-based approximation scheme,
-	while \textsf{scikit-learn} and \textsf{MulticoreTSNE} utilize the Barnes-Hut
-	approximation.
+  from \textsf{scikit-learn}~\cite{pedregosa2011scikit} (v0.23.1),
+  \textsf{MulticoreTSNE}~\cite{Ulyanov2016} (v0.1), and
+  \textsf{FIt-SNE}~\cite{linderman2019fast} (v1.1.0). Experiments were run on a
+  consumer-grade Intel Core i7-7700HQ processor found in laptop computers,
+  and on a server-grade Intel Xeon E5-2650. To generate benchmark data
+  sets of different sizes, we subsampled data from the 10X Genomics 1.3
+  million mouse brain data set five times, resulting in five different
+  data sets for each size. In total, we run each implementation on 30
+  different data sets. Notice that \opentsne\ scales similarly to \textsf{FIt-SNE},
+  as they both use the same interpolation-based approximation scheme,
+  while \textsf{scikit-learn} and \textsf{MulticoreTSNE} utilize the Barnes-Hut
+  approximation.
 }
 \end{figure*}
 
@@ -496,16 +555,16 @@ t-SNE implementations in Table~\ref{tab:features}.
 \begin{table}
 \caption{\label{tab:features}
   Features of \opentsne\ compared to other three popular open-source implementations
-	from \textsf{scikit-learn}~(v0.23.1), \textsf{MulticoreTSNE} (v0.1), and
-	\textsf{FIt-SNE} (v1.1.0).  The first section of the comparison
-	addresses packaging and distribution. A properly packaged library is
-	easily accessible to users, and developers should easily include it in
-	dependency lists of other software packages. The second section of the
-	comparison lists the two existing t-SNE approximation schemes. The
-	FIt-SNE approximation scheme is required for t-SNE to scale up to
-	millions of data points. The final section provides a list of extensions
-	and improvements to the standard t-SNE algorithm, many of which can
-	produce markedly better visualizations.
+  from \textsf{scikit-learn}~(v0.23.1), \textsf{MulticoreTSNE} (v0.1), and
+  \textsf{FIt-SNE} (v1.1.0).  The first section of the comparison
+  addresses packaging and distribution. A properly packaged library is
+  easily accessible to users, and developers should easily include it in
+  dependency lists of other software packages. The second section of the
+  comparison lists the two existing t-SNE approximation schemes. The
+  FIt-SNE approximation scheme is required for t-SNE to scale up to
+  millions of data points. The final section provides a list of extensions
+  and improvements to the standard t-SNE algorithm, many of which can
+  produce markedly better visualizations.
 }
 \begin{center}\small
 \newcommand*\rot{\rotatebox{90}}
@@ -535,560 +594,14 @@ Embedding new samples & & & & \checkmark \\
 \end{center}
 \end{table}
 
-\section*{Conclusion}
+\section*{Conclusions}
 
 Data visualization for efficient exploration and effective communication is integral to scientific progress~\cite{wong2012points}. It is of no surprise, then, that a technique called t-SNE that can embed multi-dimensional data within two-dimensional maps has gained such popularity. The t-SNE visualizations appear in numerous recent publications, including those in this journal, and are, in particular, instrumental for the advancement in specific fields of biology, such as single-cell transcriptomics. Yet, with growing data volume and the need for data integration from various experiments, the original t-SNE exhibits lack of scalability and susceptibility to batch effects. We here introduce \opentsne\, an open-source Python t-SNE library that addresses these concerns and includes recent methodological advancements. \opentsne\ can scale to millions of data records and fit local cluster exploration and global structure discovery. It is also the only existing t-SNE library that enables transfer learning in a principled manner, where new data can be embedded into existing atlases.
 
-\section*{Availability}
-
-\opentsne\ is distributed under the BSD-3-Clause License and is publicly
-available as an open-source package at
-\url{https://github.com/pavlin-policar/openTSNE}. \opentsne\ is also available
-on \textsf{PyPI} and \textsf{conda-forge}. The data sets used and scripts used
-in this study are included in accompanying notebooks, publicly available at
-\url{https://github.com/pavlin-policar/opentsne-paper}.
-
-\section*{Competing interests}
-The authors declare no competing interests.
-
-\section*{Author's contributions}
-P.G.P. implemented and maintains \opentsne\ library. M.S. helped in the development of mathematical foundations and advised on the inclusion of the extensions. B.Z. initiated and supervised the project. All three co-authors wrote the manuscript.
-
-\section*{Acknowledgements}
-This work was supported by Slovenian Research Agency (P2-0209).
-We want to thank Dmitry Kobak for various helpful discussions and best practices
-when using t-SNE and his contributions to the source code. We would also
-like to thank George Linderman for his help with the FIt-SNE algorithm.
 
 
-%% Bibliography
-\begin{thebibliography}{28}
-% BibTex style file: bmc-mathphys.bst (version 2.1), 2014-07-24
-\ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
-\ifx \binits  \undefined \def \binits#1{#1}\fi
-\ifx \bauthor  \undefined \def \bauthor#1{#1}\fi
-\ifx \batitle  \undefined \def \batitle#1{#1}\fi
-\ifx \bjtitle  \undefined \def \bjtitle#1{#1}\fi
-\ifx \bvolume  \undefined \def \bvolume#1{\textbf{#1}}\fi
-\ifx \byear  \undefined \def \byear#1{#1}\fi
-\ifx \bissue  \undefined \def \bissue#1{#1}\fi
-\ifx \bfpage  \undefined \def \bfpage#1{#1}\fi
-\ifx \blpage  \undefined \def \blpage #1{#1}\fi
-\ifx \burl  \undefined \def \burl#1{\textsf{#1}}\fi
-\ifx \doiurl  \undefined \def \doiurl#1{\textsf{#1}}\fi
-\ifx \betal  \undefined \def \betal{\textit{et al.}}\fi
-\ifx \binstitute  \undefined \def \binstitute#1{#1}\fi
-\ifx \binstitutionaled  \undefined \def \binstitutionaled#1{#1}\fi
-\ifx \bctitle  \undefined \def \bctitle#1{#1}\fi
-\ifx \beditor  \undefined \def \beditor#1{#1}\fi
-\ifx \bpublisher  \undefined \def \bpublisher#1{#1}\fi
-\ifx \bbtitle  \undefined \def \bbtitle#1{#1}\fi
-\ifx \bedition  \undefined \def \bedition#1{#1}\fi
-\ifx \bseriesno  \undefined \def \bseriesno#1{#1}\fi
-\ifx \blocation  \undefined \def \blocation#1{#1}\fi
-\ifx \bsertitle  \undefined \def \bsertitle#1{#1}\fi
-\ifx \bsnm \undefined \def \bsnm#1{#1}\fi
-\ifx \bsuffix \undefined \def \bsuffix#1{#1}\fi
-\ifx \bparticle \undefined \def \bparticle#1{#1}\fi
-\ifx \barticle \undefined \def \barticle#1{#1}\fi
-\ifx \bconfdate \undefined \def \bconfdate #1{#1}\fi
-\ifx \botherref \undefined \def \botherref #1{#1}\fi
-\ifx \url \undefined \def \url#1{\textsf{#1}}\fi
-\ifx \bchapter \undefined \def \bchapter#1{#1}\fi
-\ifx \bbook \undefined \def \bbook#1{#1}\fi
-\ifx \bcomment \undefined \def \bcomment#1{#1}\fi
-\ifx \oauthor \undefined \def \oauthor#1{#1}\fi
-\ifx \citeauthoryear \undefined \def \citeauthoryear#1{#1}\fi
-\ifx \endbibitem  \undefined \def \endbibitem {}\fi
-\ifx \bconflocation  \undefined \def \bconflocation#1{#1}\fi
-\ifx \arxivurl  \undefined \def \arxivurl#1{\textsf{#1}}\fi
-\csname PreBibitemsHook\endcsname
-
-%%% 1
-\bibitem{maaten2008visualizing}
-\begin{barticle}
-\bauthor{\bsnm{Van Der~Maaten}, \binits{L.}},
-\bauthor{\bsnm{Hinton}, \binits{G.}}:
-\batitle{{Visualizing data using t-SNE}}.
-\bjtitle{Journal of Machine Learning Research}
-\bvolume{9}(\bissue{Nov}),
-\bfpage{2579}--\blpage{2605}
-(\byear{2008})
-\end{barticle}
-\endbibitem
-
-%%% 2
-\bibitem{2018arXivUMAP}
-\begin{botherref}
-\oauthor{\bsnm{{McInnes}}, \binits{L.}},
-\oauthor{\bsnm{{Healy}}, \binits{J.}},
-\oauthor{\bsnm{{Melville}}, \binits{J.}}:
-{UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction}.
-ArXiv e-prints
-(2018).
-\arxivurl{1802.03426}
-\end{botherref}
-\endbibitem
-
-%%% 3
-\bibitem{macosko2015highly}
-\begin{barticle}
-\bauthor{\bsnm{Macosko}, \binits{E.Z.}},
-\bauthor{\bsnm{Basu}, \binits{A.}},
-\bauthor{\bsnm{Satija}, \binits{R.}},
-\bauthor{\bsnm{Nemesh}, \binits{J.}},
-\bauthor{\bsnm{Shekhar}, \binits{K.}},
-\bauthor{\bsnm{Goldman}, \binits{M.}},
-\bauthor{\bsnm{Tirosh}, \binits{I.}},
-\bauthor{\bsnm{Bialas}, \binits{A.R.}},
-\bauthor{\bsnm{Kamitaki}, \binits{N.}},
-\bauthor{\bsnm{Martersteck}, \binits{E.M.}}, \betal:
-\batitle{Highly parallel genome-wide expression profiling of individual cells
-  using nanoliter droplets}.
-\bjtitle{Cell}
-\bvolume{161}(\bissue{5}),
-\bfpage{1202}--\blpage{1214}
-(\byear{2015})
-\end{barticle}
-\endbibitem
-
-%%% 4
-\bibitem{cao2019single}
-\begin{barticle}
-\bauthor{\bsnm{Cao}, \binits{J.}},
-\bauthor{\bsnm{Spielmann}, \binits{M.}},
-\bauthor{\bsnm{Qiu}, \binits{X.}},
-\bauthor{\bsnm{Huang}, \binits{X.}},
-\bauthor{\bsnm{Ibrahim}, \binits{D.M.}},
-\bauthor{\bsnm{Hill}, \binits{A.J.}},
-\bauthor{\bsnm{Zhang}, \binits{F.}},
-\bauthor{\bsnm{Mundlos}, \binits{S.}},
-\bauthor{\bsnm{Christiansen}, \binits{L.}},
-\bauthor{\bsnm{Steemers}, \binits{F.J.}}, \betal:
-\batitle{The single-cell transcriptional landscape of mammalian organogenesis}.
-\bjtitle{Nature}
-\bvolume{566}(\bissue{7745}),
-\bfpage{496}--\blpage{502}
-(\byear{2019})
-\end{barticle}
-\endbibitem
-
-%%% 5
-\bibitem{tasic2018shared}
-\begin{barticle}
-\bauthor{\bsnm{Tasic}, \binits{B.}},
-\bauthor{\bsnm{Yao}, \binits{Z.}},
-\bauthor{\bsnm{Graybuck}, \binits{L.T.}},
-\bauthor{\bsnm{Smith}, \binits{K.A.}},
-\bauthor{\bsnm{Nguyen}, \binits{T.N.}},
-\bauthor{\bsnm{Bertagnolli}, \binits{D.}},
-\bauthor{\bsnm{Goldy}, \binits{J.}},
-\bauthor{\bsnm{Garren}, \binits{E.}},
-\bauthor{\bsnm{Economo}, \binits{M.N.}},
-\bauthor{\bsnm{Viswanathan}, \binits{S.}}, \betal:
-\batitle{Shared and distinct transcriptomic cell types across neocortical
-  areas}.
-\bjtitle{Nature}
-\bvolume{563}(\bissue{7729}),
-\bfpage{72}--\blpage{78}
-(\byear{2018})
-\end{barticle}
-\endbibitem
-
-%%% 6
-\bibitem{hirata2019genetic}
-\begin{barticle}
-\bauthor{\bsnm{Hirata}, \binits{J.}},
-\bauthor{\bsnm{Hosomichi}, \binits{K.}},
-\bauthor{\bsnm{Sakaue}, \binits{S.}},
-\bauthor{\bsnm{Kanai}, \binits{M.}},
-\bauthor{\bsnm{Nakaoka}, \binits{H.}},
-\bauthor{\bsnm{Ishigaki}, \binits{K.}},
-\bauthor{\bsnm{Suzuki}, \binits{K.}},
-\bauthor{\bsnm{Akiyama}, \binits{M.}},
-\bauthor{\bsnm{Kishikawa}, \binits{T.}},
-\bauthor{\bsnm{Ogawa}, \binits{K.}}, \betal:
-\batitle{{Genetic and phenotypic landscape of the major histocompatibilty
-  complex region in the Japanese population}}.
-\bjtitle{Nature Genetics}
-\bvolume{51}(\bissue{3}),
-\bfpage{470}--\blpage{480}
-(\byear{2019})
-\end{barticle}
-\endbibitem
-
-%%% 7
-\bibitem{beaulaurier2018metagenomic}
-\begin{barticle}
-\bauthor{\bsnm{Beaulaurier}, \binits{J.}},
-\bauthor{\bsnm{Zhu}, \binits{S.}},
-\bauthor{\bsnm{Deikus}, \binits{G.}},
-\bauthor{\bsnm{Mogno}, \binits{I.}},
-\bauthor{\bsnm{Zhang}, \binits{X.-S.}},
-\bauthor{\bsnm{Davis-Richardson}, \binits{A.}},
-\bauthor{\bsnm{Canepa}, \binits{R.}},
-\bauthor{\bsnm{Triplett}, \binits{E.W.}},
-\bauthor{\bsnm{Faith}, \binits{J.J.}},
-\bauthor{\bsnm{Sebra}, \binits{R.}}, \betal:
-\batitle{{Metagenomic binning and association of plasmids with bacterial host
-  genomes using DNA methylation}}.
-\bjtitle{Nature Biotechnology}
-\bvolume{36}(\bissue{1}),
-\bfpage{61}
-(\byear{2018})
-\end{barticle}
-\endbibitem
-
-%%% 8
-\bibitem{sheth2019spatial}
-\begin{barticle}
-\bauthor{\bsnm{Sheth}, \binits{R.U.}},
-\bauthor{\bsnm{Li}, \binits{M.}},
-\bauthor{\bsnm{Jiang}, \binits{W.}},
-\bauthor{\bsnm{Sims}, \binits{P.A.}},
-\bauthor{\bsnm{Leong}, \binits{K.W.}},
-\bauthor{\bsnm{Wang}, \binits{H.H.}}:
-\batitle{Spatial metagenomic characterization of microbial biogeography in the
-  gut}.
-\bjtitle{Nature Biotechnology}
-\bvolume{37}(\bissue{8}),
-\bfpage{877}--\blpage{883}
-(\byear{2019})
-\end{barticle}
-\endbibitem
-
-%%% 9
-\bibitem{tkachev2019differences}
-\begin{barticle}
-\bauthor{\bsnm{Tkachev}, \binits{A.}},
-\bauthor{\bsnm{Stepanova}, \binits{V.}},
-\bauthor{\bsnm{Zhang}, \binits{L.}},
-\bauthor{\bsnm{Khrameeva}, \binits{E.}},
-\bauthor{\bsnm{Zubkov}, \binits{D.}},
-\bauthor{\bsnm{Giavalisco}, \binits{P.}},
-\bauthor{\bsnm{Khaitovich}, \binits{P.}}:
-\batitle{Differences in lipidome and metabolome organization of prefrontal
-  cortex among human populations}.
-\bjtitle{Scientific Reports}
-\bvolume{9}(\bissue{1}),
-\bfpage{1}--\blpage{10}
-(\byear{2019})
-\end{barticle}
-\endbibitem
-
-%%% 10
-\bibitem{shekhar2016comprehensive}
-\begin{barticle}
-\bauthor{\bsnm{Shekhar}, \binits{K.}},
-\bauthor{\bsnm{Lapan}, \binits{S.W.}},
-\bauthor{\bsnm{Whitney}, \binits{I.E.}},
-\bauthor{\bsnm{Tran}, \binits{N.M.}},
-\bauthor{\bsnm{Macosko}, \binits{E.Z.}},
-\bauthor{\bsnm{Kowalczyk}, \binits{M.}},
-\bauthor{\bsnm{Adiconis}, \binits{X.}},
-\bauthor{\bsnm{Levin}, \binits{J.Z.}},
-\bauthor{\bsnm{Nemesh}, \binits{J.}},
-\bauthor{\bsnm{Goldman}, \binits{M.}}, \betal:
-\batitle{Comprehensive classification of retinal bipolar neurons by single-cell
-  transcriptomics}.
-\bjtitle{Cell}
-\bvolume{166}(\bissue{5}),
-\bfpage{1308}--\blpage{1323}
-(\byear{2016})
-\end{barticle}
-\endbibitem
-
-%%% 11
-\bibitem{ding2018interpretable}
-\begin{barticle}
-\bauthor{\bsnm{Ding}, \binits{J.}},
-\bauthor{\bsnm{Condon}, \binits{A.}},
-\bauthor{\bsnm{Shah}, \binits{S.P.}}:
-\batitle{Interpretable dimensionality reduction of single cell transcriptome
-  data with deep generative models}.
-\bjtitle{Nature Communications}
-\bvolume{9}(\bissue{1}),
-\bfpage{2002}
-(\byear{2018})
-\end{barticle}
-\endbibitem
-
-%%% 12
-\bibitem{becht2019dimensionality}
-\begin{barticle}
-\bauthor{\bsnm{Becht}, \binits{E.}},
-\bauthor{\bsnm{McInnes}, \binits{L.}},
-\bauthor{\bsnm{Healy}, \binits{J.}},
-\bauthor{\bsnm{Dutertre}, \binits{C.-A.}},
-\bauthor{\bsnm{Kwok}, \binits{I.W.}},
-\bauthor{\bsnm{Ng}, \binits{L.G.}},
-\bauthor{\bsnm{Ginhoux}, \binits{F.}},
-\bauthor{\bsnm{Newell}, \binits{E.W.}}:
-\batitle{{Dimensionality reduction for visualizing single-cell data using
-  UMAP}}.
-\bjtitle{Nature Biotechnology}
-\bvolume{37}(\bissue{1}),
-\bfpage{38}
-(\byear{2019})
-\end{barticle}
-\endbibitem
-
-%%% 13
-\bibitem{linderman2019fast}
-\begin{barticle}
-\bauthor{\bsnm{Linderman}, \binits{G.C.}},
-\bauthor{\bsnm{Rachh}, \binits{M.}},
-\bauthor{\bsnm{Hoskins}, \binits{J.G.}},
-\bauthor{\bsnm{Steinerberger}, \binits{S.}},
-\bauthor{\bsnm{Kluger}, \binits{Y.}}:
-\batitle{{Fast interpolation-based t-SNE for improved visualization of
-  single-cell RNA-seq data}}.
-\bjtitle{Nature Methods}
-\bvolume{16}(\bissue{3}),
-\bfpage{243}--\blpage{245}
-(\byear{2019})
-\end{barticle}
-\endbibitem
-
-%%% 14
-\bibitem{kobak2019art}
-\begin{barticle}
-\bauthor{\bsnm{Kobak}, \binits{D.}},
-\bauthor{\bsnm{Berens}, \binits{P.}}:
-\batitle{{The art of using t-SNE for single-cell transcriptomics}}.
-\bjtitle{Nature Communications}
-\bvolume{10}(\bissue{1}),
-\bfpage{1}--\blpage{14}
-(\byear{2019})
-\end{barticle}
-\endbibitem
-
-%%% 15
-\bibitem{policar2019embedding}
-\begin{bchapter}
-\bauthor{\bsnm{Poli{\v{c}}ar}, \binits{P.G.}},
-\bauthor{\bsnm{Stra{\v{z}}ar}, \binits{M.}},
-\bauthor{\bsnm{Zupan}, \binits{B.}}:
-\bctitle{{Embedding to reference t-SNE space addresses batch effects in
-  single-cell classification}}.
-In: \bbtitle{International Conference on Discovery Science},
-pp. \bfpage{246}--\blpage{260}
-(\byear{2019}).
-\bcomment{Springer}
-\end{bchapter}
-\endbibitem
-
-%%% 16
-\bibitem{van2014accelerating}
-\begin{barticle}
-\bauthor{\bsnm{Van Der~Maaten}, \binits{L.}}:
-\batitle{{Accelerating t-SNE using tree-based algorithms}}.
-\bjtitle{The Journal of Machine Learning Research}
-\bvolume{15}(\bissue{1}),
-\bfpage{3221}--\blpage{3245}
-(\byear{2014})
-\end{barticle}
-\endbibitem
-
-%%% 17
-\bibitem{kobak2019umap}
-\begin{botherref}
-\oauthor{\bsnm{Kobak}, \binits{D.}},
-\oauthor{\bsnm{Linderman}, \binits{G.C.}}:
-{UMAP does not preserve global structure any better than t-SNE when using the
-  same initialization}.
-bioRxiv
-(2019)
-\end{botherref}
-\endbibitem
-
-%%% 18
-\bibitem{kobak2019heavy}
-\begin{bchapter}
-\bauthor{\bsnm{Kobak}, \binits{D.}},
-\bauthor{\bsnm{Linderman}, \binits{G.}},
-\bauthor{\bsnm{Steinerberger}, \binits{S.}},
-\bauthor{\bsnm{Kluger}, \binits{Y.}},
-\bauthor{\bsnm{Berens}, \binits{P.}}:
-\bctitle{{Heavy-tailed kernels reveal a finer cluster structure in t-SNE
-  visualisations}}.
-In: \bbtitle{Joint European Conference on Machine Learning and Knowledge
-  Discovery in Databases},
-pp. \bfpage{124}--\blpage{139}
-(\byear{2019}).
-\bcomment{Springer}
-\end{bchapter}
-\endbibitem
-
-%%% 19
-\bibitem{belkina2019automated}
-\begin{barticle}
-\bauthor{\bsnm{Belkina}, \binits{A.C.}},
-\bauthor{\bsnm{Ciccolella}, \binits{C.O.}},
-\bauthor{\bsnm{Anno}, \binits{R.}},
-\bauthor{\bsnm{Halpert}, \binits{R.}},
-\bauthor{\bsnm{Spidlen}, \binits{J.}},
-\bauthor{\bsnm{Snyder-Cappione}, \binits{J.E.}}:
-\batitle{{Automated optimized parameters for T-distributed stochastic neighbor
-  embedding improve visualization and analysis of large datasets}}.
-\bjtitle{Nature Communications}
-\bvolume{10}(\bissue{1}),
-\bfpage{1}--\blpage{12}
-(\byear{2019})
-\end{barticle}
-\endbibitem
-
-%%% 20
-\bibitem{sklearn_api}
-\begin{bchapter}
-\bauthor{\bsnm{Buitinck}, \binits{L.}},
-\bauthor{\bsnm{Louppe}, \binits{G.}},
-\bauthor{\bsnm{Blondel}, \binits{M.}},
-\bauthor{\bsnm{Pedregosa}, \binits{F.}},
-\bauthor{\bsnm{Mueller}, \binits{A.}},
-\bauthor{\bsnm{Grisel}, \binits{O.}},
-\bauthor{\bsnm{Niculae}, \binits{V.}},
-\bauthor{\bsnm{Prettenhofer}, \binits{P.}},
-\bauthor{\bsnm{Gramfort}, \binits{A.}},
-\bauthor{\bsnm{Grobler}, \binits{J.}},
-\bauthor{\bsnm{Layton}, \binits{R.}},
-\bauthor{\bsnm{VanderPlas}, \binits{J.}},
-\bauthor{\bsnm{Joly}, \binits{A.}},
-\bauthor{\bsnm{Holt}, \binits{B.}},
-\bauthor{\bsnm{Varoquaux}, \binits{G.}}:
-\bctitle{{API} design for machine learning software: experiences from the
-  scikit-learn project}.
-In: \bbtitle{ECML PKDD Workshop: Languages for Data Mining and Machine
-  Learning},
-pp. \bfpage{108}--\blpage{122}
-(\byear{2013})
-\end{bchapter}
-\endbibitem
-
-%%% 21
-\bibitem{jacomy2014forceatlas2}
-\begin{barticle}
-\bauthor{\bsnm{Jacomy}, \binits{M.}},
-\bauthor{\bsnm{Venturini}, \binits{T.}},
-\bauthor{\bsnm{Heymann}, \binits{S.}},
-\bauthor{\bsnm{Bastian}, \binits{M.}}:
-\batitle{{ForceAtlas2, a continuous graph layout algorithm for handy network
-  visualization designed for the Gephi software}}.
-\bjtitle{PloS One}
-\bvolume{9}(\bissue{6}),
-\bfpage{98679}
-(\byear{2014})
-\end{barticle}
-\endbibitem
-
-%%% 22
-\bibitem{bohm2020unifying}
-\begin{botherref}
-\oauthor{\bsnm{B{\"o}hm}, \binits{J.N.}},
-\oauthor{\bsnm{Berens}, \binits{P.}},
-\oauthor{\bsnm{Kobak}, \binits{D.}}:
-{A Unifying Perspective on Neighbor Embeddings along the Attraction-Repulsion
-  Spectrum}.
-arXiv preprint arXiv:2007.08902
-(2020)
-\end{botherref}
-\endbibitem
-
-%%% 23
-\bibitem{hochgerner2018conserved}
-\begin{barticle}
-\bauthor{\bsnm{Hochgerner}, \binits{H.}},
-\bauthor{\bsnm{Zeisel}, \binits{A.}},
-\bauthor{\bsnm{L{\"o}nnerberg}, \binits{P.}},
-\bauthor{\bsnm{Linnarsson}, \binits{S.}}:
-\batitle{{Conserved properties of dentate gyrus neurogenesis across postnatal
-  development revealed by single-cell RNA sequencing}}.
-\bjtitle{Nature Neuroscience}
-\bvolume{21}(\bissue{2}),
-\bfpage{290}--\blpage{299}
-(\byear{2018})
-\end{barticle}
-\endbibitem
-
-%%% 24
-\bibitem{harris2018classes}
-\begin{barticle}
-\bauthor{\bsnm{Harris}, \binits{K.D.}},
-\bauthor{\bsnm{Hochgerner}, \binits{H.}},
-\bauthor{\bsnm{Skene}, \binits{N.G.}},
-\bauthor{\bsnm{Magno}, \binits{L.}},
-\bauthor{\bsnm{Katona}, \binits{L.}},
-\bauthor{\bsnm{Gonzales}, \binits{C.B.}},
-\bauthor{\bsnm{Somogyi}, \binits{P.}},
-\bauthor{\bsnm{Kessaris}, \binits{N.}},
-\bauthor{\bsnm{Linnarsson}, \binits{S.}},
-\bauthor{\bsnm{Hjerling-Leffler}, \binits{J.}}:
-\batitle{{Classes and continua of hippocampal CA1 inhibitory neurons revealed
-  by single-cell transcriptomics}}.
-\bjtitle{PLoS Biology}
-\bvolume{16}(\bissue{6}),
-\bfpage{2006387}
-(\byear{2018})
-\end{barticle}
-\endbibitem
-
-%%% 25
-\bibitem{Ulyanov2016}
-\begin{botherref}
-\oauthor{\bsnm{Ulyanov}, \binits{D.}}:
-{Multicore-TSNE}.
-GitHub
-(2016)
-\end{botherref}
-\endbibitem
-
-%%% 26
-\bibitem{pedregosa2011scikit}
-\begin{barticle}
-\bauthor{\bsnm{Pedregosa}, \binits{F.}},
-\bauthor{\bsnm{Varoquaux}, \binits{G.}},
-\bauthor{\bsnm{Gramfort}, \binits{A.}},
-\bauthor{\bsnm{Michel}, \binits{V.}},
-\bauthor{\bsnm{Thirion}, \binits{B.}},
-\bauthor{\bsnm{Grisel}, \binits{O.}},
-\bauthor{\bsnm{Blondel}, \binits{M.}},
-\bauthor{\bsnm{Prettenhofer}, \binits{P.}},
-\bauthor{\bsnm{Weiss}, \binits{R.}},
-\bauthor{\bsnm{Dubourg}, \binits{V.}}, \betal:
-\batitle{{Scikit-learn: Machine learning in Python}}.
-\bjtitle{The Journal of Machine Learning Research}
-\bvolume{12},
-\bfpage{2825}--\blpage{2830}
-(\byear{2011})
-\end{barticle}
-\endbibitem
-
-%%% 27
-\bibitem{wong2012points}
-\begin{botherref}
-\oauthor{\bsnm{Wong}, \binits{B.}}:
-Points of view: visualizing biological data
-(2012)
-\end{botherref}
-\endbibitem
-
-%%% 28
-\bibitem{jacobs1988increased}
-\begin{barticle}
-\bauthor{\bsnm{Jacobs}, \binits{R.A.}}:
-\batitle{Increased rates of convergence through learning rate adaptation}.
-\bjtitle{Neural Networks}
-\bvolume{1}(\bissue{4}),
-\bfpage{295}--\blpage{307}
-(\byear{1988})
-\end{barticle}
-\endbibitem
-
-\end{thebibliography}
-
-\eject
-\fontsize{8}{10}\selectfont
-\section*{Online Methods}
+%\fontsize{8}{10}\selectfont
+\section*{Methods}
 
 We here introduce notation, review the core t-SNE algorithm, and motivate and provide an overview of its recent extensions. The section presents the mathematics implemented in the \opentsne\ library.
 
@@ -1390,5 +903,35 @@ initialization, and besides, provides a spectral approach similar to
 UMAP. This allows clusters in resulting embeddings to be organized in
 a more globally coherent manner, leading to increased visualization
 interpretability.
+
+
+\begin{backmatter}
+
+\section*{Acknowledgements}
+We want to thank Dmitry Kobak for various helpful discussions and best practices
+when using t-SNE and his contributions to the source code. We would also
+like to thank George Linderman for his help with the FIt-SNE algorithm.
+
+\section*{Funding}
+This work was supported by Slovenian Research Agency (P2-0209).
+
+\section*{Availability of data and materials}
+\opentsne\ is distributed under the BSD-3-Clause License and is publicly
+available as an open-source package at
+\url{https://github.com/pavlin-policar/openTSNE}. \opentsne\ is also available
+on \textsf{PyPI} and \textsf{conda-forge}. The data sets used and scripts used
+in this study are included in accompanying notebooks, publicly available at
+\url{https://github.com/pavlin-policar/opentsne-paper}.
+
+\section*{Competing interests}
+The authors declare that they have no competing interests.
+
+\section*{Authors' contributions}
+P.G.P. implemented and maintains \opentsne\ library. M.S. helped in the development of mathematical foundations and advised on the inclusion of the extensions. B.Z. initiated and supervised the project. All three co-authors wrote the manuscript.
+
+\bibliographystyle{bmc-mathphys} % Style BST file (bmc-mathphys, vancouver, spbasic).
+\bibliography{references}
+
+\end{backmatter}
 
 \end{document}
