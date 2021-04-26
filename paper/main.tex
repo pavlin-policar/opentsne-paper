@@ -101,8 +101,8 @@ BSD-3-Clause License and its source code is publicly available at
 
 The ever-growing volumes of high-dimensional data sets in machine learning calls
 for efficient dimensionality reduction techniques and their implementations,
-which can produce informative data visualizations. Popular approaches include
-principal component analysis, multidimensional scaling, t-distributed stochastic
+capable of producing informative data visualizations. Popular approaches include
+principal component analysis, multidimensional scaling, $t$-distributed stochastic
 neighbor embedding (t-SNE)~\citep{maaten2008visualizing}, and uniform manifold
 approximation and projections (UMAP)~\citep{2018arXivUMAP}. Among these, t-SNE
 has received much attention as it can address high volumes of data and reveal
@@ -150,7 +150,7 @@ clusters that may be arbitrarily scattered throughout the low-dimensional space
 -- and the absence of theoretically-founded methods to map new data into
 existing embeddings~\citep{ding2018interpretable,becht2019dimensionality}. Most
 of these shortcomings have recently been addressed. \citet{linderman2019fast}
-developed FIt-SNE, an efficient approximation scheme which massively improves
+developed FIt-SNE, an efficient approximation scheme that massively improves
 the scalability of t-SNE, achieving linear time complexity in the number of
 samples. \citet{kobak2019art} proposed several techniques to improve global
 cluster coherence, including estimating similarities with a mixture of Gaussian
@@ -187,9 +187,9 @@ existing embeddings (Sec.~\ref{sec:meth.transform}), and improvements that
 improve the global consistency of resulting embeddings
 (Sec.~\ref{sec:meth.global}).
 
-\subsection{t-distributed stochastic neighbor embedding} \label{sec:meth.tsne}
+\subsection{$t$-distributed stochastic neighbor embedding} \label{sec:meth.tsne}
 
-t-distributed stochastic neighbor embedding (t-SNE) is a non-linear
+$t$-distributed stochastic neighbor embedding (t-SNE) is a non-linear
 dimensionality reduction method that to aims to find a low-dimensional embedding
 where neighborhoods are preserved. More formally, given a multi-dimensional data set
 $\mathbf{X} = \left \{ \mathbf{x}_1, \mathbf{x}_2, \dots, \mathbf{x}_N \right \}
@@ -222,7 +222,7 @@ where $H(P_i)$ is the Shannon entropy of $P_i$,
 H(P_i) = -\sum_i p_{j \mid i} \log_2 (p_{j \mid i}). \notag
 \end{equation}
 This enables t-SNE to adapt to the varying density of the data in the
-multi-dimensional space. The perplexity can be interpreted as as the continuous
+multi-dimensional space. The perplexity can be interpreted as the continuous
 analogue to the number of nearest neighbors to which the distances will be
 preserved. 
 
@@ -251,7 +251,7 @@ where $w_{ij} = \left ( 1 + || \mathbf{y}_i - \mathbf{y}_j || ^2 \right )^{-1}$
 and represents the unnormalized $q_{ij}$.
 
 Optimization is performed using batch gradient descent using the delta-bar-delta
-update rule~\citep{jacobs1988increased}. The t-SNE optimization proceedure
+update rule~\citep{jacobs1988increased}. The t-SNE optimization procedure
 consists of two phases: in the first \textit{early exaggeration} phase, the
 attractive forces between data points are increased by some factor $\rho$,
 typically set to $12$, so that points in the embedding can more easily move
@@ -285,7 +285,7 @@ where $Z = \sum_{k \neq l}\left ( 1 + || \mathbf{y}_k - \mathbf{y}_l ||^2 \right
 two terms represent the attractive and repulsive forces between individual
 particles. Each term lends itself to efficient approximations, enabling us to
 reduce the time complexity of t-SNE to $\mathcal{O}(N)$. This allows modern
-t-SNE implementations to be leveraged for the visulization of data sets
+t-SNE implementations to be leveraged for the visualization of data sets
 containing up to millions of data points.
 
 \subsubsection*{Attractive Forces}
@@ -301,7 +301,7 @@ are visually indistinguishable when using only \textit{approximate} nearest
 neighbors, further reducing time complexity to $\mathcal{O}(N)$.
 
 \subsubsection*{Repulsive Forces}
-The repulsive term can similarily be approximated, motivated by methods from
+Similarly, the repulsive term can also be approximated, motivated by methods from
 particle simulations. \citet{van2014accelerating} proposed an approach based on
 N-body simulations and used a space-partitioning Barnes-Hut tree approach to
 approximate the interaction between data points. This reduces the time
@@ -340,8 +340,8 @@ Similarly to standard t-SNE, a direct calculation of gradients takes
 $\mathcal{O}(N \cdot M)$ time, but it is straightforward to adapt the Barnes-Hut
 and FIt-SNE approximation schemes, reducing the time complexity to
 $\mathcal{O}(M \log N)$ and $\mathcal{O}(M)$, respectively. Special care must be
-taken to tune the learning rate during optimization as the existing values
-$\eta=200$ and $\eta=N/12$ result in unstable optimization.
+taken to tune the learning rate during optimization as the default values
+$\eta=200$ and $\eta=N/12$ result in highly unstable optimization.
 
 
 \subsection{Improving the Global Structure of Embeddings} \label{sec:meth.global}
@@ -355,7 +355,7 @@ proposed to improve the global organization of the resulting embeddings.
 algorithms, such as t-SNE, UMAP~\citep{2018arXivUMAP}, and ForceAtlas2~\citep{jacomy2014forceatlas2}, largely dictates the global
 consistency of resulting embeddings. When initialized randomly, clusters are
 often arbitrarily scattered in the embedding space. However, when using
-initalization schemes based on PCA or spectral embeddings, the clusters
+initialization schemes based on PCA or spectral embeddings, the clusters
 identified in the resulting embedding are typically grouped in a globally
 coherent manner.
 
@@ -369,17 +369,16 @@ parameter. However, this often comes at the price of local structure.
 preserve short-range, as well as long-range distances and, thus, achieve a
 better trade-off between local and global structure.
 
-Embeddings produced by standard t-SNE often makes use all available space and
+Embeddings produced by standard t-SNE often make use of all available space and
 separates clusters by only thin boundaries. When working with large data sets,
 this often obscures the global relationships between clusters as all neighboring
 groups appear equidistant from one another.  Other dimensionality reduction
-methods, such as UMAP or
-ForceAtlas2, produce embeddings where clusters
-appear more compact and the white-space separating the clusters may be
-interpreted as a loose measure of distance. Recently, \citet{bohm2020unifying}
-showed that the exaggeration factor $\rho$ could be used to produce layouts more
-similar to UMAP and ForceAtlas2. By incorporating exaggeration into later phases
-of the optimization, t-SNE introduces more white-space between clusters which better
+methods, such as UMAP and ForceAtlas2, produce embeddings where clusters appear
+more compact and the white space separating the clusters may be interpreted as a
+loose measure of distance. Recently, \citet{bohm2020unifying} showed that the
+exaggeration factor $\rho$ could be used to produce layouts more similar to UMAP
+and ForceAtlas2. By incorporating exaggeration into later phases of the
+optimization, t-SNE introduces more white space between clusters which better
 reflects the global relations between clusters.
 
 Standard t-SNE reveals the clustering structure at a single level of resolution.
@@ -411,7 +410,7 @@ the faster generation of more informative visualizations.
 and intuitive API to users. Its modular design encourages extensibility and
 experimentation with various parameter settings and changes to the analysis
 pipeline. \opentsne\ aims to make the latest theoretical advances in t-SNE
-accessible to the wider data-science community. These features are easily
+accessible to the wider data science community. These features are easily
 accessible through an intuitive API, which closely follows the style
 \pkg{scikit-learn}~\citep{sklearn_api}, a popular and widely used toolkit for
 machine learning. The following snippet exemplifies this interface and
@@ -585,7 +584,7 @@ both the global organization of clusters and prevent smaller cluster absorption.
 constructed the embedding from Fig.~\ref{fig:tasic}.d with the settings used
 for Fig.~\ref{fig:tasic}.a, but at a finer level of resolution.
 The figure demonstrates that some clusters are composed of numerous, smaller
-subgroups representing different cell subpopulations which are not visible under
+subgroups representing different cell subpopulations that are not visible under
 standard parameter settings.
 
 When dealing with data containing millions of data points, standard t-SNE
@@ -893,7 +892,7 @@ End-to-end usage examples, documentation, and API reference are all available at
 \section*{Computational details}
 
 The results in this paper were obtained using \proglang{Python}~3.7.6 with the
-\pkg{openTSNE}~XXX package. \opentsne\ has three direct dependencies:
+\pkg{openTSNE}~v0.6.0 package. \opentsne\ has three direct dependencies:
 \pkg{numpy}, \pkg{scipy}, and \pkg{scikit-learn}. In our experiments, we used
 \pkg{numpy}~v1.18.1, \pkg{scipy}~v1.4.1. \pkg{scikit-learn}~v0.23.1. As these
 packages include their own downstream dependencies, the full environment used to
