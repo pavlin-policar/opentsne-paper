@@ -52,15 +52,7 @@
 
 %% - \Abstract{} almost as usual
 \Abstract{
-One of the most popular techniques for constructing visualizations of large,
-high-dimensional data sets is $t$-distributed stochastic neighbor embedding
-(t-SNE). Recently, several extensions have been proposed to address
-issues of scalability and the quality of the resulting visualizations. We
-introduce \opentsne, a modular Python library that implements the core t-SNE
-algorithm and its many extensions. The library is fast and scales up to data
-sets containing millions of data points. \opentsne\ is distributed under the
-BSD-3-Clause License and its source code is publicly available at
-\url{https://github.com/pavlin-policar/openTSNE}.
+One of the most popular techniques for constructing visualizations of large, high-dimensional data sets is $t$-distributed stochastic neighbor embedding (t-SNE). Recently, several extensions have been proposed to address scalability issues and the quality of the resulting visualizations. We introduce \opentsne, a modular Python library that implements the core t-SNE algorithm and its many extensions. The library is fast and can treat data sets containing millions of data points. We distribute \opentsne\ under the BSD-3-Clause License. Its source code is available at \url{https://github.com/pavlin-policar/openTSNE}.
 }
 
 %% - \Keywords{} with LaTeX markup, at least one required
@@ -99,73 +91,18 @@ BSD-3-Clause License and its source code is publicly available at
 
 \section[Introduction]{Introduction} \label{sec:intro}
 
-The ever-growing volumes of high-dimensional data sets in machine learning calls
-for efficient dimensionality reduction techniques and their implementations,
-capable of producing informative data visualizations. Popular approaches include
-principal component analysis, multidimensional scaling, $t$-distributed stochastic
-neighbor embedding (t-SNE)~\citep{maaten2008visualizing}, and uniform manifold
-approximation and projections (UMAP)~\citep{2018arXivUMAP}. Among these, t-SNE
-has received much attention as it can address high volumes of data and reveal
-the underlying data structure. For instance, t-SNE is widely used in the
-bioinformatics community in areas such as single-cell
-transcriptomics~\citep{macosko2015highly,cao2019single,tasic2018shared}, human
-genetics~\citep{hirata2019genetic}, metagenomic
-assembly~\citep{beaulaurier2018metagenomic}, the spatial organization of
-microbial communities~\citep{sheth2019spatial}, and
-metabolomics~\citep{tkachev2019differences}. Reports on single-cell gene
-expression data, our running example, often start with an overview of the cell
-landscape, where t-SNE is used to embed high-dimensional expression profiles
-into a two-dimensional space. Figs.~\ref{fig:macosko}.a and \ref{fig:macosko}.b
-show two such embeddings.
+The ever-growing volumes of high-dimensional data sets in machine learning call for efficient dimensionality reduction techniques and their implementations, capable of producing informative data visualizations. Popular approaches include principal component analysis, multidimensional scaling, $t$-distributed stochastic neighbor embedding (t-SNE)~\citep{maaten2008visualizing}, and uniform manifold approximation and projections (UMAP)~\citep{2018arXivUMAP}. Among these, t-SNE has received much attention as it can address high volumes of data and reveal the underlying data structure. For instance, t-SNE is widely used in the bioinformatics community in areas such as single-cell transcriptomics~\citep{macosko2015highly,cao2019single,tasic2018shared}, human genetics~\citep{hirata2019genetic}, metagenomic assembly~\citep{beaulaurier2018metagenomic}, the spatial organization of microbial communities~\citep{sheth2019spatial}, and metabolomics~\citep{tkachev2019differences}. To visually explore the data structure, the objects of interest, such as diseased and healthy tissues or single cells, are profiled through thousands of features that include, for example, expression of genes or concentration of metabolites. The task of t-SNE is to embed the objects of interest within a low, preferably two-dimensional embedding. Reports on single-cell gene expression data, our running example, often start with an overview of the cell landscape and use t-SNE to embed high-dimensional expression profiles into a two-dimensional space. Figs.~\ref{fig:macosko}.a and \ref{fig:macosko}.b show two such embeddings.
 
 \begin{figure*}[ht]
   \includegraphics[width=\textwidth]{macosko2015}
   \caption{\label{fig:macosko}
-  We use \opentsne\ to generate three t-SNE embeddings and demonstrate recent
-  theoretical advances. The data in \textbf{(a)} and \textbf{(b)} represent
-  44,808 single-cell gene-expression profiles of mouse retinal cells from 
-  \citet{macosko2015highly}. The data in \textbf{(c)} additionally contains
-  27,499 expression profiles from mouse retinal cells from
-  \citet{shekhar2016comprehensive}. \textbf{(a)} We construct a t-SNE embedding
-  following the parameter choices from the original publication by
-  \citet{maaten2008visualizing}. The visualization shows no preservation of the
-  global organization of clusters, resulting from random initialization and an
-  affinity model focused on preserving local neighborhoods. \textbf{(b)} A
-  modern t-SNE embedding, utilizing the latest theoretical advances and
-  practical recommendations constructed using a multi-scale affinity model,
-  preserving both short-range and long-range interactions between data points
-  and initialized so that the global layout is as meaningful as possible. Unlike
-  in \textbf{(a)}, the green and blue clusters representing different sub-types
-  of amacrine and bipolar cells are now localized to the same regions of the
-  space, indicating a higher level of similarity than to other cell types. The
-  embedding in \textbf{(c)} shows how existing t-SNE reference atlases can be
-  used to place new samples into existing embeddings. The positions of new data
-  points correspond to cell types from the reference atlas.
+We use \opentsne\ to generate three t-SNE embeddings and demonstrate recent theoretical advances. The data in \textbf{(a)} and \textbf{(b)} includes 44,808 mouse retinal cells (dots in the plots) that are described with high-dimensional gene-expression profiles from \citet{macosko2015highly}. The data in \textbf{(c)} additionally contains 27,499 expression profiles from mouse retinal cells from \citet{shekhar2016comprehensive}. \textbf{(a)} We construct t-SNE embedding following the parameter choices from the original publication by \citet{maaten2008visualizing}. The visualization shows no preservation of the global organization of clusters, resulting from random initialization and an affinity model focused on preserving local neighborhoods. \textbf{(b)} A modern t-SNE embedding, utilizing the latest theoretical advances and practical recommendations constructed using a multi-scale affinity model, preserving both short-range and long-range interactions between data points and initialized so that the global layout is as meaningful as possible. Unlike in \textbf{(a)}, the green and blue clusters representing different sub-types of amacrine and bipolar cells are now localized to the same regions of the space, indicating a higher level of similarity than to other cell types. The embedding in \textbf{(c)} shows how existing t-SNE reference atlases can be used to place new samples into existing embeddings. The positions of new data points correspond to cell types from the reference atlas.
 }
 \end{figure*}
 
-Despite its utility, t-SNE has often been criticized for its limited
-scalability, lack of global organization -- t-SNE identifies well-defined
-clusters that may be arbitrarily scattered throughout the low-dimensional space
--- and the absence of theoretically-founded methods to map new data into
-existing embeddings~\citep{ding2018interpretable,becht2019dimensionality}. Most
-of these shortcomings have recently been addressed. \citet{linderman2019fast}
-developed FIt-SNE, an efficient approximation scheme that massively improves
-the scalability of t-SNE, achieving linear time complexity in the number of
-samples. \citet{kobak2019art} proposed several techniques to improve global
-cluster coherence, including estimating similarities with a mixture of Gaussian
-kernels. In our previous work, we introduced a principled approach for embedding
-new samples into existing visualizations~\citep{policar2019embedding}.
+Despite its utility, t-SNE has often been criticized for its limited scalability, lack of global organization -- t-SNE identifies well-defined clusters that may be arbitrarily scattered throughout the embedding, and the absence of theoretically-founded methods to map new data into existing embeddings~\citep{ding2018interpretable,becht2019dimensionality}. Most of these shortcomings have recently been addressed. \citet{linderman2019fast} developed FIt-SNE, an efficient approximation scheme that massively improves the scalability of t-SNE, achieving linear time complexity in the number of samples. \citet{kobak2019art} proposed several techniques to improve global cluster coherence, including estimating similarities with a mixture of Gaussian kernels. In our previous work, we introduced a principled approach for embedding new samples into existing visualizations~\citep{policar2019embedding}.
 
-However, easy access to efficient implementations almost universally correlates
-with the widespread adoption of novel computational techniques. Despite the many
-theoretical advancements, most popular t-SNE libraries have been slow to
-incorporate them into their implementations. In this paper, we present \opentsne,
-our open-source Python implementation of t-SNE and its many recently proposed
-extensions. \opentsne\ is easy to install and includes precompiled binaries
-available through popular Python package managers. It provides a familiar API,
-making it suitable as a drop-in replacement for existing t-SNE implementations.
-
+However, easy access to efficient implementations almost universally correlates with the widespread adoption of novel computational techniques. Despite the many theoretical advancements, the most popular t-SNE libraries have been slow to incorporate them into their implementations. In this paper, we present \opentsne, our open-source Python implementation of t-SNE, and the recently proposed extensions to t-SNE that \opentsne\ implements. \opentsne\ is easy to install and includes precompiled binaries available through popular Python package managers. It provides a familiar API, making it suitable as a drop-in replacement for existing t-SNE implementations.
 
 %% -- Manuscript ---------------------------------------------------------------
 
@@ -250,14 +187,7 @@ The objective is to find embeddings $\mathbf{Y}$ that minimize the KL divergence
 where $w_{ij} = \left ( 1 + || \mathbf{y}_i - \mathbf{y}_j || ^2 \right )^{-1}$
 and represents the unnormalized $q_{ij}$.
 
-Optimization is performed using batch gradient descent using the delta-bar-delta
-update rule~\citep{jacobs1988increased}. The t-SNE optimization procedure
-consists of two phases: in the first \textit{early exaggeration} phase, the
-attractive forces between data points are increased by some factor $\rho$,
-typically set to $12$, so that points in the embedding can more easily move
-throughout the space and settle near their respective neighbors. In the second
-phase of the optimization, the attractive forces are then reverted to their
-original values with $\rho=1$.
+Optimization is performed using batch gradient descent using the delta-bar-delta update rule~\citep{jacobs1988increased}. The t-SNE optimization procedure consists of two phases: in the first \textit{early exaggeration} phase, the attractive forces between data points are increased by some factor $\rho$, typically set to $12$, so that points in the embedding can more easily move throughout the space and settle near their respective neighbors. In the second phase of the optimization, the attractive forces are then reverted to their original values with $\rho=1$.
 
 \citet{belkina2019automated} later found that convergence can be sped up by
 increasing the learning rate from the standard $\eta=200$ to $\eta=N/12$. As a
@@ -346,77 +276,22 @@ $\eta=200$ and $\eta=N/12$ result in highly unstable optimization.
 
 \subsection{Improving the Global Structure of Embeddings} \label{sec:meth.global}
 
-One of t-SNE's criticisms is that it fails to preserve long-range distances but
-instead focuses on capturing the local structure of the
-data manifold~\citep{becht2019dimensionality}. Recently, several approaches have been
-proposed to improve the global organization of the resulting embeddings.
+One of t-SNE's criticisms is that it fails to preserve long-range distances but instead focuses on capturing the local structure of the data manifold~\citep{becht2019dimensionality}. Recently, several approaches have been proposed to improve the global organization of the resulting embeddings.
 
-\citet{kobak2019umap} showed that the initialization of force-directed layout
-algorithms, such as t-SNE, UMAP~\citep{2018arXivUMAP}, and ForceAtlas2~\citep{jacomy2014forceatlas2}, largely dictates the global
-consistency of resulting embeddings. When initialized randomly, clusters are
-often arbitrarily scattered in the embedding space. However, when using
-initialization schemes based on PCA or spectral embeddings, the clusters
-identified in the resulting embedding are typically grouped in a globally
-coherent manner.
+\citet{kobak2019umap} showed that the initialization of force-directed layout algorithms, such as t-SNE, UMAP~\citep{2018arXivUMAP}, and ForceAtlas2~\citep{jacomy2014forceatlas2}, largely dictates the global consistency of resulting embeddings. When initialized randomly, clusters are often arbitrarily scattered in the embedding space. However, when using initialization schemes based on PCA or spectral embeddings, the clusters identified in the resulting embedding are typically grouped in a globally coherent manner.
 
-In standard t-SNE, distances between data points are converted to similarities
-through the use of Gaussian kernels. The perplexity of these kernels governs the
-sizes of the local neighborhoods which are to be preserved. One easy way to
-improve the global consistency of resulting embeddings is to increase the sizes
-of these neighborhoods. This can be achieved by increasing the perplexity
-parameter. However, this often comes at the price of local structure.
-\citet{kobak2019art} propose to instead use mixtures of Gaussians to better
-preserve short-range, as well as long-range distances and, thus, achieve a
-better trade-off between local and global structure.
+In standard t-SNE, distances between data points are converted to similarities through the use of Gaussian kernels. The perplexity of these kernels governs the sizes of the local neighborhoods which are to be preserved. One easy way to improve the global consistency of resulting embeddings is to increase the sizes of these neighborhoods. This can be achieved by increasing the perplexity parameter. However, this often comes at the price of local structure. \citet{kobak2019art} propose to use mixtures of Gaussians instead to preserve better short-range and long-range distances and, thus, achieve a better trade-off between local and global structure.
 
-Embeddings produced by standard t-SNE often make use of all available space and
-separates clusters by only thin boundaries. When working with large data sets,
-this often obscures the global relationships between clusters as all neighboring
-groups appear equidistant from one another.  Other dimensionality reduction
-methods, such as UMAP and ForceAtlas2, produce embeddings where clusters appear
-more compact and the white space separating the clusters may be interpreted as a
-loose measure of distance. Recently, \citet{bohm2020unifying} showed that the
-exaggeration factor $\rho$ could be used to produce layouts more similar to UMAP
-and ForceAtlas2. By incorporating exaggeration into later phases of the
-optimization, t-SNE introduces more white space between clusters which better
-reflects the global relations between clusters.
+Embeddings produced by standard t-SNE often use all available space and separate clusters by only thin boundaries. When working with large data sets, this often obscures the global relationships between clusters as all neighboring groups appear equidistant from one another.  Other dimensionality reduction methods, such as UMAP and ForceAtlas2, produce embeddings where clusters appear more compact, and the white space separating the clusters may be interpreted as a loose measure of distance. Recently, \citet{bohm2020unifying} showed that the exaggeration factor $\rho$ could be used to produce layouts more similar to UMAP and ForceAtlas2. By incorporating exaggeration into later phases of the optimization, t-SNE introduces white space between clusters, which better reflects the global relations between clusters.
 
-Standard t-SNE reveals the clustering structure at a single level of resolution.
-While the perplexity parameter can be used to control the trade-off between
-local and global structure, this can be time-consuming, and small, well-defined
-clusters can be missed. Alternatively, \citet{kobak2019heavy} suggest that
-varying the degrees of freedom in the $t$-distribution can be used to explore
-the clustering structure at different levels of resolution. Modifying
-Eqn.~(\ref{eq:cauchy_kernel}) to $q_{ij} \propto \left ( 1 + || \mathbf{y}_i -
-\mathbf{y}_j ||^2 / \alpha \right )^{-\alpha}$ allows us to use heavier-tailed
-distributions to model distances in the embedding space, which acts to highlight
-small subgoups in the resulting visualization.
+Standard t-SNE reveals the clustering structure at a single level of resolution. While the perplexity parameter can be used to control the trade-off between local and global structure, this can be time-consuming, and small, well-defined clusters can be missed. Alternatively, \citet{kobak2019heavy} suggest that varying the degrees of freedom in the $t$-distribution can be used to explore the clustering structure at different levels of resolution. Modifying Eqn.~(\ref{eq:cauchy_kernel}) to $q_{ij} \propto \left ( 1 + || \mathbf{y}_i - \mathbf{y}_j ||^2 / \alpha \right )^{-\alpha}$ allows us to use heavier-tailed distributions to model distances in the embedding space, which acts to highlight small subgroups in the resulting visualization.
 
 
 \section{Implementation} \label{sec:implementation}
 
-We introduce \opentsne, a comprehensive Python library that implements t-SNE and
-its numerous recently proposed extensions, including the implementation of
-efficient approximation schemes allowing the embedding of millions of data
-points~\citep{van2014accelerating,linderman2019fast}, the addition of new
-data points into existing embeddings~\citep{policar2019embedding}, various
-initialization improvements~\citep{kobak2019umap},
-extensions~\citep{kobak2019heavy,kobak2019art}, and improved parameter
-defaults~\citep{belkina2019automated}. Combined, these improvements result in
-the faster generation of more informative visualizations.
+We introduce \opentsne, a comprehensive Python library that implements t-SNE and its numerous recently proposed extensions, including the implementation of efficient approximation schemes allowing the embedding of millions of data points~\citep{van2014accelerating,linderman2019fast}, the addition of new data points into existing embeddings~\citep{policar2019embedding}, various initialization improvements~\citep{kobak2019umap}, extensions~\citep{kobak2019heavy,kobak2019art}, and improved parameter defaults~\citep{belkina2019automated}. When combined, these improvements result in the faster generation of more informative visualizations.
 
-\opentsne\ is compatible with the Python data science ecosystem (e.g.
-\pkg{numpy}, \pkg{scikit-learn}, \pkg{scanpy}), providing a familiar
-and intuitive API to users. Its modular design encourages extensibility and
-experimentation with various parameter settings and changes to the analysis
-pipeline. \opentsne\ aims to make the latest theoretical advances in t-SNE
-accessible to the wider data science community. These features are easily
-accessible through an intuitive API, which closely follows the style
-\pkg{scikit-learn}~\citep{sklearn_api}, a popular and widely used toolkit for
-machine learning. The following snippet exemplifies this interface and
-demonstrates how \opentsne\ can be used to quickly generate several
-visualizations, each highlighting different aspects of the underlying data
-structure.
+\opentsne\ is compatible with the Python data science ecosystem (e.g. \pkg{numpy}, \pkg{scikit-learn}, \pkg{scanpy}), providing a familiar and intuitive API to users. Its modular design encourages extensibility and experimentation with various parameter settings and changes to the analysis pipeline. \opentsne\ aims to make the latest theoretical advances in t-SNE accessible to the wider data science community. These features are easily accessible through an intuitive API, which closely follows the style \pkg{scikit-learn}~\citep{sklearn_api}, a popular and widely used toolkit for machine learning. The following snippet exemplifies this interface and demonstrates how \opentsne\ can be used to quickly generate several visualizations, each highlighting different aspects of the underlying data structure.
 \begin{CodeChunk}
 \begin{CodeInput}
 from openTSNE import TSNE
@@ -437,115 +312,14 @@ tsne_multiscale = TSNE().fit(x, affinities=affinites)
 new_embedding = tsne_extensions.transform(x_new)
 \end{CodeInput}
 \end{CodeChunk}
-The code snippet considers a \pkg{numpy} array or \pkg{scipy} sparse
-matrix \texttt{x} and creates three \texttt{TSNEEmbedding} objects. These
-represent fully-optimized t-SNE embeddings and are internally stored as \pkg{numpy}
-arrays. These can be manipulated and visualized using standard Python tools. We
-then select one of these embeddings and use it to embed new data points from
-\texttt{x\_new} into the embedding space, while keeping the reference embedding
-fixed. Additionally, \opentsne\ provides a more advanced interface that enables
-the user to change every aspect of the t-SNE optimization procedure. This
-interface is described in detail in the accompanying documentation.
+The code snippet considers a \pkg{numpy} array or \pkg{scipy} sparse matrix \texttt{x} and creates three \texttt{TSNEEmbedding} objects. These represent fully-optimized t-SNE embeddings, and \opentsne\ internally stores them as \pkg{numpy} arrays. These can be manipulated and visualized using standard Python tools. We then select one of these embeddings and use it to embed new data points from \texttt{x\_new} into the embedding space while keeping the reference embedding fixed. Additionally, \opentsne\ provides a more advanced interface that enables the user to change every aspect of the t-SNE optimization procedure. We describe this interface in detail in the \opentsne's on-line documentation.
 
-
-% \section{Existing t-SNE Implementations}
-
-% \opentsne\ is not the only available open-source implementation of the t-SNE 
-% algorithm, however, it provides the most user-friendly experience and is the most
-% feature-complete. A detailed comparison of several t-SNE implementations is
-% shown in Table~\ref{tab:features}.
-
-% \pkg{scikit-learn} is one of the most widely-used machine learning toolkits
-% in the Python data science ecosystem, and provides an implementation of the
-% t-SNE algorithm~\citep{pedregosa2011scikit}. However, the implementation from
-% \pkg{scikit-learn} utilizes an outdated approximation scheme and is
-% prohibitively slow for even moderately-sized data sets containing tens of
-% thousands of samples. \opentsne\ implements all available approximation schemes,
-% and defaults to the FIt-SNE approximation algorithm, which allows it to scale to
-% data sets containing up to millions of data points on standard, consumer-grade,
-% laptop computers. Performance benchmarks are show in Fig.~\ref{fig:benchmarks}.
-% \begin{figure*}[ht!]
-%   \includegraphics[width=\textwidth]{benchmarks}
-%   \caption{\label{fig:benchmarks}
-%   We benchmark \opentsne\ (v0.6.0) against three popular open-source
-%   implementations from \pkg{scikit-learn}~\citep{pedregosa2011scikit}
-%   (v0.23.1), \pkg{MulticoreTSNE}~\citep{Ulyanov2016} (v0.1), and
-%   \pkg{FIt-SNE}~\citep{linderman2019fast} (v1.1.0). Experiments were run on a
-%   consumer-grade Intel Core i7-7700HQ processor found in laptop computers, and
-%   on a server-grade Intel Xeon E5-2650. To generate benchmark data sets of
-%   different sizes, we subsampled data from the 10X Genomics 1.3 million mouse
-%   brain data set five times, resulting in five different data sets for each
-%   size. In total, we run each implementation on 30 different data sets. Notice
-%   that \opentsne\ scales similarly to \pkg{FIt-SNE}, as they both use the
-%   same interpolation-based approximation scheme, while \pkg{scikit-learn} and
-%   \pkg{MulticoreTSNE} utilize the Barnes-Hut approximation.
-% }
-% \end{figure*}
-
-% Pure C++ implementations, such as \pkg{BHTSNE}~\citep{van2014accelerating},
-% \pkg{MulticoreTSNE}~\citep{Ulyanov2016} and
-% \pkg{FIt-SNE}~\citep{linderman2019fast} are fast, but require users to
-% compile and install the packages themselves. This is especially problematic for
-% users of the Windows operating system, where the C/C++ compiler is not bundled
-% with the operating system, making their correct configuration and compilation
-% cumbersome. Additionally, these packages were not built with the Python ecosystem in
-% mind, and cannot be directly used as dependencies in other Python packages.
-% \opentsne\ provides several, well-documented installation options and can
-% readily be used as a dependency in larger projects. We provide precompiled
-% binaries through the Python Package Index (\pkg{PyPI}) or \pkg{conda} from
-% the \pkg{conda-forge} channel, allowing \opentsne\ to work out-of-the-box all
-% major platforms.
-
-% Another concern is the adoption of recent theoretical improvements to the t-SNE
-% algorithm. Some implementations such as \pkg{BHTSNE} and \pkg{MulticoreTSNE}
-% appear to have been discontinued, as there has been little to no activity on
-% their respective GitHub repositories in recent years. \pkg{scikit-learn} has a
-% very active community, however, adoption of recent developments such as improved
-% initialization schemes, better default parameter settings, and more flexible
-% affinity kernels has been slow. Among the existing implementations,
-% \pkg{FIt-SNE} includes most of the latest features but lacks crucial ones e.g.
-% the ability to add new data points into existing embeddings, or flexible
-% optimization strategies.
-
-% Finally, with the exception of \pkg{scikit-learn}, the existing packages offer
-% little to no user documentation, usage examples, or API reference. Additionally,
-% these packages do not follow standard software development best practices, such
-% as utilizing continuous integration checks or following standard style guides,
-% making their maintenance difficult and unreliable.
-
-
-%% -- Illustrations ------------------------------------------------------------
-
-%% - Virtually all JSS manuscripts list source code along with the generated
-%%   output. The style files provide dedicated environments for this.
-%% - In R, the environments {Sinput} and {Soutput} - as produced by Sweave() or
-%%   or knitr using the render_sweave() hook - are used (without the need to
-%%   load Sweave.sty).
-%% - Equivalently, {CodeInput} and {CodeOutput} can be used.
-%% - The code input should use "the usual" command prompt in the respective
-%%   software system.
-%% - For R code, the prompt "R> " should be used with "+  " as the
-%%   continuation prompt.
-%% - Comments within the code chunks should be avoided - these should be made
-%%   within the regular LaTeX text.
-
-%\section{Illustrations} \label{sec:illustrations}
-
-
-
-%% -- Summary/conclusions/discussion -------------------------------------------
 
 \section{Summary and discussion} \label{sec:summary}
 
 \subsection{Uncovering Structure in High-Dimensional Data}
 
-Dimensionality reduction techniques implicitly assume that high-dimensional data
-lies on a lower-dimensional manifold, which can accurately be captured by a
-small number of dimensions. However, there is no evidence that every data set
-can accurately be described using only two dimensions, and any such embedding
-will inevitably lead to a loss of information. Thus, it is beneficial to examine
-multiple embeddings, each of which provides a different perspective on topology
-and other data characteristics.
+Dimensionality reduction techniques implicitly assume that high-dimensional data lies on a lower-dimensional manifold, which a small number of dimensions can accurately capture. However, there is no evidence that every data set can accurately be described using only two dimensions, and any such embedding will inevitably lead to a loss of information. Thus, it is beneficial to examine multiple embeddings, each of which provides a different perspective on topology and other data characteristics.
 
 \begin{figure*}[htbp]
   \center
@@ -561,48 +335,15 @@ and other data characteristics.
   non-neuronal cells. Standard t-SNE \textbf{(a)} emphasizes local
   structure while increasing perplexity \textbf{(b)} results in a more
   meaningful layout of the clusters. We can also combine the two
-  perplexities by using a multiscale kernel affinity model \textbf{(c)}
+  perplexities by using a multi-scale kernel affinity model \textbf{(c)}
   and obtain a trade-off between global and local structure.
   Alternatively, we can inspect more fine-grained structure and reveal
   smaller clusters by using a more heavy-tailed kernel \textbf{(d)}.}
 \end{figure*}
 
-We illustrate this point by generating four different embeddings of the data on
-single-cell gene expression in mouse brain~\citep{tasic2018shared}.
-Fig.~\ref{fig:tasic}.a shows an embedding using default t-SNE parameters. While
-different clusters of excitatory and inhibitory neurons appear close to one
-another, all clusters appear equidistant from their neighbors, and the overall
-relations between groups are not obvious. The embedding in Fig.~\ref{fig:tasic}.b
-focuses on preserving larger neighborhoods of points, resulting in a more
-globally consistent layout where relations between clusters become more
-apparent. Here, it is evident from the increased white space between groups that
-there is one large class of excitatory neurons and two related classes of
-inhibitory neurons. Unfortunately, focusing on preserving large neighborhoods
-leads to the absorption of smaller clusters into larger ones. Alternatively,
-Fig.~\ref{fig:tasic}.c uses multi-scale similarity kernels that aim to preserve
-both the global organization of clusters and prevent smaller cluster absorption. We
-constructed the embedding from Fig.~\ref{fig:tasic}.d with the settings used
-for Fig.~\ref{fig:tasic}.a, but at a finer level of resolution.
-The figure demonstrates that some clusters are composed of numerous, smaller
-subgroups representing different cell subpopulations that are not visible under
-standard parameter settings.
+We illustrate this point by generating four different embeddings of the data on single-cell gene expression in mouse brain~\citep{tasic2018shared}. Fig.~\ref{fig:tasic}.a shows an embedding using default t-SNE parameters. While different clusters of excitatory and inhibitory neurons appear close to one another, all clusters appear equidistant from their neighbors, and the overall relations between groups are not obvious. The embedding in Fig.~\ref{fig:tasic}.b focuses on preserving larger neighborhoods of points, resulting in a more globally consistent layout where relations between clusters become more apparent. Here, it is evident from the increased white space between groups that there is one large class of excitatory neurons and two related classes of inhibitory neurons. Unfortunately, focusing on preserving large neighborhoods leads to the absorption of smaller clusters into larger ones. Alternatively, Fig.~\ref{fig:tasic}.c uses multi-scale similarity kernels that aim to preserve both the global organization of clusters and prevent smaller cluster absorption. We constructed the embedding from Fig.~\ref{fig:tasic}.d with the settings used for Fig.~\ref{fig:tasic}.a, but at a finer level of resolution. The figure demonstrates that some clusters are composed of numerous, smaller subgroups representing different cell subpopulations that are not visible under standard parameter settings.
 
-When dealing with data containing millions of data points, standard t-SNE
-embeddings often become unwieldy -- cluster boundaries are blurred, large
-clusters absorb smaller ones, and relationships between clusters become
-increasingly difficult to interpret. We constructed Fig.~\ref{fig:cao}.a from
-the data containing expression profiles of over two million single cells
-captured at different time points in mouse development. The embedding indicates
-numerous clusters with transitions between time points, as marked by the
-color-coding, that are difficult to interpret. Kobak \& Berens observed that
-increasing attractive forces between similar data points controlled via the
-\textit{exaggeration} parameter leads to more compact clusters, and
-subsequently, more informative visualizations~\citep{kobak2019art}. For instance,
-\ref{fig:cao}.b doubles the default exaggeration, which uncovers some of the
-data's overall structure. Further doubling the exaggeration in \ref{fig:cao}.c
-allows us to observe that the data is comprised of two main groups of cells and
-eight somewhat smaller clusters. The visualization also reveals several tiny
-clusters, possibly corresponding to rare cell types.
+When dealing with data containing millions of data points, standard t-SNE embeddings often become unwieldy -- cluster boundaries are blurred, large clusters absorb smaller ones, and relationships between clusters become increasingly difficult to interpret. We constructed Fig.~\ref{fig:cao}.a from the data containing expression profiles of over two million single cells captured at different time points in mouse development. The embedding indicates numerous clusters with transitions between time points, as marked by the color-coding, that are difficult to interpret. Kobak \& Berens observed that increasing attractive forces between similar data points controlled via the \textit{exaggeration} parameter leads to more compact clusters, and subsequently, more informative visualizations~\citep{kobak2019art}. For instance, \ref{fig:cao}.b doubles the default exaggeration, which uncovers some of the data's overall structure. Further doubling the exaggeration in \ref{fig:cao}.c allows us to observe that the data is comprised of two main groups of cells and eight somewhat smaller clusters. The visualization also reveals several tiny clusters, possibly corresponding to rare cell types.
 
 \begin{figure*}[htbp]
   \includegraphics[width=\textwidth]{cao2019}
@@ -870,13 +611,7 @@ Continuous integration & \checkmark & & \checkmark & & \checkmark \\
 
 
 \section{Conclusion}
-We introduce \opentsne, the most feature-complete, open-source, Python
-implementation of the widely popular t-SNE visualization algorithm. The library
-incorporates the latest developments to the t-SNE algorithm and makes them
-easily accessible through a familiar API. \opentsne\ implements efficient
-approximation schemes, making it suitable for the visualization of large data
-sets, containing up to millions of data points. Finally, \opentsne\ is easy to
-install and comes with precompiled binaries available for all major platforms.
+We introduce \opentsne, the most feature-complete, open-source, Python implementation of the widely popular t-SNE visualization algorithm. The library incorporates the latest developments to the t-SNE algorithm and makes them easily accessible through a familiar API. \opentsne\ implements efficient approximation schemes, making it suitable for the visualization of large data sets containing up to millions of data points. Finally, \opentsne\ is easy to install and comes with precompiled binaries available for all major platforms.
 
 
 %% -- Optional special unnumbered sections -------------------------------------
