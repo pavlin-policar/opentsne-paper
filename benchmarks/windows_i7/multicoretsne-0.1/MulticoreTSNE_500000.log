@@ -1,0 +1,205 @@
+--------------------------------------------------------------------------------
+Random state 0
+--------------------------------------------------------------------------------
+Performing t-SNE using 1 cores.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 50000 of 500000
+ - point 100000 of 500000
+ - point 150000 of 500000
+ - point 200000 of 500000
+ - point 250000 of 500000
+ - point 300000 of 500000
+ - point 350000 of 500000
+ - point 400000 of 500000
+ - point 450000 of 500000
+ - point 500000 of 500000
+Done in 580.00 seconds (sparsity = 0.000296)!
+Learning embedding...
+Iteration 51: error is 141.448060 (50 iterations in 425.00 seconds)
+Iteration 101: error is 141.661899 (50 iterations in 437.00 seconds)
+Iteration 151: error is 141.703679 (50 iterations in 493.00 seconds)
+Iteration 201: error is 141.546710 (50 iterations in 466.00 seconds)
+Iteration 251: error is 140.689590 (50 iterations in 437.00 seconds)
+Iteration 301: error is 8.495949 (50 iterations in 406.00 seconds)
+Iteration 351: error is 7.894622 (50 iterations in 389.00 seconds)
+Iteration 401: error is 7.545544 (50 iterations in 388.00 seconds)
+Iteration 451: error is 7.297405 (50 iterations in 390.00 seconds)
+Iteration 501: error is 7.103195 (50 iterations in 389.00 seconds)
+Iteration 551: error is 6.942173 (50 iterations in 392.00 seconds)
+Iteration 601: error is 6.804254 (50 iterations in 394.00 seconds)
+Iteration 651: error is 6.683978 (50 iterations in 398.00 seconds)
+Iteration 701: error is 6.577364 (50 iterations in 398.00 seconds)
+Iteration 751: error is 6.481547 (50 iterations in 401.00 seconds)
+Iteration 801: error is 6.394605 (50 iterations in 401.00 seconds)
+Iteration 851: error is 6.315761 (50 iterations in 403.00 seconds)
+Iteration 901: error is 6.243637 (50 iterations in 404.00 seconds)
+Iteration 951: error is 6.176990 (50 iterations in 401.00 seconds)
+Iteration 1000: error is 6.116807 (50 iterations in 392.00 seconds)
+Fitting performed in 8204.00 seconds.
+Multicore t-SNE: 8792.044170618057
+--------------------------------------------------------------------------------
+Random state 1
+--------------------------------------------------------------------------------
+Performing t-SNE using 1 cores.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 50000 of 500000
+ - point 100000 of 500000
+ - point 150000 of 500000
+ - point 200000 of 500000
+ - point 250000 of 500000
+ - point 300000 of 500000
+ - point 350000 of 500000
+ - point 400000 of 500000
+ - point 450000 of 500000
+ - point 500000 of 500000
+Done in 576.00 seconds (sparsity = 0.000294)!
+Learning embedding...
+Iteration 51: error is 141.533385 (50 iterations in 405.00 seconds)
+Iteration 101: error is 141.740638 (50 iterations in 412.00 seconds)
+Iteration 151: error is 141.782777 (50 iterations in 463.00 seconds)
+Iteration 201: error is 141.636987 (50 iterations in 439.00 seconds)
+Iteration 251: error is 140.876710 (50 iterations in 418.00 seconds)
+Iteration 301: error is 8.550246 (50 iterations in 406.00 seconds)
+Iteration 351: error is 7.962574 (50 iterations in 392.00 seconds)
+Iteration 401: error is 7.621683 (50 iterations in 391.00 seconds)
+Iteration 451: error is 7.381957 (50 iterations in 390.00 seconds)
+Iteration 501: error is 7.194352 (50 iterations in 391.00 seconds)
+Iteration 551: error is 7.038440 (50 iterations in 391.00 seconds)
+Iteration 601: error is 6.903869 (50 iterations in 390.00 seconds)
+Iteration 651: error is 6.785291 (50 iterations in 391.00 seconds)
+Iteration 701: error is 6.679341 (50 iterations in 393.00 seconds)
+Iteration 751: error is 6.583648 (50 iterations in 392.00 seconds)
+Iteration 801: error is 6.496289 (50 iterations in 394.00 seconds)
+Iteration 851: error is 6.416237 (50 iterations in 394.00 seconds)
+Iteration 901: error is 6.342216 (50 iterations in 395.00 seconds)
+Iteration 951: error is 6.273835 (50 iterations in 395.00 seconds)
+Iteration 1000: error is 6.211828 (50 iterations in 388.00 seconds)
+Fitting performed in 8030.00 seconds.
+Multicore t-SNE: 8615.06316280365
+--------------------------------------------------------------------------------
+Random state 2
+--------------------------------------------------------------------------------
+Performing t-SNE using 1 cores.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 50000 of 500000
+ - point 100000 of 500000
+ - point 150000 of 500000
+ - point 200000 of 500000
+ - point 250000 of 500000
+ - point 300000 of 500000
+ - point 350000 of 500000
+ - point 400000 of 500000
+ - point 450000 of 500000
+ - point 500000 of 500000
+Done in 540.00 seconds (sparsity = 0.000296)!
+Learning embedding...
+Iteration 51: error is 141.465995 (50 iterations in 426.00 seconds)
+Iteration 101: error is 141.678702 (50 iterations in 434.00 seconds)
+Iteration 151: error is 141.720366 (50 iterations in 467.00 seconds)
+Iteration 201: error is 141.560196 (50 iterations in 448.00 seconds)
+Iteration 251: error is 140.640147 (50 iterations in 407.00 seconds)
+Iteration 301: error is 8.486260 (50 iterations in 399.00 seconds)
+Iteration 351: error is 7.900758 (50 iterations in 387.00 seconds)
+Iteration 401: error is 7.554072 (50 iterations in 389.00 seconds)
+Iteration 451: error is 7.309706 (50 iterations in 392.00 seconds)
+Iteration 501: error is 7.118317 (50 iterations in 393.00 seconds)
+Iteration 551: error is 6.959220 (50 iterations in 393.00 seconds)
+Iteration 601: error is 6.822470 (50 iterations in 393.00 seconds)
+Iteration 651: error is 6.702271 (50 iterations in 395.00 seconds)
+Iteration 701: error is 6.595497 (50 iterations in 395.00 seconds)
+Iteration 751: error is 6.499915 (50 iterations in 398.00 seconds)
+Iteration 801: error is 6.413463 (50 iterations in 398.00 seconds)
+Iteration 851: error is 6.334590 (50 iterations in 400.00 seconds)
+Iteration 901: error is 6.262212 (50 iterations in 401.00 seconds)
+Iteration 951: error is 6.195492 (50 iterations in 400.00 seconds)
+Iteration 1000: error is 6.134869 (50 iterations in 392.00 seconds)
+Fitting performed in 8107.00 seconds.
+Multicore t-SNE: 8654.62068104744
+--------------------------------------------------------------------------------
+Random state 3
+--------------------------------------------------------------------------------
+Performing t-SNE using 1 cores.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 50000 of 500000
+ - point 100000 of 500000
+ - point 150000 of 500000
+ - point 200000 of 500000
+ - point 250000 of 500000
+ - point 300000 of 500000
+ - point 350000 of 500000
+ - point 400000 of 500000
+ - point 450000 of 500000
+ - point 500000 of 500000
+Done in 566.00 seconds (sparsity = 0.000295)!
+Learning embedding...
+Iteration 51: error is 141.496855 (50 iterations in 406.00 seconds)
+Iteration 101: error is 141.715474 (50 iterations in 413.00 seconds)
+Iteration 151: error is 141.757185 (50 iterations in 460.00 seconds)
+Iteration 201: error is 141.600637 (50 iterations in 451.00 seconds)
+Iteration 251: error is 140.646917 (50 iterations in 448.00 seconds)
+Iteration 301: error is 8.451780 (50 iterations in 422.00 seconds)
+Iteration 351: error is 7.883073 (50 iterations in 405.00 seconds)
+Iteration 401: error is 7.545077 (50 iterations in 400.00 seconds)
+Iteration 451: error is 7.304603 (50 iterations in 398.00 seconds)
+Iteration 501: error is 7.116235 (50 iterations in 398.00 seconds)
+Iteration 551: error is 6.960035 (50 iterations in 397.00 seconds)
+Iteration 601: error is 6.826005 (50 iterations in 401.00 seconds)
+Iteration 651: error is 6.708472 (50 iterations in 403.00 seconds)
+Iteration 701: error is 6.603775 (50 iterations in 404.00 seconds)
+Iteration 751: error is 6.509576 (50 iterations in 406.00 seconds)
+Iteration 801: error is 6.424207 (50 iterations in 405.00 seconds)
+Iteration 851: error is 6.346172 (50 iterations in 404.00 seconds)
+Iteration 901: error is 6.274576 (50 iterations in 405.00 seconds)
+Iteration 951: error is 6.208429 (50 iterations in 407.00 seconds)
+Iteration 1000: error is 6.148181 (50 iterations in 398.00 seconds)
+Fitting performed in 8231.00 seconds.
+Multicore t-SNE: 8805.181662797928
+--------------------------------------------------------------------------------
+Random state 4
+--------------------------------------------------------------------------------
+Performing t-SNE using 1 cores.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 50000 of 500000
+ - point 100000 of 500000
+ - point 150000 of 500000
+ - point 200000 of 500000
+ - point 250000 of 500000
+ - point 300000 of 500000
+ - point 350000 of 500000
+ - point 400000 of 500000
+ - point 450000 of 500000
+ - point 500000 of 500000
+Done in 532.00 seconds (sparsity = 0.000297)!
+Learning embedding...
+Iteration 51: error is 141.422803 (50 iterations in 425.00 seconds)
+Iteration 101: error is 141.627816 (50 iterations in 427.00 seconds)
+Iteration 151: error is 141.664735 (50 iterations in 453.00 seconds)
+Iteration 201: error is 141.492273 (50 iterations in 432.00 seconds)
+Iteration 251: error is 140.675251 (50 iterations in 414.00 seconds)
+Iteration 301: error is 8.497015 (50 iterations in 404.00 seconds)
+Iteration 351: error is 7.909705 (50 iterations in 403.00 seconds)
+Iteration 401: error is 7.560864 (50 iterations in 402.00 seconds)
+Iteration 451: error is 7.314200 (50 iterations in 400.00 seconds)
+Iteration 501: error is 7.122000 (50 iterations in 395.00 seconds)
+Iteration 551: error is 6.963608 (50 iterations in 390.00 seconds)
+Iteration 601: error is 6.828149 (50 iterations in 390.00 seconds)
+Iteration 651: error is 6.709790 (50 iterations in 392.00 seconds)
+Iteration 701: error is 6.604772 (50 iterations in 394.00 seconds)
+Iteration 751: error is 6.510373 (50 iterations in 394.00 seconds)
+Iteration 801: error is 6.424442 (50 iterations in 397.00 seconds)
+Iteration 851: error is 6.346242 (50 iterations in 396.00 seconds)
+Iteration 901: error is 6.274438 (50 iterations in 396.00 seconds)
+Iteration 951: error is 6.208494 (50 iterations in 398.00 seconds)
+Iteration 1000: error is 6.148731 (50 iterations in 391.00 seconds)
+Fitting performed in 8093.00 seconds.
+Multicore t-SNE: 8633.961239814758

@@ -1,0 +1,218 @@
+--------------------------------------------------------------------------------
+Random state 0
+--------------------------------------------------------------------------------
+===> Finding 90 nearest neighbors using Annoy approximate search using euclidean distance...
+Traceback (most recent call last):
+  File "benchmark.py", line 308, in <module>
+    fire.Fire()
+  File "/home/ppolicar/local/miniconda3/envs/tsne/lib/python3.7/site-packages/fire/core.py", line 138, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+  File "/home/ppolicar/local/miniconda3/envs/tsne/lib/python3.7/site-packages/fire/core.py", line 471, in _Fire
+    target=component.__name__)
+  File "/home/ppolicar/local/miniconda3/envs/tsne/lib/python3.7/site-packages/fire/core.py", line 675, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+  File "benchmark.py", line 44, in run_multiple
+    self.run(n_samples=n_samples, random_state=idx)
+  File "benchmark.py", line 171, in run
+    verbose=True,
+  File "/home/ppolicar/workspace23/openTSNE/openTSNE/affinity.py", line 139, in __init__
+    data, method, k_neighbors, metric, metric_params, n_jobs, random_state, verbose
+  File "/home/ppolicar/workspace23/openTSNE/openTSNE/affinity.py", line 320, in build_knn_index
+    neighbors, distances = knn_index.build(data, k=k)
+  File "/home/ppolicar/workspace23/openTSNE/openTSNE/nearest_neighbors.py", line 209, in build
+    self.index.set_seed(self.random_state)
+TypeError: an integer is required (got type numpy.random.mtrand.RandomState)
+--------------------------------------------------------------------------------
+Random state 0
+--------------------------------------------------------------------------------
+===> Finding 90 nearest neighbors using Annoy approximate search using euclidean distance...
+Traceback (most recent call last):
+  File "benchmark.py", line 308, in <module>
+    fire.Fire()
+  File "/home/ppolicar/local/miniconda3/envs/tsne/lib/python3.7/site-packages/fire/core.py", line 138, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+  File "/home/ppolicar/local/miniconda3/envs/tsne/lib/python3.7/site-packages/fire/core.py", line 471, in _Fire
+    target=component.__name__)
+  File "/home/ppolicar/local/miniconda3/envs/tsne/lib/python3.7/site-packages/fire/core.py", line 675, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+  File "benchmark.py", line 44, in run_multiple
+    self.run(n_samples=n_samples, random_state=idx)
+  File "benchmark.py", line 171, in run
+    verbose=True,
+  File "/home/ppolicar/workspace23/openTSNE/openTSNE/affinity.py", line 139, in __init__
+    data, method, k_neighbors, metric, metric_params, n_jobs, random_state, verbose
+  File "/home/ppolicar/workspace23/openTSNE/openTSNE/affinity.py", line 320, in build_knn_index
+    neighbors, distances = knn_index.build(data, k=k)
+  File "/home/ppolicar/workspace23/openTSNE/openTSNE/nearest_neighbors.py", line 215, in build
+    self.index.build(50, n_jobs=self.n_jobs)
+TypeError: function takes at most 1 argument (2 given)
+--------------------------------------------------------------------------------
+Random state 0
+--------------------------------------------------------------------------------
+===> Finding 90 nearest neighbors using Annoy approximate search using euclidean distance...
+   --> Time elapsed: 0.34 seconds
+===> Calculating affinity matrix...
+   --> Time elapsed: 0.08 seconds
+openTSNE: NN search 0.42471957206726074
+===> Running optimization with exaggeration=12.00, lr=200.00 for 250 iterations...
+Iteration   50, KL divergence 2.7617, 50 iterations in 0.6615 sec
+Iteration  100, KL divergence 2.7939, 50 iterations in 0.4411 sec
+Iteration  150, KL divergence 2.8011, 50 iterations in 0.4451 sec
+Iteration  200, KL divergence 2.8013, 50 iterations in 0.4406 sec
+Iteration  250, KL divergence 2.8012, 50 iterations in 0.4380 sec
+   --> Time elapsed: 2.43 seconds
+===> Running optimization with exaggeration=1.00, lr=200.00 for 750 iterations...
+Iteration   50, KL divergence 1.1789, 50 iterations in 0.5324 sec
+Iteration  100, KL divergence 0.9575, 50 iterations in 0.4405 sec
+Iteration  150, KL divergence 0.8851, 50 iterations in 0.4413 sec
+Iteration  200, KL divergence 0.8532, 50 iterations in 0.4370 sec
+Iteration  250, KL divergence 0.8370, 50 iterations in 0.4370 sec
+Iteration  300, KL divergence 0.8281, 50 iterations in 0.4673 sec
+Iteration  350, KL divergence 0.8242, 50 iterations in 0.5336 sec
+Iteration  400, KL divergence 0.8209, 50 iterations in 0.5290 sec
+Iteration  450, KL divergence 0.8183, 50 iterations in 0.6030 sec
+Iteration  500, KL divergence 0.8172, 50 iterations in 0.5957 sec
+Iteration  550, KL divergence 0.8155, 50 iterations in 0.5925 sec
+Iteration  600, KL divergence 0.8138, 50 iterations in 0.5924 sec
+Iteration  650, KL divergence 0.8133, 50 iterations in 0.7583 sec
+Iteration  700, KL divergence 0.8123, 50 iterations in 0.7784 sec
+Iteration  750, KL divergence 0.8118, 50 iterations in 0.7729 sec
+   --> Time elapsed: 8.51 seconds
+openTSNE: Optimization 10.965677499771118
+openTSNE: Full 11.391409397125244
+--------------------------------------------------------------------------------
+Random state 1
+--------------------------------------------------------------------------------
+===> Finding 90 nearest neighbors using Annoy approximate search using euclidean distance...
+   --> Time elapsed: 0.33 seconds
+===> Calculating affinity matrix...
+   --> Time elapsed: 0.03 seconds
+openTSNE: NN search 0.36508965492248535
+===> Running optimization with exaggeration=12.00, lr=200.00 for 250 iterations...
+Iteration   50, KL divergence 2.7428, 50 iterations in 0.4512 sec
+Iteration  100, KL divergence 2.7927, 50 iterations in 0.4275 sec
+Iteration  150, KL divergence 2.7946, 50 iterations in 0.4272 sec
+Iteration  200, KL divergence 2.7947, 50 iterations in 0.4277 sec
+Iteration  250, KL divergence 2.7947, 50 iterations in 0.4269 sec
+   --> Time elapsed: 2.16 seconds
+===> Running optimization with exaggeration=1.00, lr=200.00 for 750 iterations...
+Iteration   50, KL divergence 1.1706, 50 iterations in 0.4257 sec
+Iteration  100, KL divergence 0.9441, 50 iterations in 0.4260 sec
+Iteration  150, KL divergence 0.8706, 50 iterations in 0.4262 sec
+Iteration  200, KL divergence 0.8386, 50 iterations in 0.4259 sec
+Iteration  250, KL divergence 0.8239, 50 iterations in 0.4264 sec
+Iteration  300, KL divergence 0.8153, 50 iterations in 0.4701 sec
+Iteration  350, KL divergence 0.8124, 50 iterations in 0.4956 sec
+Iteration  400, KL divergence 0.8078, 50 iterations in 0.5733 sec
+Iteration  450, KL divergence 0.8063, 50 iterations in 0.5938 sec
+Iteration  500, KL divergence 0.8045, 50 iterations in 0.5954 sec
+Iteration  550, KL divergence 0.8023, 50 iterations in 0.6895 sec
+Iteration  600, KL divergence 0.8016, 50 iterations in 0.7193 sec
+Iteration  650, KL divergence 0.8001, 50 iterations in 0.7213 sec
+Iteration  700, KL divergence 0.7998, 50 iterations in 0.7227 sec
+Iteration  750, KL divergence 0.7979, 50 iterations in 0.7834 sec
+   --> Time elapsed: 8.49 seconds
+openTSNE: Optimization 10.682944059371948
+openTSNE: Full 11.048895120620728
+--------------------------------------------------------------------------------
+Random state 2
+--------------------------------------------------------------------------------
+===> Finding 90 nearest neighbors using Annoy approximate search using euclidean distance...
+   --> Time elapsed: 0.33 seconds
+===> Calculating affinity matrix...
+   --> Time elapsed: 0.03 seconds
+openTSNE: NN search 0.36075544357299805
+===> Running optimization with exaggeration=12.00, lr=200.00 for 250 iterations...
+Iteration   50, KL divergence 2.7569, 50 iterations in 0.4645 sec
+Iteration  100, KL divergence 2.8178, 50 iterations in 0.4422 sec
+Iteration  150, KL divergence 2.8201, 50 iterations in 0.4396 sec
+Iteration  200, KL divergence 2.8201, 50 iterations in 0.4407 sec
+Iteration  250, KL divergence 2.8201, 50 iterations in 0.4415 sec
+   --> Time elapsed: 2.23 seconds
+===> Running optimization with exaggeration=1.00, lr=200.00 for 750 iterations...
+Iteration   50, KL divergence 1.1974, 50 iterations in 0.4389 sec
+Iteration  100, KL divergence 0.9769, 50 iterations in 0.4409 sec
+Iteration  150, KL divergence 0.9036, 50 iterations in 0.4391 sec
+Iteration  200, KL divergence 0.8711, 50 iterations in 0.4402 sec
+Iteration  250, KL divergence 0.8571, 50 iterations in 0.4390 sec
+Iteration  300, KL divergence 0.8486, 50 iterations in 0.4945 sec
+Iteration  350, KL divergence 0.8455, 50 iterations in 0.5325 sec
+Iteration  400, KL divergence 0.8407, 50 iterations in 0.5749 sec
+Iteration  450, KL divergence 0.8397, 50 iterations in 0.6007 sec
+Iteration  500, KL divergence 0.8377, 50 iterations in 0.5960 sec
+Iteration  550, KL divergence 0.8349, 50 iterations in 0.6640 sec
+Iteration  600, KL divergence 0.8335, 50 iterations in 0.7453 sec
+Iteration  650, KL divergence 0.8326, 50 iterations in 0.7478 sec
+Iteration  700, KL divergence 0.8320, 50 iterations in 0.7468 sec
+Iteration  750, KL divergence 0.8310, 50 iterations in 0.7485 sec
+   --> Time elapsed: 8.65 seconds
+openTSNE: Optimization 10.90386438369751
+openTSNE: Full 11.265506029129028
+--------------------------------------------------------------------------------
+Random state 3
+--------------------------------------------------------------------------------
+===> Finding 90 nearest neighbors using Annoy approximate search using euclidean distance...
+   --> Time elapsed: 0.33 seconds
+===> Calculating affinity matrix...
+   --> Time elapsed: 0.03 seconds
+openTSNE: NN search 0.360837459564209
+===> Running optimization with exaggeration=12.00, lr=200.00 for 250 iterations...
+Iteration   50, KL divergence 2.7465, 50 iterations in 0.4481 sec
+Iteration  100, KL divergence 2.8240, 50 iterations in 0.4275 sec
+Iteration  150, KL divergence 2.8253, 50 iterations in 0.4264 sec
+Iteration  200, KL divergence 2.8245, 50 iterations in 0.4259 sec
+Iteration  250, KL divergence 2.8249, 50 iterations in 0.4276 sec
+   --> Time elapsed: 2.16 seconds
+===> Running optimization with exaggeration=1.00, lr=200.00 for 750 iterations...
+Iteration   50, KL divergence 1.1763, 50 iterations in 0.4242 sec
+Iteration  100, KL divergence 0.9585, 50 iterations in 0.4243 sec
+Iteration  150, KL divergence 0.8855, 50 iterations in 0.4252 sec
+Iteration  200, KL divergence 0.8537, 50 iterations in 0.4256 sec
+Iteration  250, KL divergence 0.8370, 50 iterations in 0.4339 sec
+Iteration  300, KL divergence 0.8304, 50 iterations in 0.4963 sec
+Iteration  350, KL divergence 0.8248, 50 iterations in 0.5745 sec
+Iteration  400, KL divergence 0.8226, 50 iterations in 0.5927 sec
+Iteration  450, KL divergence 0.8204, 50 iterations in 0.7165 sec
+Iteration  500, KL divergence 0.8186, 50 iterations in 0.7214 sec
+Iteration  550, KL divergence 0.8159, 50 iterations in 0.7492 sec
+Iteration  600, KL divergence 0.8144, 50 iterations in 0.8274 sec
+Iteration  650, KL divergence 0.8134, 50 iterations in 0.8260 sec
+Iteration  700, KL divergence 0.8137, 50 iterations in 0.8278 sec
+Iteration  750, KL divergence 0.8129, 50 iterations in 0.8283 sec
+   --> Time elapsed: 9.29 seconds
+openTSNE: Optimization 11.476614475250244
+openTSNE: Full 11.838205337524414
+--------------------------------------------------------------------------------
+Random state 4
+--------------------------------------------------------------------------------
+===> Finding 90 nearest neighbors using Annoy approximate search using euclidean distance...
+   --> Time elapsed: 0.33 seconds
+===> Calculating affinity matrix...
+   --> Time elapsed: 0.03 seconds
+openTSNE: NN search 0.36346864700317383
+===> Running optimization with exaggeration=12.00, lr=200.00 for 250 iterations...
+Iteration   50, KL divergence 2.7817, 50 iterations in 0.4674 sec
+Iteration  100, KL divergence 2.8236, 50 iterations in 0.4401 sec
+Iteration  150, KL divergence 2.8247, 50 iterations in 0.4409 sec
+Iteration  200, KL divergence 2.8242, 50 iterations in 0.4800 sec
+Iteration  250, KL divergence 2.8249, 50 iterations in 0.4490 sec
+   --> Time elapsed: 2.28 seconds
+===> Running optimization with exaggeration=1.00, lr=200.00 for 750 iterations...
+Iteration   50, KL divergence 1.1915, 50 iterations in 0.4387 sec
+Iteration  100, KL divergence 0.9677, 50 iterations in 0.4395 sec
+Iteration  150, KL divergence 0.8952, 50 iterations in 0.4393 sec
+Iteration  200, KL divergence 0.8643, 50 iterations in 0.4388 sec
+Iteration  250, KL divergence 0.8497, 50 iterations in 0.4400 sec
+Iteration  300, KL divergence 0.8411, 50 iterations in 0.4853 sec
+Iteration  350, KL divergence 0.8376, 50 iterations in 0.5256 sec
+Iteration  400, KL divergence 0.8340, 50 iterations in 0.5711 sec
+Iteration  450, KL divergence 0.8335, 50 iterations in 0.5892 sec
+Iteration  500, KL divergence 0.8306, 50 iterations in 0.6594 sec
+Iteration  550, KL divergence 0.8289, 50 iterations in 0.7615 sec
+Iteration  600, KL divergence 0.8286, 50 iterations in 0.7632 sec
+Iteration  650, KL divergence 0.8279, 50 iterations in 0.7628 sec
+Iteration  700, KL divergence 0.8271, 50 iterations in 0.7636 sec
+Iteration  750, KL divergence 0.8245, 50 iterations in 0.7806 sec
+   --> Time elapsed: 8.86 seconds
+openTSNE: Optimization 11.162994146347046
+openTSNE: Full 11.527157545089722

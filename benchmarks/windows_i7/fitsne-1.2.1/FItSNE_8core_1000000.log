@@ -1,0 +1,305 @@
+--------------------------------------------------------------------------------
+Random state 0
+--------------------------------------------------------------------------------
+=============== t-SNE v1.2.1 ===============
+fast_tsne data_path: data.dat
+fast_tsne result_path: result.dat
+fast_tsne nthreads: 8
+Read the following parameters:
+         n 1000000 by d 50 dataset, theta 0.500000,
+         perplexity 30.000000, no_dims 2, max_iter 1000,
+         stop_lying_iter 250, mom_switch_iter 250,
+         momentum 0.500000, final_momentum 0.800000,
+         learning_rate 83333.333333, max_step_norm 5.000000,
+         K -1, sigma -1.000000, nbody_algo 2,
+         knn_algo 1, early_exag_coeff 12.000000,
+         no_momentum_during_exag 0, n_trees 50, search_k 4500,
+         start_late_exag_iter -1, late_exag_coeff -1.000000
+         nterms 3, interval_per_integer 1.000000, min_num_intervals 50, t-dist df 1.000000
+Read the 1000000 x 50 data matrix successfully. X[0,0] = 0.918231
+Read the initialization successfully.
+Will use momentum during exaggeration phase
+Computing input similarities...
+Using perplexity, so normalizing input data (to prevent numerical problems)
+Using perplexity, not the manually set kernel width.  K (number of nearest neighbors) and sigma (bandwidth) parameters are going to be ignored.
+Using ANNOY for knn search, with parameters: n_trees 50 and search_k 4500
+Going to allocate memory. N: 1000000, K: 90, N*K = 90000000
+Building Annoy tree...
+Done building tree. Beginning nearest neighbor search...
+parallel (8 threads):
+[===========================================================>] 99% 172.489s
+Symmetrizing...
+Using the given initialization.
+Exaggerating Ps by 12.000000
+Input similarities computed (sparsity = 0.000147)!
+Learning embedding...
+Using FIt-SNE approximation.
+Iteration 50 (50 iterations in 54.08 seconds), cost 9.940156
+Iteration 100 (50 iterations in 54.08 seconds), cost 8.660610
+Iteration 150 (50 iterations in 53.97 seconds), cost 8.306459
+Iteration 200 (50 iterations in 53.98 seconds), cost 8.138071
+Iteration 250 (50 iterations in 53.77 seconds), cost 8.049117
+Unexaggerating Ps by 12.000000
+Iteration 300 (50 iterations in 54.23 seconds), cost 6.690950
+Iteration 350 (50 iterations in 54.62 seconds), cost 6.116973
+Iteration 400 (50 iterations in 55.54 seconds), cost 5.804816
+Iteration 450 (50 iterations in 56.14 seconds), cost 5.604444
+Iteration 500 (50 iterations in 56.88 seconds), cost 5.462972
+Iteration 550 (50 iterations in 57.49 seconds), cost 5.359813
+Iteration 600 (50 iterations in 59.26 seconds), cost 5.278034
+Iteration 650 (50 iterations in 60.32 seconds), cost 5.211933
+Iteration 700 (50 iterations in 62.76 seconds), cost 5.159209
+Iteration 750 (50 iterations in 64.99 seconds), cost 5.114940
+Iteration 800 (50 iterations in 65.83 seconds), cost 5.076077
+Iteration 850 (50 iterations in 66.24 seconds), cost 5.043325
+Iteration 900 (50 iterations in 75.57 seconds), cost 5.013043
+Iteration 950 (50 iterations in 81.98 seconds), cost 4.990478
+Iteration 1000 (50 iterations in 82.78 seconds), cost 4.969461
+Wrote the 1000000 x 2 data matrix successfully.
+Done.
+
+FIt-SNE: 1567.6748340129852
+--------------------------------------------------------------------------------
+Random state 1
+--------------------------------------------------------------------------------
+=============== t-SNE v1.2.1 ===============
+fast_tsne data_path: data.dat
+fast_tsne result_path: result.dat
+fast_tsne nthreads: 8
+Read the following parameters:
+         n 1000000 by d 50 dataset, theta 0.500000,
+         perplexity 30.000000, no_dims 2, max_iter 1000,
+         stop_lying_iter 250, mom_switch_iter 250,
+         momentum 0.500000, final_momentum 0.800000,
+         learning_rate 83333.333333, max_step_norm 5.000000,
+         K -1, sigma -1.000000, nbody_algo 2,
+         knn_algo 1, early_exag_coeff 12.000000,
+         no_momentum_during_exag 0, n_trees 50, search_k 4500,
+         start_late_exag_iter -1, late_exag_coeff -1.000000
+         nterms 3, interval_per_integer 1.000000, min_num_intervals 50, t-dist df 1.000000
+Read the 1000000 x 50 data matrix successfully. X[0,0] = -1.952787
+Read the initialization successfully.
+Will use momentum during exaggeration phase
+Computing input similarities...
+Using perplexity, so normalizing input data (to prevent numerical problems)
+Using perplexity, not the manually set kernel width.  K (number of nearest neighbors) and sigma (bandwidth) parameters are going to be ignored.
+Using ANNOY for knn search, with parameters: n_trees 50 and search_k 4500
+Going to allocate memory. N: 1000000, K: 90, N*K = 90000000
+Building Annoy tree...
+Done building tree. Beginning nearest neighbor search...
+parallel (8 threads):
+[============================================================] 100% 171.977s
+Symmetrizing...
+Using the given initialization.
+Exaggerating Ps by 12.000000
+Input similarities computed (sparsity = 0.000147)!
+Learning embedding...
+Using FIt-SNE approximation.
+Iteration 50 (50 iterations in 53.45 seconds), cost 9.938866
+Iteration 100 (50 iterations in 54.07 seconds), cost 8.528853
+Iteration 150 (50 iterations in 54.12 seconds), cost 8.199694
+Iteration 200 (50 iterations in 54.01 seconds), cost 8.064483
+Iteration 250 (50 iterations in 55.34 seconds), cost 7.998605
+Unexaggerating Ps by 12.000000
+Iteration 300 (50 iterations in 55.02 seconds), cost 6.673306
+Iteration 350 (50 iterations in 54.51 seconds), cost 6.110714
+Iteration 400 (50 iterations in 55.11 seconds), cost 5.800974
+Iteration 450 (50 iterations in 56.21 seconds), cost 5.600692
+Iteration 500 (50 iterations in 57.12 seconds), cost 5.461927
+Iteration 550 (50 iterations in 58.87 seconds), cost 5.366406
+Iteration 600 (50 iterations in 59.54 seconds), cost 5.277913
+Iteration 650 (50 iterations in 61.33 seconds), cost 5.213632
+Iteration 700 (50 iterations in 62.45 seconds), cost 5.160969
+Iteration 750 (50 iterations in 65.28 seconds), cost 5.115152
+Iteration 800 (50 iterations in 66.05 seconds), cost 5.075916
+Iteration 850 (50 iterations in 77.71 seconds), cost 5.045893
+Iteration 900 (50 iterations in 81.46 seconds), cost 5.017640
+Iteration 950 (50 iterations in 80.07 seconds), cost 4.993924
+Iteration 1000 (50 iterations in 83.94 seconds), cost 4.972086
+Wrote the 1000000 x 2 data matrix successfully.
+Done.
+
+FIt-SNE: 1588.1261057853699
+--------------------------------------------------------------------------------
+Random state 2
+--------------------------------------------------------------------------------
+=============== t-SNE v1.2.1 ===============
+fast_tsne data_path: data.dat
+fast_tsne result_path: result.dat
+fast_tsne nthreads: 8
+Read the following parameters:
+         n 1000000 by d 50 dataset, theta 0.500000,
+         perplexity 30.000000, no_dims 2, max_iter 1000,
+         stop_lying_iter 250, mom_switch_iter 250,
+         momentum 0.500000, final_momentum 0.800000,
+         learning_rate 83333.333333, max_step_norm 5.000000,
+         K -1, sigma -1.000000, nbody_algo 2,
+         knn_algo 1, early_exag_coeff 12.000000,
+         no_momentum_during_exag 0, n_trees 50, search_k 4500,
+         start_late_exag_iter -1, late_exag_coeff -1.000000
+         nterms 3, interval_per_integer 1.000000, min_num_intervals 50, t-dist df 1.000000
+Read the 1000000 x 50 data matrix successfully. X[0,0] = -3.026890
+Read the initialization successfully.
+Will use momentum during exaggeration phase
+Computing input similarities...
+Using perplexity, so normalizing input data (to prevent numerical problems)
+Using perplexity, not the manually set kernel width.  K (number of nearest neighbors) and sigma (bandwidth) parameters are going to be ignored.
+Using ANNOY for knn search, with parameters: n_trees 50 and search_k 4500
+Going to allocate memory. N: 1000000, K: 90, N*K = 90000000
+Building Annoy tree...
+Done building tree. Beginning nearest neighbor search...
+parallel (8 threads):
+[===========================================================>] 99% 174.123s
+Symmetrizing...
+Using the given initialization.
+Exaggerating Ps by 12.000000
+Input similarities computed (sparsity = 0.000147)!
+Learning embedding...
+Using FIt-SNE approximation.
+Iteration 50 (50 iterations in 52.94 seconds), cost 9.941891
+Iteration 100 (50 iterations in 53.78 seconds), cost 8.522559
+Iteration 150 (50 iterations in 54.17 seconds), cost 8.183901
+Iteration 200 (50 iterations in 53.70 seconds), cost 8.065240
+Iteration 250 (50 iterations in 54.48 seconds), cost 7.999237
+Unexaggerating Ps by 12.000000
+Iteration 300 (50 iterations in 54.44 seconds), cost 6.691822
+Iteration 350 (50 iterations in 54.16 seconds), cost 6.116011
+Iteration 400 (50 iterations in 54.84 seconds), cost 5.803732
+Iteration 450 (50 iterations in 56.42 seconds), cost 5.602976
+Iteration 500 (50 iterations in 57.24 seconds), cost 5.463026
+Iteration 550 (50 iterations in 58.08 seconds), cost 5.359442
+Iteration 600 (50 iterations in 59.18 seconds), cost 5.277388
+Iteration 650 (50 iterations in 61.11 seconds), cost 5.211228
+Iteration 700 (50 iterations in 62.01 seconds), cost 5.157003
+Iteration 750 (50 iterations in 65.01 seconds), cost 5.112056
+Iteration 800 (50 iterations in 65.36 seconds), cost 5.072162
+Iteration 850 (50 iterations in 73.01 seconds), cost 5.038594
+Iteration 900 (50 iterations in 77.62 seconds), cost 5.011252
+Iteration 950 (50 iterations in 82.14 seconds), cost 4.986777
+Iteration 1000 (50 iterations in 82.43 seconds), cost 4.966255
+Wrote the 1000000 x 2 data matrix successfully.
+Done.
+
+FIt-SNE: 1576.3867909908295
+--------------------------------------------------------------------------------
+Random state 3
+--------------------------------------------------------------------------------
+=============== t-SNE v1.2.1 ===============
+fast_tsne data_path: data.dat
+fast_tsne result_path: result.dat
+fast_tsne nthreads: 8
+Read the following parameters:
+         n 1000000 by d 50 dataset, theta 0.500000,
+         perplexity 30.000000, no_dims 2, max_iter 1000,
+         stop_lying_iter 250, mom_switch_iter 250,
+         momentum 0.500000, final_momentum 0.800000,
+         learning_rate 83333.333333, max_step_norm 5.000000,
+         K -1, sigma -1.000000, nbody_algo 2,
+         knn_algo 1, early_exag_coeff 12.000000,
+         no_momentum_during_exag 0, n_trees 50, search_k 4500,
+         start_late_exag_iter -1, late_exag_coeff -1.000000
+         nterms 3, interval_per_integer 1.000000, min_num_intervals 50, t-dist df 1.000000
+Read the 1000000 x 50 data matrix successfully. X[0,0] = -2.251539
+Read the initialization successfully.
+Will use momentum during exaggeration phase
+Computing input similarities...
+Using perplexity, so normalizing input data (to prevent numerical problems)
+Using perplexity, not the manually set kernel width.  K (number of nearest neighbors) and sigma (bandwidth) parameters are going to be ignored.
+Using ANNOY for knn search, with parameters: n_trees 50 and search_k 4500
+Going to allocate memory. N: 1000000, K: 90, N*K = 90000000
+Building Annoy tree...
+Done building tree. Beginning nearest neighbor search...
+parallel (8 threads):
+[===========================================================>] 99% 176.243s
+Symmetrizing...
+Using the given initialization.
+Exaggerating Ps by 12.000000
+Input similarities computed (sparsity = 0.000147)!
+Learning embedding...
+Using FIt-SNE approximation.
+Iteration 50 (50 iterations in 53.14 seconds), cost 9.937278
+Iteration 100 (50 iterations in 53.38 seconds), cost 8.614236
+Iteration 150 (50 iterations in 54.65 seconds), cost 8.291506
+Iteration 200 (50 iterations in 54.27 seconds), cost 8.167198
+Iteration 250 (50 iterations in 53.49 seconds), cost 8.096071
+Unexaggerating Ps by 12.000000
+Iteration 300 (50 iterations in 54.43 seconds), cost 6.718897
+Iteration 350 (50 iterations in 54.14 seconds), cost 6.136854
+Iteration 400 (50 iterations in 55.21 seconds), cost 5.821062
+Iteration 450 (50 iterations in 56.79 seconds), cost 5.618252
+Iteration 500 (50 iterations in 57.23 seconds), cost 5.476099
+Iteration 550 (50 iterations in 57.71 seconds), cost 5.371069
+Iteration 600 (50 iterations in 58.58 seconds), cost 5.289645
+Iteration 650 (50 iterations in 60.69 seconds), cost 5.223369
+Iteration 700 (50 iterations in 62.72 seconds), cost 5.169696
+Iteration 750 (50 iterations in 63.65 seconds), cost 5.124061
+Iteration 800 (50 iterations in 65.32 seconds), cost 5.084737
+Iteration 850 (50 iterations in 67.97 seconds), cost 5.051217
+Iteration 900 (50 iterations in 76.98 seconds), cost 5.023205
+Iteration 950 (50 iterations in 82.32 seconds), cost 4.997777
+Iteration 1000 (50 iterations in 80.79 seconds), cost 4.976750
+Wrote the 1000000 x 2 data matrix successfully.
+Done.
+
+FIt-SNE: 1569.9928646087646
+--------------------------------------------------------------------------------
+Random state 4
+--------------------------------------------------------------------------------
+=============== t-SNE v1.2.1 ===============
+fast_tsne data_path: data.dat
+fast_tsne result_path: result.dat
+fast_tsne nthreads: 8
+Read the following parameters:
+         n 1000000 by d 50 dataset, theta 0.500000,
+         perplexity 30.000000, no_dims 2, max_iter 1000,
+         stop_lying_iter 250, mom_switch_iter 250,
+         momentum 0.500000, final_momentum 0.800000,
+         learning_rate 83333.333333, max_step_norm 5.000000,
+         K -1, sigma -1.000000, nbody_algo 2,
+         knn_algo 1, early_exag_coeff 12.000000,
+         no_momentum_during_exag 0, n_trees 50, search_k 4500,
+         start_late_exag_iter -1, late_exag_coeff -1.000000
+         nterms 3, interval_per_integer 1.000000, min_num_intervals 50, t-dist df 1.000000
+Read the 1000000 x 50 data matrix successfully. X[0,0] = 0.568768
+Read the initialization successfully.
+Will use momentum during exaggeration phase
+Computing input similarities...
+Using perplexity, so normalizing input data (to prevent numerical problems)
+Using perplexity, not the manually set kernel width.  K (number of nearest neighbors) and sigma (bandwidth) parameters are going to be ignored.
+Using ANNOY for knn search, with parameters: n_trees 50 and search_k 4500
+Going to allocate memory. N: 1000000, K: 90, N*K = 90000000
+Building Annoy tree...
+Done building tree. Beginning nearest neighbor search...
+parallel (8 threads):
+[===========================================================>] 99% 173.724s
+Symmetrizing...
+Using the given initialization.
+Exaggerating Ps by 12.000000
+Input similarities computed (sparsity = 0.000147)!
+Learning embedding...
+Using FIt-SNE approximation.
+Iteration 50 (50 iterations in 52.85 seconds), cost 9.934967
+Iteration 100 (50 iterations in 53.10 seconds), cost 8.596423
+Iteration 150 (50 iterations in 53.93 seconds), cost 8.219425
+Iteration 200 (50 iterations in 53.28 seconds), cost 8.084341
+Iteration 250 (50 iterations in 53.41 seconds), cost 8.009012
+Unexaggerating Ps by 12.000000
+Iteration 300 (50 iterations in 53.45 seconds), cost 6.680952
+Iteration 350 (50 iterations in 53.70 seconds), cost 6.111963
+Iteration 400 (50 iterations in 55.75 seconds), cost 5.806297
+Iteration 450 (50 iterations in 55.71 seconds), cost 5.599582
+Iteration 500 (50 iterations in 56.34 seconds), cost 5.460300
+Iteration 550 (50 iterations in 57.27 seconds), cost 5.354729
+Iteration 600 (50 iterations in 57.91 seconds), cost 5.274986
+Iteration 650 (50 iterations in 60.40 seconds), cost 5.208408
+Iteration 700 (50 iterations in 62.24 seconds), cost 5.153683
+Iteration 750 (50 iterations in 63.02 seconds), cost 5.109167
+Iteration 800 (50 iterations in 65.28 seconds), cost 5.071156
+Iteration 850 (50 iterations in 65.58 seconds), cost 5.036601
+Iteration 900 (50 iterations in 76.67 seconds), cost 5.008949
+Iteration 950 (50 iterations in 80.74 seconds), cost 4.984569
+Iteration 1000 (50 iterations in 83.20 seconds), cost 4.963880
+Wrote the 1000000 x 2 data matrix successfully.
+Done.
+
+FIt-SNE: 1556.7814280986786
