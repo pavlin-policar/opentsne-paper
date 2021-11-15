@@ -1,0 +1,5 @@
+FIt-SNE
+data/*
+logs/*
+!.keep
+

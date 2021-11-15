@@ -1,0 +1,5 @@
+fire
+pip install cmake==3.18.4  # required for multicoretsne, since it's not maintained
+multicoretsne
+pynndescent
+umap-learn
