@@ -2,4 +2,5 @@ FIt-SNE
 data/*
 logs/*
 !.keep
+benchmark.py
 
