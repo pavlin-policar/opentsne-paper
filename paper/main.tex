@@ -484,8 +484,8 @@ $\mathcal{O}(N)$. We include this approach in \opentsne, enabling the embedding
 of large data sets in a matter of minutes. 
 
 Fig.~\ref{fig:benchmarks} benchmarks four popular Python t-SNE implementations,
-including those from \pkg{scikit-learn} (v0.23.1), \pkg{MulticoreTSNE} (v0.1),
-\pkg{FIt-SNE} (v1.1.0), and our \opentsne\ (v0.6.0). We perform benchmarks on
+including those from \pkg{scikit-learn} (v1.0.1), \pkg{MulticoreTSNE} (v0.1),
+\pkg{FIt-SNE} (v1.1.0), and our \opentsne\ (v0.6.1). We perform benchmarks on
 two computational platforms, one representing the usage on a personal computer
 and the other the utility of these libraries on a high-performance computing
 platform. The Intel(R) Core i7 is commonly found in consumer-grade laptop
@@ -496,9 +496,9 @@ t-SNE parameters, as some implementations do not allow their modification.
 \begin{figure*}[ht]
   \includegraphics[width=\textwidth]{benchmarks}
   \caption{\label{fig:benchmarks}
-  We benchmark \opentsne\ (v0.6.0) against three popular open-source
+  We benchmark \opentsne\ (v0.6.1) against three popular open-source
   implementations from \pkg{scikit-learn}~\citep{pedregosa2011scikit}
-  (v0.23.1), \pkg{MulticoreTSNE}~\citep{Ulyanov2016} (v0.1), and
+  (v1.0.1), \pkg{MulticoreTSNE}~\citep{Ulyanov2016} (v0.1), and
   \pkg{FIt-SNE}~\citep{linderman2019fast} (v1.1.0). Experiments were run on a
   consumer-grade Intel Core i7-7700HQ processor found in laptop computers, and
   on a server-grade Intel Xeon E5-2650. To generate benchmark data sets of
@@ -602,8 +602,8 @@ Continuous integration & \checkmark & & \checkmark & & \checkmark \\
 \end{center}
 
 \caption{\label{tab:features}
-  We compare the features of \opentsne~(v0.6.0) to four popular open-source
-  t-SNE implementations from \pkg{scikit-learn}~(v0.23.1),
+  We compare the features of \opentsne~(v0.6.1) to four popular open-source
+  t-SNE implementations from \pkg{scikit-learn}~(v1.0.1),
   \pkg{BHTSNE}~(master), \pkg{MulticoreTSNE}~(v0.1), and
   \pkg{FIt-SNE}~(v1.1.0).
 }
@@ -626,10 +626,10 @@ End-to-end usage examples, documentation, and API reference are all available at
 
 \section*{Computational details}
 
-The results in this paper were obtained using \proglang{Python}~3.7.6 with the
-\pkg{openTSNE}~v0.6.0 package. \opentsne\ has three direct dependencies:
+The results in this paper were obtained using \proglang{Python}~3.9.7 with the
+\pkg{openTSNE}~v0.6.1 package. \opentsne\ has three direct dependencies:
 \pkg{numpy}, \pkg{scipy}, and \pkg{scikit-learn}. In our experiments, we used
-\pkg{numpy}~v1.18.1, \pkg{scipy}~v1.4.1. \pkg{scikit-learn}~v0.23.1. As these
+\pkg{numpy}~v1.21.3, \pkg{scipy}~v1.7.1. \pkg{scikit-learn}~v1.0.1. As these
 packages include their own downstream dependencies, the full environment used to
 produce the figures is included in the accompanying GitHub repository
 \url{https://github.com/pavlin-policar/opentsne-paper}.
