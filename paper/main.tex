@@ -100,7 +100,7 @@ We use \opentsne\ to generate three t-SNE embeddings and demonstrate recent theo
 }
 \end{figure*}
 
-Despite its utility, t-SNE has often been criticized for its limited scalability, lack of global organization -- t-SNE identifies well-defined clusters that may be arbitrarily scattered throughout the embedding, and the absence of theoretically-founded methods to map new data into existing embeddings~\citep{ding2018interpretable,becht2019dimensionality}. Most of these shortcomings have recently been addressed. \citet{linderman2019fast} developed FIt-SNE, an efficient approximation scheme that massively improves the scalability of t-SNE, achieving linear time complexity in the number of samples. \citet{kobak2019art} proposed several techniques to improve global cluster coherence, including estimating similarities with a mixture of Gaussian kernels. In our previous work, we introduced a principled approach for embedding new samples into existing visualizations~\citep{policar2019embedding}.
+Despite its utility, t-SNE has often been criticized for its limited scalability, lack of global organization -- t-SNE identifies well-defined clusters that may be arbitrarily scattered throughout the embedding, and the absence of theoretically-founded methods to map new data into existing embeddings~\citep{ding2018interpretable,becht2019dimensionality}. Most of these shortcomings have recently been addressed. \citet{linderman2019fast} developed FIt-SNE, an efficient approximation scheme that massively improves the scalability of t-SNE, achieving linear time complexity in the number of samples. \citet{kobak2019art} proposed several techniques to improve global cluster coherence, including estimating similarities with a mixture of Gaussian kernels. In our previous work, we introduced a principled approach for embedding new samples into existing visualizations~\citep{policar2021embedding}.
 
 However, easy access to efficient implementations almost universally correlates with the widespread adoption of novel computational techniques. Despite the many theoretical advancements, the most popular t-SNE libraries have been slow to incorporate them into their implementations. In this paper, we present \opentsne, our open-source Python implementation of t-SNE, and the recently proposed extensions to t-SNE that \opentsne\ implements. \opentsne\ is easy to install and includes precompiled binaries available through popular Python package managers. It provides a familiar API, making it suitable as a drop-in replacement for existing t-SNE implementations.
 
@@ -246,7 +246,7 @@ $\mathcal{O}(N)$.
 t-SNE is non-parametric and does not define an explicit mapping from the
 high-dimensional space to the embedding space. Therefore embeddings of new data
 points need to be found through the use of optimization
-techniques~\citep{policar2019embedding}. When adding new data points to an
+techniques~\citep{policar2021embedding}. When adding new data points to an
 existing, reference embedding, the reference data points are fixed in place
 while new data points are allowed to find their respective positions. The
 optimization remains the same as in standard t-SNE with only slight
@@ -390,7 +390,7 @@ Unlike other popular dimensionality reduction techniques such as principal
 component analysis or autoencoders, t-SNE is a non-parametric method and does
 not define an explicit mapping to the embedding space. Therefore, embeddings of
 new data points need to be found through
-optimization~\citep{policar2019embedding}. \opentsne\ is currently the only
+optimization~\citep{policar2021embedding}. \opentsne\ is currently the only
 publicly available library allowing users to add new samples to existing
 embeddings in a principled manner.
 
