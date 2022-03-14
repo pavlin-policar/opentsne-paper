@@ -22,7 +22,7 @@ wget -nc -P data http://file.biolab.si/opentsne/10x_mouse_zheng.pkl.gz
 mkdir -p logs
 
 # RUN BENCHMARKS
-SAMPLE_SIZES=(1000 5000 10000);
+SAMPLE_SIZES=(1000 5000 10000 20000 50000);
 REPETITIONS=6;
 
 # Single-threaded benchmarks

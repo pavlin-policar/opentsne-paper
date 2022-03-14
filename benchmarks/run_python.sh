@@ -36,8 +36,7 @@ SAMPLE_SIZES=(1000 100000 250000 500000 750000 1000000);
 REPETITIONS=6;
 
 # Single-threaded benchmarks
-#METHODS=(openTSNEBH openTSNEFFT MulticoreTSNE FItSNE sklearn UMAP);
-METHODS=(MulticoreTSNE FItSNE UMAP);
+METHODS=(openTSNEBH openTSNEFFT MulticoreTSNE FItSNE sklearn UMAP);
 
 for method in ${METHODS[@]}; do
     for size in ${SAMPLE_SIZES[@]}; do
@@ -52,10 +51,7 @@ for method in ${METHODS[@]}; do
 done;
 
 # Multi-threaded benchmarks
-#METHODS=(openTSNEBH_8core openTSNEFFT_8core MulticoreTSNE_8core FItSNE_8core sklearn_8core UMAP_8core);
-#METHODS=(MulticoreTSNE_8core FItSNE_8core sklearn_8core);
-METHODS=(MulticoreTSNE_8core FItSNE_8core sklearn_8core UMAP_8core);
-
+METHODS=(openTSNEBH_8core openTSNEFFT_8core MulticoreTSNE_8core FItSNE_8core sklearn_8core UMAP_8core);
 for method in ${METHODS[@]}; do
     for size in ${SAMPLE_SIZES[@]}; do
         cmd="OMP_NUM_THREADS=8 NUMBA_NUM_THREADS=8 \
