@@ -1,0 +1,93 @@
+Traceback (most recent call last):
+  File "/home/ubuntu/workspace/opentsne-paper/benchmarks/benchmark.py", line 30, in <module>
+    import openTSNE
+  File "/home/ubuntu/miniconda3/envs/tsne_benchmarks/lib/python3.10/site-packages/openTSNE/__init__.py", line 1, in <module>
+    from .tsne import TSNE, TSNEEmbedding, PartialTSNEEmbedding, OptimizationInterrupt
+  File "/home/ubuntu/miniconda3/envs/tsne_benchmarks/lib/python3.10/site-packages/openTSNE/tsne.py", line 11, in <module>
+    from openTSNE import _tsne
+  File "openTSNE/_tsne.pyx", line 1, in init openTSNE._tsne
+ValueError: numpy.ndarray size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+Traceback (most recent call last):
+  File "/home/ubuntu/workspace/opentsne-paper/benchmarks/benchmark.py", line 30, in <module>
+    import openTSNE
+  File "/home/ubuntu/miniconda3/envs/tsne_benchmarks/lib/python3.10/site-packages/openTSNE/__init__.py", line 1, in <module>
+    from .tsne import TSNE, TSNEEmbedding, PartialTSNEEmbedding, OptimizationInterrupt
+  File "/home/ubuntu/miniconda3/envs/tsne_benchmarks/lib/python3.10/site-packages/openTSNE/tsne.py", line 11, in <module>
+    from openTSNE import _tsne
+  File "openTSNE/_tsne.pyx", line 1, in init openTSNE._tsne
+ValueError: numpy.ndarray size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+Traceback (most recent call last):
+  File "/home/ubuntu/workspace/opentsne-paper/benchmarks/benchmark.py", line 30, in <module>
+    import openTSNE
+  File "/home/ubuntu/miniconda3/envs/tsne_benchmarks/lib/python3.10/site-packages/openTSNE/__init__.py", line 1, in <module>
+    from .tsne import TSNE, TSNEEmbedding, PartialTSNEEmbedding, OptimizationInterrupt
+  File "/home/ubuntu/miniconda3/envs/tsne_benchmarks/lib/python3.10/site-packages/openTSNE/tsne.py", line 11, in <module>
+    from openTSNE import _tsne
+  File "openTSNE/_tsne.pyx", line 1, in init openTSNE._tsne
+ValueError: numpy.ndarray size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+--------------------------------------------------------------------------------
+Random state 0
+--------------------------------------------------------------------------------
+[t-SNE] Computing 91 nearest neighbors...
+[t-SNE] Indexed 1000 samples in 0.000s...
+[t-SNE] Computed neighbors for 1000 samples in 0.021s...
+[t-SNE] Computed conditional probabilities for sample 1000 / 1000
+[t-SNE] Mean sigma: 2.844918
+[t-SNE] KL divergence after 250 iterations with early exaggeration: 66.570793
+[t-SNE] KL divergence after 1000 iterations: 0.802681
+scikit-learn t-SNE: 5.202197074890137
+--------------------------------------------------------------------------------
+Random state 1
+--------------------------------------------------------------------------------
+[t-SNE] Computing 91 nearest neighbors...
+[t-SNE] Indexed 1000 samples in 0.000s...
+[t-SNE] Computed neighbors for 1000 samples in 0.020s...
+[t-SNE] Computed conditional probabilities for sample 1000 / 1000
+[t-SNE] Mean sigma: 2.820154
+[t-SNE] KL divergence after 250 iterations with early exaggeration: 65.826492
+[t-SNE] KL divergence after 1000 iterations: 0.825131
+scikit-learn t-SNE: 5.637672185897827
+--------------------------------------------------------------------------------
+Random state 2
+--------------------------------------------------------------------------------
+[t-SNE] Computing 91 nearest neighbors...
+[t-SNE] Indexed 1000 samples in 0.000s...
+[t-SNE] Computed neighbors for 1000 samples in 0.021s...
+[t-SNE] Computed conditional probabilities for sample 1000 / 1000
+[t-SNE] Mean sigma: 2.962491
+[t-SNE] KL divergence after 250 iterations with early exaggeration: 65.562683
+[t-SNE] KL divergence after 1000 iterations: 0.765256
+scikit-learn t-SNE: 5.29231071472168
+--------------------------------------------------------------------------------
+Random state 3
+--------------------------------------------------------------------------------
+[t-SNE] Computing 91 nearest neighbors...
+[t-SNE] Indexed 1000 samples in 0.000s...
+[t-SNE] Computed neighbors for 1000 samples in 0.020s...
+[t-SNE] Computed conditional probabilities for sample 1000 / 1000
+[t-SNE] Mean sigma: 2.931656
+[t-SNE] KL divergence after 250 iterations with early exaggeration: 66.877777
+[t-SNE] KL divergence after 1000 iterations: 0.854392
+scikit-learn t-SNE: 5.965065956115723
+--------------------------------------------------------------------------------
+Random state 4
+--------------------------------------------------------------------------------
+[t-SNE] Computing 91 nearest neighbors...
+[t-SNE] Indexed 1000 samples in 0.000s...
+[t-SNE] Computed neighbors for 1000 samples in 0.022s...
+[t-SNE] Computed conditional probabilities for sample 1000 / 1000
+[t-SNE] Mean sigma: 2.882010
+[t-SNE] KL divergence after 250 iterations with early exaggeration: 66.549385
+[t-SNE] KL divergence after 1000 iterations: 0.826532
+scikit-learn t-SNE: 5.370270252227783
+--------------------------------------------------------------------------------
+Random state 5
+--------------------------------------------------------------------------------
+[t-SNE] Computing 91 nearest neighbors...
+[t-SNE] Indexed 1000 samples in 0.000s...
+[t-SNE] Computed neighbors for 1000 samples in 0.021s...
+[t-SNE] Computed conditional probabilities for sample 1000 / 1000
+[t-SNE] Mean sigma: 2.894011
+[t-SNE] KL divergence after 250 iterations with early exaggeration: 66.091881
+[t-SNE] KL divergence after 1000 iterations: 0.813309
+scikit-learn t-SNE: 5.47018575668335
