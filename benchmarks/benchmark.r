@@ -40,5 +40,5 @@ for (i in 1:opt$repetitions) {
     start_time = Sys.time()
     embedding = Rtsne(sample_data, perplexity=30, theta=0.5, pca=FALSE, verbose=TRUE,
                       eta=200, num_threads=opt$`n-threads`)
-    cat("Rtsne benchmark time:", Sys.time() - start_time, "\n")
+    cat("Rtsne benchmark time:", difftime(Sys.time(), start_time, units="secs"), "\n")
 }
