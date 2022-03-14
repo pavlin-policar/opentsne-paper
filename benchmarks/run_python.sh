@@ -10,6 +10,9 @@ conda install -y python numpy scikit-learn
 pip install opentsne
 pip install -r requirements-benchmarks.txt
 
+# MulticoreTSNE forces lower version of numpy
+pip install --upgrade numpy
+
 # Setup FIt-SNE
 git clone git@github.com:KlugerLab/FIt-SNE.git || :
 conda install -c conda-forge fftw -y
