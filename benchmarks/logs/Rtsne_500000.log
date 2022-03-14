@@ -1,0 +1,510 @@
+[1] "--------------------------------------------------------------------------------"
+[1] "Rtsne"
+[1] ‘0.15’
+Random state 1 
+[1] "--------------------------------------------------------------------------------"
+[1] 500000     50
+Read the 500000 x 50 data matrix successfully!
+OpenMP is working. 1 threads.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 10000 of 500000
+ - point 20000 of 500000
+ - point 30000 of 500000
+ - point 40000 of 500000
+ - point 50000 of 500000
+ - point 60000 of 500000
+ - point 70000 of 500000
+ - point 80000 of 500000
+ - point 90000 of 500000
+ - point 100000 of 500000
+ - point 110000 of 500000
+ - point 120000 of 500000
+ - point 130000 of 500000
+ - point 140000 of 500000
+ - point 150000 of 500000
+ - point 160000 of 500000
+ - point 170000 of 500000
+ - point 180000 of 500000
+ - point 190000 of 500000
+ - point 200000 of 500000
+ - point 210000 of 500000
+ - point 220000 of 500000
+ - point 230000 of 500000
+ - point 240000 of 500000
+ - point 250000 of 500000
+ - point 260000 of 500000
+ - point 270000 of 500000
+ - point 280000 of 500000
+ - point 290000 of 500000
+ - point 300000 of 500000
+ - point 310000 of 500000
+ - point 320000 of 500000
+ - point 330000 of 500000
+ - point 340000 of 500000
+ - point 350000 of 500000
+ - point 360000 of 500000
+ - point 370000 of 500000
+ - point 380000 of 500000
+ - point 390000 of 500000
+ - point 400000 of 500000
+ - point 410000 of 500000
+ - point 420000 of 500000
+ - point 430000 of 500000
+ - point 440000 of 500000
+ - point 450000 of 500000
+ - point 460000 of 500000
+ - point 470000 of 500000
+ - point 480000 of 500000
+ - point 490000 of 500000
+ - point 500000 of 500000
+Done in 6090.97 seconds (sparsity = 0.000293)!
+Learning embedding...
+Iteration 50: error is 141.924994 (50 iterations in 166.15 seconds)
+Iteration 100: error is 141.924994 (50 iterations in 186.25 seconds)
+Iteration 150: error is 141.924994 (50 iterations in 181.99 seconds)
+Iteration 200: error is 141.924994 (50 iterations in 177.80 seconds)
+Iteration 250: error is 141.924994 (50 iterations in 195.20 seconds)
+Iteration 300: error is 9.342167 (50 iterations in 214.33 seconds)
+Iteration 350: error is 9.313923 (50 iterations in 214.68 seconds)
+Iteration 400: error is 8.441765 (50 iterations in 171.47 seconds)
+Iteration 450: error is 7.763654 (50 iterations in 157.40 seconds)
+Iteration 500: error is 7.417811 (50 iterations in 158.56 seconds)
+Iteration 550: error is 7.178855 (50 iterations in 157.27 seconds)
+Iteration 600: error is 6.997574 (50 iterations in 154.52 seconds)
+Iteration 650: error is 6.850405 (50 iterations in 157.18 seconds)
+Iteration 700: error is 6.725704 (50 iterations in 158.92 seconds)
+Iteration 750: error is 6.617064 (50 iterations in 158.87 seconds)
+Iteration 800: error is 6.520583 (50 iterations in 159.19 seconds)
+Iteration 850: error is 6.433801 (50 iterations in 159.12 seconds)
+Iteration 900: error is 6.354822 (50 iterations in 159.02 seconds)
+Iteration 950: error is 6.282360 (50 iterations in 158.08 seconds)
+Iteration 1000: error is 6.215643 (50 iterations in 156.37 seconds)
+Fitting performed in 3402.38 seconds.
+Rtsne benchmark time: 2.67472 
+[1] "--------------------------------------------------------------------------------"
+[1] "Rtsne"
+[1] ‘0.15’
+Random state 2 
+[1] "--------------------------------------------------------------------------------"
+[1] 500000     50
+Read the 500000 x 50 data matrix successfully!
+OpenMP is working. 1 threads.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 10000 of 500000
+ - point 20000 of 500000
+ - point 30000 of 500000
+ - point 40000 of 500000
+ - point 50000 of 500000
+ - point 60000 of 500000
+ - point 70000 of 500000
+ - point 80000 of 500000
+ - point 90000 of 500000
+ - point 100000 of 500000
+ - point 110000 of 500000
+ - point 120000 of 500000
+ - point 130000 of 500000
+ - point 140000 of 500000
+ - point 150000 of 500000
+ - point 160000 of 500000
+ - point 170000 of 500000
+ - point 180000 of 500000
+ - point 190000 of 500000
+ - point 200000 of 500000
+ - point 210000 of 500000
+ - point 220000 of 500000
+ - point 230000 of 500000
+ - point 240000 of 500000
+ - point 250000 of 500000
+ - point 260000 of 500000
+ - point 270000 of 500000
+ - point 280000 of 500000
+ - point 290000 of 500000
+ - point 300000 of 500000
+ - point 310000 of 500000
+ - point 320000 of 500000
+ - point 330000 of 500000
+ - point 340000 of 500000
+ - point 350000 of 500000
+ - point 360000 of 500000
+ - point 370000 of 500000
+ - point 380000 of 500000
+ - point 390000 of 500000
+ - point 400000 of 500000
+ - point 410000 of 500000
+ - point 420000 of 500000
+ - point 430000 of 500000
+ - point 440000 of 500000
+ - point 450000 of 500000
+ - point 460000 of 500000
+ - point 470000 of 500000
+ - point 480000 of 500000
+ - point 490000 of 500000
+ - point 500000 of 500000
+Done in 5990.29 seconds (sparsity = 0.000293)!
+Learning embedding...
+Iteration 50: error is 141.927299 (50 iterations in 160.24 seconds)
+Iteration 100: error is 141.927299 (50 iterations in 176.15 seconds)
+Iteration 150: error is 141.927299 (50 iterations in 169.18 seconds)
+Iteration 200: error is 141.927299 (50 iterations in 176.68 seconds)
+Iteration 250: error is 141.927299 (50 iterations in 179.99 seconds)
+Iteration 300: error is 9.342362 (50 iterations in 180.16 seconds)
+Iteration 350: error is 9.317938 (50 iterations in 178.16 seconds)
+Iteration 400: error is 8.350365 (50 iterations in 165.24 seconds)
+Iteration 450: error is 7.725001 (50 iterations in 158.48 seconds)
+Iteration 500: error is 7.384170 (50 iterations in 158.01 seconds)
+Iteration 550: error is 7.146665 (50 iterations in 155.59 seconds)
+Iteration 600: error is 6.963892 (50 iterations in 153.20 seconds)
+Iteration 650: error is 6.815685 (50 iterations in 152.03 seconds)
+Iteration 700: error is 6.690328 (50 iterations in 153.28 seconds)
+Iteration 750: error is 6.581219 (50 iterations in 153.92 seconds)
+Iteration 800: error is 6.484332 (50 iterations in 154.57 seconds)
+Iteration 850: error is 6.397363 (50 iterations in 155.58 seconds)
+Iteration 900: error is 6.318563 (50 iterations in 156.27 seconds)
+Iteration 950: error is 6.246724 (50 iterations in 156.56 seconds)
+Iteration 1000: error is 6.180711 (50 iterations in 157.26 seconds)
+Fitting performed in 3250.56 seconds.
+Rtsne benchmark time: 2.603479 
+[1] "--------------------------------------------------------------------------------"
+[1] "Rtsne"
+[1] ‘0.15’
+Random state 3 
+[1] "--------------------------------------------------------------------------------"
+[1] 500000     50
+Read the 500000 x 50 data matrix successfully!
+OpenMP is working. 1 threads.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 10000 of 500000
+ - point 20000 of 500000
+ - point 30000 of 500000
+ - point 40000 of 500000
+ - point 50000 of 500000
+ - point 60000 of 500000
+ - point 70000 of 500000
+ - point 80000 of 500000
+ - point 90000 of 500000
+ - point 100000 of 500000
+ - point 110000 of 500000
+ - point 120000 of 500000
+ - point 130000 of 500000
+ - point 140000 of 500000
+ - point 150000 of 500000
+ - point 160000 of 500000
+ - point 170000 of 500000
+ - point 180000 of 500000
+ - point 190000 of 500000
+ - point 200000 of 500000
+ - point 210000 of 500000
+ - point 220000 of 500000
+ - point 230000 of 500000
+ - point 240000 of 500000
+ - point 250000 of 500000
+ - point 260000 of 500000
+ - point 270000 of 500000
+ - point 280000 of 500000
+ - point 290000 of 500000
+ - point 300000 of 500000
+ - point 310000 of 500000
+ - point 320000 of 500000
+ - point 330000 of 500000
+ - point 340000 of 500000
+ - point 350000 of 500000
+ - point 360000 of 500000
+ - point 370000 of 500000
+ - point 380000 of 500000
+ - point 390000 of 500000
+ - point 400000 of 500000
+ - point 410000 of 500000
+ - point 420000 of 500000
+ - point 430000 of 500000
+ - point 440000 of 500000
+ - point 450000 of 500000
+ - point 460000 of 500000
+ - point 470000 of 500000
+ - point 480000 of 500000
+ - point 490000 of 500000
+ - point 500000 of 500000
+Done in 6413.99 seconds (sparsity = 0.000293)!
+Learning embedding...
+Iteration 50: error is 141.927956 (50 iterations in 180.25 seconds)
+Iteration 100: error is 141.927956 (50 iterations in 188.10 seconds)
+Iteration 150: error is 141.927956 (50 iterations in 202.43 seconds)
+Iteration 200: error is 141.927956 (50 iterations in 190.36 seconds)
+Iteration 250: error is 141.927955 (50 iterations in 201.58 seconds)
+Iteration 300: error is 9.342416 (50 iterations in 219.81 seconds)
+Iteration 350: error is 9.314799 (50 iterations in 221.13 seconds)
+Iteration 400: error is 8.357815 (50 iterations in 179.53 seconds)
+Iteration 450: error is 7.716433 (50 iterations in 171.63 seconds)
+Iteration 500: error is 7.387047 (50 iterations in 169.69 seconds)
+Iteration 550: error is 7.161343 (50 iterations in 168.16 seconds)
+Iteration 600: error is 6.987207 (50 iterations in 167.24 seconds)
+Iteration 650: error is 6.844258 (50 iterations in 167.90 seconds)
+Iteration 700: error is 6.721618 (50 iterations in 169.00 seconds)
+Iteration 750: error is 6.613857 (50 iterations in 169.73 seconds)
+Iteration 800: error is 6.517788 (50 iterations in 170.14 seconds)
+Iteration 850: error is 6.431627 (50 iterations in 170.79 seconds)
+Iteration 900: error is 6.353665 (50 iterations in 171.85 seconds)
+Iteration 950: error is 6.282301 (50 iterations in 171.96 seconds)
+Iteration 1000: error is 6.216903 (50 iterations in 171.96 seconds)
+Fitting performed in 3623.24 seconds.
+Rtsne benchmark time: 2.826388 
+[1] "--------------------------------------------------------------------------------"
+[1] "Rtsne"
+[1] ‘0.15’
+Random state 4 
+[1] "--------------------------------------------------------------------------------"
+[1] 500000     50
+Read the 500000 x 50 data matrix successfully!
+OpenMP is working. 1 threads.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 10000 of 500000
+ - point 20000 of 500000
+ - point 30000 of 500000
+ - point 40000 of 500000
+ - point 50000 of 500000
+ - point 60000 of 500000
+ - point 70000 of 500000
+ - point 80000 of 500000
+ - point 90000 of 500000
+ - point 100000 of 500000
+ - point 110000 of 500000
+ - point 120000 of 500000
+ - point 130000 of 500000
+ - point 140000 of 500000
+ - point 150000 of 500000
+ - point 160000 of 500000
+ - point 170000 of 500000
+ - point 180000 of 500000
+ - point 190000 of 500000
+ - point 200000 of 500000
+ - point 210000 of 500000
+ - point 220000 of 500000
+ - point 230000 of 500000
+ - point 240000 of 500000
+ - point 250000 of 500000
+ - point 260000 of 500000
+ - point 270000 of 500000
+ - point 280000 of 500000
+ - point 290000 of 500000
+ - point 300000 of 500000
+ - point 310000 of 500000
+ - point 320000 of 500000
+ - point 330000 of 500000
+ - point 340000 of 500000
+ - point 350000 of 500000
+ - point 360000 of 500000
+ - point 370000 of 500000
+ - point 380000 of 500000
+ - point 390000 of 500000
+ - point 400000 of 500000
+ - point 410000 of 500000
+ - point 420000 of 500000
+ - point 430000 of 500000
+ - point 440000 of 500000
+ - point 450000 of 500000
+ - point 460000 of 500000
+ - point 470000 of 500000
+ - point 480000 of 500000
+ - point 490000 of 500000
+ - point 500000 of 500000
+Done in 6107.49 seconds (sparsity = 0.000294)!
+Learning embedding...
+Iteration 50: error is 141.918820 (50 iterations in 159.25 seconds)
+Iteration 100: error is 141.918820 (50 iterations in 168.09 seconds)
+Iteration 150: error is 141.918821 (50 iterations in 169.08 seconds)
+Iteration 200: error is 141.918820 (50 iterations in 167.30 seconds)
+Iteration 250: error is 141.918820 (50 iterations in 181.30 seconds)
+Iteration 300: error is 9.341647 (50 iterations in 194.36 seconds)
+Iteration 350: error is 9.306615 (50 iterations in 192.39 seconds)
+Iteration 400: error is 8.450065 (50 iterations in 167.20 seconds)
+Iteration 450: error is 7.783240 (50 iterations in 154.30 seconds)
+Iteration 500: error is 7.417973 (50 iterations in 149.73 seconds)
+Iteration 550: error is 7.165576 (50 iterations in 147.61 seconds)
+Iteration 600: error is 6.973647 (50 iterations in 146.54 seconds)
+Iteration 650: error is 6.817895 (50 iterations in 147.09 seconds)
+Iteration 700: error is 6.686387 (50 iterations in 147.53 seconds)
+Iteration 750: error is 6.572433 (50 iterations in 146.57 seconds)
+Iteration 800: error is 6.472234 (50 iterations in 146.60 seconds)
+Iteration 850: error is 6.382937 (50 iterations in 146.79 seconds)
+Iteration 900: error is 6.302554 (50 iterations in 147.12 seconds)
+Iteration 950: error is 6.229660 (50 iterations in 147.61 seconds)
+Iteration 1000: error is 6.163050 (50 iterations in 148.39 seconds)
+Fitting performed in 3174.84 seconds.
+Rtsne benchmark time: 2.614085 
+[1] "--------------------------------------------------------------------------------"
+[1] "Rtsne"
+[1] ‘0.15’
+Random state 5 
+[1] "--------------------------------------------------------------------------------"
+[1] 500000     50
+Read the 500000 x 50 data matrix successfully!
+OpenMP is working. 1 threads.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 10000 of 500000
+ - point 20000 of 500000
+ - point 30000 of 500000
+ - point 40000 of 500000
+ - point 50000 of 500000
+ - point 60000 of 500000
+ - point 70000 of 500000
+ - point 80000 of 500000
+ - point 90000 of 500000
+ - point 100000 of 500000
+ - point 110000 of 500000
+ - point 120000 of 500000
+ - point 130000 of 500000
+ - point 140000 of 500000
+ - point 150000 of 500000
+ - point 160000 of 500000
+ - point 170000 of 500000
+ - point 180000 of 500000
+ - point 190000 of 500000
+ - point 200000 of 500000
+ - point 210000 of 500000
+ - point 220000 of 500000
+ - point 230000 of 500000
+ - point 240000 of 500000
+ - point 250000 of 500000
+ - point 260000 of 500000
+ - point 270000 of 500000
+ - point 280000 of 500000
+ - point 290000 of 500000
+ - point 300000 of 500000
+ - point 310000 of 500000
+ - point 320000 of 500000
+ - point 330000 of 500000
+ - point 340000 of 500000
+ - point 350000 of 500000
+ - point 360000 of 500000
+ - point 370000 of 500000
+ - point 380000 of 500000
+ - point 390000 of 500000
+ - point 400000 of 500000
+ - point 410000 of 500000
+ - point 420000 of 500000
+ - point 430000 of 500000
+ - point 440000 of 500000
+ - point 450000 of 500000
+ - point 460000 of 500000
+ - point 470000 of 500000
+ - point 480000 of 500000
+ - point 490000 of 500000
+ - point 500000 of 500000
+Done in 5969.22 seconds (sparsity = 0.000294)!
+Learning embedding...
+Iteration 50: error is 141.919960 (50 iterations in 184.83 seconds)
+Iteration 100: error is 141.919960 (50 iterations in 189.47 seconds)
+Iteration 150: error is 141.919960 (50 iterations in 193.67 seconds)
+Iteration 200: error is 141.919960 (50 iterations in 200.08 seconds)
+Iteration 250: error is 141.919960 (50 iterations in 205.13 seconds)
+Iteration 300: error is 9.341751 (50 iterations in 204.14 seconds)
+Iteration 350: error is 9.318879 (50 iterations in 197.64 seconds)
+Iteration 400: error is 8.359128 (50 iterations in 182.88 seconds)
+Iteration 450: error is 7.716100 (50 iterations in 176.04 seconds)
+Iteration 500: error is 7.374038 (50 iterations in 174.34 seconds)
+Iteration 550: error is 7.139582 (50 iterations in 172.20 seconds)
+Iteration 600: error is 6.959064 (50 iterations in 172.08 seconds)
+Iteration 650: error is 6.811380 (50 iterations in 171.42 seconds)
+Iteration 700: error is 6.686579 (50 iterations in 171.60 seconds)
+Iteration 750: error is 6.578747 (50 iterations in 171.46 seconds)
+Iteration 800: error is 6.483713 (50 iterations in 170.39 seconds)
+Iteration 850: error is 6.398700 (50 iterations in 170.48 seconds)
+Iteration 900: error is 6.321802 (50 iterations in 170.23 seconds)
+Iteration 950: error is 6.251471 (50 iterations in 171.18 seconds)
+Iteration 1000: error is 6.186924 (50 iterations in 171.36 seconds)
+Fitting performed in 3620.62 seconds.
+Rtsne benchmark time: 2.702646 
+[1] "--------------------------------------------------------------------------------"
+[1] "Rtsne"
+[1] ‘0.15’
+Random state 6 
+[1] "--------------------------------------------------------------------------------"
+[1] 500000     50
+Read the 500000 x 50 data matrix successfully!
+OpenMP is working. 1 threads.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 10000 of 500000
+ - point 20000 of 500000
+ - point 30000 of 500000
+ - point 40000 of 500000
+ - point 50000 of 500000
+ - point 60000 of 500000
+ - point 70000 of 500000
+ - point 80000 of 500000
+ - point 90000 of 500000
+ - point 100000 of 500000
+ - point 110000 of 500000
+ - point 120000 of 500000
+ - point 130000 of 500000
+ - point 140000 of 500000
+ - point 150000 of 500000
+ - point 160000 of 500000
+ - point 170000 of 500000
+ - point 180000 of 500000
+ - point 190000 of 500000
+ - point 200000 of 500000
+ - point 210000 of 500000
+ - point 220000 of 500000
+ - point 230000 of 500000
+ - point 240000 of 500000
+ - point 250000 of 500000
+ - point 260000 of 500000
+ - point 270000 of 500000
+ - point 280000 of 500000
+ - point 290000 of 500000
+ - point 300000 of 500000
+ - point 310000 of 500000
+ - point 320000 of 500000
+ - point 330000 of 500000
+ - point 340000 of 500000
+ - point 350000 of 500000
+ - point 360000 of 500000
+ - point 370000 of 500000
+ - point 380000 of 500000
+ - point 390000 of 500000
+ - point 400000 of 500000
+ - point 410000 of 500000
+ - point 420000 of 500000
+ - point 430000 of 500000
+ - point 440000 of 500000
+ - point 450000 of 500000
+ - point 460000 of 500000
+ - point 470000 of 500000
+ - point 480000 of 500000
+ - point 490000 of 500000
+ - point 500000 of 500000
+Done in 6019.06 seconds (sparsity = 0.000293)!
+Learning embedding...
+Iteration 50: error is 141.923752 (50 iterations in 171.07 seconds)
+Iteration 100: error is 141.923752 (50 iterations in 191.56 seconds)
+Iteration 150: error is 141.923752 (50 iterations in 199.64 seconds)
+Iteration 200: error is 141.923752 (50 iterations in 193.33 seconds)
+Iteration 250: error is 141.923752 (50 iterations in 199.71 seconds)
+Iteration 300: error is 9.342061 (50 iterations in 210.72 seconds)
+Iteration 350: error is 9.309255 (50 iterations in 208.79 seconds)
+Iteration 400: error is 8.376007 (50 iterations in 176.71 seconds)
+Iteration 450: error is 7.729705 (50 iterations in 163.04 seconds)
+Iteration 500: error is 7.392887 (50 iterations in 162.06 seconds)
+Iteration 550: error is 7.161077 (50 iterations in 161.42 seconds)
+Iteration 600: error is 6.982616 (50 iterations in 161.64 seconds)
+Iteration 650: error is 6.836721 (50 iterations in 162.31 seconds)
+Iteration 700: error is 6.712771 (50 iterations in 162.84 seconds)
+Iteration 750: error is 6.604794 (50 iterations in 162.73 seconds)
+Iteration 800: error is 6.508815 (50 iterations in 162.46 seconds)
+Iteration 850: error is 6.422372 (50 iterations in 162.19 seconds)
+Iteration 900: error is 6.343850 (50 iterations in 161.81 seconds)
+Iteration 950: error is 6.272903 (50 iterations in 161.38 seconds)
+Iteration 1000: error is 6.207798 (50 iterations in 163.71 seconds)
+Fitting performed in 3499.12 seconds.
+Rtsne benchmark time: 2.681146 

@@ -1,0 +1,87 @@
+[1] "--------------------------------------------------------------------------------"
+[1] "Rtsne"
+[1] ‘0.15’
+Random state 1 
+[1] "--------------------------------------------------------------------------------"
+[1] 750000     50
+Read the 750000 x 50 data matrix successfully!
+OpenMP is working. 8 threads.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 10000 of 750000
+ - point 20000 of 750000
+ - point 30000 of 750000
+ - point 40000 of 750000
+ - point 50000 of 750000
+ - point 60000 of 750000
+ - point 70000 of 750000
+ - point 80000 of 750000
+ - point 90000 of 750000
+ - point 100000 of 750000
+ - point 110000 of 750000
+ - point 120000 of 750000
+ - point 130000 of 750000
+ - point 140000 of 750000
+ - point 150000 of 750000
+ - point 160000 of 750000
+ - point 170000 of 750000
+ - point 180000 of 750000
+ - point 190000 of 750000
+ - point 200000 of 750000
+ - point 210000 of 750000
+ - point 220000 of 750000
+ - point 230000 of 750000
+ - point 240000 of 750000
+ - point 250000 of 750000
+ - point 260000 of 750000
+ - point 270000 of 750000
+ - point 280000 of 750000
+ - point 290000 of 750000
+ - point 300000 of 750000
+ - point 310000 of 750000
+ - point 320000 of 750000
+ - point 330000 of 750000
+ - point 340000 of 750000
+ - point 350000 of 750000
+ - point 360000 of 750000
+ - point 370000 of 750000
+ - point 380000 of 750000
+ - point 390000 of 750000
+ - point 400000 of 750000
+ - point 410000 of 750000
+ - point 420000 of 750000
+ - point 430000 of 750000
+ - point 440000 of 750000
+ - point 450000 of 750000
+ - point 460000 of 750000
+ - point 470000 of 750000
+ - point 480000 of 750000
+ - point 490000 of 750000
+ - point 500000 of 750000
+ - point 510000 of 750000
+ - point 520000 of 750000
+ - point 530000 of 750000
+ - point 540000 of 750000
+ - point 550000 of 750000
+ - point 560000 of 750000
+ - point 570000 of 750000
+ - point 580000 of 750000
+ - point 590000 of 750000
+ - point 600000 of 750000
+ - point 610000 of 750000
+ - point 620000 of 750000
+ - point 630000 of 750000
+ - point 640000 of 750000
+ - point 650000 of 750000
+ - point 660000 of 750000
+ - point 670000 of 750000
+ - point 680000 of 750000
+ - point 690000 of 750000
+ - point 700000 of 750000
+ - point 710000 of 750000
+ - point 720000 of 750000
+ - point 730000 of 750000
+ - point 740000 of 750000
+Error: C stack usage  979656696988 is too close to the limit
+Execution halted

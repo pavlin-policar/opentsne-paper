@@ -1,0 +1,152 @@
+[1] "--------------------------------------------------------------------------------"
+[1] "Rtsne"
+[1] ‘0.15’
+Random state 1 
+[1] "--------------------------------------------------------------------------------"
+[1] 250000     50
+Read the 250000 x 50 data matrix successfully!
+OpenMP is working. 8 threads.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 10000 of 250000
+ - point 20000 of 250000
+ - point 30000 of 250000
+ - point 40000 of 250000
+ - point 50000 of 250000
+ - point 60000 of 250000
+ - point 70000 of 250000
+ - point 80000 of 250000
+ - point 90000 of 250000
+ - point 100000 of 250000
+ - point 110000 of 250000
+ - point 120000 of 250000
+ - point 130000 of 250000
+ - point 140000 of 250000
+ - point 150000 of 250000
+ - point 160000 of 250000
+ - point 170000 of 250000
+ - point 180000 of 250000
+ - point 190000 of 250000
+ - point 200000 of 250000
+ - point 210000 of 250000
+ - point 220000 of 250000
+ - point 230000 of 250000
+ - point 240000 of 250000
+ - point 250000 of 250000
+Done in 2110.09 seconds (sparsity = 0.000580)!
+Learning embedding...
+Iteration 50: error is 133.764667 (50 iterations in 96.62 seconds)
+Iteration 100: error is 133.764667 (50 iterations in 103.27 seconds)
+Iteration 150: error is 133.764667 (50 iterations in 115.37 seconds)
+Iteration 200: error is 133.764665 (50 iterations in 132.20 seconds)
+Iteration 250: error is 133.764153 (50 iterations in 151.23 seconds)
+Iteration 300: error is 8.178725 (50 iterations in 139.79 seconds)
+Iteration 350: error is 7.096942 (50 iterations in 98.33 seconds)
+Iteration 400: error is 6.632962 (50 iterations in 98.62 seconds)
+Iteration 450: error is 6.319182 (50 iterations in 98.70 seconds)
+Iteration 500: error is 6.099737 (50 iterations in 97.07 seconds)
+Iteration 550: error is 5.931156 (50 iterations in 95.34 seconds)
+Iteration 600: error is 5.793250 (50 iterations in 93.45 seconds)
+Iteration 650: error is 5.675823 (50 iterations in 92.79 seconds)
+Iteration 700: error is 5.573483 (50 iterations in 92.54 seconds)
+Iteration 750: error is 5.483268 (50 iterations in 92.17 seconds)
+Iteration 800: error is 5.403078 (50 iterations in 91.63 seconds)
+Iteration 850: error is 5.331450 (50 iterations in 91.48 seconds)
+Iteration 900: error is 5.267226 (50 iterations in 91.17 seconds)
+Iteration 950: error is 5.208916 (50 iterations in 90.89 seconds)
+Iteration 1000: error is 5.155532 (50 iterations in 90.72 seconds)
+Fitting performed in 2053.38 seconds.
+Rtsne benchmark time: 14.15226 
+[1] "--------------------------------------------------------------------------------"
+[1] "Rtsne"
+[1] ‘0.15’
+Random state 2 
+[1] "--------------------------------------------------------------------------------"
+[1] 250000     50
+Read the 250000 x 50 data matrix successfully!
+OpenMP is working. 8 threads.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 10000 of 250000
+ - point 20000 of 250000
+ - point 30000 of 250000
+ - point 40000 of 250000
+ - point 50000 of 250000
+ - point 60000 of 250000
+ - point 70000 of 250000
+ - point 80000 of 250000
+ - point 90000 of 250000
+ - point 100000 of 250000
+ - point 110000 of 250000
+ - point 120000 of 250000
+ - point 130000 of 250000
+ - point 140000 of 250000
+ - point 150000 of 250000
+ - point 160000 of 250000
+ - point 170000 of 250000
+ - point 180000 of 250000
+ - point 190000 of 250000
+ - point 200000 of 250000
+ - point 210000 of 250000
+ - point 220000 of 250000
+ - point 230000 of 250000
+ - point 240000 of 250000
+ - point 250000 of 250000
+Done in 2267.55 seconds (sparsity = 0.000580)!
+Learning embedding...
+Iteration 50: error is 133.774402 (50 iterations in 95.57 seconds)
+Iteration 100: error is 133.774402 (50 iterations in 111.31 seconds)
+Iteration 150: error is 133.774402 (50 iterations in 125.26 seconds)
+Iteration 200: error is 133.774401 (50 iterations in 133.12 seconds)
+Iteration 250: error is 133.774085 (50 iterations in 139.64 seconds)
+Iteration 300: error is 8.208996 (50 iterations in 122.17 seconds)
+Iteration 350: error is 7.038499 (50 iterations in 93.09 seconds)
+Iteration 400: error is 6.579694 (50 iterations in 89.91 seconds)
+Iteration 450: error is 6.292257 (50 iterations in 88.41 seconds)
+Iteration 500: error is 6.085442 (50 iterations in 88.57 seconds)
+Iteration 550: error is 5.923527 (50 iterations in 88.77 seconds)
+Iteration 600: error is 5.789254 (50 iterations in 89.16 seconds)
+Iteration 650: error is 5.675673 (50 iterations in 88.63 seconds)
+Iteration 700: error is 5.577312 (50 iterations in 88.82 seconds)
+Iteration 750: error is 5.490662 (50 iterations in 88.38 seconds)
+Iteration 800: error is 5.413729 (50 iterations in 88.88 seconds)
+Iteration 850: error is 5.344542 (50 iterations in 88.03 seconds)
+Iteration 900: error is 5.281749 (50 iterations in 88.55 seconds)
+Iteration 950: error is 5.224253 (50 iterations in 88.04 seconds)
+Iteration 1000: error is 5.171424 (50 iterations in 88.36 seconds)
+Fitting performed in 1972.67 seconds.
+Rtsne benchmark time: 14.23804 
+[1] "--------------------------------------------------------------------------------"
+[1] "Rtsne"
+[1] ‘0.15’
+Random state 3 
+[1] "--------------------------------------------------------------------------------"
+[1] 250000     50
+Read the 250000 x 50 data matrix successfully!
+OpenMP is working. 8 threads.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 10000 of 250000
+ - point 20000 of 250000
+ - point 30000 of 250000
+ - point 40000 of 250000
+ - point 50000 of 250000
+ - point 60000 of 250000
+ - point 70000 of 250000
+ - point 80000 of 250000
+ - point 90000 of 250000
+ - point 100000 of 250000
+ - point 110000 of 250000
+ - point 120000 of 250000
+ - point 130000 of 250000
+ - point 140000 of 250000
+ - point 150000 of 250000
+ - point 160000 of 250000
+ - point 170000 of 250000
+ - point 180000 of 250000
+ - point 190000 of 250000
+Error: C stack usage  902633608348 is too close to the limit
+Execution halted

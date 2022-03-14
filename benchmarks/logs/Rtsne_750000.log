@@ -1,0 +1,660 @@
+[1] "--------------------------------------------------------------------------------"
+[1] "Rtsne"
+[1] ‘0.15’
+Random state 1 
+[1] "--------------------------------------------------------------------------------"
+[1] 750000     50
+Read the 750000 x 50 data matrix successfully!
+OpenMP is working. 1 threads.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 10000 of 750000
+ - point 20000 of 750000
+ - point 30000 of 750000
+ - point 40000 of 750000
+ - point 50000 of 750000
+ - point 60000 of 750000
+ - point 70000 of 750000
+ - point 80000 of 750000
+ - point 90000 of 750000
+ - point 100000 of 750000
+ - point 110000 of 750000
+ - point 120000 of 750000
+ - point 130000 of 750000
+ - point 140000 of 750000
+ - point 150000 of 750000
+ - point 160000 of 750000
+ - point 170000 of 750000
+ - point 180000 of 750000
+ - point 190000 of 750000
+ - point 200000 of 750000
+ - point 210000 of 750000
+ - point 220000 of 750000
+ - point 230000 of 750000
+ - point 240000 of 750000
+ - point 250000 of 750000
+ - point 260000 of 750000
+ - point 270000 of 750000
+ - point 280000 of 750000
+ - point 290000 of 750000
+ - point 300000 of 750000
+ - point 310000 of 750000
+ - point 320000 of 750000
+ - point 330000 of 750000
+ - point 340000 of 750000
+ - point 350000 of 750000
+ - point 360000 of 750000
+ - point 370000 of 750000
+ - point 380000 of 750000
+ - point 390000 of 750000
+ - point 400000 of 750000
+ - point 410000 of 750000
+ - point 420000 of 750000
+ - point 430000 of 750000
+ - point 440000 of 750000
+ - point 450000 of 750000
+ - point 460000 of 750000
+ - point 470000 of 750000
+ - point 480000 of 750000
+ - point 490000 of 750000
+ - point 500000 of 750000
+ - point 510000 of 750000
+ - point 520000 of 750000
+ - point 530000 of 750000
+ - point 540000 of 750000
+ - point 550000 of 750000
+ - point 560000 of 750000
+ - point 570000 of 750000
+ - point 580000 of 750000
+ - point 590000 of 750000
+ - point 600000 of 750000
+ - point 610000 of 750000
+ - point 620000 of 750000
+ - point 630000 of 750000
+ - point 640000 of 750000
+ - point 650000 of 750000
+ - point 660000 of 750000
+ - point 670000 of 750000
+ - point 680000 of 750000
+ - point 690000 of 750000
+ - point 700000 of 750000
+ - point 710000 of 750000
+ - point 720000 of 750000
+ - point 730000 of 750000
+ - point 740000 of 750000
+ - point 750000 of 750000
+Done in 12162.54 seconds (sparsity = 0.000197)!
+Learning embedding...
+Iteration 50: error is 146.698214 (50 iterations in 259.63 seconds)
+Iteration 100: error is 146.698214 (50 iterations in 271.24 seconds)
+Iteration 150: error is 146.698214 (50 iterations in 293.51 seconds)
+Iteration 200: error is 146.698214 (50 iterations in 279.76 seconds)
+Iteration 250: error is 146.698214 (50 iterations in 293.21 seconds)
+Iteration 300: error is 9.739944 (50 iterations in 312.12 seconds)
+Iteration 350: error is 9.739913 (50 iterations in 312.77 seconds)
+Iteration 400: error is 9.718735 (50 iterations in 306.80 seconds)
+Iteration 450: error is 9.147828 (50 iterations in 276.82 seconds)
+Iteration 500: error is 8.502910 (50 iterations in 257.34 seconds)
+Iteration 550: error is 8.153649 (50 iterations in 253.61 seconds)
+Iteration 600: error is 7.912411 (50 iterations in 252.11 seconds)
+Iteration 650: error is 7.724146 (50 iterations in 248.46 seconds)
+Iteration 700: error is 7.571069 (50 iterations in 245.91 seconds)
+Iteration 750: error is 7.441932 (50 iterations in 246.20 seconds)
+Iteration 800: error is 7.329572 (50 iterations in 246.55 seconds)
+Iteration 850: error is 7.229283 (50 iterations in 245.84 seconds)
+Iteration 900: error is 7.139016 (50 iterations in 245.74 seconds)
+Iteration 950: error is 7.056645 (50 iterations in 246.95 seconds)
+Iteration 1000: error is 6.980943 (50 iterations in 248.20 seconds)
+Fitting performed in 5342.75 seconds.
+Rtsne benchmark time: 4.921082 
+[1] "--------------------------------------------------------------------------------"
+[1] "Rtsne"
+[1] ‘0.15’
+Random state 2 
+[1] "--------------------------------------------------------------------------------"
+[1] 750000     50
+Read the 750000 x 50 data matrix successfully!
+OpenMP is working. 1 threads.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 10000 of 750000
+ - point 20000 of 750000
+ - point 30000 of 750000
+ - point 40000 of 750000
+ - point 50000 of 750000
+ - point 60000 of 750000
+ - point 70000 of 750000
+ - point 80000 of 750000
+ - point 90000 of 750000
+ - point 100000 of 750000
+ - point 110000 of 750000
+ - point 120000 of 750000
+ - point 130000 of 750000
+ - point 140000 of 750000
+ - point 150000 of 750000
+ - point 160000 of 750000
+ - point 170000 of 750000
+ - point 180000 of 750000
+ - point 190000 of 750000
+ - point 200000 of 750000
+ - point 210000 of 750000
+ - point 220000 of 750000
+ - point 230000 of 750000
+ - point 240000 of 750000
+ - point 250000 of 750000
+ - point 260000 of 750000
+ - point 270000 of 750000
+ - point 280000 of 750000
+ - point 290000 of 750000
+ - point 300000 of 750000
+ - point 310000 of 750000
+ - point 320000 of 750000
+ - point 330000 of 750000
+ - point 340000 of 750000
+ - point 350000 of 750000
+ - point 360000 of 750000
+ - point 370000 of 750000
+ - point 380000 of 750000
+ - point 390000 of 750000
+ - point 400000 of 750000
+ - point 410000 of 750000
+ - point 420000 of 750000
+ - point 430000 of 750000
+ - point 440000 of 750000
+ - point 450000 of 750000
+ - point 460000 of 750000
+ - point 470000 of 750000
+ - point 480000 of 750000
+ - point 490000 of 750000
+ - point 500000 of 750000
+ - point 510000 of 750000
+ - point 520000 of 750000
+ - point 530000 of 750000
+ - point 540000 of 750000
+ - point 550000 of 750000
+ - point 560000 of 750000
+ - point 570000 of 750000
+ - point 580000 of 750000
+ - point 590000 of 750000
+ - point 600000 of 750000
+ - point 610000 of 750000
+ - point 620000 of 750000
+ - point 630000 of 750000
+ - point 640000 of 750000
+ - point 650000 of 750000
+ - point 660000 of 750000
+ - point 670000 of 750000
+ - point 680000 of 750000
+ - point 690000 of 750000
+ - point 700000 of 750000
+ - point 710000 of 750000
+ - point 720000 of 750000
+ - point 730000 of 750000
+ - point 740000 of 750000
+ - point 750000 of 750000
+Done in 12267.03 seconds (sparsity = 0.000197)!
+Learning embedding...
+Iteration 50: error is 146.698986 (50 iterations in 258.64 seconds)
+Iteration 100: error is 146.698986 (50 iterations in 271.36 seconds)
+Iteration 150: error is 146.698986 (50 iterations in 270.97 seconds)
+Iteration 200: error is 146.698986 (50 iterations in 300.11 seconds)
+Iteration 250: error is 146.698986 (50 iterations in 308.98 seconds)
+Iteration 300: error is 9.740009 (50 iterations in 309.92 seconds)
+Iteration 350: error is 9.739975 (50 iterations in 312.89 seconds)
+Iteration 400: error is 9.716865 (50 iterations in 301.23 seconds)
+Iteration 450: error is 9.014364 (50 iterations in 261.65 seconds)
+Iteration 500: error is 8.337686 (50 iterations in 246.81 seconds)
+Iteration 550: error is 7.984090 (50 iterations in 244.87 seconds)
+Iteration 600: error is 7.743639 (50 iterations in 243.56 seconds)
+Iteration 650: error is 7.560326 (50 iterations in 242.42 seconds)
+Iteration 700: error is 7.411230 (50 iterations in 241.99 seconds)
+Iteration 750: error is 7.284908 (50 iterations in 241.74 seconds)
+Iteration 800: error is 7.174812 (50 iterations in 241.40 seconds)
+Iteration 850: error is 7.077160 (50 iterations in 241.73 seconds)
+Iteration 900: error is 6.989396 (50 iterations in 242.12 seconds)
+Iteration 950: error is 6.909548 (50 iterations in 242.68 seconds)
+Iteration 1000: error is 6.836352 (50 iterations in 242.95 seconds)
+Fitting performed in 5268.05 seconds.
+Rtsne benchmark time: 4.928446 
+[1] "--------------------------------------------------------------------------------"
+[1] "Rtsne"
+[1] ‘0.15’
+Random state 3 
+[1] "--------------------------------------------------------------------------------"
+[1] 750000     50
+Read the 750000 x 50 data matrix successfully!
+OpenMP is working. 1 threads.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 10000 of 750000
+ - point 20000 of 750000
+ - point 30000 of 750000
+ - point 40000 of 750000
+ - point 50000 of 750000
+ - point 60000 of 750000
+ - point 70000 of 750000
+ - point 80000 of 750000
+ - point 90000 of 750000
+ - point 100000 of 750000
+ - point 110000 of 750000
+ - point 120000 of 750000
+ - point 130000 of 750000
+ - point 140000 of 750000
+ - point 150000 of 750000
+ - point 160000 of 750000
+ - point 170000 of 750000
+ - point 180000 of 750000
+ - point 190000 of 750000
+ - point 200000 of 750000
+ - point 210000 of 750000
+ - point 220000 of 750000
+ - point 230000 of 750000
+ - point 240000 of 750000
+ - point 250000 of 750000
+ - point 260000 of 750000
+ - point 270000 of 750000
+ - point 280000 of 750000
+ - point 290000 of 750000
+ - point 300000 of 750000
+ - point 310000 of 750000
+ - point 320000 of 750000
+ - point 330000 of 750000
+ - point 340000 of 750000
+ - point 350000 of 750000
+ - point 360000 of 750000
+ - point 370000 of 750000
+ - point 380000 of 750000
+ - point 390000 of 750000
+ - point 400000 of 750000
+ - point 410000 of 750000
+ - point 420000 of 750000
+ - point 430000 of 750000
+ - point 440000 of 750000
+ - point 450000 of 750000
+ - point 460000 of 750000
+ - point 470000 of 750000
+ - point 480000 of 750000
+ - point 490000 of 750000
+ - point 500000 of 750000
+ - point 510000 of 750000
+ - point 520000 of 750000
+ - point 530000 of 750000
+ - point 540000 of 750000
+ - point 550000 of 750000
+ - point 560000 of 750000
+ - point 570000 of 750000
+ - point 580000 of 750000
+ - point 590000 of 750000
+ - point 600000 of 750000
+ - point 610000 of 750000
+ - point 620000 of 750000
+ - point 630000 of 750000
+ - point 640000 of 750000
+ - point 650000 of 750000
+ - point 660000 of 750000
+ - point 670000 of 750000
+ - point 680000 of 750000
+ - point 690000 of 750000
+ - point 700000 of 750000
+ - point 710000 of 750000
+ - point 720000 of 750000
+ - point 730000 of 750000
+ - point 740000 of 750000
+ - point 750000 of 750000
+Done in 13151.53 seconds (sparsity = 0.000197)!
+Learning embedding...
+Iteration 50: error is 146.703640 (50 iterations in 309.30 seconds)
+Iteration 100: error is 146.703640 (50 iterations in 316.35 seconds)
+Iteration 150: error is 146.703640 (50 iterations in 343.39 seconds)
+Iteration 200: error is 146.703640 (50 iterations in 313.58 seconds)
+Iteration 250: error is 146.703640 (50 iterations in 320.92 seconds)
+Iteration 300: error is 9.740397 (50 iterations in 330.99 seconds)
+Iteration 350: error is 9.740373 (50 iterations in 342.13 seconds)
+Iteration 400: error is 9.724876 (50 iterations in 335.49 seconds)
+Iteration 450: error is 9.100933 (50 iterations in 307.15 seconds)
+Iteration 500: error is 8.407511 (50 iterations in 295.69 seconds)
+Iteration 550: error is 8.059709 (50 iterations in 288.41 seconds)
+Iteration 600: error is 7.829136 (50 iterations in 287.54 seconds)
+Iteration 650: error is 7.654320 (50 iterations in 288.49 seconds)
+Iteration 700: error is 7.511208 (50 iterations in 289.90 seconds)
+Iteration 750: error is 7.387837 (50 iterations in 290.30 seconds)
+Iteration 800: error is 7.278843 (50 iterations in 290.35 seconds)
+Iteration 850: error is 7.180856 (50 iterations in 290.50 seconds)
+Iteration 900: error is 7.091643 (50 iterations in 291.18 seconds)
+Iteration 950: error is 7.009748 (50 iterations in 292.20 seconds)
+Iteration 1000: error is 6.934012 (50 iterations in 292.96 seconds)
+Fitting performed in 6116.84 seconds.
+Rtsne benchmark time: 5.414892 
+[1] "--------------------------------------------------------------------------------"
+[1] "Rtsne"
+[1] ‘0.15’
+Random state 4 
+[1] "--------------------------------------------------------------------------------"
+[1] 750000     50
+Read the 750000 x 50 data matrix successfully!
+OpenMP is working. 1 threads.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 10000 of 750000
+ - point 20000 of 750000
+ - point 30000 of 750000
+ - point 40000 of 750000
+ - point 50000 of 750000
+ - point 60000 of 750000
+ - point 70000 of 750000
+ - point 80000 of 750000
+ - point 90000 of 750000
+ - point 100000 of 750000
+ - point 110000 of 750000
+ - point 120000 of 750000
+ - point 130000 of 750000
+ - point 140000 of 750000
+ - point 150000 of 750000
+ - point 160000 of 750000
+ - point 170000 of 750000
+ - point 180000 of 750000
+ - point 190000 of 750000
+ - point 200000 of 750000
+ - point 210000 of 750000
+ - point 220000 of 750000
+ - point 230000 of 750000
+ - point 240000 of 750000
+ - point 250000 of 750000
+ - point 260000 of 750000
+ - point 270000 of 750000
+ - point 280000 of 750000
+ - point 290000 of 750000
+ - point 300000 of 750000
+ - point 310000 of 750000
+ - point 320000 of 750000
+ - point 330000 of 750000
+ - point 340000 of 750000
+ - point 350000 of 750000
+ - point 360000 of 750000
+ - point 370000 of 750000
+ - point 380000 of 750000
+ - point 390000 of 750000
+ - point 400000 of 750000
+ - point 410000 of 750000
+ - point 420000 of 750000
+ - point 430000 of 750000
+ - point 440000 of 750000
+ - point 450000 of 750000
+ - point 460000 of 750000
+ - point 470000 of 750000
+ - point 480000 of 750000
+ - point 490000 of 750000
+ - point 500000 of 750000
+ - point 510000 of 750000
+ - point 520000 of 750000
+ - point 530000 of 750000
+ - point 540000 of 750000
+ - point 550000 of 750000
+ - point 560000 of 750000
+ - point 570000 of 750000
+ - point 580000 of 750000
+ - point 590000 of 750000
+ - point 600000 of 750000
+ - point 610000 of 750000
+ - point 620000 of 750000
+ - point 630000 of 750000
+ - point 640000 of 750000
+ - point 650000 of 750000
+ - point 660000 of 750000
+ - point 670000 of 750000
+ - point 680000 of 750000
+ - point 690000 of 750000
+ - point 700000 of 750000
+ - point 710000 of 750000
+ - point 720000 of 750000
+ - point 730000 of 750000
+ - point 740000 of 750000
+ - point 750000 of 750000
+Done in 12259.75 seconds (sparsity = 0.000197)!
+Learning embedding...
+Iteration 50: error is 146.700379 (50 iterations in 268.82 seconds)
+Iteration 100: error is 146.700379 (50 iterations in 275.98 seconds)
+Iteration 150: error is 146.700379 (50 iterations in 287.74 seconds)
+Iteration 200: error is 146.700379 (50 iterations in 303.52 seconds)
+Iteration 250: error is 146.700379 (50 iterations in 329.94 seconds)
+Iteration 300: error is 9.740125 (50 iterations in 357.29 seconds)
+Iteration 350: error is 9.740100 (50 iterations in 375.79 seconds)
+Iteration 400: error is 9.724892 (50 iterations in 363.05 seconds)
+Iteration 450: error is 9.139614 (50 iterations in 281.33 seconds)
+Iteration 500: error is 8.414330 (50 iterations in 253.31 seconds)
+Iteration 550: error is 8.053733 (50 iterations in 248.66 seconds)
+Iteration 600: error is 7.811274 (50 iterations in 248.37 seconds)
+Iteration 650: error is 7.625453 (50 iterations in 248.14 seconds)
+Iteration 700: error is 7.472798 (50 iterations in 256.40 seconds)
+Iteration 750: error is 7.341847 (50 iterations in 249.43 seconds)
+Iteration 800: error is 7.226495 (50 iterations in 249.67 seconds)
+Iteration 850: error is 7.123374 (50 iterations in 250.11 seconds)
+Iteration 900: error is 7.030084 (50 iterations in 250.44 seconds)
+Iteration 950: error is 6.945366 (50 iterations in 250.82 seconds)
+Iteration 1000: error is 6.868519 (50 iterations in 250.45 seconds)
+Fitting performed in 5599.24 seconds.
+Rtsne benchmark time: 5.02048 
+[1] "--------------------------------------------------------------------------------"
+[1] "Rtsne"
+[1] ‘0.15’
+Random state 5 
+[1] "--------------------------------------------------------------------------------"
+[1] 750000     50
+Read the 750000 x 50 data matrix successfully!
+OpenMP is working. 1 threads.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 10000 of 750000
+ - point 20000 of 750000
+ - point 30000 of 750000
+ - point 40000 of 750000
+ - point 50000 of 750000
+ - point 60000 of 750000
+ - point 70000 of 750000
+ - point 80000 of 750000
+ - point 90000 of 750000
+ - point 100000 of 750000
+ - point 110000 of 750000
+ - point 120000 of 750000
+ - point 130000 of 750000
+ - point 140000 of 750000
+ - point 150000 of 750000
+ - point 160000 of 750000
+ - point 170000 of 750000
+ - point 180000 of 750000
+ - point 190000 of 750000
+ - point 200000 of 750000
+ - point 210000 of 750000
+ - point 220000 of 750000
+ - point 230000 of 750000
+ - point 240000 of 750000
+ - point 250000 of 750000
+ - point 260000 of 750000
+ - point 270000 of 750000
+ - point 280000 of 750000
+ - point 290000 of 750000
+ - point 300000 of 750000
+ - point 310000 of 750000
+ - point 320000 of 750000
+ - point 330000 of 750000
+ - point 340000 of 750000
+ - point 350000 of 750000
+ - point 360000 of 750000
+ - point 370000 of 750000
+ - point 380000 of 750000
+ - point 390000 of 750000
+ - point 400000 of 750000
+ - point 410000 of 750000
+ - point 420000 of 750000
+ - point 430000 of 750000
+ - point 440000 of 750000
+ - point 450000 of 750000
+ - point 460000 of 750000
+ - point 470000 of 750000
+ - point 480000 of 750000
+ - point 490000 of 750000
+ - point 500000 of 750000
+ - point 510000 of 750000
+ - point 520000 of 750000
+ - point 530000 of 750000
+ - point 540000 of 750000
+ - point 550000 of 750000
+ - point 560000 of 750000
+ - point 570000 of 750000
+ - point 580000 of 750000
+ - point 590000 of 750000
+ - point 600000 of 750000
+ - point 610000 of 750000
+ - point 620000 of 750000
+ - point 630000 of 750000
+ - point 640000 of 750000
+ - point 650000 of 750000
+ - point 660000 of 750000
+ - point 670000 of 750000
+ - point 680000 of 750000
+ - point 690000 of 750000
+ - point 700000 of 750000
+ - point 710000 of 750000
+ - point 720000 of 750000
+ - point 730000 of 750000
+ - point 740000 of 750000
+ - point 750000 of 750000
+Done in 13316.61 seconds (sparsity = 0.000197)!
+Learning embedding...
+Iteration 50: error is 146.699681 (50 iterations in 304.02 seconds)
+Iteration 100: error is 146.699681 (50 iterations in 304.28 seconds)
+Iteration 150: error is 146.699681 (50 iterations in 311.51 seconds)
+Iteration 200: error is 146.699681 (50 iterations in 310.40 seconds)
+Iteration 250: error is 146.699681 (50 iterations in 319.43 seconds)
+Iteration 300: error is 9.740067 (50 iterations in 337.81 seconds)
+Iteration 350: error is 9.740035 (50 iterations in 349.33 seconds)
+Iteration 400: error is 9.720371 (50 iterations in 345.36 seconds)
+Iteration 450: error is 9.024498 (50 iterations in 310.12 seconds)
+Iteration 500: error is 8.360688 (50 iterations in 294.66 seconds)
+Iteration 550: error is 8.004402 (50 iterations in 289.63 seconds)
+Iteration 600: error is 7.766041 (50 iterations in 287.64 seconds)
+Iteration 650: error is 7.584616 (50 iterations in 292.19 seconds)
+Iteration 700: error is 7.436749 (50 iterations in 294.87 seconds)
+Iteration 750: error is 7.311079 (50 iterations in 295.79 seconds)
+Iteration 800: error is 7.201518 (50 iterations in 295.90 seconds)
+Iteration 850: error is 7.104318 (50 iterations in 294.69 seconds)
+Iteration 900: error is 7.017003 (50 iterations in 296.95 seconds)
+Iteration 950: error is 6.937705 (50 iterations in 297.68 seconds)
+Iteration 1000: error is 6.864992 (50 iterations in 297.36 seconds)
+Fitting performed in 6129.64 seconds.
+Rtsne benchmark time: 5.464173 
+[1] "--------------------------------------------------------------------------------"
+[1] "Rtsne"
+[1] ‘0.15’
+Random state 6 
+[1] "--------------------------------------------------------------------------------"
+[1] 750000     50
+Read the 750000 x 50 data matrix successfully!
+OpenMP is working. 1 threads.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 10000 of 750000
+ - point 20000 of 750000
+ - point 30000 of 750000
+ - point 40000 of 750000
+ - point 50000 of 750000
+ - point 60000 of 750000
+ - point 70000 of 750000
+ - point 80000 of 750000
+ - point 90000 of 750000
+ - point 100000 of 750000
+ - point 110000 of 750000
+ - point 120000 of 750000
+ - point 130000 of 750000
+ - point 140000 of 750000
+ - point 150000 of 750000
+ - point 160000 of 750000
+ - point 170000 of 750000
+ - point 180000 of 750000
+ - point 190000 of 750000
+ - point 200000 of 750000
+ - point 210000 of 750000
+ - point 220000 of 750000
+ - point 230000 of 750000
+ - point 240000 of 750000
+ - point 250000 of 750000
+ - point 260000 of 750000
+ - point 270000 of 750000
+ - point 280000 of 750000
+ - point 290000 of 750000
+ - point 300000 of 750000
+ - point 310000 of 750000
+ - point 320000 of 750000
+ - point 330000 of 750000
+ - point 340000 of 750000
+ - point 350000 of 750000
+ - point 360000 of 750000
+ - point 370000 of 750000
+ - point 380000 of 750000
+ - point 390000 of 750000
+ - point 400000 of 750000
+ - point 410000 of 750000
+ - point 420000 of 750000
+ - point 430000 of 750000
+ - point 440000 of 750000
+ - point 450000 of 750000
+ - point 460000 of 750000
+ - point 470000 of 750000
+ - point 480000 of 750000
+ - point 490000 of 750000
+ - point 500000 of 750000
+ - point 510000 of 750000
+ - point 520000 of 750000
+ - point 530000 of 750000
+ - point 540000 of 750000
+ - point 550000 of 750000
+ - point 560000 of 750000
+ - point 570000 of 750000
+ - point 580000 of 750000
+ - point 590000 of 750000
+ - point 600000 of 750000
+ - point 610000 of 750000
+ - point 620000 of 750000
+ - point 630000 of 750000
+ - point 640000 of 750000
+ - point 650000 of 750000
+ - point 660000 of 750000
+ - point 670000 of 750000
+ - point 680000 of 750000
+ - point 690000 of 750000
+ - point 700000 of 750000
+ - point 710000 of 750000
+ - point 720000 of 750000
+ - point 730000 of 750000
+ - point 740000 of 750000
+ - point 750000 of 750000
+Done in 12409.88 seconds (sparsity = 0.000197)!
+Learning embedding...
+Iteration 50: error is 146.700162 (50 iterations in 259.32 seconds)
+Iteration 100: error is 146.700162 (50 iterations in 279.36 seconds)
+Iteration 150: error is 146.700162 (50 iterations in 271.37 seconds)
+Iteration 200: error is 146.700162 (50 iterations in 270.75 seconds)
+Iteration 250: error is 146.700162 (50 iterations in 280.32 seconds)
+Iteration 300: error is 9.740107 (50 iterations in 294.42 seconds)
+Iteration 350: error is 9.740070 (50 iterations in 307.80 seconds)
+Iteration 400: error is 9.716667 (50 iterations in 304.69 seconds)
+Iteration 450: error is 9.048656 (50 iterations in 264.22 seconds)
+Iteration 500: error is 8.349152 (50 iterations in 250.77 seconds)
+Iteration 550: error is 7.989625 (50 iterations in 249.60 seconds)
+Iteration 600: error is 7.748126 (50 iterations in 249.43 seconds)
+Iteration 650: error is 7.564084 (50 iterations in 249.45 seconds)
+Iteration 700: error is 7.414338 (50 iterations in 248.60 seconds)
+Iteration 750: error is 7.287640 (50 iterations in 249.05 seconds)
+Iteration 800: error is 7.177393 (50 iterations in 249.42 seconds)
+Iteration 850: error is 7.079668 (50 iterations in 250.41 seconds)
+Iteration 900: error is 6.991866 (50 iterations in 250.47 seconds)
+Iteration 950: error is 6.911901 (50 iterations in 250.48 seconds)
+Iteration 1000: error is 6.838644 (50 iterations in 251.12 seconds)
+Fitting performed in 5281.07 seconds.
+Rtsne benchmark time: 4.971384 
