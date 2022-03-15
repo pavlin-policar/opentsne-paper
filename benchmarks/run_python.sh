@@ -2,10 +2,10 @@
 
 set -e
 
-mamba create --name tsne_benchmarks -y
+conda create --name tsne_benchmarks -y
 eval "$(conda shell.bash hook)"  # activate conda env inside script
 conda activate tsne_benchmarks
-mamba install -y python numpy scikit-learn
+conda install -y python numpy scikit-learn
 
 pip install opentsne
 pip install -r requirements-benchmarks.txt
@@ -15,7 +15,7 @@ pip install --upgrade numpy
 
 # Setup FIt-SNE
 git clone git@github.com:KlugerLab/FIt-SNE.git || :
-mamba install -c conda-forge fftw -y
+conda install -c conda-forge fftw -y
 cd FIt-SNE
 CPLUS_INCLUDE_PATH="${CONDA_PREFIX}/include/" LIBRARY_PATH="${CONDA_PREFIX}/lib/" \
     g++ -std=c++11 -O3  src/sptree.cpp src/tsne.cpp src/nbodyfft.cpp  \
