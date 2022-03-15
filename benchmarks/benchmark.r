@@ -3,6 +3,8 @@ library(optparse)
 library(Rtsne)
 
 
+sessionInfo()
+
 option_list = list(
     make_option(c("--repetitions"), type="integer", default=1),
     make_option(c("--n-samples"), type="integer", default=FALSE),

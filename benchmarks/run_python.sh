@@ -2,10 +2,10 @@
 
 set -e
 
-conda create --name tsne_benchmarks -y
+mamba create --name tsne_benchmarks -y
 eval "$(conda shell.bash hook)"  # activate conda env inside script
 conda activate tsne_benchmarks
-conda install -y python numpy scikit-learn
+mamba install -y python numpy scikit-learn
 
 pip install opentsne
 pip install -r requirements-benchmarks.txt
@@ -15,7 +15,7 @@ pip install --upgrade numpy
 
 # Setup FIt-SNE
 git clone git@github.com:KlugerLab/FIt-SNE.git || :
-conda install -c conda-forge fftw -y
+mamba install -c conda-forge fftw -y
 cd FIt-SNE
 CPLUS_INCLUDE_PATH="${CONDA_PREFIX}/include/" LIBRARY_PATH="${CONDA_PREFIX}/lib/" \
     g++ -std=c++11 -O3  src/sptree.cpp src/tsne.cpp src/nbodyfft.cpp  \
@@ -30,6 +30,8 @@ wget -nc -P data http://file.biolab.si/opentsne/10x_mouse_zheng.pkl.gz
 
 # Prepare logs directory
 mkdir -p logs
+
+conda env export > logs/00--run_python--conda_env.txt
 
 # RUN BENCHMARKS
 SAMPLE_SIZES=(1000 100000 250000 500000 750000 1000000);
