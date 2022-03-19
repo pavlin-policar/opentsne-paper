@@ -1,11 +1,9 @@
+import anndata
 import argparse
-import sys
-from os import path, listdir
-
 import pandas as pd
 import scipy.sparse as sp
-import anndata
-
+import sys
+from os import path, listdir
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-i", "--in-dir", required=True)

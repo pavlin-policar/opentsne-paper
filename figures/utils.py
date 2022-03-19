@@ -3,9 +3,6 @@ from os.path import abspath, dirname, join
 import numpy as np
 import scipy.sparse as sp
 
-FILE_DIR = dirname(abspath(__file__))
-DATA_DIR = join(FILE_DIR, "data")
-
 
 def calculate_cpm(x, axis=1):
     """Calculate counts-per-million on data where the rows are genes.
