@@ -21,7 +21,7 @@ python convert_pickle_to_csv.py
 # Prepare logs directory
 mkdir -p logs
 
-conda env export > logs/00--run_r--conda_env.txt
+conda env export > logs/00--run_r--conda_env.yml
 
 # RUN BENCHMARKS
 REPETITIONS=6;

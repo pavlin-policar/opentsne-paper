@@ -21,7 +21,7 @@ wget -nc -P data http://file.biolab.si/opentsne/10x_mouse_zheng.pkl.gz
 # Prepare logs directory
 mkdir -p logs
 
-conda env export > logs/00--run_julia--conda_env.txt
+conda env export > logs/00--run_julia--conda_env.yml
 
 # RUN BENCHMARKS
 SAMPLE_SIZES=(1000 5000 10000 20000 50000);
