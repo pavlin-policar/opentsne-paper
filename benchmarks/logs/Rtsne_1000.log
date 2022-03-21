@@ -11,7 +11,7 @@ Computing input similarities...
 Building tree...
 Done in 0.11 seconds (sparsity = 0.136496)!
 Learning embedding...
-Iteration 50: error is 68.473877 (50 iterations in 0.18 seconds)
+Iteration 50: error is 68.473877 (50 iterations in 0.17 seconds)
 Iteration 100: error is 63.781933 (50 iterations in 0.11 seconds)
 Iteration 150: error is 63.742540 (50 iterations in 0.11 seconds)
 Iteration 200: error is 63.744371 (50 iterations in 0.11 seconds)
@@ -20,8 +20,8 @@ Iteration 300: error is 0.998914 (50 iterations in 0.10 seconds)
 Iteration 350: error is 0.869950 (50 iterations in 0.10 seconds)
 Iteration 400: error is 0.838531 (50 iterations in 0.10 seconds)
 Iteration 450: error is 0.827428 (50 iterations in 0.10 seconds)
-Iteration 500: error is 0.819553 (50 iterations in 0.11 seconds)
-Iteration 550: error is 0.814823 (50 iterations in 0.11 seconds)
+Iteration 500: error is 0.819553 (50 iterations in 0.10 seconds)
+Iteration 550: error is 0.814823 (50 iterations in 0.10 seconds)
 Iteration 600: error is 0.812004 (50 iterations in 0.10 seconds)
 Iteration 650: error is 0.809398 (50 iterations in 0.11 seconds)
 Iteration 700: error is 0.806954 (50 iterations in 0.11 seconds)
@@ -31,8 +31,8 @@ Iteration 850: error is 0.802481 (50 iterations in 0.11 seconds)
 Iteration 900: error is 0.801523 (50 iterations in 0.11 seconds)
 Iteration 950: error is 0.800341 (50 iterations in 0.11 seconds)
 Iteration 1000: error is 0.799314 (50 iterations in 0.11 seconds)
-Fitting performed in 2.22 seconds.
-Rtsne benchmark time: 2.505323 
+Fitting performed in 2.21 seconds.
+Rtsne benchmark time: 2.491199 
 [1] "--------------------------------------------------------------------------------"
 [1] "Rtsne"
 [1] ‘0.15’
@@ -44,7 +44,7 @@ OpenMP is working. 1 threads.
 Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
 Computing input similarities...
 Building tree...
-Done in 0.12 seconds (sparsity = 0.135214)!
+Done in 0.11 seconds (sparsity = 0.135214)!
 Learning embedding...
 Iteration 50: error is 68.553917 (50 iterations in 0.13 seconds)
 Iteration 100: error is 63.136077 (50 iterations in 0.10 seconds)
@@ -66,8 +66,8 @@ Iteration 850: error is 0.778457 (50 iterations in 0.10 seconds)
 Iteration 900: error is 0.778250 (50 iterations in 0.10 seconds)
 Iteration 950: error is 0.777873 (50 iterations in 0.10 seconds)
 Iteration 1000: error is 0.775254 (50 iterations in 0.10 seconds)
-Fitting performed in 1.99 seconds.
-Rtsne benchmark time: 2.271641 
+Fitting performed in 1.98 seconds.
+Rtsne benchmark time: 2.258822 
 [1] "--------------------------------------------------------------------------------"
 [1] "Rtsne"
 [1] ‘0.15’
@@ -93,7 +93,7 @@ Iteration 450: error is 0.820404 (50 iterations in 0.11 seconds)
 Iteration 500: error is 0.811929 (50 iterations in 0.11 seconds)
 Iteration 550: error is 0.807247 (50 iterations in 0.11 seconds)
 Iteration 600: error is 0.804115 (50 iterations in 0.11 seconds)
-Iteration 650: error is 0.801272 (50 iterations in 0.11 seconds)
+Iteration 650: error is 0.801272 (50 iterations in 0.10 seconds)
 Iteration 700: error is 0.799536 (50 iterations in 0.11 seconds)
 Iteration 750: error is 0.798255 (50 iterations in 0.11 seconds)
 Iteration 800: error is 0.797691 (50 iterations in 0.11 seconds)
@@ -101,8 +101,8 @@ Iteration 850: error is 0.796826 (50 iterations in 0.10 seconds)
 Iteration 900: error is 0.795574 (50 iterations in 0.11 seconds)
 Iteration 950: error is 0.795058 (50 iterations in 0.11 seconds)
 Iteration 1000: error is 0.793909 (50 iterations in 0.11 seconds)
-Fitting performed in 2.28 seconds.
-Rtsne benchmark time: 2.565964 
+Fitting performed in 2.27 seconds.
+Rtsne benchmark time: 2.560821 
 [1] "--------------------------------------------------------------------------------"
 [1] "Rtsne"
 [1] ‘0.15’
@@ -114,13 +114,13 @@ OpenMP is working. 1 threads.
 Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
 Computing input similarities...
 Building tree...
-Done in 0.12 seconds (sparsity = 0.135624)!
+Done in 0.11 seconds (sparsity = 0.135624)!
 Learning embedding...
 Iteration 50: error is 68.237372 (50 iterations in 0.20 seconds)
 Iteration 100: error is 63.420236 (50 iterations in 0.13 seconds)
 Iteration 150: error is 63.235266 (50 iterations in 0.12 seconds)
 Iteration 200: error is 63.172989 (50 iterations in 0.12 seconds)
-Iteration 250: error is 63.149989 (50 iterations in 0.11 seconds)
+Iteration 250: error is 63.149989 (50 iterations in 0.12 seconds)
 Iteration 300: error is 0.968278 (50 iterations in 0.10 seconds)
 Iteration 350: error is 0.846316 (50 iterations in 0.10 seconds)
 Iteration 400: error is 0.817386 (50 iterations in 0.10 seconds)
@@ -137,7 +137,7 @@ Iteration 900: error is 0.776860 (50 iterations in 0.10 seconds)
 Iteration 950: error is 0.775194 (50 iterations in 0.10 seconds)
 Iteration 1000: error is 0.774517 (50 iterations in 0.10 seconds)
 Fitting performed in 2.22 seconds.
-Rtsne benchmark time: 2.498837 
+Rtsne benchmark time: 2.504366 
 [1] "--------------------------------------------------------------------------------"
 [1] "Rtsne"
 [1] ‘0.15’
@@ -152,7 +152,7 @@ Building tree...
 Done in 0.12 seconds (sparsity = 0.136196)!
 Learning embedding...
 Iteration 50: error is 69.054435 (50 iterations in 0.16 seconds)
-Iteration 100: error is 63.635956 (50 iterations in 0.12 seconds)
+Iteration 100: error is 63.635956 (50 iterations in 0.11 seconds)
 Iteration 150: error is 63.595384 (50 iterations in 0.11 seconds)
 Iteration 200: error is 63.596731 (50 iterations in 0.11 seconds)
 Iteration 250: error is 63.596707 (50 iterations in 0.11 seconds)
@@ -172,7 +172,7 @@ Iteration 900: error is 0.815309 (50 iterations in 0.10 seconds)
 Iteration 950: error is 0.813852 (50 iterations in 0.10 seconds)
 Iteration 1000: error is 0.812204 (50 iterations in 0.10 seconds)
 Fitting performed in 2.14 seconds.
-Rtsne benchmark time: 2.425957 
+Rtsne benchmark time: 2.424719 
 [1] "--------------------------------------------------------------------------------"
 [1] "Rtsne"
 [1] ‘0.15’
@@ -193,7 +193,7 @@ Iteration 200: error is 63.924131 (50 iterations in 0.11 seconds)
 Iteration 250: error is 63.880034 (50 iterations in 0.11 seconds)
 Iteration 300: error is 1.017395 (50 iterations in 0.11 seconds)
 Iteration 350: error is 0.894538 (50 iterations in 0.11 seconds)
-Iteration 400: error is 0.858947 (50 iterations in 0.12 seconds)
+Iteration 400: error is 0.858947 (50 iterations in 0.11 seconds)
 Iteration 450: error is 0.845876 (50 iterations in 0.12 seconds)
 Iteration 500: error is 0.839376 (50 iterations in 0.12 seconds)
 Iteration 550: error is 0.833860 (50 iterations in 0.11 seconds)
@@ -204,7 +204,7 @@ Iteration 750: error is 0.825111 (50 iterations in 0.11 seconds)
 Iteration 800: error is 0.822867 (50 iterations in 0.11 seconds)
 Iteration 850: error is 0.820963 (50 iterations in 0.11 seconds)
 Iteration 900: error is 0.821397 (50 iterations in 0.11 seconds)
-Iteration 950: error is 0.820584 (50 iterations in 0.12 seconds)
+Iteration 950: error is 0.820584 (50 iterations in 0.11 seconds)
 Iteration 1000: error is 0.819029 (50 iterations in 0.12 seconds)
-Fitting performed in 2.41 seconds.
-Rtsne benchmark time: 2.704154 
+Fitting performed in 2.40 seconds.
+Rtsne benchmark time: 2.691902 

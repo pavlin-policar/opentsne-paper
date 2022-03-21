@@ -19,30 +19,30 @@ Building tree...
  - point 80000 of 100000
  - point 90000 of 100000
  - point 100000 of 100000
-Done in 327.11 seconds (sparsity = 0.001422)!
+Done in 325.44 seconds (sparsity = 0.001422)!
 Learning embedding...
-Iteration 50: error is 123.028337 (50 iterations in 24.56 seconds)
-Iteration 100: error is 123.028337 (50 iterations in 27.03 seconds)
-Iteration 150: error is 123.028226 (50 iterations in 33.17 seconds)
-Iteration 200: error is 122.129815 (50 iterations in 33.95 seconds)
-Iteration 250: error is 112.044146 (50 iterations in 26.90 seconds)
-Iteration 300: error is 5.600523 (50 iterations in 23.86 seconds)
-Iteration 350: error is 5.174490 (50 iterations in 23.03 seconds)
-Iteration 400: error is 4.924735 (50 iterations in 22.43 seconds)
-Iteration 450: error is 4.747677 (50 iterations in 22.62 seconds)
-Iteration 500: error is 4.609500 (50 iterations in 22.68 seconds)
-Iteration 550: error is 4.497171 (50 iterations in 22.71 seconds)
-Iteration 600: error is 4.403416 (50 iterations in 22.71 seconds)
-Iteration 650: error is 4.323085 (50 iterations in 22.69 seconds)
-Iteration 700: error is 4.252695 (50 iterations in 22.63 seconds)
-Iteration 750: error is 4.190767 (50 iterations in 22.58 seconds)
-Iteration 800: error is 4.135639 (50 iterations in 22.55 seconds)
-Iteration 850: error is 4.085932 (50 iterations in 22.48 seconds)
-Iteration 900: error is 4.040708 (50 iterations in 22.45 seconds)
-Iteration 950: error is 3.999271 (50 iterations in 22.46 seconds)
-Iteration 1000: error is 3.961102 (50 iterations in 22.43 seconds)
-Fitting performed in 485.91 seconds.
-Rtsne benchmark time: 13.92034 
+Iteration 50: error is 123.028337 (50 iterations in 24.20 seconds)
+Iteration 100: error is 123.028337 (50 iterations in 26.63 seconds)
+Iteration 150: error is 123.028226 (50 iterations in 32.65 seconds)
+Iteration 200: error is 122.129815 (50 iterations in 33.47 seconds)
+Iteration 250: error is 112.044146 (50 iterations in 26.47 seconds)
+Iteration 300: error is 5.600523 (50 iterations in 23.49 seconds)
+Iteration 350: error is 5.174490 (50 iterations in 22.70 seconds)
+Iteration 400: error is 4.924735 (50 iterations in 22.06 seconds)
+Iteration 450: error is 4.747677 (50 iterations in 22.26 seconds)
+Iteration 500: error is 4.609500 (50 iterations in 22.33 seconds)
+Iteration 550: error is 4.497171 (50 iterations in 22.34 seconds)
+Iteration 600: error is 4.403416 (50 iterations in 22.34 seconds)
+Iteration 650: error is 4.323085 (50 iterations in 22.32 seconds)
+Iteration 700: error is 4.252695 (50 iterations in 22.23 seconds)
+Iteration 750: error is 4.190767 (50 iterations in 22.20 seconds)
+Iteration 800: error is 4.135639 (50 iterations in 22.21 seconds)
+Iteration 850: error is 4.085932 (50 iterations in 22.21 seconds)
+Iteration 900: error is 4.040708 (50 iterations in 22.21 seconds)
+Iteration 950: error is 3.999271 (50 iterations in 22.15 seconds)
+Iteration 1000: error is 3.961102 (50 iterations in 22.13 seconds)
+Fitting performed in 478.59 seconds.
+Rtsne benchmark time: 826.0204 
 [1] "--------------------------------------------------------------------------------"
 [1] "Rtsne"
 [1] ‘0.15’
@@ -64,30 +64,30 @@ Building tree...
  - point 80000 of 100000
  - point 90000 of 100000
  - point 100000 of 100000
-Done in 327.01 seconds (sparsity = 0.001422)!
+Done in 329.99 seconds (sparsity = 0.001422)!
 Learning embedding...
-Iteration 50: error is 123.026267 (50 iterations in 28.04 seconds)
-Iteration 100: error is 123.026267 (50 iterations in 35.03 seconds)
-Iteration 150: error is 123.026108 (50 iterations in 40.44 seconds)
-Iteration 200: error is 122.143247 (50 iterations in 39.37 seconds)
-Iteration 250: error is 114.093380 (50 iterations in 30.64 seconds)
-Iteration 300: error is 5.726282 (50 iterations in 26.63 seconds)
-Iteration 350: error is 5.285280 (50 iterations in 25.49 seconds)
-Iteration 400: error is 5.028582 (50 iterations in 25.44 seconds)
-Iteration 450: error is 4.842890 (50 iterations in 25.52 seconds)
-Iteration 500: error is 4.696958 (50 iterations in 25.53 seconds)
-Iteration 550: error is 4.577145 (50 iterations in 25.58 seconds)
-Iteration 600: error is 4.477084 (50 iterations in 25.49 seconds)
-Iteration 650: error is 4.391812 (50 iterations in 25.49 seconds)
-Iteration 700: error is 4.317599 (50 iterations in 25.45 seconds)
-Iteration 750: error is 4.252477 (50 iterations in 25.39 seconds)
-Iteration 800: error is 4.194867 (50 iterations in 25.43 seconds)
-Iteration 850: error is 4.143306 (50 iterations in 25.53 seconds)
-Iteration 900: error is 4.096693 (50 iterations in 25.60 seconds)
-Iteration 950: error is 4.054254 (50 iterations in 25.64 seconds)
-Iteration 1000: error is 4.015126 (50 iterations in 25.80 seconds)
-Fitting performed in 557.52 seconds.
-Rtsne benchmark time: 15.14055 
+Iteration 50: error is 123.026267 (50 iterations in 27.47 seconds)
+Iteration 100: error is 123.026267 (50 iterations in 34.28 seconds)
+Iteration 150: error is 123.026108 (50 iterations in 39.66 seconds)
+Iteration 200: error is 122.143247 (50 iterations in 38.73 seconds)
+Iteration 250: error is 114.093380 (50 iterations in 29.98 seconds)
+Iteration 300: error is 5.726282 (50 iterations in 25.96 seconds)
+Iteration 350: error is 5.285280 (50 iterations in 24.79 seconds)
+Iteration 400: error is 5.028582 (50 iterations in 24.75 seconds)
+Iteration 450: error is 4.842890 (50 iterations in 24.82 seconds)
+Iteration 500: error is 4.696958 (50 iterations in 24.83 seconds)
+Iteration 550: error is 4.577145 (50 iterations in 24.86 seconds)
+Iteration 600: error is 4.477084 (50 iterations in 24.84 seconds)
+Iteration 650: error is 4.391812 (50 iterations in 24.79 seconds)
+Iteration 700: error is 4.317599 (50 iterations in 24.69 seconds)
+Iteration 750: error is 4.252477 (50 iterations in 24.65 seconds)
+Iteration 800: error is 4.194867 (50 iterations in 24.73 seconds)
+Iteration 850: error is 4.143306 (50 iterations in 24.80 seconds)
+Iteration 900: error is 4.096693 (50 iterations in 24.88 seconds)
+Iteration 950: error is 4.054254 (50 iterations in 24.93 seconds)
+Iteration 1000: error is 4.015126 (50 iterations in 25.01 seconds)
+Fitting performed in 543.44 seconds.
+Rtsne benchmark time: 896.6555 
 [1] "--------------------------------------------------------------------------------"
 [1] "Rtsne"
 [1] ‘0.15’
@@ -109,30 +109,30 @@ Building tree...
  - point 80000 of 100000
  - point 90000 of 100000
  - point 100000 of 100000
-Done in 346.44 seconds (sparsity = 0.001421)!
+Done in 347.49 seconds (sparsity = 0.001421)!
 Learning embedding...
-Iteration 50: error is 123.037658 (50 iterations in 27.12 seconds)
-Iteration 100: error is 123.037658 (50 iterations in 28.56 seconds)
-Iteration 150: error is 123.037583 (50 iterations in 38.46 seconds)
-Iteration 200: error is 122.236952 (50 iterations in 56.35 seconds)
-Iteration 250: error is 112.012226 (50 iterations in 34.62 seconds)
-Iteration 300: error is 5.591473 (50 iterations in 27.39 seconds)
-Iteration 350: error is 5.168302 (50 iterations in 25.72 seconds)
-Iteration 400: error is 4.920281 (50 iterations in 25.60 seconds)
-Iteration 450: error is 4.743983 (50 iterations in 25.55 seconds)
-Iteration 500: error is 4.607275 (50 iterations in 25.46 seconds)
-Iteration 550: error is 4.496076 (50 iterations in 25.48 seconds)
-Iteration 600: error is 4.403005 (50 iterations in 25.62 seconds)
-Iteration 650: error is 4.323506 (50 iterations in 25.60 seconds)
-Iteration 700: error is 4.254313 (50 iterations in 25.69 seconds)
-Iteration 750: error is 4.193189 (50 iterations in 25.69 seconds)
-Iteration 800: error is 4.138834 (50 iterations in 25.69 seconds)
-Iteration 850: error is 4.089850 (50 iterations in 25.68 seconds)
-Iteration 900: error is 4.045078 (50 iterations in 25.73 seconds)
-Iteration 950: error is 4.004209 (50 iterations in 25.75 seconds)
-Iteration 1000: error is 3.967135 (50 iterations in 25.81 seconds)
-Fitting performed in 571.59 seconds.
-Rtsne benchmark time: 15.70218 
+Iteration 50: error is 123.037658 (50 iterations in 26.71 seconds)
+Iteration 100: error is 123.037658 (50 iterations in 28.16 seconds)
+Iteration 150: error is 123.037583 (50 iterations in 37.87 seconds)
+Iteration 200: error is 122.236952 (50 iterations in 55.55 seconds)
+Iteration 250: error is 112.012226 (50 iterations in 34.10 seconds)
+Iteration 300: error is 5.591473 (50 iterations in 26.94 seconds)
+Iteration 350: error is 5.168302 (50 iterations in 25.32 seconds)
+Iteration 400: error is 4.920281 (50 iterations in 25.17 seconds)
+Iteration 450: error is 4.743983 (50 iterations in 25.18 seconds)
+Iteration 500: error is 4.607275 (50 iterations in 25.09 seconds)
+Iteration 550: error is 4.496076 (50 iterations in 25.12 seconds)
+Iteration 600: error is 4.403005 (50 iterations in 25.19 seconds)
+Iteration 650: error is 4.323506 (50 iterations in 25.25 seconds)
+Iteration 700: error is 4.254313 (50 iterations in 25.29 seconds)
+Iteration 750: error is 4.193189 (50 iterations in 25.27 seconds)
+Iteration 800: error is 4.138834 (50 iterations in 25.30 seconds)
+Iteration 850: error is 4.089850 (50 iterations in 25.32 seconds)
+Iteration 900: error is 4.045078 (50 iterations in 25.31 seconds)
+Iteration 950: error is 4.004209 (50 iterations in 25.32 seconds)
+Iteration 1000: error is 3.967135 (50 iterations in 25.38 seconds)
+Fitting performed in 562.84 seconds.
+Rtsne benchmark time: 933.9427 
 [1] "--------------------------------------------------------------------------------"
 [1] "Rtsne"
 [1] ‘0.15’
@@ -154,30 +154,30 @@ Building tree...
  - point 80000 of 100000
  - point 90000 of 100000
  - point 100000 of 100000
-Done in 361.83 seconds (sparsity = 0.001422)!
+Done in 375.88 seconds (sparsity = 0.001422)!
 Learning embedding...
-Iteration 50: error is 123.020527 (50 iterations in 27.58 seconds)
-Iteration 100: error is 123.020527 (50 iterations in 33.40 seconds)
-Iteration 150: error is 123.020340 (50 iterations in 38.19 seconds)
-Iteration 200: error is 122.005888 (50 iterations in 38.88 seconds)
-Iteration 250: error is 111.497075 (50 iterations in 28.73 seconds)
-Iteration 300: error is 5.586237 (50 iterations in 26.47 seconds)
-Iteration 350: error is 5.166510 (50 iterations in 25.64 seconds)
-Iteration 400: error is 4.918145 (50 iterations in 25.42 seconds)
-Iteration 450: error is 4.740116 (50 iterations in 25.37 seconds)
-Iteration 500: error is 4.601104 (50 iterations in 25.41 seconds)
-Iteration 550: error is 4.487634 (50 iterations in 25.52 seconds)
-Iteration 600: error is 4.392692 (50 iterations in 25.51 seconds)
-Iteration 650: error is 4.311414 (50 iterations in 25.46 seconds)
-Iteration 700: error is 4.240694 (50 iterations in 25.46 seconds)
-Iteration 750: error is 4.178400 (50 iterations in 25.51 seconds)
-Iteration 800: error is 4.122816 (50 iterations in 25.54 seconds)
-Iteration 850: error is 4.072797 (50 iterations in 25.56 seconds)
-Iteration 900: error is 4.027482 (50 iterations in 25.59 seconds)
-Iteration 950: error is 3.986374 (50 iterations in 25.54 seconds)
-Iteration 1000: error is 3.948764 (50 iterations in 25.61 seconds)
-Fitting performed in 550.38 seconds.
-Rtsne benchmark time: 15.59975 
+Iteration 50: error is 123.020527 (50 iterations in 27.28 seconds)
+Iteration 100: error is 123.020527 (50 iterations in 33.06 seconds)
+Iteration 150: error is 123.020340 (50 iterations in 37.83 seconds)
+Iteration 200: error is 122.005888 (50 iterations in 38.61 seconds)
+Iteration 250: error is 111.497075 (50 iterations in 28.47 seconds)
+Iteration 300: error is 5.586237 (50 iterations in 26.10 seconds)
+Iteration 350: error is 5.166510 (50 iterations in 25.27 seconds)
+Iteration 400: error is 4.918145 (50 iterations in 25.02 seconds)
+Iteration 450: error is 4.740116 (50 iterations in 24.98 seconds)
+Iteration 500: error is 4.601104 (50 iterations in 25.07 seconds)
+Iteration 550: error is 4.487634 (50 iterations in 25.10 seconds)
+Iteration 600: error is 4.392692 (50 iterations in 25.14 seconds)
+Iteration 650: error is 4.311414 (50 iterations in 25.09 seconds)
+Iteration 700: error is 4.240694 (50 iterations in 25.10 seconds)
+Iteration 750: error is 4.178400 (50 iterations in 25.11 seconds)
+Iteration 800: error is 4.122816 (50 iterations in 25.13 seconds)
+Iteration 850: error is 4.072797 (50 iterations in 25.17 seconds)
+Iteration 900: error is 4.027482 (50 iterations in 25.21 seconds)
+Iteration 950: error is 3.986374 (50 iterations in 25.20 seconds)
+Iteration 1000: error is 3.948764 (50 iterations in 25.18 seconds)
+Fitting performed in 543.12 seconds.
+Rtsne benchmark time: 942.2304 
 [1] "--------------------------------------------------------------------------------"
 [1] "Rtsne"
 [1] ‘0.15’
@@ -199,30 +199,30 @@ Building tree...
  - point 80000 of 100000
  - point 90000 of 100000
  - point 100000 of 100000
-Done in 354.33 seconds (sparsity = 0.001421)!
+Done in 366.42 seconds (sparsity = 0.001421)!
 Learning embedding...
-Iteration 50: error is 123.029572 (50 iterations in 27.58 seconds)
-Iteration 100: error is 123.029572 (50 iterations in 30.41 seconds)
-Iteration 150: error is 123.029440 (50 iterations in 39.48 seconds)
-Iteration 200: error is 121.847751 (50 iterations in 38.31 seconds)
-Iteration 250: error is 111.485149 (50 iterations in 28.52 seconds)
-Iteration 300: error is 5.580038 (50 iterations in 26.70 seconds)
-Iteration 350: error is 5.163480 (50 iterations in 25.53 seconds)
-Iteration 400: error is 4.915334 (50 iterations in 25.72 seconds)
-Iteration 450: error is 4.737353 (50 iterations in 26.02 seconds)
-Iteration 500: error is 4.598797 (50 iterations in 26.10 seconds)
-Iteration 550: error is 4.485775 (50 iterations in 26.06 seconds)
-Iteration 600: error is 4.391247 (50 iterations in 25.98 seconds)
-Iteration 650: error is 4.310540 (50 iterations in 25.99 seconds)
-Iteration 700: error is 4.240274 (50 iterations in 25.98 seconds)
-Iteration 750: error is 4.178278 (50 iterations in 25.98 seconds)
-Iteration 800: error is 4.122914 (50 iterations in 25.97 seconds)
-Iteration 850: error is 4.073098 (50 iterations in 25.88 seconds)
-Iteration 900: error is 4.027968 (50 iterations in 25.86 seconds)
-Iteration 950: error is 3.986653 (50 iterations in 25.84 seconds)
-Iteration 1000: error is 3.948780 (50 iterations in 25.80 seconds)
-Fitting performed in 553.72 seconds.
-Rtsne benchmark time: 15.52954 
+Iteration 50: error is 123.029572 (50 iterations in 27.16 seconds)
+Iteration 100: error is 123.029572 (50 iterations in 29.95 seconds)
+Iteration 150: error is 123.029440 (50 iterations in 38.93 seconds)
+Iteration 200: error is 121.847751 (50 iterations in 37.83 seconds)
+Iteration 250: error is 111.485149 (50 iterations in 28.15 seconds)
+Iteration 300: error is 5.580038 (50 iterations in 26.27 seconds)
+Iteration 350: error is 5.163480 (50 iterations in 25.13 seconds)
+Iteration 400: error is 4.915334 (50 iterations in 25.27 seconds)
+Iteration 450: error is 4.737353 (50 iterations in 25.55 seconds)
+Iteration 500: error is 4.598797 (50 iterations in 25.62 seconds)
+Iteration 550: error is 4.485775 (50 iterations in 25.58 seconds)
+Iteration 600: error is 4.391247 (50 iterations in 25.52 seconds)
+Iteration 650: error is 4.310540 (50 iterations in 25.54 seconds)
+Iteration 700: error is 4.240274 (50 iterations in 25.50 seconds)
+Iteration 750: error is 4.178278 (50 iterations in 25.51 seconds)
+Iteration 800: error is 4.122914 (50 iterations in 25.50 seconds)
+Iteration 850: error is 4.073098 (50 iterations in 25.41 seconds)
+Iteration 900: error is 4.027968 (50 iterations in 25.40 seconds)
+Iteration 950: error is 3.986653 (50 iterations in 25.36 seconds)
+Iteration 1000: error is 3.948780 (50 iterations in 25.37 seconds)
+Fitting performed in 544.54 seconds.
+Rtsne benchmark time: 934.3578 
 [1] "--------------------------------------------------------------------------------"
 [1] "Rtsne"
 [1] ‘0.15’
@@ -244,27 +244,27 @@ Building tree...
  - point 80000 of 100000
  - point 90000 of 100000
  - point 100000 of 100000
-Done in 333.30 seconds (sparsity = 0.001420)!
+Done in 321.56 seconds (sparsity = 0.001420)!
 Learning embedding...
-Iteration 50: error is 123.036804 (50 iterations in 27.59 seconds)
-Iteration 100: error is 123.036804 (50 iterations in 33.51 seconds)
-Iteration 150: error is 123.036683 (50 iterations in 41.86 seconds)
-Iteration 200: error is 121.971982 (50 iterations in 36.65 seconds)
-Iteration 250: error is 111.271907 (50 iterations in 28.16 seconds)
-Iteration 300: error is 5.569686 (50 iterations in 26.12 seconds)
-Iteration 350: error is 5.163598 (50 iterations in 25.38 seconds)
-Iteration 400: error is 4.921092 (50 iterations in 25.72 seconds)
-Iteration 450: error is 4.746069 (50 iterations in 25.81 seconds)
-Iteration 500: error is 4.610711 (50 iterations in 25.65 seconds)
-Iteration 550: error is 4.500956 (50 iterations in 25.55 seconds)
-Iteration 600: error is 4.408631 (50 iterations in 25.55 seconds)
-Iteration 650: error is 4.328864 (50 iterations in 25.52 seconds)
-Iteration 700: error is 4.258827 (50 iterations in 25.48 seconds)
-Iteration 750: error is 4.196909 (50 iterations in 25.45 seconds)
-Iteration 800: error is 4.141810 (50 iterations in 25.46 seconds)
-Iteration 850: error is 4.092194 (50 iterations in 25.49 seconds)
-Iteration 900: error is 4.047313 (50 iterations in 25.38 seconds)
-Iteration 950: error is 4.006390 (50 iterations in 25.42 seconds)
-Iteration 1000: error is 3.968785 (50 iterations in 25.43 seconds)
-Fitting performed in 551.20 seconds.
-Rtsne benchmark time: 15.13343 
+Iteration 50: error is 123.036804 (50 iterations in 27.17 seconds)
+Iteration 100: error is 123.036804 (50 iterations in 33.03 seconds)
+Iteration 150: error is 123.036683 (50 iterations in 41.26 seconds)
+Iteration 200: error is 121.971982 (50 iterations in 36.31 seconds)
+Iteration 250: error is 111.271907 (50 iterations in 27.79 seconds)
+Iteration 300: error is 5.569686 (50 iterations in 25.76 seconds)
+Iteration 350: error is 5.163598 (50 iterations in 25.05 seconds)
+Iteration 400: error is 4.921092 (50 iterations in 25.39 seconds)
+Iteration 450: error is 4.746069 (50 iterations in 25.40 seconds)
+Iteration 500: error is 4.610711 (50 iterations in 25.25 seconds)
+Iteration 550: error is 4.500956 (50 iterations in 25.15 seconds)
+Iteration 600: error is 4.408631 (50 iterations in 25.20 seconds)
+Iteration 650: error is 4.328864 (50 iterations in 25.18 seconds)
+Iteration 700: error is 4.258827 (50 iterations in 25.15 seconds)
+Iteration 750: error is 4.196909 (50 iterations in 25.09 seconds)
+Iteration 800: error is 4.141810 (50 iterations in 25.08 seconds)
+Iteration 850: error is 4.092194 (50 iterations in 25.10 seconds)
+Iteration 900: error is 4.047313 (50 iterations in 25.03 seconds)
+Iteration 950: error is 4.006390 (50 iterations in 25.02 seconds)
+Iteration 1000: error is 3.968785 (50 iterations in 25.04 seconds)
+Fitting performed in 543.46 seconds.
+Rtsne benchmark time: 888.2892 
