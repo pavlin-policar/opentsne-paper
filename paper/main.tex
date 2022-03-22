@@ -102,7 +102,7 @@ We use \opentsne\ to generate three t-SNE embeddings and demonstrate recent theo
 
 Despite its utility, t-SNE has often been criticized for its limited scalability, lack of global organization -- t-SNE identifies well-defined clusters that may be arbitrarily scattered throughout the embedding, and the absence of theoretically-founded methods to map new data into existing embeddings~\citep{ding2018interpretable,becht2019dimensionality}. Most of these shortcomings have recently been addressed. \citet{linderman2019fast} developed FIt-SNE, an efficient approximation scheme that massively improves the scalability of t-SNE, achieving linear time complexity in the number of samples. \citet{kobak2019art} proposed several techniques to improve global cluster coherence, including estimating similarities with a mixture of Gaussian kernels. In our previous work, we introduced a principled approach for embedding new samples into existing visualizations~\citep{policar2021embedding}.
 
-However, easy access to efficient implementations almost universally correlates with the widespread adoption of novel computational techniques. Despite the many theoretical advancements, the most popular t-SNE libraries have been slow to incorporate them into their implementations. In this paper, we present \opentsne, our open-source Python implementation of t-SNE, and the recently proposed extensions to t-SNE that \opentsne\ implements. \opentsne\ is easy to install and includes precompiled binaries available through popular Python package managers. It provides a familiar API, making it suitable as a drop-in replacement for existing t-SNE implementations.
+However, easy access to efficient implementations almost universally correlates with the widespread adoption of novel computational techniques. Despite the many theoretical advancements, most popular t-SNE libraries have been slow to incorporate them into their implementations. In this paper, we present \opentsne, our open-source Python implementation of t-SNE, complete with its recently proposed extensions. \opentsne\ is easy to install and includes precompiled binaries available through popular Python package managers. It provides a familiar API, making it suitable as a drop-in replacement for existing t-SNE implementations.
 
 %% -- Manuscript ---------------------------------------------------------------
 
@@ -192,9 +192,7 @@ Optimization is performed using batch gradient descent using the delta-bar-delta
 \citet{belkina2019automated} later found that convergence can be sped up by
 increasing the learning rate from the standard $\eta=200$ to $\eta=N/12$. As a
 side-effect, embeddings converge faster, and the number of iterations can be
-lowered from the typical 1000 to 750, decreasing the overall runtime.  Modern
-t-SNE implementations, including \pkg{FIt-SNE} and \opentsne, have adopted this
-convention.
+lowered from the typical 1000 to 750, decreasing the overall runtime.
 
 \subsection{Efficient Approximation Schemes} \label{sec:meth.approx}
 
@@ -237,15 +235,14 @@ N-body simulations and used a space-partitioning Barnes-Hut tree approach to
 approximate the interaction between data points. This reduces the time
 complexity from $\mathcal{O}(N^2)$ to $\mathcal{O}(N \log N)$. More recently,
 \citet{linderman2019fast} proposed an alternative approach, FIt-SNE, based on
-non-uniform convolutions which further reduces the time complexity to
+non-uniform convolutions, which further reduces the time complexity to
 $\mathcal{O}(N)$.
-
 
 \subsection{Embedding New Samples} \label{sec:meth.transform}
 
-t-SNE is non-parametric and does not define an explicit mapping from the
+The t-SNE algorithm is non-parametric and does not define an explicit mapping from the
 high-dimensional space to the embedding space. Therefore embeddings of new data
-points need to be found through the use of optimization
+points need to be found through optimization
 techniques~\citep{policar2021embedding}. When adding new data points to an
 existing, reference embedding, the reference data points are fixed in place
 while new data points are allowed to find their respective positions. The
@@ -276,48 +273,76 @@ $\eta=200$ and $\eta=N/12$ result in highly unstable optimization.
 
 \subsection{Improving the Global Structure of Embeddings} \label{sec:meth.global}
 
-One of t-SNE's criticisms is that it fails to preserve long-range distances but instead focuses on capturing the local structure of the data manifold~\citep{becht2019dimensionality}. Recently, several approaches have been proposed to improve the global organization of the resulting embeddings.
+One of t-SNE's long-standing criticisms is that it fails to preserve long-range distances but instead focuses on capturing the local structure of the data manifold~\citep{becht2019dimensionality}. Recently, several approaches have been proposed to improve the global organization of the resulting embeddings.
 
 \citet{kobak2019umap} showed that the initialization of force-directed layout algorithms, such as t-SNE, UMAP~\citep{2018arXivUMAP}, and ForceAtlas2~\citep{jacomy2014forceatlas2}, largely dictates the global consistency of resulting embeddings. When initialized randomly, clusters are often arbitrarily scattered in the embedding space. However, when using initialization schemes based on PCA or spectral embeddings, the clusters identified in the resulting embedding are typically grouped in a globally coherent manner.
 
-In standard t-SNE, distances between data points are converted to similarities through the use of Gaussian kernels. The perplexity of these kernels governs the sizes of the local neighborhoods which are to be preserved. One easy way to improve the global consistency of resulting embeddings is to increase the sizes of these neighborhoods. This can be achieved by increasing the perplexity parameter. However, this often comes at the price of local structure. \citet{kobak2019art} propose to use mixtures of Gaussians instead to preserve better short-range and long-range distances and, thus, achieve a better trade-off between local and global structure.
+In standard t-SNE, distances between data points are converted to similarities through the use of Gaussian kernels. The perplexity of these kernels governs the sizes of the local neighborhoods which are to be preserved. One easy way to improve the global consistency of resulting embeddings is to increase the sizes of these neighborhoods. This can be achieved by increasing the perplexity parameter. However, increasing perplexity often leads to loss in local sturcture and tends to obscure small clusters. \citet{kobak2019art} instead propose to use mixtures of Gaussians to preserve better short-range and long-range distances and, thus, achieve a better trade-off between local and global structure.
 
-Embeddings produced by standard t-SNE often use all available space and separate clusters by only thin boundaries. When working with large data sets, this often obscures the global relationships between clusters as all neighboring groups appear equidistant from one another.  Other dimensionality reduction methods, such as UMAP and ForceAtlas2, produce embeddings where clusters appear more compact, and the white space separating the clusters may be interpreted as a loose measure of distance. Recently, \citet{bohm2020unifying} showed that the exaggeration factor $\rho$ could be used to produce layouts more similar to UMAP and ForceAtlas2. By incorporating exaggeration into later phases of the optimization, t-SNE introduces white space between clusters, which better reflects the global relations between clusters.
+Embeddings produced by standard t-SNE often use all available space and separate clusters by only thin boundaries. When working with large data sets, this often obscures the global relationships between clusters as all neighboring groups appear equidistant from one another.  Other dimensionality reduction methods, such as UMAP and ForceAtlas2, produce embeddings where clusters appear more compact, and the white space separating the clusters may be interpreted as a loose measure of distance. Recently, \citet{bohm2020unifying} showed that the exaggeration factor $\rho$ could be used to produce layouts more similar to UMAP and ForceAtlas2. By incorporating exaggeration into later phases of the optimization, t-SNE introduces white space between clusters, which may better reflect the global relations between clusters.
 
 Standard t-SNE reveals the clustering structure at a single level of resolution. While the perplexity parameter can be used to control the trade-off between local and global structure, this can be time-consuming, and small, well-defined clusters can be missed. Alternatively, \citet{kobak2019heavy} suggest that varying the degrees of freedom in the $t$-distribution can be used to explore the clustering structure at different levels of resolution. Modifying Eqn.~(\ref{eq:cauchy_kernel}) to $q_{ij} \propto \left ( 1 + || \mathbf{y}_i - \mathbf{y}_j ||^2 / \alpha \right )^{-\alpha}$ allows us to use heavier-tailed distributions to model distances in the embedding space, which acts to highlight small subgroups in the resulting visualization.
 
 
 \section{Implementation} \label{sec:implementation}
 
+We introduce \opentsne, a comprehensive Python library that implements the
+t-SNE algorithm and its numerous recentl extensions. \opentsne\ is
+designed to accomodate all types of users and includes both a simple API that
+allows users to quickly obtain informative t-SNE visualizations, as well as a
+more flexible API that allows seasoned practitioners to modify all the
+different aspects of the t-SNE algorithm.
 
-\subsection{Structure of openTSNE}
-
-\opentsne\ is designed to accomodate all users, including both a simple API that allows users to quickly obtain standard t-SNE visualization, as well as an advanced API that allows practitioners and researchers to modify different aspects of the t-SNE algorithm.
-
-The t-SNE algorithm is dependent on three key steps: the initial positions of points in the embedding, an affinity model describing the similarities between data points in the ambient space, and the optimization which optimizes the embedding layout. \opentsne\ mirrors these different components in its design. \opentsne\ contains three corresponding core modules -- \code{initialization}, \code{affinity}, and \code{tsne} -- each of which will be decribed in detail in later sections. These modules are designed to be easily extensible, allowing researchers to experiment with different configurations and produce the best possible t-SNE visualizations. For less demanding users, \opentsne\ also provides a familiar, scikit-learn-like interface through the \code{openTSNE.TSNE} class.
-
-\subsubsection{Initialization}
-
-just a numpy array
-
-\subsubsection{Affinities}
-
-\paragraph{Affinity}
-
-\paragraph{KNNIndex}
-
-\subsubsection{Embedding objects}
-
-\paragraph{TSNEEmbedding}
-
-\paragraph{PartialTSNEEmbedding}
+The t-SNE algorithm is comprised of three main steps, mirrored in the structure
+and flow of the \opentsne\ library. These are: the initial positions
+of points in the embedding, an affinity model describing the similarities
+between data points in the embedding, and the optimization phase which
+optimizes the embedding layout. Using the advanced API, each of these key
+elements can be modified or tuned according to produce the best possible
+visualization.
 
 
-\subsection{Old text}
+\begin{figure*}[ht]
+  \centering
+  \includegraphics[width=0.75\textwidth]{opentsne-diagram}
+  \caption{\label{fig:diagram}
+  Bla
+  }
+\end{figure*}
 
-We introduce \opentsne, a comprehensive Python library that implements t-SNE and its numerous recently proposed extensions, including the implementation of efficient approximation schemes allowing the embedding of millions of data points~\citep{van2014accelerating,linderman2019fast}, the addition of new data points into existing embeddings~\citep{policar2021embedding}, various initialization improvements~\citep{kobak2019umap}, extensions~\citep{kobak2019heavy,kobak2019art}, and improved parameter defaults~\citep{belkina2019automated}. When combined, these improvements result in the faster generation of more informative visualizations.
 
-\opentsne\ is compatible with the Python data science ecosystem (e.g. \pkg{numpy}, \pkg{scikit-learn}, \pkg{scanpy}), providing a familiar and intuitive API to users. Its modular design encourages extensibility and experimentation with various parameter settings and changes to the analysis pipeline. \opentsne\ aims to make the latest theoretical advances in t-SNE accessible to the wider data science community. These features are easily accessible through an intuitive API, which closely follows the style \pkg{scikit-learn}~\citep{sklearn_api}, a popular and widely used toolkit for machine learning. The following snippet exemplifies this interface and demonstrates how \opentsne\ can be used to quickly generate several visualizations, each highlighting different aspects of the underlying data structure.
+\opentsne\ is compatible with the Python data science ecosystem (e.g. \pkg{numpy}, \pkg{scikit-learn}, \pkg{scanpy}), providing a familiar and intuitive API to end-users. Its modular design encourages extensibility and experimentation with various parameter settings and changes to the analysis pipeline. \opentsne\ aims to make the latest theoretical advances in t-SNE accessible to the wider data science community. These features are easily accessible through an intuitive API, which closely follows the style \pkg{scikit-learn}~\citep{sklearn_api}, a popular and widely used toolkit in the machine learning community.
+The following snippet exemplifies this interface and demonstrates how \opentsne\ can be used to quickly generate several visualizations, each highlighting different aspects of the underlying data structure.
+
+\subsection{Example}
+\subsubsection{Installation}
+
+\opentsne\ is designed to be as user-friendly as possible and can be installed through either \pkg{PyPI} using \pkg{pip}
+\begin{CodeChunk}
+\begin{CodeInput}
+pip install opentsne
+\end{CodeInput}
+\end{CodeChunk}
+or using \pkg{conda} from the \pkg{conda-forge} channel
+\begin{CodeChunk}
+\begin{CodeInput}
+conda install -c conda-forge opentsne
+\end{CodeInput}
+\end{CodeChunk}
+\opentsne\ provides precompiled binaries for all major platforms (Windows, MacOS, Linux) for all currently supported Python versions (3.6---3.10). This is especially convenient for Windows users, as this obviates the need for a C/C++ compiler, which do not come bundled with the operating system.
+
+To verify that that \opentsne\ was installed correctly, try to import the module:
+\begin{CodeChunk}
+\begin{CodeInput}
+import openTSNE
+print(openTSNE.__version__)
+\end{CodeInput}
+\end{CodeChunk}
+
+
+\subsubsection{A simple workflow}
+
+
 \begin{CodeChunk}
 \begin{CodeInput}
 from openTSNE import TSNE
@@ -340,7 +365,7 @@ new_embedding = tsne_extensions.transform(x_new)
 The code snippet considers a \pkg{numpy} array or \pkg{scipy} sparse matrix \texttt{x} and creates three \texttt{TSNEEmbedding} objects. These represent fully-optimized t-SNE embeddings, and \opentsne\ internally stores them as \pkg{numpy} arrays. These can be manipulated and visualized using standard Python tools. We then select one of these embeddings and use it to embed new data points from \texttt{x\_new} into the embedding space while keeping the reference embedding fixed. Additionally, \opentsne\ provides a more advanced interface that enables the user to change every aspect of the t-SNE optimization procedure. We describe this interface in detail in the \opentsne's on-line documentation.
 
 
-\section{Summary and discussion} \label{sec:summary}
+\section{Discussion and Examples} \label{sec:summary}
 
 \subsection{Uncovering Structure in High-Dimensional Data}
 
@@ -378,11 +403,13 @@ embedding_d = TSNE(perplexity=30, dof=0.6).fit(x)
 \end{CodeChunk}
 While different clusters of excitatory and inhibitory neurons appear close to one another, all clusters appear equidistant from their neighbors, and the overall relations between groups are not obvious. The embedding in Fig.~\ref{fig:tasic}.b focuses on preserving larger neighborhoods of points, resulting in a more globally consistent layout where relations between clusters become more apparent. Here, it is evident from the increased white space between groups that there is one large class of excitatory neurons and two related classes of inhibitory neurons. Unfortunately, focusing on preserving large neighborhoods leads to the absorption of smaller clusters into larger ones. Alternatively, Fig.~\ref{fig:tasic}.c uses multi-scale similarity kernels that aim to preserve both the global organization of clusters and prevent smaller cluster absorption. We constructed the embedding from Fig.~\ref{fig:tasic}.d with the settings used for Fig.~\ref{fig:tasic}.a, but at a finer level of resolution. The figure demonstrates that some clusters are composed of numerous, smaller subgroups representing different cell subpopulations that are not visible under standard parameter settings.
 
+\subsection{Embedding Massive Data Sets}
+
 When dealing with data containing millions of data points, standard t-SNE embeddings often become unwieldy -- cluster boundaries are blurred, large clusters absorb smaller ones, and relationships between clusters become increasingly difficult to interpret. We constructed Fig.~\ref{fig:cao}.a from the data containing expression profiles of over two million single cells captured at different time points in mouse development. The embedding indicates numerous clusters with transitions between time points, as marked by the color-coding, that are difficult to interpret. Kobak \& Berens observed that increasing attractive forces between similar data points controlled via the \textit{exaggeration} parameter leads to more compact clusters, and subsequently, more informative visualizations~\citep{kobak2019art}. For instance, \ref{fig:cao}.b doubles the default exaggeration, which uncovers some of the data's overall structure. Further doubling the exaggeration in \ref{fig:cao}.c allows us to observe that the data is comprised of two main groups of cells and eight somewhat smaller clusters. The visualization also reveals several tiny clusters, possibly corresponding to rare cell types.
 \begin{CodeChunk}
 \begin{CodeInput}
 # To improve the global structure of the final layout, we initialize the
-# embedding by creating a t-SNE plot on a sample of points.
+# embedding by creating a t-SNE plot on a sample of points
 
 # Take a random sample of the data points
 indices = np.random.permutation(list(range(x.shape[0])))
@@ -394,18 +421,18 @@ x_sample, x_rest = x[indices[:25000]], x[indices[25000:]]
 # emphasize the high level structure
 init_sample = TSNE(perplexity=500).fit(x_sample)
 
-# We can next use the `transform` functionality to determine starting points for
-# the remaining data points. Since we don't actually want to optimize the
+# We can next use the `transform` functionality to determine starting positions
+# for the remaining data points. Since we don't actually want to optimize the
 # remaining points separately from the sample points, we don't need to call the
 # `transform` function. Instead, we'll call the `prepare_partial` function,
 # which `transform` calls anyways under the hood.
 init_rest = init_sample.prepare_partial(x_rest)
 
-# Lastly, we merge `init_sample` and `init_rest`
+# Lastly, we merge `init_sample` and `init_rest` and restore the original order
 init_full = np.vstack((init_sample, init_rest))[reverse]
 \end{CodeInput}
 \end{CodeChunk}
-We generate the four different embeddings using the following code snippet (which is shortened for clarity).
+We generate the three different embeddings using the following code snippet (which is shortened for clarity).
 \begin{CodeChunk}
 \begin{CodeInput}
 # We separately precompute the affinities as this can take quite a long time.
@@ -562,41 +589,50 @@ visually appealing animations of the t-SNE optimization process.
 
 % General problem statement
 One of the t-SNE's common criticisms is limited scalability to large data sets
-containing, for instance, millions of data
-points~\citep{becht2019dimensionality}. The culprit for slow response time stems
-from particular optimization procedures and their specific implementation in
-popular open-source libraries. Until quite recently, most popular implementations of
-t-SNE were based on either a direct implementation of the t-SNE algorithm with asymptotic time complexity $\mathcal{O}(N^2)$, or the Barnes-Hut approximation scheme developed by
-\citet{van2014accelerating} with asymptotic time complexity $\mathcal{O}(N \log
-N)$, where $N$ is the number of data items ({\em e.g.} cells).
+containing, for instance, millions of data points~\citep{becht2019dimensionality}.
+The culprit for slow response time stems from
+particular optimization procedures and their specific implementation in popular
+open-source libraries. Until quite recently, most popular implementations of
+t-SNE were based on either a direct implementation of the t-SNE algorithm with
+asymptotic time complexity $\mathcal{O}(N^2)$, or the Barnes-Hut approximation
+scheme developed by
+\citet{van2014accelerating} with asymptotic time complexity $\mathcal{O}
+ (N \log N)$, where $N$ is the number of data items ({\em e.g.} cells).
 
 % Problem with Python
-In Python, the most
-widely-used implementation of t-SNE came from \pkg{scikit-learn}, which exhibits
-long runtimes when compared to its C++ counterpart -- \pkg{MulticoreTSNE}. The
-multi-threaded \pkg{MulticoreTSNE} implementation~\citep{Ulyanov2016} can
-construct t-SNE embeddings of millions of data points in a matter of hours on
-widely-accessible, consumer-grade processors (Fig.~\ref{fig:benchmarks_py}).
-However, recently, \citet{linderman2019fast} developed a new approximation
-scheme -- FIt-SNE -- which reduces the asymptotic time complexity to
-$\mathcal{O}(N)$. This approximation scheme is included in \pkg{FIt-SNE} and \opentsne, enabling the embedding of large data sets in a matter of minutes.
+In Python, the most widely-used implementation of t-SNE came from \pkg{scikit-learn},
+which exhibits long runtimes when compared to its C++ counterpart --
+\pkg{MulticoreTSNE}. The multi-threaded \pkg{MulticoreTSNE}
+implementation~\citep{Ulyanov2016} can construct t-SNE embeddings of millions of
+data points in a matter of hours (Fig.~\ref{fig:benchmarks_py}).
+However, recently, \citet{linderman2019fast} developed a
+new approximation scheme -- FIt-SNE -- which futher reduces the asymptotic time
+complexity to $\mathcal{O}(N)$. This approximation scheme is included in \pkg{FIt-SNE} and \opentsne, enabling the embedding of large data sets in a matter
+of minutes.
 
 % We benchmark Python
 Fig.~\ref{fig:benchmarks_py} benchmarks four popular Python t-SNE implementations,
 including those from \pkg{scikit-learn} (v1.0.1), \pkg{MulticoreTSNE} (v0.1),
-\pkg{FIt-SNE} (v1.1.0), and our \opentsne\ (v0.6.1). We perform benchmarks on
-a server-grade Intel(R) Xeon(R) CPU E5-1650 equipped with 128 GB of memory. Benchmarks were run for $1,000$ iterations with the original
-t-SNE parameters, as some implementations do not allow their modification.
-To generate benchmark data sets of different sizes, we subsampled data from the 10X Genomics 1.3 million mouse brain data set five times, resulting in five different data sets for each size. In total, we run each implementation on 30 different data sets. 
+\pkg{FIt-SNE} (v1.1.0), and our \opentsne\ (v0.6.1). Benchmarks were performed on
+an Intel(R) Xeon(R) CPU E5-1650 equipped with 128 GB of memory. Benchmarks were run for $1,000$ iterations with the original
+t-SNE parameters, as some implementations do not allow for their modification.
+
+To ensure a realistic benchmarking scenario, we utilize the 10X
+Genomics 1.3 million mouse brain data set, containing 1.3 million single-cell 
+gene-expression profiles. We preprocess the data using the standard single-cell
+analysis pipeline and extract the top 50 principal components. To generate
+benchmark data sets of different sizes, we subsample the data set five times,
+resulting in five different data sets for each sample size. In total, we run
+each implementation on 30 different data sets.
 
 \begin{figure*}[ht]
-  \includegraphics[width=\textwidth]{benchmarks_python}
+  \includegraphics[width=\textwidth]{benchmarks_python-final}
   \caption{\label{fig:benchmarks_py}
   We benchmark \opentsne\ (v0.6.1) against three popular open-source
   implementations from \pkg{scikit-learn}~\citep{pedregosa2011scikit}
   (v1.0.1), \pkg{MulticoreTSNE}~\citep{Ulyanov2016} (v0.1), and
   \pkg{FIt-SNE}~\citep{linderman2019fast} (v1.1.0). Experiments were run on a
-  on a server-grade Intel(R) Xeon(R) CPU E5-1650 equipped with 128 GB of memory.Notice
+  on a server-grade Intel(R) Xeon(R) CPU E5-1650 equipped with 128 GB of memory. Notice
   that \opentsne\ scales similarly to \pkg{FIt-SNE}, as they both use the
   same interpolation-based approximation scheme, while \pkg{scikit-learn} and
   \pkg{MulticoreTSNE} utilize the Barnes-Hut approximation.
@@ -610,9 +646,11 @@ Matlab is proprietary software, but also implements a naive version of the t-SNE
 % We benchmark other programming languages
 Using the same benchmarking setup as before, we ...
 The results are shown in Fig.~\ref{fig:benchmarks_lang}. 
+Using 8 cores, Rtsne runs out of stack memory at 500k
 
 \begin{figure*}[ht]
-  \includegraphics[width=\textwidth]{benchmarks_langs}
+  \includegraphics[width=\textwidth]{benchmarks_langs-final}
+  %\includegraphics[width=\textwidth]{benchmarks-combined}
   \caption{\label{fig:benchmarks_lang}
   We choose the fastest available, open-source implementations of the t-SNE algorithm from the Python, R, and Julia programming languages. We choose \opentsne\ for Python, \pkg{Rtsne} for R, and \pkg{TSne.jl} for Julia. The benchmarks reflect the time complexity of the implemented algorithms. For instance, \pkg{TSne.jl} implements a naive $\mathcal{O}(N^2)$ algorithm, making it prohibitively expensive for all but the smallest data sets. \pkg{Rtsne} scales similarily to \pkg{MulticoreTSNE} in Python, as it implements the $\mathcal{O}(N \log N)$ Barnes-Hut approximation scheme. Interestingly, the multi-threaded implementation version of \pkg{Rtsne} crashes on benchmark data sets containing over 500,000 data points due to lack of memory. This would seriously hamper its utility on consumer-grade platforms, as our benchmark platform contained 128 GB of memory. \opentsne\ is the only library implementing the more recent FIt-SNE approximation scheme, which makes it suitable for even the largest data sets.
 }
@@ -653,7 +691,7 @@ precompiled binaries for all major Python versions on all major platforms,
 making the installation process as seamless as possible. One can install
 \opentsne\ through the Python Package Index (\pkg{PyPI}) or \pkg{conda} from the
 \pkg{conda-forge} channel, the two most widely adopted Python package managers.
-\opentsne's interface is inspired by \pkg{scikit-learn}, which is well
+\opentsne's high-level interface is inspired by \pkg{scikit-learn}, which is well
 established in the Python data science ecosystem. \opentsne\ implements
 multi-threaded versions of both the Barnes-Hut and FIt-SNE approximation
 schemes, enabling it to be applied to data sets containing millions of data
