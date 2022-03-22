@@ -20,7 +20,7 @@ other attached packages:
 [1] Rtsne_0.15     optparse_1.7.1
 
 loaded via a namespace (and not attached):
-[1] compiler_3.6.1 Rcpp_1.0.8.2   getopt_1.20.3 
+[1] compiler_3.6.1 Rcpp_1.0.8.3   getopt_1.20.3 
 [1] "--------------------------------------------------------------------------------"
 [1] "Rtsne"
 [1] ‘0.15’
@@ -34,5 +34,113 @@ Computing input similarities...
 Building tree...
  - point 10000 of 500000
  - point 20000 of 500000
-Error: C stack usage  241955640476 is too close to the limit
+ - point 30000 of 500000
+ - point 40000 of 500000
+ - point 50000 of 500000
+ - point 60000 of 500000
+ - point 70000 of 500000
+ - point 80000 of 500000
+ - point 90000 of 500000
+ - point 100000 of 500000
+ - point 110000 of 500000
+ - point 120000 of 500000
+ - point 130000 of 500000
+ - point 140000 of 500000
+ - point 150000 of 500000
+ - point 160000 of 500000
+ - point 170000 of 500000
+ - point 180000 of 500000
+ - point 190000 of 500000
+ - point 200000 of 500000
+ - point 210000 of 500000
+ - point 220000 of 500000
+ - point 230000 of 500000
+ - point 240000 of 500000
+ - point 250000 of 500000
+ - point 260000 of 500000
+ - point 270000 of 500000
+ - point 280000 of 500000
+ - point 290000 of 500000
+ - point 300000 of 500000
+ - point 310000 of 500000
+ - point 320000 of 500000
+ - point 330000 of 500000
+ - point 340000 of 500000
+ - point 350000 of 500000
+ - point 360000 of 500000
+ - point 370000 of 500000
+ - point 380000 of 500000
+ - point 390000 of 500000
+ - point 400000 of 500000
+ - point 410000 of 500000
+ - point 420000 of 500000
+ - point 430000 of 500000
+ - point 440000 of 500000
+ - point 450000 of 500000
+ - point 460000 of 500000
+ - point 470000 of 500000
+ - point 480000 of 500000
+ - point 490000 of 500000
+ - point 500000 of 500000
+Done in 7708.70 seconds (sparsity = 0.000293)!
+Learning embedding...
+Iteration 50: error is 141.924994 (50 iterations in 214.25 seconds)
+Iteration 100: error is 141.924994 (50 iterations in 240.26 seconds)
+Iteration 150: error is 141.924994 (50 iterations in 238.44 seconds)
+Iteration 200: error is 141.924994 (50 iterations in 229.88 seconds)
+Iteration 250: error is 141.924994 (50 iterations in 251.66 seconds)
+Iteration 300: error is 9.342167 (50 iterations in 275.70 seconds)
+Iteration 350: error is 9.313923 (50 iterations in 276.50 seconds)
+Iteration 400: error is 8.441765 (50 iterations in 224.05 seconds)
+Iteration 450: error is 7.763654 (50 iterations in 207.29 seconds)
+Iteration 500: error is 7.417811 (50 iterations in 204.95 seconds)
+Iteration 550: error is 7.178855 (50 iterations in 202.11 seconds)
+Iteration 600: error is 6.997574 (50 iterations in 203.30 seconds)
+Iteration 650: error is 6.850405 (50 iterations in 203.88 seconds)
+Iteration 700: error is 6.725704 (50 iterations in 205.69 seconds)
+Iteration 750: error is 6.617064 (50 iterations in 206.20 seconds)
+Iteration 800: error is 6.520583 (50 iterations in 206.33 seconds)
+Iteration 850: error is 6.433801 (50 iterations in 205.73 seconds)
+Iteration 900: error is 6.354822 (50 iterations in 205.55 seconds)
+Iteration 950: error is 6.282360 (50 iterations in 205.43 seconds)
+Iteration 1000: error is 6.215643 (50 iterations in 205.06 seconds)
+Fitting performed in 4412.28 seconds.
+Rtsne benchmark time: 2266.393 
+R version 3.6.1 (2019-07-05)
+Platform: x86_64-conda_cos6-linux-gnu (64-bit)
+Running under: Ubuntu 20.04 LTS
+
+Matrix products: default
+BLAS/LAPACK: /home/ubuntu/miniconda3/envs/tsne_benchmarks_r/lib/R/lib/libRblas.so
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] Rtsne_0.15     optparse_1.7.1
+
+loaded via a namespace (and not attached):
+[1] compiler_3.6.1 Rcpp_1.0.8.3   getopt_1.20.3 
+[1] "--------------------------------------------------------------------------------"
+[1] "Rtsne"
+[1] ‘0.15’
+Random state 2 
+[1] "--------------------------------------------------------------------------------"
+[1] 500000     50
+Read the 500000 x 50 data matrix successfully!
+OpenMP is working. 8 threads.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 10000 of 500000
+ - point 20000 of 500000
+Error: C stack usage  176995468444 is too close to the limit
 Execution halted
