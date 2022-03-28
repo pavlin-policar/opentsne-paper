@@ -9,6 +9,9 @@ import pandas as pd
 import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns
+from matplotlib.lines import Line2D
+
+matplotlib.rcParams["pdf.fonttype"] = 42  # Make fonts editable in AI
 
 
 BENCHMARK_DIR = "../benchmarks/logs"
@@ -120,8 +123,8 @@ implementations = [
     Spec("UMAP", log_name="UMAP", cores=8, lang="Python", parser=parse_umap),
 
     # Rtsne
-    Spec("Rtsne", log_name="Rtsne", cores=1, lang="R", parser=from_minutes(parse_rtsne)),
-    Spec("Rtsne", log_name="Rtsne", cores=8, lang="R", parser=from_minutes(parse_rtsne)),
+    Spec("Rtsne", log_name="Rtsne", cores=1, lang="R", parser=parse_rtsne),
+    Spec("Rtsne", log_name="Rtsne", cores=8, lang="R", parser=parse_rtsne),
 
     # TSne.jl
     Spec("TSne.jl", log_name="TSne-jl", cores=1, lang="Julia", parser=parse_jl),
@@ -136,7 +139,7 @@ data = pd.DataFrame(data)
 
 
 def generate_benchmark_plot(colors, title, fname):
-    fig, ax = plt.subplots(figsize=(8, 4.5))
+    fig, ax = plt.subplots(figsize=(8, 6))
     sns.despine(offset=20)
 
     ax.set_title(
@@ -145,8 +148,8 @@ def generate_benchmark_plot(colors, title, fname):
         fontdict={"fontsize": "13"},
         pad=15,
     )
-    ax.set_xlabel("$N$ samples")
-    ax.set_ylabel("Time (min)")
+    ax.set_xlabel("Dataset size [samples]")
+    ax.set_ylabel("Time [min]")
 
     ax.grid(color="0.9", linestyle="--", linewidth=1)
 
@@ -190,13 +193,34 @@ def generate_benchmark_plot(colors, title, fname):
         lambda x, p: format(int(x), ",").replace(",", "."))
     )
 
-    legend_handle = ax.legend(
+    # The legend will only indicate solid/dashed lines for core count
+    # The line labels for the different implementations will be added later in AI
+    legend_patches = [
+        Line2D([0], [0], color="#000", lw=2, linestyle="solid"),
+        Line2D([0], [0], color="#000", lw=2, linestyle="dashed"),
+    ]
+    ax.legend(
+        legend_patches,
+        ["1 core", "8 cores"],
         frameon=False,
-        loc="center left",
-        bbox_to_anchor=(1.05, 0.5),
+        loc="upper right",
+        bbox_to_anchor=(0.99, 0.99),
         bbox_transform=ax.transAxes,
         ncol=1,
     )
+
+    # BETTER/WORSE indicator text
+    text_kwargs = dict(
+        color="#BBBBBB",
+        fontsize=16,
+        fontstretch="expanded",
+        fontweight="bold",
+        transform=ax.transAxes,
+    )
+    hoff = 0.04
+    voff = 0.04
+    ax.text(1 - hoff, 0 + voff, "Better", ha="right", va="center", **text_kwargs)
+    ax.text(0 + hoff, 1 - voff, "Worse", ha="left", va="center", **text_kwargs)
 
     plt.tight_layout()
     plt.savefig(
