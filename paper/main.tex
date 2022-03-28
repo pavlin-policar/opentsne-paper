@@ -315,6 +315,7 @@ visualization.
 The following snippet exemplifies this interface and demonstrates how \opentsne\ can be used to quickly generate several visualizations, each highlighting different aspects of the underlying data structure.
 
 \subsection{Example}
+
 \subsubsection{Installation}
 
 \opentsne\ is designed to be as user-friendly as possible and can be installed through either \pkg{PyPI} using \pkg{pip}
@@ -334,35 +335,74 @@ conda install -c conda-forge opentsne
 To verify that that \opentsne\ was installed correctly, try to import the module:
 \begin{CodeChunk}
 \begin{CodeInput}
-import openTSNE
-print(openTSNE.__version__)
+>>> import openTSNE
+>>> print(openTSNE.__version__)
+0.6.2
 \end{CodeInput}
 \end{CodeChunk}
-
 
 \subsubsection{A simple workflow}
 
-
+We demonstrate how to use \opentsne\ on the Iris data set from \citet{anderson1936species}.
+This small data set describes 150 iris flowers containing four variables (sepal
+length, sepal width, petal length, petal width) and their species (Iris Setosa,
+Iris Versicolor, Iris Virginica), which is the target variable.
+This data set is included in \pkg{scikit-learn}, making it easy to load:
 \begin{CodeChunk}
 \begin{CodeInput}
-from openTSNE import TSNE
-
-x: np.ndarray = ...
-
-# Vanilla t-SNE
-tsne_standard = TSNE().fit(x)
-
-# Adapt parameters to better highlight small clusters in the data
-tsne_extensions = TSNE(perplexity=50, exaggeration=2, dof=0.8).fit(x)
-
-# Use multiple perplexity values for better local/global structure trade-off
-tsne_multiscale = TSNE(perplexity=[50, 500]).fit(x)
-
-# Use the generated embeddings to add new data points
-new_embedding = tsne_extensions.transform(x_new)
+>>> from sklearn import datasets
+>>>
+>>> iris = datasets.load_iris()
+>>> iris.data[:3]
+array([[5.1, 3.5, 1.4, 0.2],
+       [4.9, 3. , 1.4, 0.2],
+       [4.7, 3.2, 1.3, 0.2]])
 \end{CodeInput}
 \end{CodeChunk}
-The code snippet considers a \pkg{numpy} array or \pkg{scipy} sparse matrix \texttt{x} and creates three \texttt{TSNEEmbedding} objects. These represent fully-optimized t-SNE embeddings, and \opentsne\ internally stores them as \pkg{numpy} arrays. These can be manipulated and visualized using standard Python tools. We then select one of these embeddings and use it to embed new data points from \texttt{x\_new} into the embedding space while keeping the reference embedding fixed. Additionally, \opentsne\ provides a more advanced interface that enables the user to change every aspect of the t-SNE optimization procedure. We describe this interface in detail in the \opentsne's on-line documentation.
+\pkg{scikit-learn} loads the data set into a \pkg{numpy} array, which can directly
+be used by \opentsne:
+\begin{CodeChunk}
+\begin{CodeInput}
+>>> import openTSNE
+>>>
+>>> embedding = openTSNE.TSNE().fit(iris.data)
+>>> embedding[:3]
+TSNEEmbedding([[-0.55581917, 17.56162344],
+               [-1.76742536, 20.07763453],
+               [-0.58444608, 20.00052495]])
+\end{CodeInput}
+\end{CodeChunk}
+\opentsne\ returns an \code{TSNEEmbedding} object, which is a subclass of
+\code{np.ndarray}. This allows users to easily manipulate the resulting embedding.
+The additional functionality provided by the \code{TSNEEmbedding} object allows
+the embedding to be further optimized using different parameter values, or be
+used as a reference when obtaining new data points.
+For users who do not need this additional functionality, this object can be
+converted to a standard \code{np.ndarray} with:
+\begin{CodeChunk}
+\begin{CodeInput}
+>>> import numpy as np
+>>>
+>>> X_tsne = embedding.view(np.ndarray)
+>>> X_tsne[:3]
+array([[-0.55581917, 17.56162344],
+       [-1.76742536, 20.07763453],
+       [-0.58444608, 20.00052495]])
+\end{CodeInput}
+\end{CodeChunk}
+Fig.~\ref{fig:iris} shows a visualization of the resulting t-SNE visualization.
+As expected, t-SNE is correctly able to group together samples from the same
+species. Additionally, the t-SNE embedding reveals that Iris Setosa is markedly
+different from the other two species, while flowers from Iris Versicolor and
+Iris Virginica may appear more similar to one another.
+\begin{figure*}[htbp]
+  \centering
+  \includegraphics[width=0.5\textwidth]{iris}
+  \caption{\label{fig:iris}
+  Visualization of the obtained t-SNE embedding on the Iris data set. The colors
+  correspond to different species of the Iris flower.
+}
+\end{figure*}
 
 
 \section{Discussion and Examples} \label{sec:summary}
