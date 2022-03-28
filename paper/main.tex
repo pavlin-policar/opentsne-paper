@@ -630,88 +630,107 @@ visually appealing animations of the t-SNE optimization process.
 % General problem statement
 One of the t-SNE's common criticisms is limited scalability to large data sets
 containing, for instance, millions of data points~\citep{becht2019dimensionality}.
-The culprit for slow response time stems from
-particular optimization procedures and their specific implementation in popular
+The culprit for slow response time stems from particular optimization procedures
+and their specific implementation in popular
 open-source libraries. Until quite recently, most popular implementations of
 t-SNE were based on either a direct implementation of the t-SNE algorithm with
-asymptotic time complexity $\mathcal{O}(N^2)$, or the Barnes-Hut approximation
-scheme developed by
-\citet{van2014accelerating} with asymptotic time complexity $\mathcal{O}
- (N \log N)$, where $N$ is the number of data items ({\em e.g.} cells).
-
-% Problem with Python
-In Python, the most widely-used implementation of t-SNE came from \pkg{scikit-learn},
-which exhibits long runtimes when compared to its C++ counterpart --
-\pkg{MulticoreTSNE}. The multi-threaded \pkg{MulticoreTSNE}
-implementation~\citep{Ulyanov2016} can construct t-SNE embeddings of millions of
-data points in a matter of hours (Fig.~\ref{fig:benchmarks_py}).
-However, recently, \citet{linderman2019fast} developed a
-new approximation scheme -- FIt-SNE -- which futher reduces the asymptotic time
-complexity to $\mathcal{O}(N)$. This approximation scheme is included in \pkg{FIt-SNE} and \opentsne, enabling the embedding of large data sets in a matter
-of minutes.
+asymptotic time complexity $\mathcal{O}(N^2)$~\citep{maaten2008visualizing}, or the Barnes-Hut approximation
+scheme developed by \citet{van2014accelerating} with asymptotic time complexity
+$\mathcal{O}(N \log N)$. Recently, however, \citet{linderman2019fast} developed
+a novel approximation scheme -- FIt-SNE -- which reduces the asymptotic time
+complexity to $\mathcal{O}(N)$, overcoming the difficulties of scaling t-SNE
+to large data sets.
 
 % We benchmark Python
-Fig.~\ref{fig:benchmarks_py} benchmarks four popular Python t-SNE implementations,
-including those from \pkg{scikit-learn} (v1.0.1), \pkg{MulticoreTSNE} (v0.1),
-\pkg{FIt-SNE} (v1.1.0), and our \opentsne\ (v0.6.1). Benchmarks were performed on
-an Intel(R) Xeon(R) CPU E5-1650 equipped with 128 GB of memory. Benchmarks were run for $1,000$ iterations with the original
-t-SNE parameters, as some implementations do not allow for their modification.
-
-To ensure a realistic benchmarking scenario, we utilize the 10X
-Genomics 1.3 million mouse brain data set, containing 1.3 million single-cell 
-gene-expression profiles. We preprocess the data using the standard single-cell
-analysis pipeline and extract the top 50 principal components. To generate
-benchmark data sets of different sizes, we subsample the data set five times,
-resulting in five different data sets for each sample size. In total, we run
-each implementation on 30 different data sets.
+Fig.~\ref{fig:benchmarks_py} benchmarks four popular Python t-SNE
+implementations, including \pkg{scikit-learn} (v1.0.1), \pkg{MulticoreTSNE}
+(v0.1), \pkg{FIt-SNE} (v1.1.0), and \opentsne\ (v0.6.2). Benchmarks were
+performed on an Intel(R) Xeon(R) CPU E5-1650 equipped with 128 GB of memory.
+Benchmarks were run for $1,000$ iterations with the original t-SNE parameters,
+as some implementations do not allow for their modification. To ensure a
+realistic benchmarking scenario, we utilize the 10X Genomics 1.3 million mouse
+brain data set~\citep{xxx}, containing 1.3 million single-cell gene-expression
+profiles. We preprocess the data using the standard single-cell analysis
+pipeline~\citep{XXX} and extract the top 50 principal components. To generate
+benchmark data sets of different sample sizes, we subsample the data set five
+times at each sample size. In total, we run each implementation on 30 different
+data sets.
 
 \begin{figure*}[ht]
-  \includegraphics[width=\textwidth]{benchmarks_python-final}
+  \centering
+  \includegraphics[width=0.75\textwidth]{benchmarks_python-final}
   \caption{\label{fig:benchmarks_py}
-  We benchmark \opentsne\ (v0.6.1) against three popular open-source
+  We benchmark \opentsne\ (v0.6.2) against three popular open-source
   implementations from \pkg{scikit-learn}~\citep{pedregosa2011scikit}
   (v1.0.1), \pkg{MulticoreTSNE}~\citep{Ulyanov2016} (v0.1), and
   \pkg{FIt-SNE}~\citep{linderman2019fast} (v1.1.0). Experiments were run on a
-  on a server-grade Intel(R) Xeon(R) CPU E5-1650 equipped with 128 GB of memory. Notice
+  on an Intel(R) Xeon(R) CPU E5-1650 equipped with 128 GB of memory. Notice
   that \opentsne\ scales similarly to \pkg{FIt-SNE}, as they both use the
   same interpolation-based approximation scheme, while \pkg{scikit-learn} and
   \pkg{MulticoreTSNE} utilize the Barnes-Hut approximation.
 }
 \end{figure*}
 
-% Problem with other programming languages
-In R, the only widely used implementation of t-SNE -- \pkg{Rtsne}~\citep{krijthe2015rtsne} -- is based on the Barnes-Hut approximation, and is closely comparable to \pkg{MulticoreTSNE}. In Julia, the only available implementation -- \pkg{TSne.jl} -- is based on a direct $\mathcal{O}(N^2)$ implementation of the algorithm, which allows it to be used only on smaller data sets containing thousands of data points.
-Matlab is proprietary software, but also implements a naive version of the t-SNE algorithm, therefore we would expect its performance to mirror that of \pkg{TSne.jl} from Julia.
+% Problem with Python
+In Python, the most widely-used implementation of t-SNE comes from \pkg{scikit-learn},
+which exhibits long runtimes when compared to other Python implementations.
+\pkg{scikit-learn}, like its C++ counterpart -- \pkg{MulticoreTSNE}~\citep{Ulyanov2016} ,
+is based on the Barnes-Hut approximation scheme. However, as
+shown on Fig.~\ref{fig:benchmarks_py}, \pkg{scikit-learn} exhibits much longer
+runtimes than \pkg{MulticoreTSNE}.
+Newer implementations, such as \pkg{FIt-SNE} and \opentsne, both implement the
+FIt-SNE approximation scheme, making them suitable for the visualization of
+millions of data points. While both libraries implement the same
+algorithm, \opentsne\ emphasizes ease of use and extensibility, and is primarily
+written in Python, which inevitably introduces some runtime overhead. This
+makes \opentsne\ marginally slower than its pure C++ counterpart -- \pkg{FIt-SNE}.
+However, these differences disappear almost entirely when
+utilizing multi-threading, as shown on Fig.~\ref{fig:benchmarks_py}.
+Additionally, \opentsne\ provides a flexible API, allowing the user to split up
+the embedding-construction process into several parts. This allows us to cache
+and reuse intermediate results, enabling users to quickly experiment with
+different parameter settings and iterate on their final visualizations. This
+kind of functionality is not supported in other implementations, which require
+the user to start from scratch for every embedding, resulting in large amounts
+of redundant computation.
 
-% We benchmark other programming languages
-Using the same benchmarking setup as before, we ...
-The results are shown in Fig.~\ref{fig:benchmarks_lang}. 
-Using 8 cores, Rtsne runs out of stack memory at 500k
+
+% Problem with other programming languages
+In other programming languages, the selection of fast, open-source
+implementations of t-SNE is more limited. In R, the most widely used
+implementation of t-SNE -- \pkg{Rtsne}~\citep{krijthe2015rtsne} -- is based on
+the Barnes-Hut approximation, and is closely comparable to 
+\pkg{MulticoreTSNE}. In Julia, the most popular implementation -- 
+\pkg{TSne.jl}~\citep{julia_tsne} -- is based on a naive $\mathcal{O}(N^2)$ implementation of the
+algorithm, which allows it to be used only on smaller data sets containing up
+to thousands of data points. We benchmark \pkg{Rtsne} (v0.15) and 
+\pkg{TSne.jl} (v1.3.0) and compare it to \opentsne\ (v0.6.2).
+Fig.~\ref{fig:benchmarks_lang} illustrates the scaling of each approximation 
+scheme. Of these implementations, only \opentsne\ is able to scale to data sets
+containing millions of data points in a reasonable amount of time.
 
 \begin{figure*}[ht]
-  \includegraphics[width=\textwidth]{benchmarks_langs-final}
+  \centering
+  \includegraphics[width=0.75\textwidth]{benchmarks_langs-final}
   %\includegraphics[width=\textwidth]{benchmarks-combined}
   \caption{\label{fig:benchmarks_lang}
-  We choose the fastest available, open-source implementations of the t-SNE algorithm from the Python, R, and Julia programming languages. We choose \opentsne\ for Python, \pkg{Rtsne} for R, and \pkg{TSne.jl} for Julia. The benchmarks reflect the time complexity of the implemented algorithms. For instance, \pkg{TSne.jl} implements a naive $\mathcal{O}(N^2)$ algorithm, making it prohibitively expensive for all but the smallest data sets. \pkg{Rtsne} scales similarily to \pkg{MulticoreTSNE} in Python, as it implements the $\mathcal{O}(N \log N)$ Barnes-Hut approximation scheme. Interestingly, the multi-threaded implementation version of \pkg{Rtsne} crashes on benchmark data sets containing over 500,000 data points due to lack of memory. This would seriously hamper its utility on consumer-grade platforms, as our benchmark platform contained 128 GB of memory. \opentsne\ is the only library implementing the more recent FIt-SNE approximation scheme, which makes it suitable for even the largest data sets.
+  We select the fastest available, open-source implementations of the t-SNE
+  algorithm from the Python, R, and Julia programming languages. We choose
+  \opentsne\ (v0.6.2) for Python, \pkg{Rtsne}~\citep{krijthe2015rtsne} (v0.15)
+  for R, and \pkg{TSne.jl}~\citep{julia_tsne} (v1.3.0) for Julia. The benchmarks
+  reflect the time complexity of the
+  implemented approximation schemes. For instance, \pkg{TSne.jl} implements a
+  naive $\mathcal{O}(N^2)$ algorithm, making it prohibitively expensive for all
+  but the smallest of data sets. \pkg{Rtsne} scales similarily to
+  \pkg{MulticoreTSNE} in Python, as it implements the $\mathcal{O}(N \log N)$
+  Barnes-Hut approximation scheme. Interestingly, the multi-threaded
+  implementation version of \pkg{Rtsne} crashes on benchmark data sets
+  containing over 500,000 data points due to lack of stack memory. We found
+  these crashes to be inconsistent and somwewhat random. \opentsne\ is the only
+  library implementing the more recent FIt-SNE approximation scheme, which makes
+  it suitable for larger data sets.
 }
 \end{figure*}
-
-Benchmark results (Fig.~\ref{fig:benchmarks_py}) confirm that both \pkg{FIt-SNE}
-and \opentsne\ scale better than their Barnes-Hut counterparts --
-\pkg{scikit-learn} and \pkg{MulticoreTSNE}. While \opentsne's implementation
-uses Python which incurs some runtime overhead compared to its C++ counterpart
-\pkg{FIt-SNE}, the two libraries' speeds are surprisingly comparable. Modern
-computer processors contain multiple cores, allowing us to use multi-threading,
-which further reduces the gap between \opentsne\ and \pkg{FIt-SNE}. On the
-server-grade processor, \opentsne\ is slightly faster than its pure C++
-counterpart when utilizing multiple cores. \opentsne\ uses \pkg{numpy} for most
-linear algebra operations, which may make better use of the Intel Math Kernel
-Library (MKL), which is aggressively optimized on Intel(R) Xeon(R) processors.  
-
-\opentsne\ provides a flexible API, allowing splitting up the
-embedding-construction process into several parts, caching slow operations.
-Running t-SNE optimization in stages enables users to quickly experiment with
-different parameter settings and iterate on their final visualizations.
 
 \subsection{Ease of Use}
 
@@ -748,49 +767,48 @@ comparison to other popular t-SNE implementations in Table~\ref{tab:features}.
 \newcommand*\rot{\rotatebox{90}}
 \renewcommand{\arraystretch}{1.25}
 
-\begin{tabular}{l c c c c c|c c}
+\begin{tabular}{l c c c c|c c}
 \toprule
 \setlength\tabcolsep{6pt}
-& \rot{\pkg{scikit-learn}} & \rot{\pkg{BHTSNE}} & \rot{\pkg{MulticoreTSNE}} & \rot{\pkg{FIt-SNE}} & \rot{\pkg{openTSNE}} & \rot{\pkg{Rtsne}} & \rot{\pkg{Tsne.jl}} \\
+& \rot{\pkg{scikit-learn}} & \rot{\pkg{MulticoreTSNE}} & \rot{\pkg{FIt-SNE}} & \rot{\pkg{openTSNE}} & \rot{\pkg{Rtsne}} & \rot{\pkg{Tsne.jl}} \\
 
 \toprule
 \textbf{Ease of Installation} \\
-Native Python installation & \checkmark & & & & \checkmark & & \\
-\pkg{PyPI} package & \checkmark & & \checkmark & & \checkmark & & \\
-\pkg{conda} package & \checkmark & & & & \checkmark & & \\
+Native Python installation & \checkmark & & & \checkmark & & \\
+\pkg{PyPI} package & \checkmark & \checkmark & & \checkmark & & \\
+\pkg{conda} package & \checkmark & & & \checkmark & & \\
 
 \hline
 \textbf{Approximation Schemes} \\
-None ($\mathcal{O}(N^2)$) & & & & & & & \checkmark \\
-Barnes-Hut ($\mathcal{O}(N \log N)$) & \checkmark & \checkmark & \checkmark & & \checkmark & \checkmark & \\
-FIt-SNE ($\mathcal{O}(N)$) & & & & \checkmark & \checkmark & & \\
+None ($\mathcal{O}(N^2)$) & & & & & & \checkmark \\
+Barnes-Hut ($\mathcal{O}(N \log N)$) & \checkmark & \checkmark & & \checkmark & \checkmark & \\
+FIt-SNE ($\mathcal{O}(N)$) & & & \checkmark & \checkmark & & \\
 
 \hline
 \textbf{Advanced Features and Extensions} \\
 %Multiscale Gaussian kernels & & & & \checkmark & \checkmark & & \\
-Extensible affinity models & & & & & \checkmark & & \\
-Variable degrees of freedom & & & & \checkmark & \checkmark & & \\
-Variable exaggeration & & & & \checkmark & \checkmark & & \\
-Globally-consistent initialization & & & & \checkmark & \checkmark & & \\
-Automatic learning rate & & & & \checkmark & \checkmark & & \\
-Adding samples to embeddings & & & & & \checkmark & & \\
-Callback system & & & & & \checkmark & & \\
-Interactive optimization  & & & & & \checkmark & & \\
+Extensible affinity models & & & & \checkmark & & \\
+Variable degrees of freedom & & & \checkmark & \checkmark & & \\
+Variable exaggeration & & & \checkmark & \checkmark & & \\
+Globally-consistent initialization & & & \checkmark & \checkmark & & \\
+Automatic learning rate & & & \checkmark & \checkmark & & \\
+Adding samples to embeddings & & & & \checkmark & & \\
+Callback system & & & & \checkmark & & \\
+Interactive optimization  & & & & \checkmark & & \\
 
 \hline
 \textbf{Project Quality}\\
-Actively maintained & \checkmark & & & & \checkmark & \checkmark & \checkmark \\
-Continuous integration & \checkmark & & \checkmark & & \checkmark & \checkmark & \checkmark \\
-User documentation & \checkmark & & & & \checkmark & \checkmark  & \\
-End-to-end usage examples & \checkmark & & & \checkmark & \checkmark & \checkmark & \checkmark \\
-API reference & \checkmark & & & & \checkmark & \checkmark &  \\
+Actively maintained & \checkmark & & & \checkmark & \checkmark & \checkmark \\
+Continuous integration & \checkmark & \checkmark & & \checkmark & \checkmark & \checkmark \\
+User documentation & \checkmark & & & \checkmark & \checkmark  & \\
+End-to-end usage examples & \checkmark & & \checkmark & \checkmark & \checkmark & \checkmark \\
+API reference & \checkmark & & & \checkmark & \checkmark &  \\
 \bottomrule
 \end{tabular}
 \end{center}
 
 \caption{\label{tab:features}
-  We compare the features of \opentsne~(v0.6.1) to four popular open-source Python
-  t-SNE implementations from \pkg{scikit-learn}~(v1.0.1),
+  We compare the features of \opentsne~(v0.6.2) to \pkg{scikit-learn}~(v1.0.1),
   \pkg{BHTSNE}~(master), \pkg{MulticoreTSNE}~(v0.1), and
   \pkg{FIt-SNE}~(v1.1.0), as well as the major implementations in R and Julia,
   \pkg{Rtsne}~(v0.15), \pkg{Tsne.jl}~(v1.3.0). Active maintenance indicates whether the project has had any meaningful development in the past year from the time of writing.
@@ -812,14 +830,11 @@ publicly available at \url{https://github.com/pavlin-policar/openTSNE}.
 End-to-end usage examples, documentation, and API reference are all available at
 \url{https://opentsne.readthedocs.io}.
 
-\section*{Computational details}
+\section*{Reproducibility}
 
 The results in this paper were obtained using \proglang{Python}~3.10.2 with the
-\pkg{openTSNE}~v0.6.1 package. \opentsne\ has three direct dependencies:
-\pkg{numpy}, \pkg{scipy}, and \pkg{scikit-learn}. In our experiments, we used
-\pkg{numpy}~v1.21.3, \pkg{scipy}~v1.7.1. \pkg{scikit-learn}~v1.0.1. As these
-packages include their own downstream dependencies, the full environment used to
-produce the figures is included in the accompanying GitHub repository
+\pkg{openTSNE}~v0.6.2 package. All results and figures can be reproduced using
+the scripts found in the accompanying GitHub repository
 \url{https://github.com/pavlin-policar/opentsne-paper}.
 
 \section*{Acknowledgments}
