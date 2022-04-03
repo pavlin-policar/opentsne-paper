@@ -1,0 +1,57 @@
+Dear Editor,
+
+We are submitting our manuscript "openTSNE: a modular Python library for t-SNE
+dimensionality reduction and embedding," describing our open-source
+implementation of t-SNE to be considered for publication in the Journal of
+Statistical Software. Our library -- openTSNE -- has been widely adopted by the
+machine learning and bioinformatics communities, and has garnered over 950
+GitHub stars and has reached over 500,000 downloads.
+
+We submitted an earlier version of this manuscript to your journal some time
+ago, and you kindly provided prompt feedback on what we should improve for
+this manuscript to be considered for publication. We now believe we have
+thoroughly addressed your comments:
+
+> Such an overview should not only cover Python but also other statistical
+  software environments
+
+We have now included popular open-source packages from both R and Julia in our
+comparisons, both of which are widely used in the machine learning and
+bioinformatics communities.
+
+> The Implementation section constitutes a core component of a JSS manuscript.
+  More care is needed to present the module building on the methods reviewed
+  and indicating which functions cover these functionality, elaborate on the
+  class and data structure used as well as which methods are available as well
+  as an overview on arguments and how they can be suitably set and modified.
+  Also generalizability and extensibility of the implementation should be
+  discussed in this context.
+
+We have greatly extended our Implementation section with a more detailed
+description of our library, class-structure, and include a brief tutorial on
+how to get started with openTSNE.
+
+> Then the application of the implementation should be demonstrated. For the
+  interested reader who wants to learn about how to use the module in practice
+  for their own data it would be important to not only explain the application
+  and show results but also demonstrate how they are obtained with the software
+  provided.
+
+We have now included code snippets for each of the figures in the manuscript
+which demonstrate how easy it is to get started with and use the more advanced
+capabilities of openTSNE.
+
+> The replication material needs to be improved that it can be easily verified
+  that all necessary components are contained, it is clear which part allows to
+  replicate which part of the manuscript.
+
+We have included an accompanying GitHub repository
+(https://github.com/pavlin-policar/opentsne-paper), which contains all the
+scripts and other material necessary to reproduce the results shown in the
+manuscript. We provide instructions on how to reproduce both the figures and
+benchmarks.
+
+Kind regards,
+Pavlin Poličar, Martin Stražar, Blaž Zupan
+
+Ljubljana, April 4th, 2022
