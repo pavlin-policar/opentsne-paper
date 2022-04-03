@@ -18,7 +18,7 @@ bash download_h5ad.sh
 
 ## Generate figures
 
-Once you have obtained the preprocessed `.h5ad` files, you can replicate all the t-SNE figure from the manuscript simply by running
+Once you have obtained the preprocessed `.h5ad` files, you can replicate all the figures from the manuscript (excluding benchmarks) by running
 
 ```bash
 bash generate_figures.sh
