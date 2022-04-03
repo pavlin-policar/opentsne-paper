@@ -1,12 +1,13 @@
 import argparse
 import os
+import string
 
-import numpy as np
-import scanpy as sc
-import utils
-import openTSNE
 import matplotlib.pyplot as plt
+import numpy as np
+import openTSNE
+import scanpy as sc
 
+import utils
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-i", "--in-dir", required=True)
@@ -55,10 +56,6 @@ if (
     ).fit(adata.obsm["X_pca"])
     
     ### Prepare new data to transform
-    print("Reloading data...")
-    adata = sc.read_h5ad(os.path.join(args.in_dir, "macosko_2015.h5ad"))
-    new = sc.read_h5ad(os.path.join(args.in_dir, "shekhar_2016.h5ad"))
-    
     # Synchronize labels
     new.obs["labels"] = new.obs["labels"].astype(str)
     new.obs["labels"][new.obs["labels"].str.contains("bipolar cell")] = "retinal bipolar neuron"
@@ -103,8 +100,7 @@ if (
     # Select subsets
     adata_1000 = adata[:, gene_mask]
     new_1000 = new[:, gene_mask]
-    
-    
+
     ### Embed new data into existing embedding
     print("Transforming samples into embedding...")
     affinities = openTSNE.affinity.PerplexityBasedNN(
@@ -188,10 +184,7 @@ for label in np.unique(cluster_ids_):
     except ValueError:
         colors_[label] = colors[label]
 
-
 # Final figure
-import string
-
 fig, ax = plt.subplots(ncols=3, figsize=(16, 16 / 3))
 
 utils.plot(

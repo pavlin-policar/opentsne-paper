@@ -1,12 +1,11 @@
 import argparse
 import os
+import string
 
-import numpy as np
-import scanpy as sc
-import utils
-import openTSNE
 import matplotlib.pyplot as plt
-
+import numpy as np
+import openTSNE
+import scanpy as sc
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-i", "--in-dir", required=True)
@@ -81,9 +80,6 @@ if (
 
 ### Make figure
 print("Generating figure...")
-
-import string
-
 fig, ax = plt.subplots(ncols=2, nrows=2, figsize=(8, 8))
 
 for ax_, (title, emb) in zip(ax.ravel(), [
