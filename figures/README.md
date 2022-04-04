@@ -25,3 +25,25 @@ bash generate_figures.sh
 ```
 
 We also include exact conda environments and installed package versions.
+
+## Scripts
+
+### `fig1-macosko.py`
+
+![](png/macosko2015.png)
+
+### `fig3-iris.py`
+
+![](png/iris.png)
+
+### `fig4-tasic.py`
+
+![](png/tasic2018.png)
+
+### `fig5-cao.py`
+
+![](png/cao2019.png)
+
+### `fig6-hocherner.py`
+
+![](png/transform_hochgerner.png)
