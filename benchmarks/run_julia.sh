@@ -16,7 +16,7 @@ julia -e 'using Pkg; Pkg.add("TSne")'
 
 # Download benchmark dataset
 mkdir -p data
-wget -nc -P data http://file.biolab.si/opentsne/10x_mouse_zheng.pkl.gz
+wget -nc -P data http://file.biolab.si/opentsne/benchmark/10x_mouse_zheng.pkl.gz
 
 # Prepare logs directory
 mkdir -p logs

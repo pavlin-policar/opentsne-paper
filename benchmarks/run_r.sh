@@ -13,7 +13,7 @@ Rscript -e 'install.packages("optparse", repos="https://cloud.r-project.org")'
 
 # Download benchmark dataset
 mkdir -p data
-wget -nc -P data http://file.biolab.si/opentsne/10x_mouse_zheng.pkl.gz
+wget -nc -P data http://file.biolab.si/opentsne/benchmark/10x_mouse_zheng.pkl.gz
 
 conda install -y python numpy
 python convert_pickle_to_csv.py
