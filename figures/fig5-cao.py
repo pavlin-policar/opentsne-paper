@@ -141,3 +141,9 @@ plt.savefig(
     bbox_inches="tight",
     transparent=True,
 )
+plt.savefig(
+    os.path.join(args.out_dir, "cao2019.png"),
+    dpi=72,
+    bbox_inches="tight",
+    transparent=True,
+)

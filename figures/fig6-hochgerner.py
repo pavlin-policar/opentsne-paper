@@ -206,3 +206,9 @@ plt.savefig(
     bbox_inches="tight",
     transparent=True,
 )
+plt.savefig(
+    os.path.join(args.out_dir, "transform_hochgerner.png"),
+    dpi=72,
+    bbox_inches="tight",
+    transparent=True,
+)
