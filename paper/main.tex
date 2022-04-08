@@ -354,11 +354,11 @@ follows the same three general steps as constructing a standard embedding:
 \item Finally, what remains is to construct an embedding object, which can then be subject to optimization. Because this new embedding relies on an existing reference embedding, we construct a \code{openTSNE.PartialTSNEEmbedding} embedding object, which indicates its dependence on a reference \code{openTSNE.TSNEEmbedding} object. As before, \code{openTSNE.PartialTSNEEmbedding} inherits from \code{numpy.ndarray} and can therefore be easily manipulated. Optimization is, again, performed via the \code{.optimize} method.
 \end{enumerate}
 
-\begin{figure*}[t]
+\begin{figure*}[htbp]
   \centering
-  \includegraphics[width=0.75\textwidth]{opentsne-diagram}
+  \includegraphics[width=0.9\textwidth]{opentsne-diagram}
   \caption{\label{fig:diagram}
-  The high-level structure and flow of the \opentsne\ library.
+  The high-level structure and flow of the \opentsne\ library. Solid black lines show the standard parameter flow, while red, dashed lines indicate optional parameters, which allow for a finer level of control over the t-SNE algorithm.
   }
 \end{figure*}
 
