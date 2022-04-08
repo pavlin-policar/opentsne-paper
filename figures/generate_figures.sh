@@ -29,11 +29,11 @@ python fig1-macosko.py -i "$H5AD_DIR" -o "$FIGURES_DIR"
 echo "Generating Figure 3..."
 python fig3-iris.py -o "$FIGURES_DIR"
 
-echo "Generating Figure 4..."
-python fig4-tasic.py -i "$H5AD_DIR" -o "$FIGURES_DIR"
-
 echo "Generating Figure 5..."
-python fig5-cao.py -i "$H5AD_DIR" -o "$FIGURES_DIR"
+python fig5-tasic.py -i "$H5AD_DIR" -o "$FIGURES_DIR"
 
 echo "Generating Figure 6..."
-python fig6-hochgerner.py -i "$H5AD_DIR" -o "$FIGURES_DIR"
+python fig6-cao.py -i "$H5AD_DIR" -o "$FIGURES_DIR"
+
+echo "Generating Figure 7..."
+python fig7-hochgerner.py -i "$H5AD_DIR" -o "$FIGURES_DIR"
