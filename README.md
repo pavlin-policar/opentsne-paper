@@ -1,6 +1,6 @@
 # openTSNE
 
-This repository contains all the materials used in "*openTSNE: a modular Python library for t-SNE dimensionality reduction and embedding*". The actual *openTSNE* library can be found at https://github.com/pavlin-policar/opentsne
+This repository contains all the materials used in "*openTSNE: a modular Python library for t-SNE dimensionality reduction and embedding*". The *openTSNE* library can be found at https://github.com/pavlin-policar/opentsne
 
 ![](figures/png/cao2019.png)
 
