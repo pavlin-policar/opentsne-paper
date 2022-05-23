@@ -12,7 +12,11 @@ bash run_r.sh
 bash run_julia.sh
 ```
 
-The benchmark output will be saved to the `logs/` directory.
+The benchmark output will be saved to the `logs/` directory. We also include exact [conda](https://docs.conda.io/en/latest/miniconda.html) environments used to produce the benchmarks in the manuscript. These can also be found in the `logs/` directory, and can be reproduced exactly using
+
+```bash
+conda env create -f logs/00--run_python--conda_env.yml
+```
 
 ## Generating figures
 
