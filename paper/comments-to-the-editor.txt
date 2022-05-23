@@ -1,6 +1,6 @@
 Dear Editor,
 
-We are submitting our manuscript "openTSNE: a modular Python library for t-SNE dimensionality reduction and embedding," describing our open-source implementation of t-SNE to be considered for publication in the Journal of Statistical Software. In the past years, machine learning and bioinformatics communities have widely adopted our library, garnering an impressive number of close to one thousand GitHub stars and was downloaded over 500,000 times.
+We are submitting our manuscript "openTSNE: a modular Python library for t-SNE dimensionality reduction and embedding," describing our open-source implementation of t-SNE to be considered for publication in the Journal of Statistical Software. In the past years, the machine learning and bioinformatics communities have widely adopted our library, garnering close to one thousand GitHub stars and was downloaded over 500,000 times.
 
 We have previously submitted a version of this manuscript, and you kindly provided us with prompt feedback and requested improvements. We are now submitting a revised version that addresses your comments, including:
 
@@ -10,7 +10,7 @@ We have now included a comparison with popular open-source packages from both R 
 
 > The Implementation section constitutes a core component of a JSS manuscript. More care is needed to present the module building on the methods reviewed and indicating which functions cover these functionality, elaborate on the class and data structure used as well as which methods are available as well as an overview on arguments and how they can be suitably set and modified. Also generalization and extensibility of the implementation should be discussed in this context.
 
-We have extended the Implementation section with a detailed description of our library, class structure, and a brief tutorial on how to get started with openTSNE.
+We have extended the Implementation section with a detailed description of our library, library organization, and a brief tutorial on how to get started with openTSNE.
 
 > Then the application of the implementation should be demonstrated. For the interested reader who wants to learn about how to use the module in practice for their own data it would be important to not only explain the application and show results but also demonstrate how they are obtained with the software provided.
 
@@ -20,8 +20,10 @@ We have now included code snippets for each of the figures in the manuscript, de
 
 We have included an accompanying GitHub repository (https://github.com/pavlin-policar/opentsne-paper), containing all the scripts and other material necessary to reproduce the results shown in the manuscript. We provide instructions on how to reproduce both the figures and benchmarks.
 
-We thank you again for your useful comments and for uportunity to improve our manuscript. Kind regards,
+We thank you again for your useful comments and for uportunity to improve our manuscript.
+
+Kind regards,
 
 Pavlin Poličar, Martin Stražar, Blaž Zupan
 
-Ljubljana, April 4th, 2022
+Ljubljana, May 23th, 2022
