@@ -14,7 +14,7 @@ pip install -r requirements-benchmarks.txt
 pip install --upgrade numpy
 
 # Setup FIt-SNE
-git clone git@github.com:KlugerLab/FIt-SNE.git || :
+git clone https://github.com/KlugerLab/FIt-SNE.git || :
 conda install -c conda-forge fftw -y
 cd FIt-SNE
 CPLUS_INCLUDE_PATH="${CONDA_PREFIX}/include/" LIBRARY_PATH="${CONDA_PREFIX}/lib/" \
