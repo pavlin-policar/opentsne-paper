@@ -24,7 +24,12 @@ Once you have obtained the preprocessed `.h5ad` files, you can replicate all the
 bash generate_figures.sh
 ```
 
-We also include exact conda environments and installed package versions.
+We also include exact [conda](https://docs.conda.io/en/latest/miniconda.html) environments and installed package versions, which can be installed and activated by running
+
+```bash
+conda env create -f conda-environment.yml
+conda activate tsne-paper
+```
 
 ## Scripts
 
