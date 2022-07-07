@@ -27,5 +27,5 @@ Extracting files...
 EOF
 
 for f in "$H5AD_DIR"/*.h5ad.tar.gz; do
-    tar xvfa "$f" --remove-files
+    tar xvfa "$f" -C "$H5AD_DIR" --remove-files
 done
