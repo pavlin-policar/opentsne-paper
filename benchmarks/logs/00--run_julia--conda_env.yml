@@ -53,4 +53,3 @@ dependencies:
   - tbb=2021.5.0=h4bd325d_0
   - tk=8.6.12=h27826a3_0
   - zlib=1.2.11=h36c2ea0_1013
-prefix: /home/ubuntu/miniconda3/envs/tsne_benchmarks_julia

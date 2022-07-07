@@ -54,4 +54,3 @@ dependencies:
     - termcolor==1.1.0
     - tqdm==4.63.0
     - umap-learn==0.5.2
-prefix: /home/ubuntu/miniconda3/envs/tsne_benchmarks
