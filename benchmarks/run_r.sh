@@ -28,7 +28,7 @@ REPETITIONS=6;
 
 # Single-threaded benchmarks
 SAMPLE_SIZES=(1000 100000 250000 500000 750000);
-for size in ${SAMPLE_SIZES[@]}; do
+for size in "${SAMPLE_SIZES[@]}"; do
     cmd="OMP_NUM_THREADS=1 \
         Rscript benchmark.r \
         --repetitions $REPETITIONS \
@@ -41,7 +41,7 @@ done;
 
 # Multi-threaded benchmarks
 SAMPLE_SIZES=(1000 100000 250000 500000 750000 1000000);
-for size in ${SAMPLE_SIZES[@]}; do
+for size in "${SAMPLE_SIZES[@]}"; do
     cmd="OMP_NUM_THREADS=8 \
         Rscript benchmark.r \
         --repetitions $REPETITIONS \

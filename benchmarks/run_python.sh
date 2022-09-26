@@ -40,8 +40,8 @@ REPETITIONS=6;
 # Single-threaded benchmarks
 METHODS=(openTSNEBH openTSNEFFT MulticoreTSNE FItSNE sklearn UMAP);
 
-for method in ${METHODS[@]}; do
-    for size in ${SAMPLE_SIZES[@]}; do
+for method in "${METHODS[@]}"; do
+    for size in "${SAMPLE_SIZES[@]}"; do
         cmd="OMP_NUM_THREADS=1 NUMBA_NUM_THREADS=1 \
             python benchmark.py $method run_multiple \
             --n $REPETITIONS \
@@ -54,8 +54,8 @@ done;
 
 # Multi-threaded benchmarks
 METHODS=(openTSNEBH_8core openTSNEFFT_8core MulticoreTSNE_8core FItSNE_8core sklearn_8core UMAP_8core);
-for method in ${METHODS[@]}; do
-    for size in ${SAMPLE_SIZES[@]}; do
+for method in "${METHODS[@]}"; do
+    for size in "${SAMPLE_SIZES[@]}"; do
         cmd="OMP_NUM_THREADS=8 NUMBA_NUM_THREADS=8 \
             python benchmark.py $method run_multiple \
             --n $REPETITIONS \

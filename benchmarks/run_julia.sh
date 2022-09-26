@@ -28,7 +28,7 @@ SAMPLE_SIZES=(1000 5000 10000 20000 50000);
 REPETITIONS=6;
 
 # Single-threaded benchmarks
-for size in ${SAMPLE_SIZES[@]}; do
+for size in "${SAMPLE_SIZES[@]}"; do
     cmd="OMP_NUM_THREADS=1 \
         julia benchmark.jl \
         --repetitions $REPETITIONS \
