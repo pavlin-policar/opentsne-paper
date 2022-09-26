@@ -1,4 +1,5 @@
 fire
+scikit-build  # required for cmake==3.18.4
 cmake==3.18.4  # required for multicoretsne, since it's not maintained
 multicoretsne
 pynndescent
