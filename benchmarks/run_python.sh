@@ -31,7 +31,7 @@ wget -nc -P data http://file.biolab.si/opentsne/benchmark/10x_mouse_zheng.pkl.gz
 # Prepare logs directory
 mkdir -p logs
 
-conda env export > logs/00--run_python--conda_env.yml
+conda env export | sed '/prefix:/d' > logs/00--run_python--conda_env.yml
 
 # RUN BENCHMARKS
 SAMPLE_SIZES=(1000 100000 250000 500000 750000 1000000);

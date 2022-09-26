@@ -24,7 +24,7 @@ python convert_pickle_to_csv.py -i data/10x_mouse_zheng.pkl.gz -o data/10x_mouse
 # Prepare logs directory
 mkdir -p logs
 
-conda env export > logs/00--run_julia--conda_env.yml
+conda env export | sed '/prefix:/d' > logs/00--run_julia--conda_env.yml
 
 # RUN BENCHMARKS
 SAMPLE_SIZES=(1000 5000 10000 20000 50000);
