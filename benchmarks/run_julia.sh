@@ -18,6 +18,9 @@ julia -e 'using Pkg; Pkg.add("TSne")'
 mkdir -p data
 wget -nc -P data http://file.biolab.si/opentsne/benchmark/10x_mouse_zheng.pkl.gz
 
+conda install -y python numpy
+python convert_pickle_to_csv.py -i data/10x_mouse_zheng.pkl.gz -o data/10x_mouse_zheng.csv
+
 # Prepare logs directory
 mkdir -p logs
 

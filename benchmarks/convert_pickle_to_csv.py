@@ -1,17 +1,32 @@
 """
 To run benchmarks in non-Python programming languages, we need to convert the
 pickle file to something these languages can read. We choose CSV.
+
+The pickle file must adhere to the format:
+{
+    "pca_50": np.ndarray  # the data matrix,
+    ...
+}
+
 """
+import argparse
 import gzip
-import pickle
-from os import path
-
 import numpy as np
+import os
+import pickle
+import sys
 
-CSV_FNAME = path.join("data", "10x_mouse_zheng.csv")
+parser = argparse.ArgumentParser(description="Convert a .pkl.gz file to csv")
+parser.add_argument("-i", "--input", help="Input file", required=True)
+parser.add_argument("-o", "--output", help="Output file", required=True)
+parser.add_argument("-f", "--force", help="Force overwrite output file", action="store_true")
+args = parser.parse_args()
 
-if not path.exists(CSV_FNAME):
-    with gzip.open(path.join("data", "10x_mouse_zheng.pkl.gz"), "rb") as f:
-        data = pickle.load(f)
+if os.path.exists(args.output) and not args.force:
+    print(f"File `{args.output}` exists. Doing nothing.")
+    sys.exit(0)
 
-    np.savetxt(CSV_FNAME, data["pca_50"])
+with gzip.open(args.input, "rb") as f:
+    data = pickle.load(f)
+
+np.savetxt(args.output, data["pca_50"])
