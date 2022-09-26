@@ -26,6 +26,7 @@ if os.path.exists(args.output) and not args.force:
     print(f"File `{args.output}` exists. Doing nothing.")
     sys.exit(0)
 
+print(f"Generating `{args.output}`...")
 with gzip.open(args.input, "rb") as f:
     data = pickle.load(f)
 
