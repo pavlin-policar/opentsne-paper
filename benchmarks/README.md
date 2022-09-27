@@ -4,23 +4,29 @@ We benchmark *openTSNE* against popular, open-source t-SNE libraries, accross th
 
 ## Running benchmarks
 
-The prerequisite for running the benchmarks is `conda`, which enables us to create reproducable, isolated environments. Run the benchmark scripts (in this same order)
+The prerequisite for running the benchmarks is `conda`, which must be previously installed. `conda` enables us to create reproducable, isolated environments. You can run the full benchmark suite using
 
 ```bash
-bash run_python.sh
-bash run_r.sh
-bash run_julia.sh
+bash run.sh -l
 ```
 
-The benchmark output will be saved to the `logs/` directory. We also include exact [conda](https://docs.conda.io/en/latest/miniconda.html) environments used to produce the benchmarks in the manuscript. These can also be found in the `logs/` directory, and can be reproduced exactly using
+Alternatively, since the full benchmark suite can take days or even weeks to complete, you may instead wish to run the smaller benchmark suite using
 
 ```bash
-conda env create -f logs/00--run_python--conda_env.yml
+bash run.sh -s
+```
+
+Note, however, that the strength of `openTSNE` over other implementations is its ability to quickly create embeddings of massive data sets. As such, the smaller benchmark suite will fail to highlight the scale of the advantage of `openTSNE` to other implementations.
+
+The benchmark output will be saved to the `logs/` directory. We also include exact [conda](https://docs.conda.io/en/latest/miniconda.html) environment used to produce the benchmarks in the manuscript. This can also be found in the `logs/` directory, and can be reproduced exactly using
+
+```bash
+conda env create -f logs/00--conda_env.yml
 ```
 
 ## Generating figures
 
-Because running the benchmarks can take a long time, we provide the output of our own benchmarks in the `logs/` directory. These benchmarks were run on an Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz processor with 128GB of memory. We also include exact conda environments and installed package versions.
+Because running the benchmarks can take a long time, we provide the output of our own benchmarks in the `logs/` directory. These benchmarks were run on an Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz processor with 128GB of memory. We also include the exact `conda` environment and installed package versions.
 
 To generate the benchmark figure, run
 
