@@ -6,22 +6,15 @@ library(Rtsne)
 sessionInfo()
 
 option_list = list(
+    make_option(c("--fname"), type="character"),
     make_option(c("--repetitions"), type="integer", default=1),
     make_option(c("--n-samples"), type="integer", default=FALSE),
     make_option(c("--n-threads"), type="integer", default=1)
 )
-
 opt_parser = OptionParser(option_list=option_list)
 opt = parse_args(opt_parser)
 
-
-# Load data from RDS. If not exists, generate RDS
-RDS_FNAME = file.path("data", "10x_mouse_zheng.rds")
-if (!file.exists(RDS_FNAME)) {
-    data = read.csv(file.path("data", "10x_mouse_zheng.csv"), sep=" ", header=F)
-    saveRDS(data, RDS_FNAME)
-}
-data = readRDS(RDS_FNAME)
+data = readRDS(opt$fname)
 
 for (i in 1:opt$repetitions) {
     set.seed(i)

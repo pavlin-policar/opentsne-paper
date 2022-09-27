@@ -11,7 +11,7 @@ opt_parser = OptionParser(option_list=option_list)
 opt = parse_args(opt_parser)
 
 if (file.exists(opt$output) && !opt$force) {
-    cat(sprintf("File `%s` exists. Doing nothing.", opt$output))
+    cat(sprintf("File `%s` exists. Doing nothing.\n", opt$output))
     quit()
 }
 
