@@ -8,6 +8,8 @@ using Pkg
 
 s = ArgParseSettings()
 @add_arg_table s begin
+    "--fname"
+        arg_type = String
     "--repetitions"
         arg_type = Int
         default = 1
@@ -19,7 +21,7 @@ end
 args = parse_args(s)
 
 
-dataset = CSV.File("data/10x_mouse_zheng.csv", delim=' ', header=false) |> DataFrame
+dataset = CSV.File(args["fname"], delim=' ', header=false) |> DataFrame
 data = Matrix{Float64}(dataset)
 
 
