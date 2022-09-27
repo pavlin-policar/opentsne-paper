@@ -6,7 +6,6 @@ from contextlib import contextmanager
 
 import fire
 import numpy as np
-from MulticoreTSNE import MulticoreTSNE as MulticoreTSNE_
 from sklearn.manifold import TSNE as SKLTSNE
 from sklearn.utils import check_random_state
 
@@ -77,6 +76,7 @@ class TSNEBenchmark:
 class openTSNENNDescent(TSNEBenchmark):
     def _run(self, x, random_state=None, n_jobs=1):
         print("-" * 80)
+        print(f"openTSNE v{openTSNE.__version__}")
         print("Random state", random_state)
         print("-" * 80, flush=True)
 
@@ -117,6 +117,7 @@ class openTSNENNDescent(TSNEBenchmark):
 class openTSNEBH(TSNEBenchmark):
     def _run(self, x, random_state=None, n_jobs=1):
         print("-" * 80)
+        print(f"openTSNE v{openTSNE.__version__}")
         print("Random state", random_state)
         print("-" * 80, flush=True)
 
@@ -157,6 +158,7 @@ class openTSNEBH(TSNEBenchmark):
 class openTSNEFFT(TSNEBenchmark):
     def _run(self, x, random_state=None, n_jobs=1):
         print("-" * 80)
+        print(f"openTSNE v{openTSNE.__version__}")
         print("Random state", random_state)
         print("-" * 80, flush=True)
 
@@ -196,6 +198,8 @@ class openTSNEFFT(TSNEBenchmark):
 
 class MulticoreTSNE(TSNEBenchmark):
     def _run(self, x, random_state=None, n_jobs=1):
+        from MulticoreTSNE import MulticoreTSNE as MulticoreTSNE_
+
         print("-" * 80)
         print("Random state", random_state)
         print("-" * 80, flush=True)
@@ -216,7 +220,8 @@ class MulticoreTSNE(TSNEBenchmark):
 
 class FItSNE(TSNEBenchmark):
     def _run(self, x, random_state=None, n_jobs=1):
-        import sys; sys.path.append("FIt-SNE")
+        import sys;
+        sys.path.append("FIt-SNE")
         from fast_tsne import fast_tsne
 
         print("-" * 80)

@@ -25,16 +25,16 @@ install_fitsne() {
 }
 
 install_python_dependencies() {
-  conda install -y python numpy scikit-learn
+  conda install python numpy scikit-learn -y
 
-  pip install opentsne --no-binary :all:
+  pip install opentsne --no-binary opentsne
   pip install -r requirements-benchmarks.txt
 
   install_fitsne
 }
 
 install_r_dependencies() {
-  conda install -c r r -y
+  conda install -c r -c conda-forge r -y
   Rscript -e 'install.packages("Rtsne", repos="https://cloud.r-project.org")'
   Rscript -e 'install.packages("optparse", repos="https://cloud.r-project.org")'
 }
