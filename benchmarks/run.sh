@@ -120,7 +120,7 @@ if ! conda env list | grep "\s*$CONDA_ENVIRONMENT_NAME\s*" >/dev/null 2>&1; then
   activate_environment "$CONDA_ENVIRONMENT_NAME"
   install_python_dependencies
   install_r_dependencies
-  install_julia_dependencies
+  install_julia_dependencies || true  # allowed to fail on mac
 else
   activate_environment "$CONDA_ENVIRONMENT_NAME"
 fi
