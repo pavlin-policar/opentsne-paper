@@ -46,12 +46,11 @@ class TSNEBenchmark:
     perplexity = 30
     learning_rate = 200
 
-    def run(self, fname: str, n_samples=1000, repetitions=1, n_jobs=1, timeout=120):
+    def run(self, fname: str, n_samples=1000, repetitions=1, n_jobs=1):
         x, y = self.load_data(fname=fname, n_samples=n_samples)
 
         for idx in range(repetitions):
-            with _timeout(timeout):
-                self._run(x, random_state=idx, n_jobs=n_jobs)
+            self._run(x, random_state=idx, n_jobs=n_jobs)
 
     def _run(self, data, random_state=None, n_jobs=1):
         raise NotImplementedError()
