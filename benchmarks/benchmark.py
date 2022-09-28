@@ -241,6 +241,7 @@ class FItSNE(TSNEBenchmark):
             initialization=init,
             perplexity=self.perplexity,
             stop_early_exag_iter=250,
+            max_iter=1000,
             early_exag_coeff=12,
             nthreads=n_jobs,
             seed=random_state,
