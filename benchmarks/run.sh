@@ -147,8 +147,7 @@ run_python_benchmarks() {
               --fname data/$dataset_name.pkl.gz \
               --repetitions $repetitions \
               --n-samples $size \
-              --n-jobs $cores \
-              --timeout 0.5 2>&1 \
+              --n-jobs $cores 2>&1 \
               | tee -a logs/${dataset_name}--${method}--${cores}_core--${size}_samples.log";
           echo "$cmd" | tr -s " ";
           eval "$cmd";
