@@ -240,6 +240,7 @@ class FItSNE(TSNEBenchmark):
             map_dims=2,
             initialization=init,
             perplexity=self.perplexity,
+            learning_rate=self.learning_rate,
             stop_early_exag_iter=250,
             max_iter=1000,
             early_exag_coeff=12,
