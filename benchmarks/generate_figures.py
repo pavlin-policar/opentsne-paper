@@ -59,15 +59,13 @@ class Spec:
 
 def get_benchmarks(spec: Spec, directory: str) -> List[Dict]:
     # Create regex pattern to match file names
-    pattern = spec.log_name
-    if spec.cores > 1:
-        pattern += f"_{spec.cores}core"
-    pattern += r"_(\d+).log"
+    pattern = r"(.+)" + f"--{spec.log_name}--{spec.cores}_core--" + r"(\d+)_samples.log"
 
     data = []
     for f in os.listdir(directory):
         if match := re.findall(pattern, f):
-            n_samples = int(match[0])
+            dataset = match[0][0]
+            n_samples = int(match[0][1])
 
             times = spec.parser(os.path.join(directory, f))
             for t in times:
@@ -77,6 +75,7 @@ def get_benchmarks(spec: Spec, directory: str) -> List[Dict]:
                     "Num. Samples": n_samples,
                     "Time (sec)": t,
                     "Time (min)": t / 60,
+                    "Benchmark": dataset,
                 })
 
     return data
@@ -86,11 +85,11 @@ def get_benchmarks(spec: Spec, directory: str) -> List[Dict]:
 # openTSNE
 parse_opentsne = make_regex_func(r"openTSNE: Full (\d+\.\d+)")
 # FIt-SNE
-parse_fitsne = make_regex_func(r"FIt-SNE: (\d+\.\d+)")
+parse_fitsne = make_regex_func(r"FItSNE: (\d+\.\d+)")
 # MulticoreTSNE
-parse_multicore = make_regex_func(r"Multicore t-SNE: (\d+\.\d+)")
+parse_multicore = make_regex_func(r"MulticoreTSNE: (\d+\.\d+)")
 # scikit-learn
-parse_sklearn = make_regex_func(r"scikit-learn t-SNE: (\d+\.\d+)")
+parse_sklearn = make_regex_func(r"sklearn: (\d+\.\d+)")
 # UMAP
 parse_umap = make_regex_func(r"UMAP: (\d+\.\d+)")
 # Rtsne
@@ -155,7 +154,7 @@ def generate_benchmark_plot(colors, title, fname):
 
     agg = data.groupby(["Spec", "Name", "Num. Samples"])["Time (min)"].aggregate(["mean", "std"]).reset_index()
 
-    # Sort the labels so they appear in the correct order in the legend
+    # Sort the labels, so they appear in the correct order in the legend
     color_names = np.array(list(colors.keys()))
     color_name_idx = {v: k for k, v in enumerate(color_names)}
 
@@ -185,9 +184,13 @@ def generate_benchmark_plot(colors, title, fname):
             color=colors[impl.name],
         )
 
-    ax.set_xlim(0, 1_000_000)
-    ax.set_ylim(0, 130)
-    ax.set_yticks(range(0, 130, 15))
+    ax.set_xlim(0, data["Num. Samples"].max())
+
+    if data["Benchmark"].unique()[0] == "macosko_2015":  # small benchmark
+        ax.set_ylim(0, 10)
+    else:
+        ax.set_ylim(0, 130)
+        ax.set_yticks(range(0, 130, 15))
 
     ax.get_xaxis().set_major_formatter(matplotlib.ticker.FuncFormatter(
         lambda x, p: format(int(x), ",").replace(",", "."))
