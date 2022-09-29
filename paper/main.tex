@@ -90,8 +90,7 @@ One of the most popular techniques for visualizing large, high-dimensional data 
 
 \section[Introduction]{Introduction} \label{sec:intro}
 
-The ever-growing volumes of high-dimensional data sets in machine learning call for efficient dimensionality reduction techniques and their implementations to produce informative data visualizations. Popular approaches include principal component analysis, multidimensional scaling, $t$-distributed stochastic neighbor embedding (t-SNE)~\citep{maaten2008visualizing}, and uniform manifold approximation and projections (UMAP)~\citep{2018arXivUMAP}. Among these, t-SNE has achieved widespread adoption as it can address high volumes of data and reveal the underlying data manifold. For instance, t-SNE is widely used in the bioinformatics community in areas such as single-cell transcriptomics~\citep{macosko2015highly,cao2019single,tasic2018shared}, human genetics~\citep{hirata2019genetic}, metagenomic assembly~\citep{beaulaurier2018metagenomic}, spatial organization of microbial communities~\citep{sheth2019spatial}, and metabolomics~\citep{tkachev2019differences}. To visually explore the data manifold, the objects of interest, such as diseased and healthy tissues or single cells, are profiled through thousands of features that include, for example, the expression of genes or the concentration of metabolites. The objective of t-SNE is to embed data points within a low-dimensional space, where the preservation of distances is rewarded in a non-linear fashion, thus resulting in a compact grouping of highly similar data points. Reports on single-cell gene expression data, where increasingly specific cell types are distinguished by a decreasing number of genes, 
-often rely on t-SNE to embed high-dimensional expression profiles into a two-dimensional space and discover constituent cell types (Fig.~\ref{fig:macosko}.a). 
+The ever-growing volumes of high-dimensional data sets in machine learning call for efficient dimensionality reduction techniques and their implementations to produce informative data visualizations. Popular approaches include principal component analysis, multidimensional scaling, $t$-distributed stochastic neighbor embedding (t-SNE)~\citep{maaten2008visualizing}, and uniform manifold approximation and projections (UMAP)~\citep{2018arXivUMAP}. Among these, t-SNE has achieved widespread adoption as it can address high volumes of data and reveal the underlying data manifold. For instance, t-SNE is widely used in the bioinformatics community in areas such as single-cell transcriptomics~\citep{macosko2015highly,cao2019single,tasic2018shared}, human genetics~\citep{hirata2019genetic}, metagenomic assembly~\citep{beaulaurier2018metagenomic}, spatial organization of microbial communities~\citep{sheth2019spatial}, and metabolomics~\citep{tkachev2019differences}. To visually explore the data manifold, the objects of interest, such as diseased and healthy tissues or single cells, are profiled through thousands of features that include, for example, the expression of genes or the concentration of metabolites. The objective of t-SNE is to embed data points within a low-dimensional space, where the preservation of distances is rewarded in a non-linear fashion, thus resulting in a compact grouping of highly similar data points. Reports on single-cell gene expression data, where increasingly specific cell types are distinguished by a decreasing number of genes, often rely on t-SNE to embed high-dimensional expression profiles into a two-dimensional space and discover constituent cell types (Fig.~\ref{fig:macosko}.a). 
 
 \begin{figure*}[ht]
   \includegraphics[width=\textwidth]{macosko2015}
@@ -102,7 +101,10 @@ We use \opentsne to generate three t-SNE embeddings and demonstrate recent theor
 
 Despite its utility, t-SNE has often been criticized for its limited scalability, lack of global organization -- t-SNE identifies well-defined clusters that may be arbitrarily scattered throughout the embedding -- and the absence of theoretically-founded methods to map new data into existing embeddings~\citep{ding2018interpretable,becht2019dimensionality}. Most of these shortcomings have recently been addressed. \citet{linderman2019fast} developed FIt-SNE, an efficient approximation that massively improves the scalability of t-SNE, achieving linear time complexity in the number of samples. \citet{kobak2019art} proposed several techniques to improve global cluster coherence (Fig. \ref{fig:macosko}.b), including estimating similarities with a mixture of Gaussian kernels. In our previous work, we introduced a principled approach for embedding new samples into existing visualizations (Fig.~\ref{fig:macosko}.c and~\citet{policar2021embedding}).
 
-Easy access to efficient implementations almost universally correlates with the widespread adoption of novel computational techniques. Despite the many theoretical advancements, most popular t-SNE libraries have been slow to incorporate them into their implementations. In this paper, we present \opentsne, our open-source \proglang{Python} implementation of t-SNE, complete with its recently proposed extensions. \opentsne is easy to install and includes precompiled binaries available through popular \proglang{Python} package managers. It provides a familiar API, making it suitable as a drop-in replacement for existing t-SNE implementations.
+Easy access to efficient implementations almost universally correlates with the widespread adoption of novel computational techniques. Despite the many theoretical advancements, most popular t-SNE libraries have been slow to incorporate them into their implementations.
+In \proglang{Python}, the most commonly used implementation of the t-SNE algorithm comes from \pkg{scikit-learn}~\citep{pedregosa2011scikit}, which suffers from poor scalability. Other implementations from the \proglang{R}~\citep{team2013r,krijthe2015rtsne} and \proglang{Julia}~\citep{bezanson2017julia,julia_tsne} programming languages suffer from similar drawbacks. \pkg{MulticoreTSNE}~\citep{Ulyanov2016} enjoys better scalability but is likewise limited when applied to data sets containing millions of data points. Additionally, none of these implementations include recently proposed extensions that produce more globally consistent embeddings. \pkg{FIt-SNE}~\citep{linderman2019fast} alleviates these problems and provides bindings to both the \proglang{Python} and \proglang{R} programming languages. However, \pkg{FIt-SNE} is difficult to install and distribute and provides an API largely inconsistent with the \proglang{Python} data science ecosystem. None of these existing implementations provide solutions to adding new samples into existing embeddings.
+To alleviate these problems, we present \opentsne, our open-source \proglang{Python} implementation of the t-SNE algorithm, complete with its recently proposed extensions. \opentsne is easy to install and includes precompiled binaries available through popular \proglang{Python} package managers. It provides a familiar API, making it suitable as a drop-in replacement for existing t-SNE implementations.
+
 
 %% -- Manuscript ---------------------------------------------------------------
 
@@ -385,7 +387,7 @@ To verify that that \opentsne was installed correctly, users can run \proglang{P
 \begin{CodeChunk}
 \begin{CodeInput}
 >>> import openTSNE
->>> print(openTSNE.__version__)
+>>> openTSNE.__version__
 0.6.2
 \end{CodeInput}
 \end{CodeChunk}
@@ -536,6 +538,11 @@ and validate that this also produces the exact same embedding as before:
 \end{CodeChunk}
 
 \section{Case studies} \label{sec:discussion}
+
+We provide three case studies demonstrating the usage of \opentsne in different settings using different combinations of hyperparameters to highlight different aspects of the given data sets.
+The first case study highlights how varying the perplexity and resolution parameters can reveal different aspects of the underlying topology of the studied data set.
+The second case study demonstrates how \opentsne may be used to create embeddings of massive data sets containing millions of data points and how its flexible API allows the quick and efficient construction of embeddings.
+The final case study illustrates how we can use existing t-SNE embeddings to add new samples into the embedding space. This enables us to reuse carefully annotated visualizations for the rapid characterization of new, unseen data points.
 
 \subsection{Uncovering structure in high-dimensional data}
 
@@ -794,6 +801,12 @@ The results in this paper were obtained using \proglang{Python}~3.10.2 with the
 \pkg{openTSNE}~v0.6.2 package. All results and figures can be reproduced using
 the scripts found in the accompanying GitHub repository
 \url{https://github.com/pavlin-policar/opentsne-paper}.
+Detailed instructions are provided showing how to reproduce all materials and results shown in this manuscript.
+
+All case studies can easily be reproduced on a consumer-grade laptop computer in minutes using the accompanying scripts. Note, however, that the second case study features a large data set and may require up to several hours to complete.
+
+Scripts are included to reproduce the benchmarks of the different implementations of the t-SNE algorithm. However, please be aware that the full benchmark suite can take several days to complete due to the poor performance of other libraries. A smaller, illustratory benchmark suite is provided, more suitable for consumer-grade laptop computers, demonstrating the runtimes of the different t-SNE implementations. Please note, however, that the scaling advantages of \opentsne are diminished when running on smaller data sets and will not appear as significant as they would otherwise.
+
 
 \section*{Acknowledgments}
 
