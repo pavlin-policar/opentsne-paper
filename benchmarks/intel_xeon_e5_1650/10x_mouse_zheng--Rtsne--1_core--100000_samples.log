@@ -1,0 +1,293 @@
+R version 4.1.3 (2022-03-10)
+Platform: x86_64-conda-linux-gnu (64-bit)
+Running under: Ubuntu 20.04 LTS
+
+Matrix products: default
+BLAS/LAPACK: /home/ubuntu/miniconda3/envs/tsne_benchmarks/lib/libopenblasp-r0.3.21.so
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] Rtsne_0.16     optparse_1.7.3
+
+loaded via a namespace (and not attached):
+[1] compiler_4.1.3 Rcpp_1.0.9     getopt_1.20.3 
+[1] "--------------------------------------------------------------------------------"
+[1] "Rtsne"
+[1] ‘0.16’
+Random state 1 
+[1] "--------------------------------------------------------------------------------"
+[1] 100000     50
+Read the 100000 x 50 data matrix successfully!
+OpenMP is working. 1 threads.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 10000 of 100000
+ - point 20000 of 100000
+ - point 30000 of 100000
+ - point 40000 of 100000
+ - point 50000 of 100000
+ - point 60000 of 100000
+ - point 70000 of 100000
+ - point 80000 of 100000
+ - point 90000 of 100000
+ - point 100000 of 100000
+Done in 284.88 seconds (sparsity = 0.001422)!
+Learning embedding...
+Iteration 50: error is 123.028337 (50 iterations in 25.34 seconds)
+Iteration 100: error is 123.028337 (50 iterations in 27.91 seconds)
+Iteration 150: error is 123.028226 (50 iterations in 34.28 seconds)
+Iteration 200: error is 122.129815 (50 iterations in 35.18 seconds)
+Iteration 250: error is 112.044146 (50 iterations in 28.00 seconds)
+Iteration 300: error is 5.600523 (50 iterations in 24.94 seconds)
+Iteration 350: error is 5.174490 (50 iterations in 24.06 seconds)
+Iteration 400: error is 4.924735 (50 iterations in 23.40 seconds)
+Iteration 450: error is 4.747677 (50 iterations in 23.61 seconds)
+Iteration 500: error is 4.609500 (50 iterations in 23.69 seconds)
+Iteration 550: error is 4.497171 (50 iterations in 23.69 seconds)
+Iteration 600: error is 4.403416 (50 iterations in 23.65 seconds)
+Iteration 650: error is 4.323085 (50 iterations in 23.62 seconds)
+Iteration 700: error is 4.252695 (50 iterations in 23.58 seconds)
+Iteration 750: error is 4.190767 (50 iterations in 23.54 seconds)
+Iteration 800: error is 4.135639 (50 iterations in 23.60 seconds)
+Iteration 850: error is 4.085932 (50 iterations in 23.58 seconds)
+Iteration 900: error is 4.040708 (50 iterations in 23.57 seconds)
+Iteration 950: error is 3.999271 (50 iterations in 23.53 seconds)
+Iteration 1000: error is 3.961102 (50 iterations in 23.50 seconds)
+Fitting performed in 506.27 seconds.
+Rtsne benchmark time: 812.2346 
+[1] "--------------------------------------------------------------------------------"
+[1] "Rtsne"
+[1] ‘0.16’
+Random state 2 
+[1] "--------------------------------------------------------------------------------"
+[1] 100000     50
+Read the 100000 x 50 data matrix successfully!
+OpenMP is working. 1 threads.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 10000 of 100000
+ - point 20000 of 100000
+ - point 30000 of 100000
+ - point 40000 of 100000
+ - point 50000 of 100000
+ - point 60000 of 100000
+ - point 70000 of 100000
+ - point 80000 of 100000
+ - point 90000 of 100000
+ - point 100000 of 100000
+Done in 295.91 seconds (sparsity = 0.001422)!
+Learning embedding...
+Iteration 50: error is 123.026267 (50 iterations in 27.80 seconds)
+Iteration 100: error is 123.026267 (50 iterations in 34.51 seconds)
+Iteration 150: error is 123.026108 (50 iterations in 40.02 seconds)
+Iteration 200: error is 122.143247 (50 iterations in 39.24 seconds)
+Iteration 250: error is 114.093380 (50 iterations in 30.48 seconds)
+Iteration 300: error is 5.726282 (50 iterations in 26.56 seconds)
+Iteration 350: error is 5.285280 (50 iterations in 25.39 seconds)
+Iteration 400: error is 5.028582 (50 iterations in 25.35 seconds)
+Iteration 450: error is 4.842890 (50 iterations in 25.40 seconds)
+Iteration 500: error is 4.696958 (50 iterations in 25.41 seconds)
+Iteration 550: error is 4.577145 (50 iterations in 25.42 seconds)
+Iteration 600: error is 4.477084 (50 iterations in 25.43 seconds)
+Iteration 650: error is 4.391812 (50 iterations in 25.39 seconds)
+Iteration 700: error is 4.317599 (50 iterations in 25.28 seconds)
+Iteration 750: error is 4.252477 (50 iterations in 25.24 seconds)
+Iteration 800: error is 4.194867 (50 iterations in 25.32 seconds)
+Iteration 850: error is 4.143306 (50 iterations in 25.40 seconds)
+Iteration 900: error is 4.096693 (50 iterations in 25.47 seconds)
+Iteration 950: error is 4.054254 (50 iterations in 25.53 seconds)
+Iteration 1000: error is 4.015126 (50 iterations in 25.62 seconds)
+Fitting performed in 554.26 seconds.
+Rtsne benchmark time: 872.1134 
+[1] "--------------------------------------------------------------------------------"
+[1] "Rtsne"
+[1] ‘0.16’
+Random state 3 
+[1] "--------------------------------------------------------------------------------"
+[1] 100000     50
+Read the 100000 x 50 data matrix successfully!
+OpenMP is working. 1 threads.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 10000 of 100000
+ - point 20000 of 100000
+ - point 30000 of 100000
+ - point 40000 of 100000
+ - point 50000 of 100000
+ - point 60000 of 100000
+ - point 70000 of 100000
+ - point 80000 of 100000
+ - point 90000 of 100000
+ - point 100000 of 100000
+Done in 317.97 seconds (sparsity = 0.001421)!
+Learning embedding...
+Iteration 50: error is 123.037658 (50 iterations in 27.61 seconds)
+Iteration 100: error is 123.037658 (50 iterations in 29.16 seconds)
+Iteration 150: error is 123.037583 (50 iterations in 39.44 seconds)
+Iteration 200: error is 122.236952 (50 iterations in 58.20 seconds)
+Iteration 250: error is 112.012226 (50 iterations in 35.57 seconds)
+Iteration 300: error is 5.591473 (50 iterations in 28.18 seconds)
+Iteration 350: error is 5.168302 (50 iterations in 26.43 seconds)
+Iteration 400: error is 4.920281 (50 iterations in 26.33 seconds)
+Iteration 450: error is 4.743983 (50 iterations in 26.32 seconds)
+Iteration 500: error is 4.607275 (50 iterations in 26.23 seconds)
+Iteration 550: error is 4.496076 (50 iterations in 26.23 seconds)
+Iteration 600: error is 4.403005 (50 iterations in 26.35 seconds)
+Iteration 650: error is 4.323506 (50 iterations in 26.38 seconds)
+Iteration 700: error is 4.254313 (50 iterations in 26.39 seconds)
+Iteration 750: error is 4.193189 (50 iterations in 26.40 seconds)
+Iteration 800: error is 4.138834 (50 iterations in 26.40 seconds)
+Iteration 850: error is 4.089850 (50 iterations in 26.42 seconds)
+Iteration 900: error is 4.045078 (50 iterations in 26.44 seconds)
+Iteration 950: error is 4.004209 (50 iterations in 26.47 seconds)
+Iteration 1000: error is 3.967135 (50 iterations in 26.49 seconds)
+Fitting performed in 587.45 seconds.
+Rtsne benchmark time: 928.0351 
+[1] "--------------------------------------------------------------------------------"
+[1] "Rtsne"
+[1] ‘0.16’
+Random state 4 
+[1] "--------------------------------------------------------------------------------"
+[1] 100000     50
+Read the 100000 x 50 data matrix successfully!
+OpenMP is working. 1 threads.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 10000 of 100000
+ - point 20000 of 100000
+ - point 30000 of 100000
+ - point 40000 of 100000
+ - point 50000 of 100000
+ - point 60000 of 100000
+ - point 70000 of 100000
+ - point 80000 of 100000
+ - point 90000 of 100000
+ - point 100000 of 100000
+Done in 334.44 seconds (sparsity = 0.001422)!
+Learning embedding...
+Iteration 50: error is 123.020527 (50 iterations in 28.22 seconds)
+Iteration 100: error is 123.020527 (50 iterations in 34.28 seconds)
+Iteration 150: error is 123.020340 (50 iterations in 39.44 seconds)
+Iteration 200: error is 122.005888 (50 iterations in 40.39 seconds)
+Iteration 250: error is 111.497075 (50 iterations in 29.73 seconds)
+Iteration 300: error is 5.586237 (50 iterations in 27.41 seconds)
+Iteration 350: error is 5.166510 (50 iterations in 26.54 seconds)
+Iteration 400: error is 4.918145 (50 iterations in 26.27 seconds)
+Iteration 450: error is 4.740116 (50 iterations in 26.23 seconds)
+Iteration 500: error is 4.601104 (50 iterations in 26.31 seconds)
+Iteration 550: error is 4.487634 (50 iterations in 26.35 seconds)
+Iteration 600: error is 4.392692 (50 iterations in 26.37 seconds)
+Iteration 650: error is 4.311414 (50 iterations in 26.34 seconds)
+Iteration 700: error is 4.240694 (50 iterations in 26.37 seconds)
+Iteration 750: error is 4.178400 (50 iterations in 26.36 seconds)
+Iteration 800: error is 4.122816 (50 iterations in 26.38 seconds)
+Iteration 850: error is 4.072797 (50 iterations in 26.41 seconds)
+Iteration 900: error is 4.027482 (50 iterations in 26.45 seconds)
+Iteration 950: error is 3.986374 (50 iterations in 26.44 seconds)
+Iteration 1000: error is 3.948764 (50 iterations in 26.51 seconds)
+Fitting performed in 568.77 seconds.
+Rtsne benchmark time: 925.3796 
+[1] "--------------------------------------------------------------------------------"
+[1] "Rtsne"
+[1] ‘0.16’
+Random state 5 
+[1] "--------------------------------------------------------------------------------"
+[1] 100000     50
+Read the 100000 x 50 data matrix successfully!
+OpenMP is working. 1 threads.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 10000 of 100000
+ - point 20000 of 100000
+ - point 30000 of 100000
+ - point 40000 of 100000
+ - point 50000 of 100000
+ - point 60000 of 100000
+ - point 70000 of 100000
+ - point 80000 of 100000
+ - point 90000 of 100000
+ - point 100000 of 100000
+Done in 316.11 seconds (sparsity = 0.001421)!
+Learning embedding...
+Iteration 50: error is 123.029572 (50 iterations in 27.45 seconds)
+Iteration 100: error is 123.029572 (50 iterations in 30.39 seconds)
+Iteration 150: error is 123.029440 (50 iterations in 39.52 seconds)
+Iteration 200: error is 121.847751 (50 iterations in 38.37 seconds)
+Iteration 250: error is 111.485149 (50 iterations in 28.68 seconds)
+Iteration 300: error is 5.580038 (50 iterations in 26.77 seconds)
+Iteration 350: error is 5.163480 (50 iterations in 25.61 seconds)
+Iteration 400: error is 4.915334 (50 iterations in 25.76 seconds)
+Iteration 450: error is 4.737353 (50 iterations in 26.09 seconds)
+Iteration 500: error is 4.598797 (50 iterations in 26.00 seconds)
+Iteration 550: error is 4.485775 (50 iterations in 25.94 seconds)
+Iteration 600: error is 4.391247 (50 iterations in 25.93 seconds)
+Iteration 650: error is 4.310540 (50 iterations in 25.99 seconds)
+Iteration 700: error is 4.240274 (50 iterations in 25.92 seconds)
+Iteration 750: error is 4.178278 (50 iterations in 25.91 seconds)
+Iteration 800: error is 4.122914 (50 iterations in 25.89 seconds)
+Iteration 850: error is 4.073098 (50 iterations in 25.85 seconds)
+Iteration 900: error is 4.027968 (50 iterations in 25.82 seconds)
+Iteration 950: error is 3.986653 (50 iterations in 25.79 seconds)
+Iteration 1000: error is 3.948780 (50 iterations in 25.82 seconds)
+Fitting performed in 553.49 seconds.
+Rtsne benchmark time: 891.7695 
+[1] "--------------------------------------------------------------------------------"
+[1] "Rtsne"
+[1] ‘0.16’
+Random state 6 
+[1] "--------------------------------------------------------------------------------"
+[1] 100000     50
+Read the 100000 x 50 data matrix successfully!
+OpenMP is working. 1 threads.
+Using no_dims = 2, perplexity = 30.000000, and theta = 0.500000
+Computing input similarities...
+Building tree...
+ - point 10000 of 100000
+ - point 20000 of 100000
+ - point 30000 of 100000
+ - point 40000 of 100000
+ - point 50000 of 100000
+ - point 60000 of 100000
+ - point 70000 of 100000
+ - point 80000 of 100000
+ - point 90000 of 100000
+ - point 100000 of 100000
+Done in 305.35 seconds (sparsity = 0.001420)!
+Learning embedding...
+Iteration 50: error is 123.036804 (50 iterations in 28.29 seconds)
+Iteration 100: error is 123.036804 (50 iterations in 34.47 seconds)
+Iteration 150: error is 123.036683 (50 iterations in 43.45 seconds)
+Iteration 200: error is 121.971982 (50 iterations in 38.24 seconds)
+Iteration 250: error is 111.271907 (50 iterations in 29.16 seconds)
+Iteration 300: error is 5.569686 (50 iterations in 27.11 seconds)
+Iteration 350: error is 5.163598 (50 iterations in 26.35 seconds)
+Iteration 400: error is 4.921092 (50 iterations in 26.66 seconds)
+Iteration 450: error is 4.746069 (50 iterations in 26.70 seconds)
+Iteration 500: error is 4.610711 (50 iterations in 26.61 seconds)
+Iteration 550: error is 4.500956 (50 iterations in 26.54 seconds)
+Iteration 600: error is 4.408631 (50 iterations in 26.54 seconds)
+Iteration 650: error is 4.328864 (50 iterations in 26.46 seconds)
+Iteration 700: error is 4.258827 (50 iterations in 26.40 seconds)
+Iteration 750: error is 4.196909 (50 iterations in 26.38 seconds)
+Iteration 800: error is 4.141810 (50 iterations in 26.35 seconds)
+Iteration 850: error is 4.092194 (50 iterations in 26.35 seconds)
+Iteration 900: error is 4.047313 (50 iterations in 26.32 seconds)
+Iteration 950: error is 4.006390 (50 iterations in 26.32 seconds)
+Iteration 1000: error is 3.968785 (50 iterations in 26.34 seconds)
+Fitting performed in 571.04 seconds.
+Rtsne benchmark time: 898.6612 
