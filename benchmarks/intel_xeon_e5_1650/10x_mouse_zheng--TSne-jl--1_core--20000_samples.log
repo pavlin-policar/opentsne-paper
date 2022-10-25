@@ -4,69 +4,69 @@
 TSne.jl: 1.3.0
 random state: 1
 --------------------------------------------------------------------------------
-[ Info: Initial X shape is (1000, 50)
+[ Info: Initial X shape is (20000, 50)
 [ Info: Starting with random layout...
 [ Info: Computing pairwise distances...
-[ Info: Mean σ=1.8312
-[ Info: Final t-SNE KL-divergence=0.7281
-  9.357816 seconds (11.80 M allocations: 625.297 MiB, 0.44% gc time, 39.71% compilation time)
+[ Info: Mean σ=0.9251
+[ Info: Final t-SNE KL-divergence=2.1140
+2816.466498 seconds (11.80 M allocations: 15.484 GiB, 0.02% gc time, 0.13% compilation time)
 --------------------------------------------------------------------------------
 ┌ Warning: Pkg.installed() is deprecated
 └ @ Pkg /home/conda/feedstock_root/build_artifacts/julia_1664844983399/work/usr/share/julia/stdlib/v1.8/Pkg/src/Pkg.jl:675
 TSne.jl: 1.3.0
 random state: 2
 --------------------------------------------------------------------------------
-[ Info: Initial X shape is (1000, 50)
+[ Info: Initial X shape is (20000, 50)
 [ Info: Starting with random layout...
 [ Info: Computing pairwise distances...
-[ Info: Mean σ=1.7975
-[ Info: Final t-SNE KL-divergence=0.7285
-  5.732288 seconds (315 allocations: 38.659 MiB, 1.06% gc time)
+[ Info: Mean σ=0.9244
+[ Info: Final t-SNE KL-divergence=2.1215
+2810.223658 seconds (326 allocations: 14.911 GiB, 0.01% gc time)
 --------------------------------------------------------------------------------
 ┌ Warning: Pkg.installed() is deprecated
 └ @ Pkg /home/conda/feedstock_root/build_artifacts/julia_1664844983399/work/usr/share/julia/stdlib/v1.8/Pkg/src/Pkg.jl:675
 TSne.jl: 1.3.0
 random state: 3
 --------------------------------------------------------------------------------
-[ Info: Initial X shape is (1000, 50)
+[ Info: Initial X shape is (20000, 50)
 [ Info: Starting with random layout...
 [ Info: Computing pairwise distances...
-[ Info: Mean σ=1.8185
-[ Info: Final t-SNE KL-divergence=0.7187
-  5.661535 seconds (315 allocations: 38.659 MiB)
+[ Info: Mean σ=0.9066
+[ Info: Final t-SNE KL-divergence=2.1061
+2813.199857 seconds (326 allocations: 14.911 GiB, 0.01% gc time)
 --------------------------------------------------------------------------------
 ┌ Warning: Pkg.installed() is deprecated
 └ @ Pkg /home/conda/feedstock_root/build_artifacts/julia_1664844983399/work/usr/share/julia/stdlib/v1.8/Pkg/src/Pkg.jl:675
 TSne.jl: 1.3.0
 random state: 4
 --------------------------------------------------------------------------------
-[ Info: Initial X shape is (1000, 50)
+[ Info: Initial X shape is (20000, 50)
 [ Info: Starting with random layout...
 [ Info: Computing pairwise distances...
-[ Info: Mean σ=0.5623
-[ Info: Final t-SNE KL-divergence=0.7995
-  5.674190 seconds (316 allocations: 38.659 MiB)
+[ Info: Mean σ=0.7551
+[ Info: Final t-SNE KL-divergence=2.1083
+2814.821570 seconds (327 allocations: 14.911 GiB, 0.02% gc time)
 --------------------------------------------------------------------------------
 ┌ Warning: Pkg.installed() is deprecated
 └ @ Pkg /home/conda/feedstock_root/build_artifacts/julia_1664844983399/work/usr/share/julia/stdlib/v1.8/Pkg/src/Pkg.jl:675
 TSne.jl: 1.3.0
 random state: 5
 --------------------------------------------------------------------------------
-[ Info: Initial X shape is (1000, 50)
+[ Info: Initial X shape is (20000, 50)
 [ Info: Starting with random layout...
 [ Info: Computing pairwise distances...
-[ Info: Mean σ=1.7827
-[ Info: Final t-SNE KL-divergence=0.7531
-  5.661846 seconds (316 allocations: 38.659 MiB)
+[ Info: Mean σ=0.9029
+[ Info: Final t-SNE KL-divergence=2.1195
+2811.524554 seconds (327 allocations: 14.911 GiB, 0.01% gc time)
 --------------------------------------------------------------------------------
 ┌ Warning: Pkg.installed() is deprecated
 └ @ Pkg /home/conda/feedstock_root/build_artifacts/julia_1664844983399/work/usr/share/julia/stdlib/v1.8/Pkg/src/Pkg.jl:675
 TSne.jl: 1.3.0
 random state: 6
 --------------------------------------------------------------------------------
-[ Info: Initial X shape is (1000, 50)
+[ Info: Initial X shape is (20000, 50)
 [ Info: Starting with random layout...
 [ Info: Computing pairwise distances...
-[ Info: Mean σ=1.8053
-[ Info: Final t-SNE KL-divergence=0.7366
-  5.663706 seconds (315 allocations: 38.659 MiB)
+[ Info: Mean σ=0.8863
+[ Info: Final t-SNE KL-divergence=2.1219
+2811.873455 seconds (326 allocations: 14.911 GiB, 0.01% gc time)
