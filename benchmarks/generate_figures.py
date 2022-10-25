@@ -14,7 +14,7 @@ from matplotlib.lines import Line2D
 matplotlib.rcParams["pdf.fonttype"] = 42  # Make fonts editable in AI
 
 
-BENCHMARK_DIR = "../benchmarks/logs"
+BENCHMARK_DIR = "../benchmarks/intel_xeon_e5_1650"
 
 
 def make_regex_func(pattern):
