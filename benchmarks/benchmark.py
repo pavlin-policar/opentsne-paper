@@ -267,7 +267,10 @@ class sklearn(TSNEBenchmark):
             angle=0.5,
             perplexity=self.perplexity,
             init=init,
-            verbose=True,
+            n_iter=1000,
+            n_iter_without_progress=1000,  # force complete run
+            verbose=2,
+            min_grad_norm=0,
             random_state=random_state,
             n_jobs=n_jobs,
         ).fit_transform(x)

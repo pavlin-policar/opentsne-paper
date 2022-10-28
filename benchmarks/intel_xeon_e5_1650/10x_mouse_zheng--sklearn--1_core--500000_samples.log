@@ -5,7 +5,7 @@ Random state 0
 --------------------------------------------------------------------------------
 [t-SNE] Computing 91 nearest neighbors...
 [t-SNE] Indexed 500000 samples in 0.012s...
-[t-SNE] Computed neighbors for 500000 samples in 1306.420s...
+[t-SNE] Computed neighbors for 500000 samples in 1314.601s...
 [t-SNE] Computed conditional probabilities for sample 1000 / 500000
 [t-SNE] Computed conditional probabilities for sample 2000 / 500000
 [t-SNE] Computed conditional probabilities for sample 3000 / 500000
@@ -506,16 +506,37 @@ Random state 0
 [t-SNE] Computed conditional probabilities for sample 498000 / 500000
 [t-SNE] Computed conditional probabilities for sample 499000 / 500000
 [t-SNE] Computed conditional probabilities for sample 500000 / 500000
-[t-SNE] Mean sigma: 1.151799
-[t-SNE] KL divergence after 50 iterations with early exaggeration: 115.384911
-[t-SNE] KL divergence after 1000 iterations: 4.665545
-sklearn: 11008.317051172256
+[t-SNE] Mean sigma: 1.152108
+[t-SNE] Computed conditional probabilities in 13.889s
+[t-SNE] Iteration 50: error = 115.3866196, gradient norm = 0.0000000 (50 iterations in 516.078s)
+[t-SNE] Iteration 100: error = 115.3866196, gradient norm = 0.0000001 (50 iterations in 545.558s)
+[t-SNE] Iteration 150: error = 115.3866196, gradient norm = 0.0000013 (50 iterations in 666.635s)
+[t-SNE] Iteration 200: error = 115.3812485, gradient norm = 0.0000855 (50 iterations in 1053.115s)
+[t-SNE] Iteration 250: error = 111.4617767, gradient norm = 0.0009699 (50 iterations in 904.729s)
+[t-SNE] KL divergence after 250 iterations with early exaggeration: 111.461777
+[t-SNE] Iteration 300: error = 7.0980377, gradient norm = 0.0011211 (50 iterations in 554.763s)
+[t-SNE] Iteration 350: error = 6.5241418, gradient norm = 0.0007892 (50 iterations in 496.541s)
+[t-SNE] Iteration 400: error = 6.0979705, gradient norm = 0.0005280 (50 iterations in 479.396s)
+[t-SNE] Iteration 450: error = 5.8042440, gradient norm = 0.0003902 (50 iterations in 473.418s)
+[t-SNE] Iteration 500: error = 5.5852060, gradient norm = 0.0003081 (50 iterations in 464.371s)
+[t-SNE] Iteration 550: error = 5.4130912, gradient norm = 0.0002530 (50 iterations in 463.139s)
+[t-SNE] Iteration 600: error = 5.2730556, gradient norm = 0.0002134 (50 iterations in 462.984s)
+[t-SNE] Iteration 650: error = 5.1564250, gradient norm = 0.0001836 (50 iterations in 462.723s)
+[t-SNE] Iteration 700: error = 5.0574703, gradient norm = 0.0001607 (50 iterations in 463.434s)
+[t-SNE] Iteration 750: error = 4.9719334, gradient norm = 0.0001426 (50 iterations in 464.374s)
+[t-SNE] Iteration 800: error = 4.8966198, gradient norm = 0.0001281 (50 iterations in 464.959s)
+[t-SNE] Iteration 850: error = 4.8299875, gradient norm = 0.0001158 (50 iterations in 465.510s)
+[t-SNE] Iteration 900: error = 4.7704020, gradient norm = 0.0001058 (50 iterations in 465.426s)
+[t-SNE] Iteration 950: error = 4.7166133, gradient norm = 0.0000968 (50 iterations in 465.535s)
+[t-SNE] Iteration 1000: error = 4.6686110, gradient norm = 0.0000892 (50 iterations in 465.930s)
+[t-SNE] KL divergence after 1000 iterations: 4.668611
+sklearn: 12127.299795866013
 --------------------------------------------------------------------------------
 Random state 1
 --------------------------------------------------------------------------------
 [t-SNE] Computing 91 nearest neighbors...
 [t-SNE] Indexed 500000 samples in 0.012s...
-[t-SNE] Computed neighbors for 500000 samples in 1305.629s...
+[t-SNE] Computed neighbors for 500000 samples in 1308.324s...
 [t-SNE] Computed conditional probabilities for sample 1000 / 500000
 [t-SNE] Computed conditional probabilities for sample 2000 / 500000
 [t-SNE] Computed conditional probabilities for sample 3000 / 500000
@@ -1016,16 +1037,37 @@ Random state 1
 [t-SNE] Computed conditional probabilities for sample 498000 / 500000
 [t-SNE] Computed conditional probabilities for sample 499000 / 500000
 [t-SNE] Computed conditional probabilities for sample 500000 / 500000
-[t-SNE] Mean sigma: 1.151799
-[t-SNE] KL divergence after 50 iterations with early exaggeration: 115.384911
-[t-SNE] KL divergence after 1000 iterations: 4.677200
-sklearn: 11142.561005115509
+[t-SNE] Mean sigma: 1.152108
+[t-SNE] Computed conditional probabilities in 13.885s
+[t-SNE] Iteration 50: error = 115.3866196, gradient norm = 0.0000000 (50 iterations in 515.736s)
+[t-SNE] Iteration 100: error = 115.3866196, gradient norm = 0.0000001 (50 iterations in 543.257s)
+[t-SNE] Iteration 150: error = 115.3866196, gradient norm = 0.0000010 (50 iterations in 590.533s)
+[t-SNE] Iteration 200: error = 115.3829956, gradient norm = 0.0000719 (50 iterations in 602.384s)
+[t-SNE] Iteration 250: error = 111.0632706, gradient norm = 0.0010883 (50 iterations in 556.145s)
+[t-SNE] KL divergence after 250 iterations with early exaggeration: 111.063271
+[t-SNE] Iteration 300: error = 7.0253615, gradient norm = 0.0011256 (50 iterations in 514.052s)
+[t-SNE] Iteration 350: error = 6.4810472, gradient norm = 0.0007720 (50 iterations in 489.137s)
+[t-SNE] Iteration 400: error = 6.0674272, gradient norm = 0.0005249 (50 iterations in 479.607s)
+[t-SNE] Iteration 450: error = 5.7775397, gradient norm = 0.0003874 (50 iterations in 472.748s)
+[t-SNE] Iteration 500: error = 5.5625272, gradient norm = 0.0003034 (50 iterations in 468.836s)
+[t-SNE] Iteration 550: error = 5.3948693, gradient norm = 0.0002477 (50 iterations in 463.318s)
+[t-SNE] Iteration 600: error = 5.2591867, gradient norm = 0.0002084 (50 iterations in 460.184s)
+[t-SNE] Iteration 650: error = 5.1463981, gradient norm = 0.0001799 (50 iterations in 464.323s)
+[t-SNE] Iteration 700: error = 5.0498576, gradient norm = 0.0001583 (50 iterations in 467.486s)
+[t-SNE] Iteration 750: error = 4.9659796, gradient norm = 0.0001413 (50 iterations in 467.299s)
+[t-SNE] Iteration 800: error = 4.8921428, gradient norm = 0.0001272 (50 iterations in 468.148s)
+[t-SNE] Iteration 850: error = 4.8265967, gradient norm = 0.0001150 (50 iterations in 466.349s)
+[t-SNE] Iteration 900: error = 4.7679486, gradient norm = 0.0001047 (50 iterations in 466.392s)
+[t-SNE] Iteration 950: error = 4.7150407, gradient norm = 0.0000962 (50 iterations in 465.706s)
+[t-SNE] Iteration 1000: error = 4.6672153, gradient norm = 0.0000891 (50 iterations in 467.334s)
+[t-SNE] KL divergence after 1000 iterations: 4.667215
+sklearn: 11211.376080989838
 --------------------------------------------------------------------------------
 Random state 2
 --------------------------------------------------------------------------------
 [t-SNE] Computing 91 nearest neighbors...
 [t-SNE] Indexed 500000 samples in 0.012s...
-[t-SNE] Computed neighbors for 500000 samples in 1306.579s...
+[t-SNE] Computed neighbors for 500000 samples in 1312.923s...
 [t-SNE] Computed conditional probabilities for sample 1000 / 500000
 [t-SNE] Computed conditional probabilities for sample 2000 / 500000
 [t-SNE] Computed conditional probabilities for sample 3000 / 500000
@@ -1526,16 +1568,37 @@ Random state 2
 [t-SNE] Computed conditional probabilities for sample 498000 / 500000
 [t-SNE] Computed conditional probabilities for sample 499000 / 500000
 [t-SNE] Computed conditional probabilities for sample 500000 / 500000
-[t-SNE] Mean sigma: 1.151799
-[t-SNE] KL divergence after 50 iterations with early exaggeration: 115.384911
-[t-SNE] KL divergence after 1000 iterations: 4.690448
-sklearn: 11124.143221378326
+[t-SNE] Mean sigma: 1.152108
+[t-SNE] Computed conditional probabilities in 13.881s
+[t-SNE] Iteration 50: error = 115.3866196, gradient norm = 0.0000000 (50 iterations in 519.762s)
+[t-SNE] Iteration 100: error = 115.3866196, gradient norm = 0.0000001 (50 iterations in 548.748s)
+[t-SNE] Iteration 150: error = 115.3866196, gradient norm = 0.0000013 (50 iterations in 693.105s)
+[t-SNE] Iteration 200: error = 115.3813019, gradient norm = 0.0000863 (50 iterations in 792.491s)
+[t-SNE] Iteration 250: error = 111.4740295, gradient norm = 0.0010056 (50 iterations in 584.185s)
+[t-SNE] KL divergence after 250 iterations with early exaggeration: 111.474030
+[t-SNE] Iteration 300: error = 7.0708990, gradient norm = 0.0011283 (50 iterations in 523.355s)
+[t-SNE] Iteration 350: error = 6.5108805, gradient norm = 0.0007809 (50 iterations in 497.045s)
+[t-SNE] Iteration 400: error = 6.0911164, gradient norm = 0.0005259 (50 iterations in 471.127s)
+[t-SNE] Iteration 450: error = 5.7999768, gradient norm = 0.0003878 (50 iterations in 463.977s)
+[t-SNE] Iteration 500: error = 5.5847178, gradient norm = 0.0003049 (50 iterations in 466.587s)
+[t-SNE] Iteration 550: error = 5.4156485, gradient norm = 0.0002502 (50 iterations in 468.053s)
+[t-SNE] Iteration 600: error = 5.2781601, gradient norm = 0.0002113 (50 iterations in 467.007s)
+[t-SNE] Iteration 650: error = 5.1630478, gradient norm = 0.0001822 (50 iterations in 466.851s)
+[t-SNE] Iteration 700: error = 5.0651417, gradient norm = 0.0001598 (50 iterations in 468.896s)
+[t-SNE] Iteration 750: error = 4.9804058, gradient norm = 0.0001418 (50 iterations in 471.069s)
+[t-SNE] Iteration 800: error = 4.9062552, gradient norm = 0.0001274 (50 iterations in 472.817s)
+[t-SNE] Iteration 850: error = 4.8401608, gradient norm = 0.0001159 (50 iterations in 472.430s)
+[t-SNE] Iteration 900: error = 4.7806845, gradient norm = 0.0001052 (50 iterations in 470.431s)
+[t-SNE] Iteration 950: error = 4.7276073, gradient norm = 0.0000966 (50 iterations in 468.554s)
+[t-SNE] Iteration 1000: error = 4.6796460, gradient norm = 0.0000892 (50 iterations in 465.891s)
+[t-SNE] KL divergence after 1000 iterations: 4.679646
+sklearn: 11579.377311706543
 --------------------------------------------------------------------------------
 Random state 3
 --------------------------------------------------------------------------------
 [t-SNE] Computing 91 nearest neighbors...
 [t-SNE] Indexed 500000 samples in 0.012s...
-[t-SNE] Computed neighbors for 500000 samples in 1305.648s...
+[t-SNE] Computed neighbors for 500000 samples in 1312.123s...
 [t-SNE] Computed conditional probabilities for sample 1000 / 500000
 [t-SNE] Computed conditional probabilities for sample 2000 / 500000
 [t-SNE] Computed conditional probabilities for sample 3000 / 500000
@@ -2036,16 +2099,37 @@ Random state 3
 [t-SNE] Computed conditional probabilities for sample 498000 / 500000
 [t-SNE] Computed conditional probabilities for sample 499000 / 500000
 [t-SNE] Computed conditional probabilities for sample 500000 / 500000
-[t-SNE] Mean sigma: 1.151799
-[t-SNE] KL divergence after 50 iterations with early exaggeration: 115.384911
-[t-SNE] KL divergence after 1000 iterations: 4.704651
-sklearn: 11277.76103758812
+[t-SNE] Mean sigma: 1.152108
+[t-SNE] Computed conditional probabilities in 13.884s
+[t-SNE] Iteration 50: error = 115.3866196, gradient norm = 0.0000000 (50 iterations in 518.531s)
+[t-SNE] Iteration 100: error = 115.3866196, gradient norm = 0.0000001 (50 iterations in 576.217s)
+[t-SNE] Iteration 150: error = 115.3866196, gradient norm = 0.0000013 (50 iterations in 731.415s)
+[t-SNE] Iteration 200: error = 115.3813095, gradient norm = 0.0000839 (50 iterations in 1012.403s)
+[t-SNE] Iteration 250: error = 111.9002380, gradient norm = 0.0009972 (50 iterations in 855.155s)
+[t-SNE] KL divergence after 250 iterations with early exaggeration: 111.900238
+[t-SNE] Iteration 300: error = 7.1105261, gradient norm = 0.0011677 (50 iterations in 582.417s)
+[t-SNE] Iteration 350: error = 6.5239124, gradient norm = 0.0007882 (50 iterations in 522.671s)
+[t-SNE] Iteration 400: error = 6.1006036, gradient norm = 0.0005262 (50 iterations in 488.371s)
+[t-SNE] Iteration 450: error = 5.8103943, gradient norm = 0.0003871 (50 iterations in 469.718s)
+[t-SNE] Iteration 500: error = 5.5951104, gradient norm = 0.0003049 (50 iterations in 461.483s)
+[t-SNE] Iteration 550: error = 5.4259434, gradient norm = 0.0002504 (50 iterations in 459.341s)
+[t-SNE] Iteration 600: error = 5.2888417, gradient norm = 0.0002119 (50 iterations in 462.937s)
+[t-SNE] Iteration 650: error = 5.1735029, gradient norm = 0.0001832 (50 iterations in 465.100s)
+[t-SNE] Iteration 700: error = 5.0750332, gradient norm = 0.0001606 (50 iterations in 467.334s)
+[t-SNE] Iteration 750: error = 4.9893360, gradient norm = 0.0001431 (50 iterations in 467.921s)
+[t-SNE] Iteration 800: error = 4.9138026, gradient norm = 0.0001289 (50 iterations in 467.713s)
+[t-SNE] Iteration 850: error = 4.8469467, gradient norm = 0.0001168 (50 iterations in 467.624s)
+[t-SNE] Iteration 900: error = 4.7870922, gradient norm = 0.0001066 (50 iterations in 467.491s)
+[t-SNE] Iteration 950: error = 4.7329340, gradient norm = 0.0000979 (50 iterations in 467.244s)
+[t-SNE] Iteration 1000: error = 4.6842976, gradient norm = 0.0000904 (50 iterations in 467.461s)
+[t-SNE] KL divergence after 1000 iterations: 4.684298
+sklearn: 12204.74570941925
 --------------------------------------------------------------------------------
 Random state 4
 --------------------------------------------------------------------------------
 [t-SNE] Computing 91 nearest neighbors...
 [t-SNE] Indexed 500000 samples in 0.012s...
-[t-SNE] Computed neighbors for 500000 samples in 1307.700s...
+[t-SNE] Computed neighbors for 500000 samples in 1310.874s...
 [t-SNE] Computed conditional probabilities for sample 1000 / 500000
 [t-SNE] Computed conditional probabilities for sample 2000 / 500000
 [t-SNE] Computed conditional probabilities for sample 3000 / 500000
@@ -2546,16 +2630,37 @@ Random state 4
 [t-SNE] Computed conditional probabilities for sample 498000 / 500000
 [t-SNE] Computed conditional probabilities for sample 499000 / 500000
 [t-SNE] Computed conditional probabilities for sample 500000 / 500000
-[t-SNE] Mean sigma: 1.151799
-[t-SNE] KL divergence after 50 iterations with early exaggeration: 115.384911
-[t-SNE] KL divergence after 1000 iterations: 4.645985
-sklearn: 11002.734582185745
+[t-SNE] Mean sigma: 1.152108
+[t-SNE] Computed conditional probabilities in 13.884s
+[t-SNE] Iteration 50: error = 115.3866196, gradient norm = 0.0000000 (50 iterations in 518.998s)
+[t-SNE] Iteration 100: error = 115.3866196, gradient norm = 0.0000001 (50 iterations in 541.143s)
+[t-SNE] Iteration 150: error = 115.3866196, gradient norm = 0.0000013 (50 iterations in 597.849s)
+[t-SNE] Iteration 200: error = 115.3806534, gradient norm = 0.0000920 (50 iterations in 752.278s)
+[t-SNE] Iteration 250: error = 111.0983658, gradient norm = 0.0010270 (50 iterations in 609.875s)
+[t-SNE] KL divergence after 250 iterations with early exaggeration: 111.098366
+[t-SNE] Iteration 300: error = 7.0356898, gradient norm = 0.0011121 (50 iterations in 513.723s)
+[t-SNE] Iteration 350: error = 6.4993291, gradient norm = 0.0007810 (50 iterations in 487.244s)
+[t-SNE] Iteration 400: error = 6.0813899, gradient norm = 0.0005239 (50 iterations in 476.966s)
+[t-SNE] Iteration 450: error = 5.7930293, gradient norm = 0.0003882 (50 iterations in 473.511s)
+[t-SNE] Iteration 500: error = 5.5775385, gradient norm = 0.0003061 (50 iterations in 469.708s)
+[t-SNE] Iteration 550: error = 5.4075651, gradient norm = 0.0002516 (50 iterations in 465.485s)
+[t-SNE] Iteration 600: error = 5.2688489, gradient norm = 0.0002128 (50 iterations in 466.439s)
+[t-SNE] Iteration 650: error = 5.1528168, gradient norm = 0.0001836 (50 iterations in 464.982s)
+[t-SNE] Iteration 700: error = 5.0540195, gradient norm = 0.0001607 (50 iterations in 462.761s)
+[t-SNE] Iteration 750: error = 4.9686842, gradient norm = 0.0001425 (50 iterations in 466.585s)
+[t-SNE] Iteration 800: error = 4.8936172, gradient norm = 0.0001279 (50 iterations in 469.212s)
+[t-SNE] Iteration 850: error = 4.8266678, gradient norm = 0.0001164 (50 iterations in 468.996s)
+[t-SNE] Iteration 900: error = 4.7670331, gradient norm = 0.0001063 (50 iterations in 466.525s)
+[t-SNE] Iteration 950: error = 4.7136073, gradient norm = 0.0000977 (50 iterations in 467.547s)
+[t-SNE] Iteration 1000: error = 4.6655807, gradient norm = 0.0000899 (50 iterations in 470.142s)
+[t-SNE] KL divergence after 1000 iterations: 4.665581
+sklearn: 11434.918961048126
 --------------------------------------------------------------------------------
 Random state 5
 --------------------------------------------------------------------------------
 [t-SNE] Computing 91 nearest neighbors...
 [t-SNE] Indexed 500000 samples in 0.012s...
-[t-SNE] Computed neighbors for 500000 samples in 1307.776s...
+[t-SNE] Computed neighbors for 500000 samples in 1307.499s...
 [t-SNE] Computed conditional probabilities for sample 1000 / 500000
 [t-SNE] Computed conditional probabilities for sample 2000 / 500000
 [t-SNE] Computed conditional probabilities for sample 3000 / 500000
@@ -3056,7 +3161,28 @@ Random state 5
 [t-SNE] Computed conditional probabilities for sample 498000 / 500000
 [t-SNE] Computed conditional probabilities for sample 499000 / 500000
 [t-SNE] Computed conditional probabilities for sample 500000 / 500000
-[t-SNE] Mean sigma: 1.151799
-[t-SNE] KL divergence after 50 iterations with early exaggeration: 115.384911
-[t-SNE] KL divergence after 1000 iterations: 4.696513
-sklearn: 11141.21929860115
+[t-SNE] Mean sigma: 1.152108
+[t-SNE] Computed conditional probabilities in 13.878s
+[t-SNE] Iteration 50: error = 115.3866196, gradient norm = 0.0000000 (50 iterations in 522.392s)
+[t-SNE] Iteration 100: error = 115.3866196, gradient norm = 0.0000001 (50 iterations in 547.497s)
+[t-SNE] Iteration 150: error = 115.3866196, gradient norm = 0.0000011 (50 iterations in 558.434s)
+[t-SNE] Iteration 200: error = 115.3826141, gradient norm = 0.0000739 (50 iterations in 622.342s)
+[t-SNE] Iteration 250: error = 111.8256683, gradient norm = 0.0009746 (50 iterations in 583.499s)
+[t-SNE] KL divergence after 250 iterations with early exaggeration: 111.825668
+[t-SNE] Iteration 300: error = 7.0816274, gradient norm = 0.0011854 (50 iterations in 521.224s)
+[t-SNE] Iteration 350: error = 6.5013404, gradient norm = 0.0007744 (50 iterations in 489.729s)
+[t-SNE] Iteration 400: error = 6.0884633, gradient norm = 0.0005202 (50 iterations in 490.500s)
+[t-SNE] Iteration 450: error = 5.8022947, gradient norm = 0.0003841 (50 iterations in 488.526s)
+[t-SNE] Iteration 500: error = 5.5898948, gradient norm = 0.0003017 (50 iterations in 481.563s)
+[t-SNE] Iteration 550: error = 5.4236946, gradient norm = 0.0002472 (50 iterations in 477.731s)
+[t-SNE] Iteration 600: error = 5.2886987, gradient norm = 0.0002086 (50 iterations in 474.130s)
+[t-SNE] Iteration 650: error = 5.1757493, gradient norm = 0.0001801 (50 iterations in 470.883s)
+[t-SNE] Iteration 700: error = 5.0797181, gradient norm = 0.0001578 (50 iterations in 467.610s)
+[t-SNE] Iteration 750: error = 4.9966183, gradient norm = 0.0001407 (50 iterations in 469.000s)
+[t-SNE] Iteration 800: error = 4.9232464, gradient norm = 0.0001270 (50 iterations in 471.345s)
+[t-SNE] Iteration 850: error = 4.8577590, gradient norm = 0.0001153 (50 iterations in 472.622s)
+[t-SNE] Iteration 900: error = 4.7991586, gradient norm = 0.0001052 (50 iterations in 474.123s)
+[t-SNE] Iteration 950: error = 4.7460656, gradient norm = 0.0000965 (50 iterations in 475.930s)
+[t-SNE] Iteration 1000: error = 4.6981168, gradient norm = 0.0000891 (50 iterations in 476.976s)
+[t-SNE] KL divergence after 1000 iterations: 4.698117
+sklearn: 11357.624822854996
