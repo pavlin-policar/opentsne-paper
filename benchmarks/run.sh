@@ -207,6 +207,7 @@ else
 fi
 
 if is_installed julia; then
+  sample_sizes=(1000 5000 10000 20000 50000)
   cores=1 run_julia_benchmarks;
 else
   echo -e "The \`julia\` command was not found. Skipping."

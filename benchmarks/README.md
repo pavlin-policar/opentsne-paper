@@ -26,10 +26,16 @@ conda env create -f logs/00--conda_env.yml
 
 ## Generating figures
 
-Because running the benchmarks can take a long time, we provide the output of our own benchmarks in the `logs/` directory. These benchmarks were run on an Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz processor with 128GB of memory. We also include the exact `conda` environment and installed package versions.
+Because running the benchmarks can take a long time, we provide the output of our own benchmarks in the `logs/` directory. These benchmarks were run on an Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz processor with 128GB of memory, and we include the output of these benchmarks in the `intel_xeon_e5_1650` folder. We also include the exact `conda` environment and installed package versions.
 
-To generate the benchmark figure, run
+To generate the benchmark figure, install the requirements listed in `requirements-figures.txt`
 
 ```bash
-python generate_figures.py
+pip install -r requirements-figures.txt
+```
+
+and run
+
+```bash
+python generate_figures.py -i logs/
 ```

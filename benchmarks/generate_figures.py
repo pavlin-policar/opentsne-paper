@@ -1,5 +1,7 @@
+import argparse
 import os
 import re
+import sys
 from dataclasses import dataclass
 from functools import wraps, cmp_to_key
 from typing import Callable, Dict, List
@@ -14,7 +16,13 @@ from matplotlib.lines import Line2D
 matplotlib.rcParams["pdf.fonttype"] = 42  # Make fonts editable in AI
 
 
-BENCHMARK_DIR = "../benchmarks/logs"
+parser = argparse.ArgumentParser(description="Generate benchmark figures")
+parser.add_argument("-i", "--input", help="Input directory", required=True)
+args = parser.parse_args()
+
+if os.path.exists(args.input) and not os.path.isdir(args.input):
+    print(f"Directory `{args.input}` does not exist!")
+    sys.exit(1)
 
 
 def make_regex_func(pattern):
@@ -133,7 +141,7 @@ impl_mapping = {impl.name: impl for impl in implementations}
 # Read data into dataframe
 data = []
 for impl in implementations:
-    data.extend(get_benchmarks(impl, BENCHMARK_DIR))
+    data.extend(get_benchmarks(impl, args.input))
 data = pd.DataFrame(data)
 
 
