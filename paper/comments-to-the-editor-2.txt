@@ -1,0 +1,29 @@
+Dear Editor,
+
+We are submitting our manuscript, "openTSNE: a modular Python library for t-SNE dimensionality reduction and embedding," to be considered for publication in the Journal of Statistical Software. Thank you for taking the time to review and provide valuable feedback on our previous version of this manuscript. We have now fully addressed all of your comments. We list your concerns below and describe how we have handled them in the manuscript.
+
+> An overview on available related software packages is missing in the introduction.
+
+We have added a brief overview of related software packages (the last paragraph in the Introduction) and highlighted their advantages and weaknesses compared to our implementation. 
+
+> Code should have enough spaces to facilitate reading. Please include spaces before and after operators and after commas (unless spaces have syntactical meaning).
+
+When formatting the code used in the manuscript, we followed the standard Python code-style guidelines specified in PEP 8 (https://peps.python.org/pep-0008/). The style guide specifies that spaces should sometimes be omitted around operators. This is different from some other popular programming languages, such as R, but is considered standard practice in the Python community.
+
+
+> Figures 8 and 9 take a lot of computing resources to reproduce. It would be good to at least be able to check that the code provided would in principle allow to reproduce results by allowing to switch to a short version with settings which are less demanding, e.g., considering only datasets of limited size and not the full range contained in Figure 8.
+
+The referenced figures show the benchmark results of openTSNE compared to other existing implementations of the t-SNE algorithm. This figure illustrates the impressive scaling and speed that our software package enables, especially when compared to other current software packages. These other software packages (scikit-learn, Rtsne, Tsne.jl), and not openTSNE, demand lots of computing resources and, in turn, take a very long time to run. To address your suggestion, though, we have now included a smaller benchmark suite suitable for consumer-grade laptop computers, which run in a matter of hours. The instructions on how to run the benchmarks are in the accompanying GitHub repository, https://github.com/pavlin-policar/opentsne-paper/tree/master/benchmarks. We refer to this repository in the third paragraph of the section on Reproducibility.
+
+
+> Please make sure that the files needed to replicate all code/examples within the manuscript are included in a standalone replication script.
+
+Our GitHub repository includes all replication scripts needed to fully reproduce the contents of this manuscript. While we split the reproduction material across several scripts, we also provided detailed instructions on how to use each one. We have organized the scripts so that the user does not automatically run the entire package and, with it, the computationally intensive benchmark and data preparation scripts. We aimed to make the replication process as easy as possible so interested readers could replicate every result and every figure in the paper. 
+
+We thank you again for your helpful comments and the opportunity to improve our manuscript.
+
+Kind regards,
+
+Pavlin Poličar, Martin Stražar, Blaž Zupan
+
+Ljubljana, October 19, 2022
