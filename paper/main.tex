@@ -202,7 +202,7 @@ which makes it impractical with large data sets and
 calls for efficient approximation schemes.
 \citet{van2014accelerating} observed that the t-SNE gradient can be cast as an
 N-body problem where data points represent particles that attract and repel each
-other. The gradient from Equation~(\ref{eq:tsne_gradient}) can be rewritten as
+other. The gradient from Equation~\ref{eq:tsne_gradient} can be rewritten as
 \begin{equation}
 \frac{\partial C}{\partial \mathbf{y}_i} = 4 \Bigg [
 \underbrace{\sum_{j \neq i} p_{ij} q_{ij} Z \left ( \mathbf{y}_i - \mathbf{y}_j \right )}_{\text{attractive forces}}  -
@@ -255,8 +255,8 @@ q_{j \mid i} = \frac{\left ( 1 + || \mathbf{y}_i - \mathbf{w}_j ||^2 \right )^{-
 \mathbf{v}_M \right \} \in \mathbb{R}^D$ where $M$ is the number of samples in
 the new data set and $\mathbf{W} = \left \{ \mathbf{w}_1, \mathbf{w}_2, \dots,
 \mathbf{w}_M \right \} \in \mathbb{R}^d$. Additionally, we omit the
-symmetrization step in Equation~(\ref{eq:symmetrize}). Plugging these terms into
-Equation~(\ref{eq:kl_divergence}), we obtain the following gradient
+symmetrization step in Equation~\ref{eq:symmetrize}. Plugging these terms into
+Equation~\ref{eq:kl_divergence}, we obtain the following gradient
 \begin{equation}
 \frac{\partial C}{\partial \mathbf{w}_j} = 2 \sum_i \left ( p_{j \mid i} - q_{j \mid i} \right ) \left ( \mathbf{y}_i - \mathbf{w}_j \right ) \left ( 1 + || \mathbf{y}_i - \mathbf{w}_j || ^2 \right )^{-1}. \notag
 \label{eq:gradient}
@@ -314,7 +314,7 @@ local and global structure, this can be time-consuming, and small, well-defined
 clusters can be missed. Alternatively, \citet{kobak2019heavy} suggest that
 varying the degrees of freedom in the $t$-distribution can be used to explore
 the clustering structure at different levels of resolution. Modifying
-Equation~(\ref{eq:cauchy_kernel}) to $q_{ij} \propto \left ( 1 + || \mathbf{y}_i -
+Equation~\ref{eq:cauchy_kernel} to $q_{ij} \propto \left ( 1 + || \mathbf{y}_i -
 \mathbf{y}_j ||^2 / \alpha \right )^{-\alpha}$ allows us to use heavier-tailed
 distributions to model distances in the embedding space, which acts to highlight
 small subgroups in the resulting visualization.
@@ -590,48 +590,42 @@ When dealing with data containing millions of data points, standard t-SNE embedd
 
 Exaggeration can highlight transitions between cell stages in developmental studies. Standard t-SNE often produces embeddings with clearly defined, discrete clusters. We can adjust the level of granularity and resolution of the clusters with several parameters, as shown in Fig.~\ref{fig:tasic}. However, discrete clusters are often undesired in developmental studies where cells' stage is assumed to follow a continuous transition path. To this end, researchers have used other embedding techniques such as UMAP and ForceAtlas2 to better capture the continuity between cell stages. Recently, \citet{bohm2020unifying} showed that embeddings produced by t-SNE with exaggeration values of 4 and $\sim30$ construct embeddings that are markedly similar to UMAP and ForceAtlas2, respectively. For example, in Fig.~\ref{fig:cao}.a, the developmental trajectory between different time points is difficult to observe due to many sprawled out clusters. On the other hand, it is easier to trace the development when we increase the exaggeration factor from $1$ to $2$ to $4$ in Figs.~\ref{fig:cao}.b-c.
 
-We have used the following snippet to create Figs.~\ref{fig:cao}.a-c and to demonstrate how we can take advantage of the more advanced features of \opentsne to more quickly create meaningful visualizations of massive data sets. Here, we first take a sample of the data and use t-SNE to construct a globally consistent embedding, which we will then use for initialization of the positions for the remaining data points:
+We have used the following code to create Figs.~\ref{fig:cao}.a-c and to demonstrate how we can take advantage of the more advanced features of \opentsne to more quickly create meaningful visualizations of massive data sets.
+
+First, we take small subset of data points and create a t-SNE embedding using a high perplexity value to emphasize the high level structure:
 \begin{CodeChunk}
 \begin{CodeInput}
-# To improve the global structure of the final layout, we initialize the
-# embedding by creating a t-SNE plot on a sample of points.
-
-# Take a random sample of the data points.
 indices = np.random.permutation(list(range(x.shape[0])))
-reverse = np.argsort(indices)
-
 x_sample, x_rest = x[indices[:25000]], x[indices[25000:]]
 
-# Create a t-SNE embedding on the sample, using a high perplexity value to
-# emphasize the high level structure.
 init_sample = openTSNE.TSNE(perplexity=500).fit(x_sample)
-
-# We can next use the `transform` functionality to determine starting
-# positions for the remaining data points. Since we don't actually want to
-# optimize the remaining points separately from the sample points, we don't
-# need to call the `transform` function. Instead, we'll call the
-# `prepare_partial` function, which `transform` calls anyways under the hood.
-init_rest = init_sample.prepare_partial(x_rest)
-
-# Lastly, we merge `init_sample` and `init_rest` and restore the original
-# ordering.
-init_full = np.vstack((init_sample, init_rest))[reverse]
 \end{CodeInput}
 \end{CodeChunk}
-We then generate the three different embeddings using the following code snippet (shortened for clarity):
+Next, we will use this embedding to determine the starting positions for the remaining data points:
 \begin{CodeChunk}
 \begin{CodeInput}
-# We separately precompute the affinities as this can take quite a long time.
-# This way, we can reuse the precomputed affinities in various different
-# embeddings, without having to repeat the same, costly computation
-# every time.
-affinities = openTSNE.affinity.PerplexityBasedNN(x, perplexity=30)
+init_rest = init_sample.prepare_partial(x_rest)
+\end{CodeInput}
+\end{CodeChunk}
+Lastly, we merge \code{init_sample} and \code{init_rest} and restore the original ordering to obtain the full initialization:
+\begin{CodeChunk}
+\begin{CodeInput}
+init_full = np.vstack((init_sample, init_rest))[np.argsort(indices)]
+\end{CodeInput}
+\end{CodeChunk}
 
-# Create the TSNEEmbedding object using our previously calculated
-# initialization and precomputed affinities.
+Next, we precompute the affinity model. This can take quite a long time and, this way, we can reuse the same affinity model in various different embeddings, without having to repeat the same, costly computation every time:
+\begin{CodeChunk}
+\begin{CodeInput}
+affinities = openTSNE.affinity.PerplexityBasedNN(x, perplexity=30)
+\end{CodeInput}
+\end{CodeChunk}
+
+Using our precomputed initialization and affinity model, we are now ready to create our \code{TSNEEmbedding} object and optimize the embedding to our liking: 
+\begin{CodeChunk}
+\begin{CodeInput}
 embedding = openTSNE.TSNEEmbedding(init_full, affinities)
 
-# Run the standard t-SNE early exaggeration phase
 embedding_ee = embedding.optimize(n_iter=500, exaggeration=12, momentum=0.5)
 embedding_c = embedding_ee.optimize(n_iter=500, exaggeration=4, momentum=0.8)
 embedding_b = embedding_c.optimize(n_iter=500, exaggeration=2, momentum=0.8)
@@ -644,21 +638,28 @@ embedding_a = embedding_b.optimize(n_iter=500, exaggeration=1, momentum=0.8)
 
 Unlike other popular dimensionality reduction techniques such as principal component analysis or autoencoders, t-SNE is a non-parametric method and does not define an explicit mapping to the embedding space. Therefore, embeddings of new data points need to be found through optimization~\citep{policar2021embedding}. \opentsne is currently the only publicly available library allowing users to add new samples to existing embeddings in a principled manner.
 
-Figs.~\ref{fig:macosko}.b and \ref{fig:macosko}.c demonstrate how we can use a previously labeled single-cell data set and embed cells from a separate experiment into the reference landscape. The reference data from \citet{macosko2015highly} contains gene expression profiles from mouse retinal cells. By embedding the samples from a similar experiment on bipolar retinal cells by \citet{shekhar2016comprehensive}, we can correctly map the bipolar cell clusters onto the reference embedding. The following snippet shows the code necessary to generate Fig.~\ref{fig:macosko}:
+Figs.~\ref{fig:macosko}.b and \ref{fig:macosko}.c demonstrate how we can use a previously labeled single-cell data set and embed cells from a separate experiment into the reference landscape. The reference data from \citet{macosko2015highly} contains gene expression profiles from mouse retinal cells. By embedding the samples from a similar experiment on bipolar retinal cells by \citet{shekhar2016comprehensive}, we can correctly map the bipolar cell clusters onto the reference embedding.
+
+The following snippet shows the code necessary to generate Fig.~\ref{fig:macosko}.
+
+We first construct Fig.~\ref{fig:macosko}.a with the most commonly used parameter values which aims to show that these can lead to poor cluster separation and an overall lack of global consistency:
 \begin{CodeChunk}
 \begin{CodeInput}
-# We specify the old default parameter values which are often used to show
-# why t-SNE misbehaves or fails to preserve global structure.
 tsne_old = openTSNE.TSNE(
     initialization="random", learning_rate=200, n_iter=750
 ).fit(x)
+\end{CodeInput}
+\end{CodeChunk}
+We generate the embedding from Fig.~\ref{fig:macosko}.b using parameter values emphasizing the global coherence of the resulting visualization. By default, \opentsne uses PCA-based initialization and automatically determines the optimal learning rate. This allows \opentsne to lower the default number of iterations to 500. To emphasize the global consistency of the resulting embedding, we can also specify multiple perplexity values, resulting in a multiscale affinity model:
+\begin{CodeChunk}
+\begin{CodeInput}
+tsne_multiscale = openTSNE.TSNE(perplexity=[50, 500]).fit(x)
+\end{CodeInput}
+\end{CodeChunk}
 
-# By default, openTSNE uses PCA-based initialization and automatically
-# determines the best learning rate. This also allows us to lower the
-# default number of iterations to 500, lowering the overall runtime
-tsne_standard = openTSNE.TSNE(perplexity=[50, 500]).fit(x)
-
-# Use the generated embeddings to add new data points
+Finally, we can embed new samples into our obtained embedding space:
+\begin{CodeChunk}
+\begin{CodeInput}
 new_embedding = tsne_standard.transform(x_new)
 \end{CodeInput}
 \end{CodeChunk}
@@ -679,7 +680,7 @@ The examples presented above demonstrate how to use \opentsne to quickly gain in
 
 The ability to use and combine different optimization approaches to construct different embedding spaces is another of \opentsne's core design principles. \citet{kobak2019art} recently provided several recommendations and tricks to obtain better and more meaningful t-SNE visualizations. These include multi-scale similarity kernels, perplexity annealing, and increasing exaggeration when working with massive data sets. \opentsne provides a flexible API to incorporate these improvements in just a few lines of code. Furthermore, \opentsne supports custom affinity models, enabling users to construct t-SNE embeddings on non-tabular relational data: the only requirement imposed by the affinity model is a notion of similarity between data points. Finally, \opentsne's comprehensive callback system can be utilized to monitor and adapt different stages of the optimization phase and has been used to construct visually appealing animations of the t-SNE optimization process.
 
-\subsection{Speed\label{s:speed}}
+\subsection{Speed}\label{s:speed}
 
 % General problem statement
 One of the t-SNE's common criticisms is limited scalability to large data sets containing, for instance, millions of data points~\citep {becht2019dimensionality}. Slow response times stem from the optimization procedures and their specific implementation in popular open-source libraries. Most implementations of t-SNE have been based on either a direct implementation of the t-SNE algorithm with asymptotic time complexity $\mathcal{O}(N^2)$~\citep{maaten2008visualizing}, or the Barnes-Hut approximation with asymptotic time complexity $\mathcal{O}(N \log N)$~\citep{van2014accelerating}. Recently, however, \citet{linderman2019fast} developed a novel approximation -- FIt-SNE -- which reduces the asymptotic time complexity to $\mathcal {O}(N)$, enabling scaling to large data sets.
