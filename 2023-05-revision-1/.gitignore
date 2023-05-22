@@ -1,0 +1,11 @@
+.ipynb_checkpoints/
+__pycache__/
+data/*
+.DS_STORE
+.idea/
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+main.pdf
