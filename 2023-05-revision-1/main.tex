@@ -282,8 +282,7 @@ algorithms, such as t-SNE, UMAP~\citep{2018arXivUMAP}, and
 ForceAtlas2~\citep{jacomy2014forceatlas2}, largely dictates the global
 consistency of resulting embeddings. When initialized randomly, clusters are
 often arbitrarily scattered in the embedding space. However, when using
-initialization schemes based on PCA or spectral embeddings, the clusters
-identified in the resulting embedding are typically grouped in a globally
+initialization schemes based on PCA or Laplacian eigenmaps~\citep{belkin2001laplacian}, the clusters identified in the resulting embedding are typically grouped in a globally
 coherent manner.
 
 In standard t-SNE, distances between data points are converted to similarities
@@ -331,7 +330,8 @@ The core t-SNE algorithm comprises three main steps, mirrored in the structure o
 
 In \opentsne, it is straightforward to define and use a custom affinity model. For instance, one can extend the \code{openTSNE.affinity.Affinities} class and provide an affinity model for relational data using a normalized adjacency matrix. Such extension enables rapid experimentation and opens the doors to the visualization of non-tabular data.  
 
-\item The optimization in t-SNE starts with initial positions for each data point in the embedding space. We can set the initial positions randomly or impose an initial global structure on the embedding with, for example, a PCA-based initialization. Accordingly, the \code{openTSNE.initialization} module provides several possible initialization schemes, The user can also specify their initialization by providing a \code{numpy.ndarray} object. By default, \opentsne opts for PCA-based initialization.
+\item The optimization in t-SNE starts with initial positions for each data point in the embedding space. We can set the initial positions randomly or impose an initial global structure on the embedding. % with, for example, a PCA-based initialization.
+The \code{openTSNE.initialization} module provides several possible initialization schemes including random, PCA-based, and Laplacian Eigenmap-based intialization schemes. The user can also specify their own initialization by providing a \code{numpy.ndarray} object. By default, \opentsne opts for PCA-based initialization.
 
 \item In optimizing the embedding, the t-SNE algorithm finds the positions of the points in the embedding space that reflect their corresponding similarities in the affinity model. \opentsne stores the initial positions and affinities in a \code{openTSNE.TSNEEmbedding} object that includes the \code{.optimize} method for embedding optimization that uses either the Barnes-Hut or FIt-SNE approximation scheme. While the FIt-SNE approximation scheme scales linearly with the number of samples, it introduces additional computational overhead, often unnecessary for smaller data sets, resulting in longer runtimes than the Barnes-hut approximation scheme. By default, \opentsne uses a heuristic to choose the fastest algorithm for a given data set.
 \end{enumerate}

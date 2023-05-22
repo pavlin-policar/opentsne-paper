@@ -1,0 +1,54 @@
+Reviewer B:
+
+OpenTSNE is an excellent open source software package for the implementation of the t-SNE algorithm frequently used in dimensionality reduction and data-visualization for a host of applications such as clustering of galaxies, single cell RNA-sequencing analyses, human genetics, and spatial organization of microbial communities to name a few. To the best of my knowledge, this is the only well-maintained open source tSNE package that allows for adding additional points to embeddings, and a broader class of affinity models. Owing to its performance, level of documentation, and ease of installation and use,  I would strongly recommend publication of this paper. 
+
+I just have a few minor comments regarding the text. Firstly, the authors claim that FIt-SNE is not a PyPI/conda package in table 1, and that is just not the case. There is a similar comment in the introduction at the bottom of page 2 that needs to be remedied in this regard. "However, FIt-SNE is difficult to install and distribute, and provides and API largely inconsistent with the Python data science ecosystem".  I also find it fairly the comment fairly vague in the context of being inconsistent with Python data-science ecosystem, as the functional approach with most of the parameters being set by default is also a commonly used API for software. 
+
+Finally, this is one of the only works that switches between the Barnes-Hut approach to the FIt-SNE algorithm and the authors mention that they have a heuristic for doing so. This is an extremely useful feature as well, as it chooses the best of both worlds, and it would be wonderful if the authors could provide a brief description for the heuristic they use in their code. 
+
+ 
+
+Recommendation: Accept Submission
+
+------------------------------------------------------
+
+
+
+------------------------------------------------------
+Reviewer C:
+
+In their paper "openTSNE: a modular Python library for t-SNE dimensionality reduction and embedding" the authors provide a description of the openTSNE library for t-SNE embeddings.
+
+This library has been in development since several years and in my opinion has proved to be very successful. The GitHub repository has over 1100 stars. The preprint has been cited over 60 times, and the number of citations is increasing every year. I used the library myself and found it very convenient to work with. The paper is well written, so I think it would be a very good fit for the JOSS. I do not have any major reservations about this work; all my comments are relatively minor.
+
+
+MAJOR COMMENTS
+
+* The paper describes openTSNE version 0.6, but the current version is 0.7, and it seems there were recent changes affecting some of the text and the code snippets in the paper (learning rate / momentum). This needs to be updated throughout.
+
+* More generally, if the paper goes on to be published in JOSS, would it make sense to release version 1.0 and describe it as such in the paper? If the library is ready for a peer-reviewed publication, then is it ready to be designated 1.0?
+
+* There are no details given about preprocessing transcriptomic data (normalization, log-transformation, gene selection, PCA, etc.) As the paper uses RNAseq datasets for all examples, these details should be provided somewhere.
+
+* page 7: "one can speed up the overall computation by choosing a uniform kernel" -- this sounds cryptic as the uniform kernel was not explained anywhere. It could make sense to elaborate on it somewhere: what exactly is it? how to use it?
+
+* page 7: initialization paragraph only mentions PCA, would it make sense to mention that openTSNE also supports Laplacian eigenmaps as initialization?
+
+Thank you for the suggestion, we now mention this option in the initialization paragraph on page 7, and have also added a reference to Laplacian eigenmaps in Section 2.4 in the paragraph on global initialization.
+
+* It would be interesting to add UMAP to the runtime benchmark. UMAP is a very popular alternative to t-SNE, and is often thought to be much faster, which is not actually the case for openTNSE. Perhaps a separate benchmark figure could focus on openTSNE vs UMAP (depending on the sample size)? This may depend on the used affinity model, as uniform affinity with 15 neighbors should be much faster than the standard affinity model (with 90 neighbors) for large sample sizes. If so (?), it may be of interest to show both and discuss.
+
+
+MINOR COMMENTS
+
+* top of page 5: you talk about attractive forces but they have not been introduced yet. It may make sense to move the equation from secton 2.2 into 2.1 after Eq (5).
+
+* page 6: "Special care must be taken to tune the learning rate during optimization" -- the details are missing here. So what values are used in openTSNE?
+
+* page 13: it is unclear what embedding.prepare_partial() does here -- how are the new samples initialized, before you are running optimize()? Same for the prepare_partial call on page 17.
+
+* Figure 7 -- "Data points representing cells are colored according to cell types assigned in the original publication; see the legend from Fig. 5 to map colors to cell type." The last part ("see the legend from Fig. 5 to map colors to cell type") is unclear as Figure 5 shows different dataset. Does this study use the same colormap? This is confusing.
+
+* References: Boehm et al is published.
+
+We have updated the citation.
