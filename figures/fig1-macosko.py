@@ -41,6 +41,8 @@ if (
         metric="cosine",
         learning_rate=200,
         n_iter=750,
+        initial_momentum=0.5,
+        final_momentum=0.8,
         n_jobs=8,
         random_state=0,
         verbose=True,
