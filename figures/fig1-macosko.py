@@ -9,6 +9,10 @@ import scanpy as sc
 
 import utils
 
+import matplotlib
+matplotlib.rcParams["pdf.fonttype"] = 42
+matplotlib.rcParams["ps.fonttype"] = 42
+
 parser = argparse.ArgumentParser()
 parser.add_argument("-i", "--in-dir", required=True)
 parser.add_argument("-o", "--out-dir", required=True)

@@ -7,6 +7,10 @@ import utils
 import openTSNE
 import matplotlib.pyplot as plt
 
+import matplotlib
+matplotlib.rcParams["pdf.fonttype"] = 42
+matplotlib.rcParams["ps.fonttype"] = 42
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-i", "--in-dir", required=True)

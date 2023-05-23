@@ -8,6 +8,10 @@ from sklearn import datasets
 
 import utils
 
+import matplotlib
+matplotlib.rcParams["pdf.fonttype"] = 42
+matplotlib.rcParams["ps.fonttype"] = 42
+
 parser = argparse.ArgumentParser()
 parser.add_argument("-o", "--out-dir", required=True)
 args = parser.parse_args()
