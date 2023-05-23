@@ -17,14 +17,12 @@ Recommendation: Accept Submission
 ------------------------------------------------------
 Reviewer C:
 
-In their paper "openTSNE: a modular Python library for t-SNE dimensionality reduction and embedding" the authors provide a description of the openTSNE library for t-SNE embeddings.
-
-This library has been in development since several years and in my opinion has proved to be very successful. The GitHub repository has over 1100 stars. The preprint has been cited over 60 times, and the number of citations is increasing every year. I used the library myself and found it very convenient to work with. The paper is well written, so I think it would be a very good fit for the JOSS. I do not have any major reservations about this work; all my comments are relatively minor.
-
 
 MAJOR COMMENTS
 
 * The paper describes openTSNE version 0.6, but the current version is 0.7, and it seems there were recent changes affecting some of the text and the code snippets in the paper (learning rate / momentum). This needs to be updated throughout.
+
+We have updated all the code snippets to reflect the recent changes in the openTSNE package. We have also re-generated the figures accordingly.
 
 * More generally, if the paper goes on to be published in JOSS, would it make sense to release version 1.0 and describe it as such in the paper? If the library is ready for a peer-reviewed publication, then is it ready to be designated 1.0?
 

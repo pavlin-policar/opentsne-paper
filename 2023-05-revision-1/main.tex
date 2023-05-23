@@ -497,8 +497,8 @@ TSNEEmbedding([[-1.30971087e-04,  1.55848907e-05],
 Notice that the embedding object contains the same point coordinates as the initialization: although we have created an \code{openTSNE.TSNEEmbedding} object, we have not yet run any optimization. To optimize the embedding, we have to call the \code{embedding.optimize} method using our desired parameter settings. We use the default parameter settings here, including a shorter early-exaggeration phase, followed by a longer phase with no exaggeration.
 \begin{CodeChunk}
 \begin{CodeInput}
->>> embedding.optimize(250, exaggeration=12, momentum=0.5, inplace=True)
->>> embedding.optimize(500, momentum=0.8, inplace=True)
+>>> embedding.optimize(250, exaggeration=12, inplace=True)
+>>> embedding.optimize(500, inplace=True)
 >>> embedding[:3]
 TSNEEmbedding([[-0.55581917, 17.56162344],
                [-1.76742536, 20.07763453],
@@ -517,7 +517,7 @@ Next, we can add new samples into the embedding,
 \begin{CodeInput}
 >>> new_embedding = embedding.prepare_partial(iris.data[::3], perplexity=5)
 >>> new_embedding.optimize(
-...     exaggeration=1.5, n_iter=250, learning_rate=0.1, momentum=0.8,
+...     exaggeration=1.5, n_iter=250, learning_rate=0.1,
 ...     max_grad_norm=0.25, inplace=True
 ... )
 >>> new_embedding[::3]
@@ -624,10 +624,10 @@ Using our precomputed initialization and affinity model, we are now ready to cre
 \begin{CodeInput}
 embedding = openTSNE.TSNEEmbedding(init_full, affinities)
 
-embedding_ee = embedding.optimize(n_iter=500, exaggeration=12, momentum=0.5)
-embedding_c = embedding_ee.optimize(n_iter=500, exaggeration=4, momentum=0.8)
-embedding_b = embedding_c.optimize(n_iter=500, exaggeration=2, momentum=0.8)
-embedding_a = embedding_b.optimize(n_iter=500, exaggeration=1, momentum=0.8)
+embedding_ee = embedding.optimize(n_iter=500, exaggeration=12)
+embedding_c = embedding_ee.optimize(n_iter=500, exaggeration=4)
+embedding_b = embedding_c.optimize(n_iter=500, exaggeration=2)
+embedding_a = embedding_b.optimize(n_iter=500, exaggeration=1)
 \end{CodeInput}
 \end{CodeChunk}
 
