@@ -247,11 +247,11 @@ for ax_ in ax.ravel():
     
 ax[2].set_xlim(ax[1].get_xlim()), ax[2].set_ylim(ax[1].get_ylim())
 
-plt.text(38, -12.5, "Amacrine\ncells", color="k", fontsize=10, horizontalalignment="center", transform=ax[0].transData)
+plt.text(38, -14, "Amacrine\ncells", color="k", fontsize=10, horizontalalignment="center", transform=ax[0].transData)
 plt.text(27, 30, "Bipolar\ncells", color="k", fontsize=10, horizontalalignment="center", transform=ax[0].transData)
 
-plt.text(32, 24, "Amacrine\ncells", color="k", fontsize=10, horizontalalignment="center", transform=ax[1].transData)
-plt.text(30, -21.5, "Bipolar\ncells", color="k", fontsize=10, horizontalalignment="center", transform=ax[1].transData)
+plt.text(45, 30, "Amacrine\ncells", color="k", fontsize=10, horizontalalignment="center", transform=ax[1].transData)
+plt.text(32, -31.5, "Bipolar\ncells", color="k", fontsize=10, horizontalalignment="center", transform=ax[1].transData)
 
 for ax_, letter in zip(ax.ravel(), string.ascii_lowercase):
     plt.text(0, 1.02, letter, transform=ax_.transAxes, fontsize=16, va="baseline", fontweight="bold")
