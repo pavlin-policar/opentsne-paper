@@ -29,6 +29,8 @@ We have updated all the code snippets to reflect the recent changes in the openT
 
 * There are no details given about preprocessing transcriptomic data (normalization, log-transformation, gene selection, PCA, etc.) As the paper uses RNAseq datasets for all examples, these details should be provided somewhere.
 
+We have added the details of the single-cell RNA-seq preprocessing pipelines to the Appendix.
+
 * page 7: "one can speed up the overall computation by choosing a uniform kernel" -- this sounds cryptic as the uniform kernel was not explained anywhere. It could make sense to elaborate on it somewhere: what exactly is it? how to use it?
 
 We have reworded the paragraph so that the uniform affinity kernel is now briefly described.
