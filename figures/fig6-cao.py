@@ -54,8 +54,8 @@ if (
     sample_embedding = openTSNE.TSNEEmbedding(
         sample_init, sample_affinities, n_jobs=24, verbose=True,
     )
-    sample_embedding.optimize(n_iter=250, exaggeration=12, momentum=0.5, inplace=True)
-    sample_embedding.optimize(n_iter=500, exaggeration=1, momentum=0.8, inplace=True)
+    sample_embedding.optimize(n_iter=250, exaggeration=12, inplace=True)
+    sample_embedding.optimize(n_iter=500, exaggeration=1, inplace=True)
 
     # Calculate full affinities
     print("Calculating full affinities...")
@@ -80,10 +80,10 @@ if (
         init_full, affinities, n_jobs=8, random_state=42, verbose=True
     )
     
-    embedding_ee = embedding.optimize(n_iter=500, exaggeration=12, momentum=0.5)
-    embedding_exag4 = embedding_ee.optimize(n_iter=500, exaggeration=4, momentum=0.8)
-    embedding_exag2 = embedding_exag4.optimize(n_iter=500, exaggeration=2, momentum=0.8)
-    embedding_exag1 = embedding_exag2.optimize(n_iter=500, exaggeration=1, momentum=0.8)
+    embedding_ee = embedding.optimize(n_iter=500, exaggeration=12)
+    embedding_exag4 = embedding_ee.optimize(n_iter=500, exaggeration=4)
+    embedding_exag2 = embedding_exag4.optimize(n_iter=500, exaggeration=2)
+    embedding_exag1 = embedding_exag2.optimize(n_iter=500, exaggeration=1)
     
     # Add computed embeddings to h5ad files and save them to disk
     adata.obsm["X_tsne_ee"] = embedding_ee.view(np.ndarray)
