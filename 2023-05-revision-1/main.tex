@@ -102,7 +102,7 @@ We use \opentsne to generate three t-SNE embeddings and demonstrate recent theor
 Despite its utility, t-SNE has often been criticized for its limited scalability, lack of global organization -- t-SNE identifies well-defined clusters that may be arbitrarily scattered throughout the embedding -- and the absence of theoretically-founded methods to map new data into existing embeddings~\citep{ding2018interpretable,becht2019dimensionality}. Most of these shortcomings have recently been addressed. \citet{linderman2019fast} developed FIt-SNE, an efficient approximation that massively improves the scalability of t-SNE, achieving linear time complexity in the number of samples. \citet{kobak2019art} proposed several techniques to improve global cluster coherence (Fig. \ref{fig:macosko}.b), including estimating similarities with a mixture of Gaussian kernels. In our previous work, we introduced a principled approach for embedding new samples into existing visualizations (Fig.~\ref{fig:macosko}.c and~\citet{policar2021embedding}).
 
 Easy access to efficient implementations almost universally correlates with the widespread adoption of novel computational techniques. Despite the many recent theoretical advancements, popular t-SNE libraries have slowly incorporated them into their implementations.
-In \proglang{Python}, the most commonly used implementation of the t-SNE algorithm comes from \pkg{scikit-learn}~\citep{pedregosa2011scikit}, which is nicely integrated with \proglang{Python} data science environment but suffers from poor scalability. Other implementations from the \proglang{R}~\citep{team2013r,krijthe2015rtsne} and \proglang{Julia}~\citep{bezanson2017julia,julia_tsne} programming languages also scale poorly (see Sec.~\ref{s:speed}). \pkg{MulticoreTSNE}~\citep{Ulyanov2016} enjoys better scalability but is likewise limited when applied to larger data sets. Additionally, none of these implementations include recently proposed extensions that can result in more globally consistent embeddings. \pkg{FIt-SNE}~\citep{linderman2019fast} alleviates these problems and provides bindings to both the \proglang{Python} and \proglang{R} programming languages. However, \pkg{FIt-SNE} is difficult to install and distribute and provides an API largely inconsistent with the \proglang{Python} data science ecosystem. None of the existing t-SNE implementations support adding new samples into existing embeddings. To alleviate all these problems, and to support newly proposed additions to t-SNE algorithms, we here present \opentsne, an open-source \proglang{Python} implementation of the t-SNE algorithm. \opentsne is easy to install and includes precompiled binaries available through popular \proglang{Python} package managers. It provides a familiar API, making it suitable as a drop-in replacement for existing t-SNE implementations.
+In \proglang{Python}, the most commonly used implementation of the t-SNE algorithm comes from \pkg{scikit-learn}~\citep{pedregosa2011scikit}, which is nicely integrated with \proglang{Python} data science environment but suffers from poor scalability. Other implementations from the \proglang{R}~\citep{team2013r,krijthe2015rtsne} and \proglang{Julia}~\citep{bezanson2017julia,julia_tsne} programming languages also scale poorly (see Sec.~\ref{s:speed}). \pkg{MulticoreTSNE}~\citep{Ulyanov2016} enjoys better scalability but is likewise limited when applied to larger data sets. Additionally, none of these implementations include recently proposed extensions that can result in more globally consistent embeddings. \pkg{FIt-SNE}~\citep{linderman2019fast} alleviates these problems and provides bindings to both the \proglang{Python} and \proglang{R} programming languages. However, none of the existing t-SNE implementations support adding new samples into existing embeddings. To alleviate all these problems, and to support newly proposed additions to t-SNE algorithms, we here present \opentsne, an open-source \proglang{Python} implementation of the t-SNE algorithm. \opentsne is easy to install and includes precompiled binaries available through popular \proglang{Python} package managers. It provides a familiar API, making it suitable as a drop-in replacement for existing t-SNE implementations.
 
 
 %% -- Manuscript ---------------------------------------------------------------
@@ -737,9 +737,8 @@ We designed \opentsne to be accessible to a broader audience. We provide precomp
 
 \toprule
 \textbf{Ease of installation} \\
-Native \proglang{Python} installation & \checkmark & & & \checkmark & & \\
-\pkg{PyPI} package & \checkmark & \checkmark & & \checkmark & & \\
-\pkg{conda} package & \checkmark & & & \checkmark & & \\
+\pkg{PyPI} package & \checkmark & \checkmark & \checkmark & \checkmark & & \\
+\pkg{conda} package & \checkmark & & \checkmark & \checkmark & & \\
 
 \hline
 \textbf{Approximation schemes} \\
@@ -749,7 +748,6 @@ FIt-SNE ($\mathcal{O}(N)$) & & & \checkmark & \checkmark & & \\
 
 \hline
 \textbf{Advanced features and extensions} \\
-%Multiscale Gaussian kernels & & & & \checkmark & \checkmark & & \\
 Extensible affinity models & & & & \checkmark & & \\
 Variable degrees of freedom & & & \checkmark & \checkmark & & \\
 Variable exaggeration & & & \checkmark & \checkmark & & \\

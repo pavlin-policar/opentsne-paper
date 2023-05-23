@@ -1,10 +1,11 @@
 Reviewer B:
 
-OpenTSNE is an excellent open source software package for the implementation of the t-SNE algorithm frequently used in dimensionality reduction and data-visualization for a host of applications such as clustering of galaxies, single cell RNA-sequencing analyses, human genetics, and spatial organization of microbial communities to name a few. To the best of my knowledge, this is the only well-maintained open source tSNE package that allows for adding additional points to embeddings, and a broader class of affinity models. Owing to its performance, level of documentation, and ease of installation and use,  I would strongly recommend publication of this paper. 
 
-I just have a few minor comments regarding the text. Firstly, the authors claim that FIt-SNE is not a PyPI/conda package in table 1, and that is just not the case. There is a similar comment in the introduction at the bottom of page 2 that needs to be remedied in this regard. "However, FIt-SNE is difficult to install and distribute, and provides and API largely inconsistent with the Python data science ecosystem".  I also find it fairly the comment fairly vague in the context of being inconsistent with Python data-science ecosystem, as the functional approach with most of the parameters being set by default is also a commonly used API for software. 
+* I just have a few minor comments regarding the text. Firstly, the authors claim that FIt-SNE is not a PyPI/conda package in table 1, and that is just not the case. There is a similar comment in the introduction at the bottom of page 2 that needs to be remedied in this regard. "However, FIt-SNE is difficult to install and distribute, and provides and API largely inconsistent with the Python data science ecosystem".  I also find it fairly the comment fairly vague in the context of being inconsistent with Python data-science ecosystem, as the functional approach with most of the parameters being set by default is also a commonly used API for software.
 
-Finally, this is one of the only works that switches between the Barnes-Hut approach to the FIt-SNE algorithm and the authors mention that they have a heuristic for doing so. This is an extremely useful feature as well, as it chooses the best of both worlds, and it would be wonderful if the authors could provide a brief description for the heuristic they use in their code. 
+We would like to thank the reviewer for pointing out the availability of PyPI/conda packages for FIt-SNE and have updated the text and Table 1 to reflect this.
+
+* Finally, this is one of the only works that switches between the Barnes-Hut approach to the FIt-SNE algorithm and the authors mention that they have a heuristic for doing so. This is an extremely useful feature as well, as it chooses the best of both worlds, and it would be wonderful if the authors could provide a brief description for the heuristic they use in their code. 
 
  
 
