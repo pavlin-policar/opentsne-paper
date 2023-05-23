@@ -32,6 +32,8 @@ MAJOR COMMENTS
 
 * page 7: "one can speed up the overall computation by choosing a uniform kernel" -- this sounds cryptic as the uniform kernel was not explained anywhere. It could make sense to elaborate on it somewhere: what exactly is it? how to use it?
 
+We have reworded the paragraph so that the uniform affinity kernel is now briefly described.
+
 * page 7: initialization paragraph only mentions PCA, would it make sense to mention that openTSNE also supports Laplacian eigenmaps as initialization?
 
 Thank you for the suggestion, we now mention this option in the initialization paragraph on page 7, and have also added a reference to Laplacian eigenmaps in Section 2.4 in the paragraph on global initialization.
