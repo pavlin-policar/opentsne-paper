@@ -7,6 +7,8 @@ We would like to thank the reviewer for pointing out the availability of PyPI/co
 
 * Finally, this is one of the only works that switches between the Barnes-Hut approach to the FIt-SNE algorithm and the authors mention that they have a heuristic for doing so. This is an extremely useful feature as well, as it chooses the best of both worlds, and it would be wonderful if the authors could provide a brief description for the heuristic they use in their code. 
 
+We have now included a sentence in Section 3 on page 8 that describes our heuristic.
+
  
 
 Recommendation: Accept Submission
