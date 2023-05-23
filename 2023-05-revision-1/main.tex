@@ -262,12 +262,7 @@ Equation~\ref{eq:kl_divergence}, we obtain the following gradient
 \label{eq:gradient}
 \end{equation}
 
-Similarly to standard t-SNE, a direct calculation of gradients takes
-$\mathcal{O}(N \cdot M)$ time, but it is straightforward to adapt the Barnes-Hut
-and FIt-SNE approximation schemes, reducing the time complexity to
-$\mathcal{O}(M \log N)$ and $\mathcal{O}(M)$, respectively. Special care must be
-taken to tune the learning rate during optimization as the default values
-$\eta=200$ and $\eta=N/12$ result in highly unstable optimization.
+Similarly to standard t-SNE, a direct calculation of gradients takes $\mathcal{O}(N \cdot M)$ time, but it is straightforward to adapt the Barnes-Hut and FIt-SNE approximation schemes, reducing the time complexity to $\mathcal{O}(M \log N)$ and $\mathcal{O}(M)$, respectively. Special care must be taken to adjust the learning rate during optimization as the parameter values used during standard optimization lead to highly unstable behaviour. Empirically, we have found that reducing the learning rate to $\eta \sim 0.1$ results in more stable optimization, as discussed in \citet{policar2021embedding}. Moreover, during standard optimization, data points are positioned in the embedding such that an equilibrium between the attractive and repulsive forces is achieved. However, when embedding new data points, the reference embedding remains fixed. Consequently, if a new data point needed to be positioned between existing reference data points, it may not be possible to reach such an equilibrium, as the reference data points could not adjust to accomodate the new data point. To compensate for the increased repulsive forces, we have found it beneficial to run this optimization using the exaggeration factor $\rho=1.5$. The training dynamics of embedding new data points into existing embeddings are yet fully understood and are left to future exploration.
 
 
 \subsection{Improving the global structure of embeddings} \label{sec:meth.global}
