@@ -187,6 +187,14 @@ The objective is to find embeddings $\mathbf{Y}$ that minimize the KL divergence
 \end{equation}
 where $w_{ij} = \left ( 1 + || \mathbf{y}_i - \mathbf{y}_j || ^2 \right )^{-1}$
 and represents the unnormalized $q_{ij}$.
+Alternatively, this gradient can be rewritten as
+\begin{equation}
+\frac{\partial C}{\partial \mathbf{y}_i} = 4 \Bigg [
+\underbrace{\sum_{j \neq i} p_{ij} q_{ij} Z \left ( \mathbf{y}_i - \mathbf{y}_j \right )}_{\text{attractive forces}}  -
+\underbrace{\sum_{j \neq i} q_{ij}^2 Z \left ( \mathbf{y}_i - \mathbf{y}_j \right )}_{\text{repulsive forces}}
+\Bigg ], \label{eq:grad_attr_rep}
+\end{equation}
+where $Z = \sum_{k \neq l}\left ( 1 + || \mathbf{y}_k - \mathbf{y}_l ||^2 \right )^{-1}$. This formulation implies that the t-SNE algorithm can be interpreted as a force-directed layout algorithm, where individual data points act as particles exerting both attractive and repulsive on each other until a state of equilibrium is reached.
 
 Optimization is performed using batch gradient descent using the delta-bar-delta update rule~\citep{jacobs1988increased}. The t-SNE optimization procedure consists of two phases: in the first \textit{early exaggeration} phase, the attractive forces between data points are increased by some factor $\rho$, typically set to $12$, so that points in the embedding can more easily move throughout the space and settle near their respective neighbors. In the second phase of the optimization, the attractive forces are then reverted to their original values with $\rho=1$.
 
@@ -197,25 +205,7 @@ lowered from the typical 1000 to 750, decreasing the overall runtime.
 
 \subsection{Efficient approximation schemes} \label{sec:meth.approx}
 
-Evaluation of t-SNE gradients requires $\mathcal{O}(N^2)$ operations,
-which makes it impractical with large data sets and
-calls for efficient approximation schemes.
-\citet{van2014accelerating} observed that the t-SNE gradient can be cast as an
-N-body problem where data points represent particles that attract and repel each
-other. The gradient from Equation~\ref{eq:tsne_gradient} can be rewritten as
-\begin{equation}
-\frac{\partial C}{\partial \mathbf{y}_i} = 4 \Bigg [
-\underbrace{\sum_{j \neq i} p_{ij} q_{ij} Z \left ( \mathbf{y}_i - \mathbf{y}_j \right )}_{\text{attractive forces}}  -
-\underbrace{\sum_{j \neq i} q_{ij}^2 Z \left ( \mathbf{y}_i - \mathbf{y}_j \right )}_{\text{repulsive forces}}
-\Bigg ], \label{eq:grad_attr_rep} \notag
-\end{equation}
-where $Z = \sum_{k \neq l}\left ( 1 + || \mathbf{y}_k - \mathbf{y}_l ||^2 \right
-)^{-1}$. We can view this equation as a particle simulation, where the
-two terms represent the attractive and repulsive forces between individual
-particles. Each term lends itself to efficient approximations, enabling us to
-reduce the time complexity of t-SNE to $\mathcal{O}(N)$. This allows modern
-t-SNE implementations to be leveraged for the visualization of data sets
-containing up to millions of data points.
+A direct evaluation of the t-SNE gradients requires $\mathcal{O}(N^2)$ operations, which makes it impractical with large data sets and calls for efficient approximation schemes. The formulation in Equation~\ref{eq:grad_attr_rep} casts the t-SNE gradient as an N-body simulation where data points act as particles exerting attractive and repulsive forces onto one another. Both terms lend themselves to efficient approximations, enabling us to reduce the time complexity of the t-SNE algorithm to $\mathcal{O}(N)$. This allows modern t-SNE implementations to be leveraged for the visualization of data sets containing up to millions of data points.
 
 \subsubsection*{Attractive forces}
 \citet{van2014accelerating} observed that evaluating the attractive forces

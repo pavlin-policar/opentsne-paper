@@ -46,6 +46,8 @@ MINOR COMMENTS
 
 * top of page 5: you talk about attractive forces but they have not been introduced yet. It may make sense to move the equation from secton 2.2 into 2.1 after Eq (5).
 
+We would like to thank the reviewer for noticing this error, and we have now moved the equation from section 2.2 to the end of section 2.1, and updated the text accordingly.
+
 * page 6: "Special care must be taken to tune the learning rate during optimization" -- the details are missing here. So what values are used in openTSNE?
 
 We have expanded the paragraph to elaborate on the instability and what parameter values we use in openTSNE.
