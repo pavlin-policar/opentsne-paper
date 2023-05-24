@@ -522,7 +522,7 @@ PartialTSNEEmbedding([[-0.02637324, 15.69956674],
                       [-2.4594136 , 15.37910876]])
 \end{CodeInput}
 \end{CodeChunk}
-and validate that this also produces the exact same embedding as before:
+We here use the \code{embedding.prepare_partial} method to determine initial positions for the new data points, then call the \code{new_embedding.optimize} method to run the optimization process. Again, we can validate that this also produces the exact same embedding as before:
 \begin{CodeChunk}
 \begin{CodeInput}
 >>> np.linalg.norm(new_embedding - embedding.transform(iris.data[::3]))

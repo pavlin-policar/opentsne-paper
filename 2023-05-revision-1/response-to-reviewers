@@ -54,6 +54,8 @@ We have expanded the paragraph to elaborate on the instability and what paramete
 
 * page 13: it is unclear what embedding.prepare_partial() does here -- how are the new samples initialized, before you are running optimize()? Same for the prepare_partial call on page 17.
 
+We agree that this is somewhat crpytic and have added a sentence below the code snippet describing what each of the function calls does.
+
 * Figure 7 -- "Data points representing cells are colored according to cell types assigned in the original publication; see the legend from Fig. 5 to map colors to cell type." The last part ("see the legend from Fig. 5 to map colors to cell type") is unclear as Figure 5 shows different dataset. Does this study use the same colormap? This is confusing.
 
 We agree that this sentence is confusing and have reworded it to be more clear.
