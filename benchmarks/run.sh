@@ -98,7 +98,7 @@ if $small; then
 
   dataset_name="macosko_2015"
   sample_sizes=(1000 2000)
-  repetitions=6;
+  repetitions=3;
 
 else
   echo "Running full benchmark suite."
@@ -155,6 +155,73 @@ run_python_benchmarks() {
   done;
 }
 
+run_python_umap_opentsne_benchmarks() {
+  # Regular UMAP
+  for size in "${sample_sizes[@]}"; do
+    cmd="OMP_NUM_THREADS=$cores NUMBA_NUM_THREADS=$cores \
+        LD_LIBRARY_PATH="${CONDA_PREFIX}/lib/" \
+        DYLD_LIBRARY_PATH="${CONDA_PREFIX}/lib/" \
+        python benchmark.py UMAP run \
+        --fname data/$dataset_name.pkl.gz \
+        --repetitions $repetitions \
+        --n-samples $size \
+        --n-jobs $cores 2>&1 \
+        | tee -a logs/${dataset_name}--UMAP_standard--${cores}_core--${size}_samples.log";
+    echo "$cmd" | tr -s " ";
+    eval "$cmd";
+  done;
+  
+  # Regular t-SNE, but with newer default parameters
+  for size in "${sample_sizes[@]}"; do
+    cmd="OMP_NUM_THREADS=$cores NUMBA_NUM_THREADS=$cores \
+        LD_LIBRARY_PATH="${CONDA_PREFIX}/lib/" \
+        DYLD_LIBRARY_PATH="${CONDA_PREFIX}/lib/" \
+        python benchmark.py openTSNEFFT run \
+        --fname data/$dataset_name.pkl.gz \
+        --repetitions $repetitions \
+        --n-samples $size \
+        --n-jobs $cores 2>&1 \
+        --old_tsne False \
+        | tee -a logs/${dataset_name}--openTSNE_standard--${cores}_core--${size}_samples.log";
+    echo "$cmd" | tr -s " ";
+    eval "$cmd";
+  done;
+  
+  # t-SNE with uniform affinity kernel with k-neighbors 30
+  for size in "${sample_sizes[@]}"; do
+    cmd="OMP_NUM_THREADS=$cores NUMBA_NUM_THREADS=$cores \
+        LD_LIBRARY_PATH="${CONDA_PREFIX}/lib/" \
+        DYLD_LIBRARY_PATH="${CONDA_PREFIX}/lib/" \
+        python benchmark.py UniformOpenTSNEFFT run \
+        --fname data/$dataset_name.pkl.gz \
+        --repetitions $repetitions \
+        --n-samples $size \
+        --k_neighbors 30 \
+        --n-jobs $cores 2>&1 \
+        --old_tsne False \
+        | tee -a logs/${dataset_name}--openTSNE_uniform30--${cores}_core--${size}_samples.log";
+    echo "$cmd" | tr -s " ";
+    eval "$cmd";
+  done;
+  
+  # t-SNE with uniform affinity kernel with k-neighbors 15
+  for size in "${sample_sizes[@]}"; do
+    cmd="OMP_NUM_THREADS=$cores NUMBA_NUM_THREADS=$cores \
+        LD_LIBRARY_PATH="${CONDA_PREFIX}/lib/" \
+        DYLD_LIBRARY_PATH="${CONDA_PREFIX}/lib/" \
+        python benchmark.py UniformOpenTSNEFFT run \
+        --fname data/$dataset_name.pkl.gz \
+        --repetitions $repetitions \
+        --n-samples $size \
+        --k_neighbors 15 \
+        --n-jobs $cores 2>&1 \
+        --old_tsne False \
+        | tee -a logs/${dataset_name}--openTSNE_uniform15--${cores}_core--${size}_samples.log";
+    echo "$cmd" | tr -s " ";
+    eval "$cmd";
+  done;
+}
+
 # Run R benchmark suite
 # requires environmental variable `cores` to be set
 run_r_benchmarks() {
@@ -192,23 +259,29 @@ run_julia_benchmarks() {
 
 
 if is_installed python; then
-  methods=(openTSNEBH openTSNEFFT MulticoreTSNE FItSNE sklearn UMAP);
+  # Run comparison with UMAP and openTSNE default parameters
+  cores=1 run_python_umap_opentsne_benchmarks;
+  cores=8 run_python_umap_opentsne_benchmarks;
+  
+  # Benchmark t-SNE implementations using the old standard parameter settings
+  #methods=(openTSNEBH openTSNEFFT MulticoreTSNE FItSNE sklearn);
+  methods=(openTSNEBH openTSNEFFT);
   cores=1 run_python_benchmarks;
   cores=8 run_python_benchmarks;
 else
   echo -e "The \`python\` command was not found. Skipping."
 fi
 
-if is_installed Rscript; then
-  cores=1 run_r_benchmarks;
-  cores=8 run_r_benchmarks;
-else
-  echo -e "The \`Rscript\` command was not found. Skipping."
-fi
+#if is_installed Rscript; then
+#  cores=1 run_r_benchmarks;
+#  cores=8 run_r_benchmarks;
+#else
+#  echo -e "The \`Rscript\` command was not found. Skipping."
+#fi
 
-if is_installed julia; then
-  sample_sizes=(1000 5000 10000 20000 50000)
-  cores=1 run_julia_benchmarks;
-else
-  echo -e "The \`julia\` command was not found. Skipping."
-fi
+#if is_installed julia; then
+#  sample_sizes=(1000 5000 10000 20000 50000)
+#  cores=1 run_julia_benchmarks;
+#else
+#  echo -e "The \`julia\` command was not found. Skipping."
+#fi

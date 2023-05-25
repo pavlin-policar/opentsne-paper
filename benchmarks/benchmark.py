@@ -46,13 +46,19 @@ class TSNEBenchmark:
     perplexity = 30
     learning_rate = 200
 
-    def run(self, fname: str, n_samples=1000, repetitions=1, n_jobs=1):
+    def run(self, fname: str, n_samples=1000, repetitions=1, exaggeration=1, n_jobs=1, old_tsne=True):
         x, y = self.load_data(fname=fname, n_samples=n_samples)
 
         for idx in range(repetitions):
-            self._run(x, random_state=idx, n_jobs=n_jobs)
+            self._run(
+                x,
+                random_state=idx,
+                exaggeration=exaggeration,
+                n_jobs=n_jobs,
+                old_tsne=old_tsne,
+            )
 
-    def _run(self, data, random_state=None, n_jobs=1):
+    def _run(self, data, random_state=None, exaggeration=1, n_jobs=1, old_tsne=True):
         raise NotImplementedError()
 
     def load_data(self, fname: str, n_samples: int = None):
@@ -73,7 +79,7 @@ class TSNEBenchmark:
 
 
 class openTSNENNDescent(TSNEBenchmark):
-    def _run(self, x, random_state=None, n_jobs=1):
+    def _run(self, x, random_state=None, exaggeration=1, n_jobs=1, old_tsne=True):
         print("-" * 80)
         print(f"openTSNE v{openTSNE.__version__}")
         print("Random state", random_state)
@@ -107,14 +113,23 @@ class openTSNENNDescent(TSNEBenchmark):
             random_state=random_state,
             verbose=True,
         )
-        embedding.optimize(250, exaggeration=12, momentum=0.8, inplace=True)
-        embedding.optimize(750, momentum=0.5, inplace=True)
+
+        if old_tsne:
+            initial_momentum = 0.8
+            final_momentum = 0.5
+            ee_iter, rest_iter = 250, 750
+        else:
+            initial_momentum = final_momentum = 0.8
+            ee_iter, rest_iter = 250, 500
+
+        embedding.optimize(ee_iter, exaggeration=12, momentum=initial_momentum, inplace=True)
+        embedding.optimize(rest_iter, exaggeration=exaggeration, momentum=final_momentum, inplace=True)
         print("openTSNE: Optimization", time.time() - start_optim)
         print("openTSNE: Full", time.time() - start, flush=True)
 
 
 class openTSNEBH(TSNEBenchmark):
-    def _run(self, x, random_state=None, n_jobs=1):
+    def _run(self, x, random_state=None, exaggeration=1, n_jobs=1, old_tsne=True):
         print("-" * 80)
         print(f"openTSNE v{openTSNE.__version__}")
         print("Random state", random_state)
@@ -148,14 +163,23 @@ class openTSNEBH(TSNEBenchmark):
             random_state=random_state,
             verbose=True,
         )
-        embedding.optimize(250, exaggeration=12, momentum=0.8, inplace=True)
-        embedding.optimize(750, momentum=0.5, inplace=True)
+        
+        if old_tsne:
+            initial_momentum = 0.8
+            final_momentum = 0.5
+            ee_iter, rest_iter = 250, 750
+        else:
+            initial_momentum = final_momentum = 0.8
+            ee_iter, rest_iter = 250, 500
+        
+        embedding.optimize(ee_iter, exaggeration=12, momentum=initial_momentum, inplace=True)
+        embedding.optimize(rest_iter, exaggeration=exaggeration, momentum=final_momentum, inplace=True)
         print("openTSNE: Optimization", time.time() - start_optim)
         print("openTSNE: Full", time.time() - start, flush=True)
 
 
 class openTSNEFFT(TSNEBenchmark):
-    def _run(self, x, random_state=None, n_jobs=1):
+    def _run(self, x, random_state=None, exaggeration=1, n_jobs=1, old_tsne=True):
         print("-" * 80)
         print(f"openTSNE v{openTSNE.__version__}")
         print("Random state", random_state)
@@ -189,14 +213,86 @@ class openTSNEFFT(TSNEBenchmark):
             random_state=random_state,
             verbose=True,
         )
-        embedding.optimize(250, exaggeration=12, momentum=0.8, inplace=True)
-        embedding.optimize(750, momentum=0.5, inplace=True)
+        
+        if old_tsne:
+            initial_momentum = 0.8
+            final_momentum = 0.5
+            ee_iter, rest_iter = 250, 750
+        else:
+            initial_momentum = final_momentum = 0.8
+            ee_iter, rest_iter = 250, 500
+        
+        embedding.optimize(ee_iter, exaggeration=12, momentum=initial_momentum, inplace=True)
+        embedding.optimize(rest_iter, exaggeration=exaggeration, momentum=final_momentum, inplace=True)
+        print("openTSNE: Optimization", time.time() - start_optim)
+        print("openTSNE: Full", time.time() - start, flush=True)
+
+
+class UniformOpenTSNEFFT(TSNEBenchmark):
+    def run(self, fname: str, n_samples=1000, repetitions=1, exaggeration=1, k_neighbors=30, n_jobs=1, old_tsne=True):
+        x, y = self.load_data(fname=fname, n_samples=n_samples)
+
+        for idx in range(repetitions):
+            self._run(
+                x,
+                random_state=idx,
+                exaggeration=exaggeration,
+                k_neighbors=k_neighbors,
+                n_jobs=n_jobs,
+                old_tsne=old_tsne,
+            )
+            
+    def _run(self, x, random_state=None, exaggeration=1, k_neighbors=30, n_jobs=1, old_tsne=True):
+        print("-" * 80)
+        print(f"openTSNE v{openTSNE.__version__}")
+        print("Random state", random_state)
+        print("-" * 80, flush=True)
+
+        random_state = check_random_state(random_state)
+
+        start = time.time()
+        start_aff = time.time()
+        affinity = openTSNE.affinity.Uniform(
+            x,
+            k_neighbors=k_neighbors,
+            method="annoy",
+            n_jobs=n_jobs,
+            random_state=random_state,
+            verbose=True,
+        )
+        print("openTSNE: NN search", time.time() - start_aff, flush=True)
+
+        init = openTSNE.initialization.random(
+            x, n_components=2, random_state=random_state, verbose=True,
+        )
+
+        start_optim = time.time()
+        embedding = openTSNE.TSNEEmbedding(
+            init,
+            affinity,
+            learning_rate=self.learning_rate,
+            n_jobs=n_jobs,
+            negative_gradient_method="fft",
+            random_state=random_state,
+            verbose=True,
+        )
+        
+        if old_tsne:
+            initial_momentum = 0.8
+            final_momentum = 0.5
+            ee_iter, rest_iter = 250, 750
+        else:
+            initial_momentum = final_momentum = 0.8
+            ee_iter, rest_iter = 250, 500
+        
+        embedding.optimize(ee_iter, exaggeration=12, momentum=initial_momentum, inplace=True)
+        embedding.optimize(rest_iter, exaggeration=exaggeration, momentum=final_momentum, inplace=True)
         print("openTSNE: Optimization", time.time() - start_optim)
         print("openTSNE: Full", time.time() - start, flush=True)
 
 
 class MulticoreTSNE(TSNEBenchmark):
-    def _run(self, x, random_state=None, n_jobs=1):
+    def _run(self, x, random_state=None, n_jobs=1, **kwargs):
         from MulticoreTSNE import MulticoreTSNE as MulticoreTSNE_
 
         print("-" * 80)
@@ -218,7 +314,7 @@ class MulticoreTSNE(TSNEBenchmark):
 
 
 class FItSNE(TSNEBenchmark):
-    def _run(self, x, random_state=None, n_jobs=1):
+    def _run(self, x, random_state=None, n_jobs=1, **kwargs):
         import sys;
         sys.path.append("FIt-SNE")
         from fast_tsne import fast_tsne
@@ -251,7 +347,7 @@ class FItSNE(TSNEBenchmark):
 
 
 class sklearn(TSNEBenchmark):
-    def _run(self, x, random_state=None, n_jobs=1):
+    def _run(self, x, random_state=None, n_jobs=1, **kwargs):
         print("-" * 80)
         print("Random state", random_state)
         print("-" * 80, flush=True)
@@ -278,7 +374,7 @@ class sklearn(TSNEBenchmark):
 
 
 class UMAP(TSNEBenchmark):
-    def _run(self, x, random_state=None, n_jobs=1):
+    def _run(self, x, random_state=None, n_jobs=1, **kwargs):
         import umap
 
         print("-" * 80)
@@ -286,7 +382,7 @@ class UMAP(TSNEBenchmark):
         print("-" * 80, flush=True)
 
         start = time.time()
-        umap.UMAP(random_state=random_state).fit_transform(x)
+        umap.UMAP(random_state=random_state, verbose=5).fit_transform(x)
         print("UMAP:", time.time() - start, flush=True)
 
 
