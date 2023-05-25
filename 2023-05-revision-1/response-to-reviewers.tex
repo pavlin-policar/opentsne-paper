@@ -1,0 +1,160 @@
+\documentclass{article}
+
+
+\usepackage[T1]{fontenc}
+\usepackage{natbib}
+\usepackage{todonotes}
+\usepackage{gensymb}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage[top=1in,bottom=1in,left=1in,right=1in]{geometry}
+\usepackage{alltt}
+\usepackage{framed}
+\usepackage{xcolor}
+\usepackage{comment}
+\usepackage{graphicx}
+
+\usepackage{xr}[]
+\externaldocument{main}
+\usepackage{url}
+
+\renewcommand{\thetable}{\Alph{table}}
+\renewcommand{\thefigure}{\Alph{figure}}
+
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\beqs}{\begin{equation}}
+\newcommand{\eeqs}{\end{equation}}
+\newcommand{\mx}[1]{\ensuremath{\boldsymbol{\mathrm{{#1}}}}}   % Simple matrix format.
+
+
+% \newcommand{\review}[1]{\noindent{{\textbf{\textit{#1}}}}\vspace{3mm}}
+% \definecolor{colframe}{rgb}{0.01,0.199,0.1}
+
+\newcounter{rtaskno}
+\newcommand{\rtask}[1]{\refstepcounter{rtaskno}\label{#1}}
+
+\newcommand{\reviewc}[2]{\begin{leftbar}\noindent\rtask{#1}\ref{#1}. #2\end{leftbar}}
+\newcommand{\review}[1]{\begin{leftbar}\noindent #1\end{leftbar}}
+\newcommand{\answer}[1]{\noindent #1\\[0mm]}
+\newcommand{\copyquote}[1]{\vspace{2mm} {\color{blue} #1}\vspace{2mm}}
+
+\newlength{\leftbarwidth}
+\setlength{\leftbarwidth}{3pt}
+\newlength{\leftbarsep}
+\setlength{\leftbarsep}{10pt}
+\renewenvironment{leftbar}{%
+    \def\FrameCommand{{\color{black}{\vrule width \leftbarwidth\relax\hspace {\leftbarsep}}}}%
+    \MakeFramed {\advance \hsize -\width \FrameRestore }%
+}{\endMakeFramed}
+
+
+% \usepackage[colorlinks=True,citecolor=black]{hyperref}
+
+\begin{document}
+
+
+\noindent{\bf Poli\v{c}ar, Stra\v{z}ar, and Zupan: 
+\\
+openTSNE: a modular Python library for t-SNE dimensionality reduction and embedding}
+
+\vspace{5mm}
+\noindent {\bf RESPONSE TO THE REVIEWERS}
+
+\vspace{5mm}
+
+
+\noindent Dear Editor and the Reviewers, \\
+ 
+\vspace{3mm}
+
+\noindent We thank you for the comprehensive feedback that helped us improve the manuscript and the permission to submit a revised version. Below, we provide detailed, point-by-point responses to the reviewers comments and concerns. To facilitate the review process, we also include a version of the manuscript with the highlighted changes from the initial submission.
+
+\vspace{3mm}
+
+\noindent Kind regards,
+\vspace{3mm}
+
+\noindent Pavlin Poli\v{c}ar, 
+Martin Stra\v{z}ar, 
+Bla\v{z} Zupan \\ 
+\noindent Ljubljana, May 26, 2023
+
+\vspace{10mm}
+
+
+\subsection*{Reviewer B}
+
+\reviewc{r1q1}{I just have a few minor comments regarding the text. Firstly, the authors claim that FIt-SNE is not a PyPI/conda package in table 1, and that is just not the case. There is a similar comment in the introduction at the bottom of page 2 that needs to be remedied in this regard. "However, FIt-SNE is difficult to install and distribute, and provides and API largely inconsistent with the Python data science ecosystem".  I also find it fairly the comment fairly vague in the context of being inconsistent with Python data-science ecosystem, as the functional approach with most of the parameters being set by default is also a commonly used API for software.}
+
+\answer{
+We apologize for this oversight and would like to thank the reviewer for pointing out the availability of PyPI/conda packages for FIt-SNE. We have updated the text and Table 1 to reflect this.
+}
+
+
+\reviewc{r1q2}{Finally, this is one of the only works that switches between the Barnes-Hut approach to the FIt-SNE algorithm and the authors mention that they have a heuristic for doing so. This is an extremely useful feature as well, as it chooses the best of both worlds, and it would be wonderful if the authors could provide a brief description for the heuristic they use in their code. }
+
+\answer{We have now included a sentence in Section 3 on page 8 that describes our heuristic.}
+
+
+\subsection*{Reviewer C}
+
+\reviewc{r2q1}{The paper describes openTSNE version 0.6, but the current version is 0.7, and it seems there were recent changes affecting some of the text and the code snippets in the paper (learning rate / momentum). This needs to be updated throughout. More generally, if the paper goes on to be published in JOSS, would it make sense to release version 1.0 and describe it as such in the paper? If the library is ready for a peer-reviewed publication, then is it ready to be designated 1.0?}
+
+\answer{
+We agree with the reviewer and have released version 1.0 of the software. We have updated all the code snippets in the manuscript and the accompanying code files to reflect the recent changes in the openTSNE package. We have also re-generated the figures accordingly.
+}
+
+
+\reviewc{r2q2}{There are no details given about preprocessing transcriptomic data (normalization, log-transformation, gene selection, PCA, etc.) As the paper uses RNAseq datasets for all examples, these details should be provided somewhere.}
+
+\answer{We have added the details of the single-cell RNA-seq preprocessing pipeline to the Appendix.
+}
+
+\reviewc{r2q3}{page 7: "one can speed up the overall computation by choosing a uniform kernel" -- this sounds cryptic as the uniform kernel was not explained anywhere. It could make sense to elaborate on it somewhere: what exactly is it? how to use it?}
+
+\answer{
+We have reworded the paragraph so that the uniform affinity kernel is now briefly described.
+}
+
+\reviewc{r2q4}{page 7: initialization paragraph only mentions PCA, would it make sense to mention that openTSNE also supports Laplacian eigenmaps as initialization?}
+
+\answer{
+We now mention this option in the corresponding paragraph on page 8 and have also added a reference to Laplacian eigenmaps in Section 2.4 in the paragraph on global initialization.
+}
+
+
+\reviewc{r2q5}{It would be interesting to add UMAP to the runtime benchmark. UMAP is a very popular alternative to t-SNE, and is often thought to be much faster, which is not actually the case for openTNSE. Perhaps a separate benchmark figure could focus on openTSNE vs UMAP (depending on the sample size)? This may depend on the used affinity model, as uniform affinity with 15 neighbors should be much faster than the standard affinity model (with 90 neighbors) for large sample sizes. If so, it may be of interest to show both and discuss.}
+
+\answer{
+TODO bla
+}
+
+
+\reviewc{r2q6}{top of page 5: you talk about attractive forces but they have not been introduced yet. It may make sense to move the equation from secton 2.2 into 2.1 after Eq (5).}
+
+\answer{We would like to thank the reviewer for the suggestion, and we have now moved the equation from section 2.2 to the end of section 2.1, and updated the text accordingly.}
+
+
+\reviewc{r2q7}{page 6: "Special care must be taken to tune the learning rate during optimization" -- the details are missing here. So what values are used in openTSNE?}
+
+\answer{We have expanded the paragraph to elaborate on the instability and what parameter values we use in openTSNE.}
+
+
+\reviewc{r2q8}{page 13: it is unclear what embedding.prepare\_partial() does here -- how are the new samples initialized, before you are running optimize()? Same for the prepare\_partial call on page 17.}
+
+\answer{We agree that this is somewhat crpytic and have added a sentence below the code snippet describing what each of the function calls does.}
+
+
+\reviewc{r2q9}{Figure 7 -- "Data points representing cells are colored according to cell types assigned in the original publication; see the legend from Fig. 5 to map colors to cell type." The last part ("see the legend from Fig. 5 to map colors to cell type") is unclear as Figure 5 shows different dataset. Does this study use the same colormap? This is confusing.}
+
+\answer{We agree that this sentence is confusing and have reworded it to be more clear.}
+
+
+\reviewc{r2q10}{References: Boehm et al is published.}
+
+\answer{We have updated the citation.}
+
+
+\end{document}
