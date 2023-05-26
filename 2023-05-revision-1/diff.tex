@@ -1,4 +1,7 @@
 \documentclass[article]{jss}
+%DIF LATEXDIFF DIFFERENCE FILE
+%DIF DEL ../2022-11-08-initial-submission-2/paper/main.tex   Tue Nov  8 11:40:52 2022
+%DIF ADD main.tex                                            Fri May 26 18:56:28 2023
 
 %% -- LaTeX packages and custom commands ---------------------------------------
 
@@ -71,6 +74,43 @@ One of the most popular techniques for visualizing large, high-dimensional data 
   Ve\v{c}na pot 113, Ljubljana, Slovenia\\
   E-mail: \email{pavlin.policar@fri.uni-lj.si}
 }
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+\providecommand{\DIFmodbegin}{} %DIF PREAMBLE
+\providecommand{\DIFmodend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF COLORLISTINGS PREAMBLE %DIF PREAMBLE
+\RequirePackage{listings} %DIF PREAMBLE
+\RequirePackage{color} %DIF PREAMBLE
+\lstdefinelanguage{DIFcode}{ %DIF PREAMBLE
+%DIF DIFCODE_UNDERLINE %DIF PREAMBLE
+  moredelim=[il][\color{red}\sout]{\%DIF\ <\ }, %DIF PREAMBLE
+  moredelim=[il][\color{blue}\uwave]{\%DIF\ >\ } %DIF PREAMBLE
+} %DIF PREAMBLE
+\lstdefinestyle{DIFverbatimstyle}{ %DIF PREAMBLE
+	language=DIFcode, %DIF PREAMBLE
+	basicstyle=\ttfamily, %DIF PREAMBLE
+	columns=fullflexible, %DIF PREAMBLE
+	keepspaces=true %DIF PREAMBLE
+} %DIF PREAMBLE
+\lstnewenvironment{DIFverbatim}{\lstset{style=DIFverbatimstyle}}{} %DIF PREAMBLE
+\lstnewenvironment{DIFverbatim*}{\lstset{style=DIFverbatimstyle,showspaces=true}}{} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
 
 \begin{document}
 
@@ -102,7 +142,9 @@ We use \opentsne to generate three t-SNE embeddings and demonstrate recent theor
 Despite its utility, t-SNE has often been criticized for its limited scalability, lack of global organization -- t-SNE identifies well-defined clusters that may be arbitrarily scattered throughout the embedding -- and the absence of theoretically-founded methods to map new data into existing embeddings~\citep{ding2018interpretable,becht2019dimensionality}. Most of these shortcomings have recently been addressed. \citet{linderman2019fast} developed FIt-SNE, an efficient approximation that massively improves the scalability of t-SNE, achieving linear time complexity in the number of samples. \citet{kobak2019art} proposed several techniques to improve global cluster coherence (Fig. \ref{fig:macosko}.b), including estimating similarities with a mixture of Gaussian kernels. In our previous work, we introduced a principled approach for embedding new samples into existing visualizations (Fig.~\ref{fig:macosko}.c and~\citet{policar2021embedding}).
 
 Easy access to efficient implementations almost universally correlates with the widespread adoption of novel computational techniques. Despite the many recent theoretical advancements, popular t-SNE libraries have slowly incorporated them into their implementations.
-In \proglang{Python}, the most commonly used implementation of the t-SNE algorithm comes from \pkg{scikit-learn}~\citep{pedregosa2011scikit}, which is nicely integrated with \proglang{Python} data science environment but suffers from poor scalability. Other implementations from the \proglang{R}~\citep{team2013r,krijthe2015rtsne} and \proglang{Julia}~\citep{bezanson2017julia,julia_tsne} programming languages also scale poorly (see Sec.~\ref{s:speed}). \pkg{MulticoreTSNE}~\citep{Ulyanov2016} enjoys better scalability but is likewise limited when applied to larger data sets. Additionally, none of these implementations include recently proposed extensions that can result in more globally consistent embeddings. \pkg{FIt-SNE}~\citep{linderman2019fast} alleviates these problems and provides bindings to both the \proglang{Python} and \proglang{R} programming languages. However, none of the existing t-SNE implementations support adding new samples into existing embeddings. To alleviate all these problems, and to support newly proposed additions to t-SNE algorithms, we here present \opentsne, an open-source \proglang{Python} implementation of the t-SNE algorithm. \opentsne is easy to install and includes precompiled binaries available through popular \proglang{Python} package managers. It provides a familiar API, making it suitable as a drop-in replacement for existing t-SNE implementations.
+In \proglang{Python}, the most commonly used implementation of the t-SNE algorithm comes from \pkg{scikit-learn}~\citep{pedregosa2011scikit}, which is nicely integrated with \proglang{Python} data science environment but suffers from poor scalability. Other implementations from the \proglang{R}~\citep{team2013r,krijthe2015rtsne} and \proglang{Julia}~\citep{bezanson2017julia,julia_tsne} programming languages also scale poorly (see Sec.~\ref{s:speed}). \pkg{MulticoreTSNE}~\citep{Ulyanov2016} enjoys better scalability but is likewise limited when applied to larger data sets. Additionally, none of these implementations include recently proposed extensions that can result in more globally consistent embeddings. \pkg{FIt-SNE}~\citep{linderman2019fast} alleviates these problems and provides bindings to both the \proglang{Python} and \proglang{R} programming languages. However, \DIFdelbegin %DIFDELCMD < \pkg{FIt-SNE} %%%
+\DIFdel{is difficult to install and distribute and provides an API largely inconsistent with the }%DIFDELCMD < \proglang{Python} %%%
+\DIFdel{data science ecosystem. None }\DIFdelend \DIFaddbegin \DIFadd{none }\DIFaddend of the existing t-SNE implementations support adding new samples into existing embeddings. To alleviate all these problems, and to support newly proposed additions to t-SNE algorithms, we here present \opentsne, an open-source \proglang{Python} implementation of the t-SNE algorithm. \opentsne is easy to install and includes precompiled binaries available through popular \proglang{Python} package managers. It provides a familiar API, making it suitable as a drop-in replacement for existing t-SNE implementations.
 
 
 %% -- Manuscript ---------------------------------------------------------------
@@ -140,8 +182,7 @@ $\mathbf{y}_j$ are also close. Since t-SNE is primarily used as a visualization
 tool, $d$ is typically set to two. The similarity between two data points in the
 high-dimensional space is defined using the Gaussian kernel
 \begin{equation}
-p_{j \mid i} = \frac{\exp \left ( -\frac{1}{2} \mathcal{D}(\mathbf{x}_i, \mathbf{x}_j ) / \sigma_i^2 \right )}
-{\sum_{k \neq i } \exp \left ( -\frac{1}{2} \mathcal{D}(\mathbf{x}_i, \mathbf{x}_k ) / \sigma_i^2 \right )}, \quad p_{i \mid i} = 0
+p_{j \mid i} = \frac{\exp \left ( -\frac{1}{2} \mathcal{D}(\mathbf{x}_i, \mathbf{x}_j ) / \sigma_i^2 \right )}{\sum_{k \neq i } \exp \left ( -\frac{1}{2} \mathcal{D}(\mathbf{x}_i, \mathbf{x}_k ) / \sigma_i^2 \right )}, \quad p_{i \mid i} = 0
 \label{eq:p_ij}
 \end{equation}
 where $\mathcal{D}$ is some distance measure. The values $p_{j \mid i}$
@@ -168,8 +209,7 @@ The similarity between points $\mathbf{y}_i$ and $\mathbf{y}_j$ in the embedding
 space is defined using the $t$-distribution with a single degree of freedom
 (Cauchy kernel)
 \begin{equation}
-q_{ij} = \frac{\left ( 1 + || \mathbf{y}_i - \mathbf{y}_j ||^2 \right )^{-1}}
-{\sum_{k \neq l}\left ( 1 + || \mathbf{y}_k - \mathbf{y}_l ||^2 \right )^{-1}},
+q_{ij} = \frac{\left ( 1 + || \mathbf{y}_i - \mathbf{y}_j ||^2 \right )^{-1}}{\sum_{k \neq l}\left ( 1 + || \mathbf{y}_k - \mathbf{y}_l ||^2 \right )^{-1}},
 \quad q_{ii} = 0.
 \label{eq:cauchy_kernel}
 \end{equation}
@@ -187,14 +227,15 @@ The objective is to find embeddings $\mathbf{Y}$ that minimize the KL divergence
 \end{equation}
 where $w_{ij} = \left ( 1 + || \mathbf{y}_i - \mathbf{y}_j || ^2 \right )^{-1}$
 and represents the unnormalized $q_{ij}$.
-Alternatively, this gradient can be rewritten as
-\begin{equation}
-\frac{\partial C}{\partial \mathbf{y}_i} = 4 \Bigg [
+\DIFaddbegin \DIFadd{Alternatively, this gradient can be rewritten as
+}\begin{equation}
+\DIFadd{\frac{\partial C}{\partial \mathbf{y}_i} = 4 \Bigg [
 \underbrace{\sum_{j \neq i} p_{ij} q_{ij} Z \left ( \mathbf{y}_i - \mathbf{y}_j \right )}_{\text{attractive forces}}  -
 \underbrace{\sum_{j \neq i} q_{ij}^2 Z \left ( \mathbf{y}_i - \mathbf{y}_j \right )}_{\text{repulsive forces}}
 \Bigg ], \label{eq:grad_attr_rep}
-\end{equation}
-where $Z = \sum_{k \neq l}\left ( 1 + || \mathbf{y}_k - \mathbf{y}_l ||^2 \right )^{-1}$. This formulation implies that the t-SNE algorithm can be interpreted as a force-directed layout algorithm, where individual data points act as particles exerting both attractive and repulsive on each other until a state of equilibrium is reached.
+}\end{equation}
+\DIFadd{where $Z = \sum_{k \neq l}\left ( 1 + || \mathbf{y}_k - \mathbf{y}_l ||^2 \right )^{-1}$. This formulation implies that the t-SNE algorithm can be interpreted as a force-directed layout algorithm, where individual data points act as particles exerting both attractive and repulsive on each other until a state of equilibrium is reached.
+}\DIFaddend 
 
 Optimization is performed using batch gradient descent using the delta-bar-delta update rule~\citep{jacobs1988increased}. The t-SNE optimization procedure consists of two phases: in the first \textit{early exaggeration} phase, the attractive forces between data points are increased by some factor $\rho$, typically set to $12$, so that points in the embedding can more easily move throughout the space and settle near their respective neighbors. In the second phase of the optimization, the attractive forces are then reverted to their original values with $\rho=1$.
 
@@ -205,7 +246,19 @@ lowered from the typical 1000 to 750, decreasing the overall runtime.
 
 \subsection{Efficient approximation schemes} \label{sec:meth.approx}
 
-A direct evaluation of the t-SNE gradients requires $\mathcal{O}(N^2)$ operations, which makes it impractical with large data sets and calls for efficient approximation schemes. The formulation in Equation~\ref{eq:grad_attr_rep} casts the t-SNE gradient as an N-body simulation where data points act as particles exerting attractive and repulsive forces onto one another. Both terms lend themselves to efficient approximations, enabling us to reduce the time complexity of the t-SNE algorithm to $\mathcal{O}(N)$. This allows modern t-SNE implementations to be leveraged for the visualization of data sets containing up to millions of data points.
+\DIFdelbegin \DIFdel{Evaluation of }\DIFdelend \DIFaddbegin \DIFadd{A direct evaluation of the }\DIFaddend t-SNE gradients requires $\mathcal{O}(N^2)$ operations, which makes it impractical with large data sets and calls for efficient approximation schemes. \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\citet{van2014accelerating} }\hskip0pt%DIFAUXCMD
+observed that }\DIFdelend \DIFaddbegin \DIFadd{The formulation in Equation~\ref{eq:grad_attr_rep} casts }\DIFaddend the t-SNE gradient \DIFdelbegin \DIFdel{can be cast }\DIFdelend as an N-body \DIFdelbegin \DIFdel{problem }\DIFdelend \DIFaddbegin \DIFadd{simulation }\DIFaddend where data points \DIFdelbegin \DIFdel{represent particles that attract and repel each
+other. The gradient from Equation~\ref{eq:tsne_gradient} can be rewritten as }\begin{displaymath}
+\DIFdel{\frac{\partial C}{\partial \mathbf{y}_i} = 4 \Bigg [
+\underbrace{\sum_{j \neq i} p_{ij} q_{ij} Z \left ( \mathbf{y}_i - \mathbf{y}_j \right )}_{\text{attractive forces}}  -
+\underbrace{\sum_{j \neq i} q_{ij}^2 Z \left ( \mathbf{y}_i - \mathbf{y}_j \right )}_{\text{repulsive forces}}
+\Bigg ], \label{eq:grad_attr_rep} \notag
+}\end{displaymath}%DIFAUXCMD
+\DIFdel{where $Z = \sum_{k \neq l}\left ( 1 + || \mathbf{y}_k - \mathbf{y}_l ||^2 \right
+)^{-1}$. We can view this equation as a particle simulation, where the
+two terms represent the }\DIFdelend \DIFaddbegin \DIFadd{act as particles exerting }\DIFaddend attractive and repulsive forces \DIFdelbegin \DIFdel{between individual
+particles. Each term lends itself }\DIFdelend \DIFaddbegin \DIFadd{onto one another. Both terms lend themselves }\DIFaddend to efficient approximations, enabling us to reduce the time complexity of \DIFaddbegin \DIFadd{the }\DIFaddend t-SNE \DIFaddbegin \DIFadd{algorithm }\DIFaddend to $\mathcal{O}(N)$. This allows modern t-SNE implementations to be leveraged for the visualization of data sets containing up to millions of data points.
 
 \subsubsection*{Attractive forces}
 \citet{van2014accelerating} observed that evaluating the attractive forces
@@ -252,7 +305,11 @@ Equation~\ref{eq:kl_divergence}, we obtain the following gradient
 \label{eq:gradient}
 \end{equation}
 
-Similarly to standard t-SNE, a direct calculation of gradients takes $\mathcal{O}(N \cdot M)$ time, but it is straightforward to adapt the Barnes-Hut and FIt-SNE approximation schemes, reducing the time complexity to $\mathcal{O}(M \log N)$ and $\mathcal{O}(M)$, respectively. Special care must be taken to adjust the learning rate during optimization as the parameter values used during standard optimization lead to highly unstable behaviour. Empirically, we have found that reducing the learning rate to $\eta \sim 0.1$ results in more stable optimization, as discussed in \citet{policar2021embedding}. Moreover, during standard optimization, data points are positioned in the embedding such that an equilibrium between the attractive and repulsive forces is achieved. However, when embedding new data points, the reference embedding remains fixed. Consequently, if a new data point needs to be positioned between existing reference data points, it may not be possible to reach such an equilibrium, as the reference data points cannot adjust to accomodate the new data point. To compensate for the increased repulsive forces, we have found it beneficial to increase the exaggeration factor to $\rho=1.5$ during optimization. The training dynamics of embedding new data points into existing embeddings are yet fully understood and are left to future exploration.
+Similarly to standard t-SNE, a direct calculation of gradients takes $\mathcal{O}(N \cdot M)$ time, but it is straightforward to adapt the Barnes-Hut and FIt-SNE approximation schemes, reducing the time complexity to $\mathcal{O}(M \log N)$ and $\mathcal{O}(M)$, respectively. Special care must be taken to \DIFdelbegin \DIFdel{tune }\DIFdelend \DIFaddbegin \DIFadd{adjust }\DIFaddend the learning rate during optimization as the \DIFdelbegin \DIFdel{default values $\eta=200$ and $\eta=N/12$ result in highly unstable optimization.
+}\DIFdelend \DIFaddbegin \DIFadd{parameter values used during standard optimization lead to highly unstable behaviour. Empirically, we have found that reducing the learning rate to $\eta \sim 0.1$ results in more stable optimization, as discussed in \mbox{%DIFAUXCMD
+\citet{policar2021embedding}}\hskip0pt%DIFAUXCMD
+. Moreover, during standard optimization, data points are positioned in the embedding such that an equilibrium between the attractive and repulsive forces is achieved. However, when embedding new data points, the reference embedding remains fixed. Consequently, if a new data point needs to be positioned between existing reference data points, it may not be possible to reach such an equilibrium, as the reference data points cannot adjust to accomodate the new data point. To compensate for the increased repulsive forces, we have found it beneficial to increase the exaggeration factor to $\rho=1.5$ during optimization. The training dynamics of embedding new data points into existing embeddings are yet fully understood and are left to future exploration.
+}\DIFaddend 
 
 
 \subsection{Improving the global structure of embeddings} \label{sec:meth.global}
@@ -267,7 +324,9 @@ algorithms, such as t-SNE, UMAP~\citep{2018arXivUMAP}, and
 ForceAtlas2~\citep{jacomy2014forceatlas2}, largely dictates the global
 consistency of resulting embeddings. When initialized randomly, clusters are
 often arbitrarily scattered in the embedding space. However, when using
-initialization schemes based on PCA or Laplacian eigenmaps~\citep{belkin2001laplacian}, the clusters identified in the resulting embedding are typically grouped in a globally
+initialization schemes based on PCA or \DIFdelbegin \DIFdel{spectral embeddings}\DIFdelend \DIFaddbegin \DIFadd{Laplacian eigenmaps~\mbox{%DIFAUXCMD
+\citep{belkin2001laplacian}}\hskip0pt%DIFAUXCMD
+}\DIFaddend , the clusters identified in the resulting embedding are typically grouped in a globally
 coherent manner.
 
 In standard t-SNE, distances between data points are converted to similarities
@@ -311,14 +370,21 @@ We introduce \opentsne, a comprehensive \proglang{Python} library that implement
 The core t-SNE algorithm comprises three main steps, mirrored in the structure of the \opentsne library:
 
 \begin{enumerate}
-\item The t-SNE algorithm requires the specification of an affinity model to describe the similarities between data points $p_{ij}$. Standard t-SNE uses perplexity-based Gaussian kernels with varying bandwidths as specified in Equation~\ref{eq:p_ij}. However, other affinity models can also be used to highlight different aspects of the data or visualize other data modalities. For instance, \citet{kobak2019art} showed that using mixtures of Gaussians often better reveals global cluster organization in the resulting visualization (albeit at some computational cost). Alternatively, a uniform affinity model can produce quantitively similar embeddings to standard t-SNE at a third of the computational cost, making it particularly useful for larger data sets. Unlike the standard affinity model, which uses Gaussian kernels to determine the similarities $p_{ij}$, the uniform affinity model uses a uniform kernel to assign equal similarities to a pre-specified number of nearest neighbors. Visualizing different data modalities, such as graphs, can also be achieved by providing precomputed distance matrices that might consist of, for instance, the shortest paths between nodes. The \code{openTSNE.affinity} module provides a selection of commonly used affinity models but defaults to the standard perplexity-based Gaussian model, as proposed in the original publication. Users can also define custom affinity models by extending the \code{openTSNE.affinity.Affinities} class. The resulting class can then be used as a drop-in replacement for the built-in affinity models.
+\item The t-SNE algorithm requires \DIFdelbegin \DIFdel{a }\DIFdelend \DIFaddbegin \DIFadd{the }\DIFaddend specification of an affinity model to describe the similarities between data points \DIFaddbegin \DIFadd{$p_{ij}$}\DIFaddend . Standard t-SNE \DIFdelbegin \DIFdel{predominantly deals with tabular data and computes similarities using }\DIFdelend \DIFaddbegin \DIFadd{uses perplexity-based Gaussian kernels with varying bandwidths as specified in }\DIFaddend Equation~\ref{eq:p_ij}. However, \DIFaddbegin \DIFadd{other affinity models can also be used to highlight different aspects of the data or visualize other data modalities. For instance, }\DIFaddend \citet{kobak2019art} showed that using mixtures of Gaussians \DIFdelbegin \DIFdel{instead of a single Gaussian often reveals better global consistency of }\DIFdelend \DIFaddbegin \DIFadd{often better reveals global cluster organization in }\DIFaddend the resulting visualization (albeit at some computational cost). Alternatively, \DIFdelbegin \DIFdel{one can speed up the overall computation by choosing a uniform kernel, which yields quantitatively similar results }\DIFdelend \DIFaddbegin \DIFadd{a uniform affinity model can produce quantitively similar embeddings }\DIFaddend to standard t-SNE \DIFdelbegin \DIFdel{. }\DIFdelend \DIFaddbegin \DIFadd{at a third of the computational cost, making it particularly useful for larger data sets. Unlike the standard affinity model, which uses Gaussian kernels to determine the similarities $p_{ij}$, the uniform affinity model uses a uniform kernel to assign equal similarities to a pre-specified number of nearest neighbors. Visualizing different data modalities, such as graphs, can also be achieved by providing precomputed distance matrices that might consist of, for instance, the shortest paths between nodes. The }\DIFaddend \code{openTSNE.affinity} \DIFdelbegin \DIFdel{provides several affinity models to choose from }\DIFdelend \DIFaddbegin \DIFadd{module provides a selection of commonly used affinity models }\DIFaddend but defaults to the standard perplexity-based \DIFdelbegin \DIFdel{model }\DIFdelend \DIFaddbegin \DIFadd{Gaussian model, as }\DIFaddend proposed in the original publication. \DIFdelbegin %DIFDELCMD < 
 
-\item The optimization in t-SNE starts with initial positions for each data point in the embedding space. We can set the initial positions randomly or impose an initial global structure on the embedding. % with, for example, a PCA-based initialization.
-The \code{openTSNE.initialization} module provides several possible initialization schemes including random, PCA-based, and Laplacian Eigenmap-based intialization schemes. The user can also specify their own initialization by providing a \code{numpy.ndarray} object. By default, \opentsne opts for PCA-based initialization.
+%DIFDELCMD < %%%
+\DIFdel{In }%DIFDELCMD < \opentsne%%%
+\DIFdel{, it is straightforward to define and use a custom affinity model. For instance, one can extend }\DIFdelend \DIFaddbegin \DIFadd{Users can also define custom affinity models by extending }\DIFaddend the \code{openTSNE.affinity.Affinities} class\DIFdelbegin \DIFdel{and provide an affinity model for relational data using a normalized adjacency matrix. Such extension enables rapid experimentation and opens the doors to the visualization of non-tabular data}\DIFdelend . \DIFaddbegin \DIFadd{The resulting class can then be used as a drop-in replacement for the built-in affinity models.
+}\DIFaddend 
 
-\item In optimizing the embedding, the t-SNE algorithm finds the positions of the points in the embedding space that reflect their corresponding similarities in the affinity model. \opentsne stores the initial positions and affinities in an \code{openTSNE.TSNEEmbedding} object that includes the \code{.optimize} method for embedding optimization that uses either the Barnes-Hut or FIt-SNE approximation scheme. While the FIt-SNE approximation scheme scales linearly with the number of samples, it introduces additional computational overhead, often unnecessary for smaller data sets, resulting in longer overall runtimes than the Barnes-Hut approximation scheme. By default, \opentsne uses an empirically-determined heuristic to choose the fastest algorithm for a given data set based on its number of samples. If the data set contains fewer than 10,000 samples, the Barnes-Hut approximation scheme is selected, otherwise, the FIt-SNE is used.
+\item The optimization in t-SNE starts with initial positions for each data point in the embedding space. We can set the initial positions randomly or impose an initial global structure on the embedding\DIFdelbegin \DIFdel{with, for example, a PCA-based initialization. Accordingly, the }\DIFdelend \DIFaddbegin \DIFadd{. %DIF >  with, for example, a PCA-based initialization.
+The }\DIFaddend \code{openTSNE.initialization} module provides several possible initialization schemes \DIFdelbegin \DIFdel{, }\DIFdelend \DIFaddbegin \DIFadd{including random, PCA-based, and Laplacian Eigenmap-based intialization schemes. }\DIFaddend The user can also specify their \DIFaddbegin \DIFadd{own }\DIFaddend initialization by providing a \code{numpy.ndarray} object. By default, \opentsne opts for PCA-based initialization.
 
-\end{enumerate}
+\item In optimizing the embedding, the t-SNE algorithm finds the positions of the points in the embedding space that reflect their corresponding similarities in the affinity model. \opentsne stores the initial positions and affinities in \DIFdelbegin \DIFdel{a }\DIFdelend \DIFaddbegin \DIFadd{an }\DIFaddend \code{openTSNE.TSNEEmbedding} object that includes the \code{.optimize} method for embedding optimization that uses either the Barnes-Hut or FIt-SNE approximation scheme. While the FIt-SNE approximation scheme scales linearly with the number of samples, it introduces additional computational overhead, often unnecessary for smaller data sets, resulting in longer \DIFaddbegin \DIFadd{overall }\DIFaddend runtimes than the \DIFdelbegin \DIFdel{Barnes-hut }\DIFdelend \DIFaddbegin \DIFadd{Barnes-Hut }\DIFaddend approximation scheme. By default, \opentsne uses \DIFdelbegin \DIFdel{a }\DIFdelend \DIFaddbegin \DIFadd{an empirically-determined }\DIFaddend heuristic to choose the fastest algorithm for a given data set \DIFdelbegin \DIFdel{.
+}\DIFdelend \DIFaddbegin \DIFadd{based on its number of samples. If the data set contains fewer than 10,000 samples, the Barnes-Hut approximation scheme is selected, otherwise, the FIt-SNE is used.
+}
+
+\DIFaddend \end{enumerate}
 
 Once the embedding is constructed and optimized, it is ready to use for any downstream tasks. \code{openTSNE.TSNEEmbedding} objects inherit from \code{numpy.ndarray}, which enables easy manipulation and provides interoperability with the broader \proglang{Python} ecosystem.
 
@@ -364,15 +430,16 @@ or using package manager \pkg{conda} from the \pkg{conda-forge} repository,
 conda install -c conda-forge opentsne
 \end{CodeInput}
 \end{CodeChunk}
-\opentsne provides precompiled binaries for all major platforms (Windows, macOS, Linux) for all currently supported \proglang{Python} versions (3.7---3.11). Precompiled binaries are especially convenient for Windows users, as they obviate the need for a \proglang{C}/\proglang{C++} compiler, which is typically not bundled with Windows operating system.
+\opentsne provides precompiled binaries for all major platforms (Windows, macOS, Linux) for all currently supported \proglang{Python} versions (3.7---3\DIFdelbegin \DIFdel{.10}\DIFdelend \DIFaddbegin \DIFadd{.11}\DIFaddend ). Precompiled binaries are especially convenient for Windows users, as they obviate the need for a \proglang{C}/\proglang{C++} compiler, which is typically not bundled with Windows operating system.
 
 To verify that that \opentsne was installed correctly, users can run \proglang{Python} and try to import the module by:
 \begin{CodeChunk}
 \begin{CodeInput}
 >>> import openTSNE
 >>> openTSNE.__version__
-1.0.0
-\end{CodeInput}
+\DIFdelbegin \DIFdel{0.6.2
+}\DIFdelend \DIFaddbegin \DIFadd{1.0.0
+}\DIFaddend \end{CodeInput}
 \end{CodeChunk}
 
 \subsubsection{A simple workflow}
@@ -483,8 +550,8 @@ TSNEEmbedding([[-1.30971087e-04,  1.55848907e-05],
 Notice that the embedding object contains the same point coordinates as the initialization: although we have created an \code{openTSNE.TSNEEmbedding} object, we have not yet run any optimization. To optimize the embedding, we have to call the \code{embedding.optimize} method using our desired parameter settings. We use the default parameter settings here, including a shorter early-exaggeration phase, followed by a longer phase with no exaggeration.
 \begin{CodeChunk}
 \begin{CodeInput}
->>> embedding.optimize(250, exaggeration=12, inplace=True)
->>> embedding.optimize(500, inplace=True)
+>>> embedding.optimize(250, exaggeration=12, \DIFdelbegin \DIFdel{momentum=0.5, }\DIFdelend inplace=True)
+>>> embedding.optimize(500, \DIFdelbegin \DIFdel{momentum=0.8, }\DIFdelend inplace=True)
 >>> embedding[:3]
 TSNEEmbedding([[-0.55581917, 17.56162344],
                [-1.76742536, 20.07763453],
@@ -504,7 +571,8 @@ Next, we can add new samples into the embedding,
 >>> new_embedding = embedding.prepare_partial(iris.data[::3], perplexity=5)
 >>> new_embedding.optimize(
 ...     exaggeration=1.5, n_iter=250, learning_rate=0.1,
-...     max_grad_norm=0.25, inplace=True
+\DIFdelbegin \DIFdel{momentum=0.8,
+}\DIFdelend ...     max_grad_norm=0.25, inplace=True
 ... )
 >>> new_embedding[::3]
 PartialTSNEEmbedding([[-0.02637324, 15.69956674],
@@ -512,7 +580,7 @@ PartialTSNEEmbedding([[-0.02637324, 15.69956674],
                       [-2.4594136 , 15.37910876]])
 \end{CodeInput}
 \end{CodeChunk}
-We here use the \code{embedding.prepare_partial} method to determine initial positions for the new data points, then call the \code{new_embedding.optimize} method to run the optimization process. Again, we can validate that this also produces the exact same embedding as before:
+\DIFdelbegin \DIFdel{and }\DIFdelend \DIFaddbegin \DIFadd{We here use the }\code{embedding.prepare_partial} \DIFadd{method to determine initial positions for the new data points, then call the }\code{new_embedding.optimize} \DIFadd{method to run the optimization process. Again, we can }\DIFaddend validate that this also produces the exact same embedding as before:
 \begin{CodeChunk}
 \begin{CodeInput}
 >>> np.linalg.norm(new_embedding - embedding.transform(iris.data[::3]))
@@ -533,8 +601,10 @@ Dimensionality reduction techniques implicitly assume that high-dimensional data
 
 \begin{figure*}[htbp]
   \center
-  \includegraphics[width=\textwidth]{tasic2018}
-  \caption{\label{fig:tasic}
+  \DIFdelbeginFL %DIFDELCMD < \includegraphics[width=0.75\textwidth]{tasic2018}
+%DIFDELCMD <   %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=\textwidth]{tasic2018}
+  \DIFaddendFL \caption{\label{fig:tasic}
   We use \opentsne to create four different
   visualizations of the \citet{tasic2018shared} data,
   each providing a different perspective into the topology of the data.
@@ -610,10 +680,10 @@ Using our precomputed initialization and affinity model, we are now ready to cre
 \begin{CodeInput}
 embedding = openTSNE.TSNEEmbedding(init_full, affinities)
 
-embedding_ee = embedding.optimize(n_iter=500, exaggeration=12)
-embedding_c = embedding_ee.optimize(n_iter=500, exaggeration=4)
-embedding_b = embedding_c.optimize(n_iter=500, exaggeration=2)
-embedding_a = embedding_b.optimize(n_iter=500, exaggeration=1)
+embedding_ee = embedding.optimize(n_iter=500, exaggeration=12\DIFdelbegin \DIFdel{, momentum=0.5}\DIFdelend )
+embedding_c = embedding_ee.optimize(n_iter=500, exaggeration=4\DIFdelbegin \DIFdel{, momentum=0.8}\DIFdelend )
+embedding_b = embedding_c.optimize(n_iter=500, exaggeration=2\DIFdelbegin \DIFdel{, momentum=0.8}\DIFdelend )
+embedding_a = embedding_b.optimize(n_iter=500, exaggeration=1\DIFdelbegin \DIFdel{, momentum=0.8}\DIFdelend )
 \end{CodeInput}
 \end{CodeChunk}
 
@@ -653,7 +723,7 @@ Embedding single cells into existing reference atlases can also be useful for ce
 \begin{figure*}[htbp]
   \includegraphics[width=\textwidth]{transform_hochgerner}
   \caption{\label{fig:transform}
-  \opentsne supports embedding new samples into an existing reference t-SNE landscape. For the series of visualizations shown in this figure, we first construct a t-SNE embedding for the data from \citet{hochgerner2018conserved} containing 24,185 developing, single cells from the mouse hippocampus. The data contains gene expression in different neurons, supporting glia, and other vascular cells (upper left). Each data point corresponds to a single cell colored according to its inferred cell type as determined in the original publication. We use the same color scheme as in Fig.~\ref{fig:tasic} where warm colors correspond to excitatory neurons, cool colors correspond to inhibitory neurons, and gray/brown colors correspond to non-neuronal cells. We then embed new hippocampal cells collected in a study by \citet{harris2018classes} using the embedding of \citet{hochgerner2018conserved} data as a reference. In their research, \citet{harris2018classes} collected 6,971 single-cells and focused on identifying different types of inhibitory neurons. However, almost half of the collected cells are not neurons and were left uncharacterized. Inspecting the embeddings of these cells in the reference embedding (bottom left) reveals that in addition to inhibitory neurons, the data contains several supporting glial cells and a small population of endothelial cells. We can verify our approach's accuracy by inspecting marker genes for the major cell types in the reference (top row) and embedded samples (bottom row).}
+  \opentsne supports embedding new samples into an existing reference t-SNE landscape. For the series of visualizations shown in this figure, we first construct a t-SNE embedding for the data from \citet{hochgerner2018conserved} containing 24,185 developing, single cells from the mouse hippocampus. The data contains gene expression in different neurons, supporting glia, and other vascular cells (upper left). \DIFdelbeginFL \DIFdelFL{Data points representing cells are }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Each data point corresponds to a single cell }\DIFaddendFL colored according to \DIFaddbeginFL \DIFaddFL{its inferred }\DIFaddendFL cell \DIFdelbeginFL \DIFdelFL{types assigned }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{type as determined }\DIFaddendFL in the original publication\DIFdelbeginFL \DIFdelFL{; see }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{. We use }\DIFaddendFL the \DIFdelbeginFL \DIFdelFL{legend from }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{same color scheme as in }\DIFaddendFL Fig.~\ref{fig:tasic} \DIFaddbeginFL \DIFaddFL{where warm colors correspond }\DIFaddendFL to \DIFdelbeginFL \DIFdelFL{map }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{excitatory neurons, cool }\DIFaddendFL colors \DIFaddbeginFL \DIFaddFL{correspond }\DIFaddendFL to \DIFdelbeginFL \DIFdelFL{cell type}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{inhibitory neurons, and gray/brown colors correspond to non-neuronal cells}\DIFaddendFL . We then embed new hippocampal cells collected in a study by \citet{harris2018classes} using the embedding of \citet{hochgerner2018conserved} data as a reference. In their research, \citet{harris2018classes} collected 6,971 single-cells and focused on identifying different types of inhibitory neurons. However, almost half of the collected cells are not neurons and were left uncharacterized. Inspecting the embeddings of these cells in the reference embedding (bottom left) reveals that in addition to inhibitory neurons, the data contains several supporting glial cells and a small population of endothelial cells. We can verify our approach's accuracy by inspecting marker genes for the major cell types in the reference (top row) and embedded samples (bottom row).}
 \end{figure*}
 
 The examples presented above demonstrate how to use \opentsne to quickly gain insight into newly-sequenced, single-cell data sets by utilizing existing cell atlases. The approach is general and not limited to single-cell gene expression. One can, in principle, apply it to any tabular data set regardless of the research field or origin of the data.
@@ -670,13 +740,13 @@ The ability to use and combine different optimization approaches to construct di
 One of the t-SNE's common criticisms is limited scalability to large data sets containing, for instance, millions of data points~\citep {becht2019dimensionality}. Slow response times stem from the optimization procedures and their specific implementation in popular open-source libraries. Most implementations of t-SNE have been based on either a direct implementation of the t-SNE algorithm with asymptotic time complexity $\mathcal{O}(N^2)$~\citep{maaten2008visualizing}, or the Barnes-Hut approximation with asymptotic time complexity $\mathcal{O}(N \log N)$~\citep{van2014accelerating}. Recently, however, \citet{linderman2019fast} developed a novel approximation -- FIt-SNE -- which reduces the asymptotic time complexity to $\mathcal {O}(N)$, enabling scaling to large data sets.
 
 % We benchmark Python
-Fig.~\ref{fig:benchmarks_py} benchmarks four popular \proglang{Python}~\citep{vanrossum1995python} t-SNE implementations, including \pkg{scikit-learn} (v1.1.2), \pkg{MulticoreTSNE} (v0.1), \pkg{FIt-SNE} (v1.1.0), and \opentsne (v1.0.0). Benchmarks were performed on an Intel(R) Xeon(R) CPU E5-1650 equipped with 128 GB of memory. Benchmarks were run for $1,000$ iterations with the original t-SNE parameters, as some implementations do not allow for their modification. To ensure a realistic benchmarking scenario, we utilize the 10X Genomics 1.3 million mouse brain data set~\citep{cao2019single}, containing 1.3 million single-cell gene-expression profiles. We preprocess the data using the standard single-cell analysis pipeline~\citep{kiselev2019challenges} and extract the top 50 principal components. To generate benchmark data sets of different sample sizes, we subsample the data set five times at each sample size. In total, we test each implementation on 30 different data sets.
+Fig.~\ref{fig:benchmarks_py} benchmarks four popular \proglang{Python}~\citep{vanrossum1995python} t-SNE implementations, including \pkg{scikit-learn} (v1.1.2), \pkg{MulticoreTSNE} (v0.1), \pkg{FIt-SNE} (v1.1.0), and \opentsne (\DIFdelbegin \DIFdel{v0.6.2}\DIFdelend \DIFaddbegin \DIFadd{v1.0.0}\DIFaddend ). Benchmarks were performed on an Intel(R) Xeon(R) CPU E5-1650 equipped with 128 GB of memory. Benchmarks were run for $1,000$ iterations with the original t-SNE parameters, as some implementations do not allow for their modification. To ensure a realistic benchmarking scenario, we utilize the 10X Genomics 1.3 million mouse brain data set~\citep{cao2019single}, containing 1.3 million single-cell gene-expression profiles. We preprocess the data using the standard single-cell analysis pipeline~\citep{kiselev2019challenges} and extract the top 50 principal components. To generate benchmark data sets of different sample sizes, we subsample the data set five times at each sample size. In total, we test each implementation on 30 different data sets.
 
 \begin{figure*}[ht]
   \centering
   \includegraphics[width=0.75\textwidth]{benchmarks_python-final}
   \caption{\label{fig:benchmarks_py}
-  We benchmark \opentsne (v1.0.0) against three popular open-source
+  We benchmark \opentsne (\DIFdelbeginFL \DIFdelFL{v0.6.2}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{v1.0.0}\DIFaddendFL ) against three popular open-source
   implementations from \pkg{scikit-learn}~\citep{pedregosa2011scikit}
   (v1.1.2), \pkg{MulticoreTSNE}~\citep{Ulyanov2016} (v0.1), and
   \pkg{FIt-SNE}~\citep{linderman2019fast} (v1.1.0). Experiments were run on a
@@ -693,42 +763,55 @@ In \proglang{Python}, the most widely-used implementation of t-SNE comes from \p
 Additionally, \opentsne provides a flexible API, allowing the user to split the embedding-construction process into several parts. This modularity enables us to cache and reuse intermediate results, allowing users to experiment with different parameter settings and iterate on their final visualizations. Such functionality is not supported in other t-SNE implementations, which require the user to start from scratch for every embedding, resulting in large amounts of redundant computation.
 
 % Problem with other programming languages
-In other programming languages, the selection of fast, open-source implementations of t-SNE is more limited. In \proglang{R}~\citep{team2013r}, the most widely used implementation of t-SNE -- \pkg{Rtsne}~\citep{krijthe2015rtsne} -- is based on the Barnes-Hut approximation, and is closely comparable to \pkg{MulticoreTSNE}. In \proglang{Julia}~\citep{bezanson2017julia}, the most popular implementation -- \pkg{TSne.jl}~\citep{julia_tsne} -- is based on a naive $\mathcal{O}(N^2)$ implementation of the algorithm, which allows it to be used only on smaller data sets containing up to thousands of data points. We benchmark \pkg{Rtsne} (v0.15) and  \pkg{TSne.jl} (v1.3.0) and compare it to \opentsne (v1.0.0). Fig.~\ref{fig:benchmarks_lang} illustrates the scaling of each approximation scheme. Of these implementations, only \opentsne can scale to data sets containing millions of data points in a reasonable amount of time.
+In other programming languages, the selection of fast, open-source implementations of t-SNE is more limited. In \proglang{R}~\citep{team2013r}, the most widely used implementation of t-SNE -- \pkg{Rtsne}~\citep{krijthe2015rtsne} -- is based on the Barnes-Hut approximation, and is closely comparable to \pkg{MulticoreTSNE}. In \proglang{Julia}~\citep{bezanson2017julia}, the most popular implementation -- \pkg{TSne.jl}~\citep{julia_tsne} -- is based on a naive $\mathcal{O}(N^2)$ implementation of the algorithm, which allows it to be used only on smaller data sets containing up to thousands of data points. We benchmark \pkg{Rtsne} (v0.15) and  \pkg{TSne.jl} (v1.3.0) and compare it to \opentsne (\DIFdelbegin \DIFdel{v0.6.2}\DIFdelend \DIFaddbegin \DIFadd{v1.0.0}\DIFaddend ). Fig.~\ref{fig:benchmarks_lang} illustrates the scaling of each approximation scheme. Of these implementations, only \opentsne can scale to data sets containing millions of data points in a reasonable amount of time.
 
 \begin{figure*}[ht]
   \centering
   \includegraphics[width=0.75\textwidth]{benchmarks_langs-final}
   %\includegraphics[width=\textwidth]{benchmarks-combined}
   \caption{\label{fig:benchmarks_lang}
-  We select the fastest available, open-source implementations of the t-SNE algorithm from the \proglang{Python}, \proglang{R}, and \proglang{Julia} programming languages. We choose \opentsne (v1.0.0) for \proglang{Python}, \pkg{Rtsne}~\citep{krijthe2015rtsne} (v0.15) for \proglang{R}, and \pkg{TSne.jl}~\citep{julia_tsne} (v1.3.0) for \proglang{Julia}. The benchmarks reflect the time complexity of the implemented approximation schemes. For instance, \pkg{TSne.jl} implements a naive $\mathcal{O}(N^2)$ algorithm, making it prohibitively expensive for all but the smallest of data sets. \pkg{Rtsne} scales similarly to \pkg{MulticoreTSNE} in \proglang{Python}, as it implements the $\mathcal{O}(N \log N)$ Barnes-Hut approximation scheme. Interestingly, the multi-threaded implementation version of \pkg{Rtsne} crashes on benchmark data sets containing over 500,000 data points due to a lack of stack memory. We found these crashes to be inconsistent and somewhat random. \opentsne is the only library implementing the more recent FIt-SNE approximation scheme, which makes it suitable for larger data sets. }
+  We select the fastest available, open-source implementations of the t-SNE algorithm from the \proglang{Python}, \proglang{R}, and \proglang{Julia} programming languages. We choose \opentsne (\DIFdelbeginFL \DIFdelFL{v0.6.2}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{v1.0.0}\DIFaddendFL ) for \proglang{Python}, \pkg{Rtsne}~\citep{krijthe2015rtsne} (v0.15) for \proglang{R}, and \pkg{TSne.jl}~\citep{julia_tsne} (v1.3.0) for \proglang{Julia}. The benchmarks reflect the time complexity of the implemented approximation schemes. For instance, \pkg{TSne.jl} implements a naive $\mathcal{O}(N^2)$ algorithm, making it prohibitively expensive for all but the smallest of data sets. \pkg{Rtsne} scales similarly to \pkg{MulticoreTSNE} in \proglang{Python}, as it implements the $\mathcal{O}(N \log N)$ Barnes-Hut approximation scheme. Interestingly, the multi-threaded implementation version of \pkg{Rtsne} crashes on benchmark data sets containing over 500,000 data points due to a lack of stack memory. We found these crashes to be inconsistent and somewhat random. \opentsne is the only library implementing the more recent FIt-SNE approximation scheme, which makes it suitable for larger data sets. }
 \end{figure*}
 
 We note here that the benchmarks in Figs.~\ref{fig:benchmarks_py}~and~\ref{fig:benchmarks_lang} were run for 1,000 iterations to ensure a fair comparison between different implementations. However, it has recently been shown that, using an appropriate learning rate, we can safely reduce the number of iterations to 750~\citep{belkina2019automated}. This means that the actual runtime will be faster than reported in these benchmarks in everyday usage of \opentsne.
 
-\subsubsection{Comparison to UMAP}
+\DIFaddbegin \subsubsection{Comparison to UMAP}
 
-In this section, we compare the performance of the \opentsne (v1.0.0) and \pkg{umap-learn} (0.5.3) libraries. \pkg{umap-learn} is the official \textsf{Python} implementation of the UMAP algorithm~\citep{2018arXivUMAP}, another dimensionality reduction technique used for the visualization of high-dimensional data. A throughout comparison of the two algorithms is outside the scope of this manuscript, and we here instead highlight only their similarities and differences as they relate to the runtime of the implementations.
+\DIFadd{In this section, we compare the performance of the }\opentsne \DIFadd{(v1.0.0) and }\pkg{umap-learn} \DIFadd{(0.5.3) libraries. }\pkg{umap-learn} \DIFadd{is the official }\textsf{\DIFadd{Python}} \DIFadd{implementation of the UMAP algorithm~\mbox{%DIFAUXCMD
+\citep{2018arXivUMAP}}\hskip0pt%DIFAUXCMD
+, another dimensionality reduction technique used for the visualization of high-dimensional data. A throughout comparison of the two algorithms is outside the scope of this manuscript, and we here instead highlight only their similarities and differences as they relate to the runtime of the implementations.
+}
 
-Both t-SNE and UMAP are instances of force-directed layout algorithms in which each data point acts as a particle, attracting and repelling other particles. In the first step, both algorithms use the high-dimensional data set to construct a $k$-nearest neighbors graph (KNNG). Then, the low-dimensional embedding is optimized such that data points connected in the KNNG attract one another, and all data points exert some small, repulsive force. The two methods differ in the KNNG construction process, the specification of the attractive and repulsive forces, and their optimization approaches.
+\DIFadd{Both t-SNE and UMAP are instances of force-directed layout algorithms in which each data point acts as a particle, attracting and repelling other particles. In the first step, both algorithms use the high-dimensional data set to construct a $k$-nearest neighbors graph (KNNG). Then, the low-dimensional embedding is optimized such that data points connected in the KNNG attract one another, and all data points exert some small, repulsive force. The two methods differ in the KNNG construction process, the specification of the attractive and repulsive forces, and their optimization approaches.
+}
 
-The primary factor dictating the runtime of both methods is the number of nearest neighbors used when constructing the KNNG. Apart from the runtime required to find the $k$-nearest neighbors, the number of neighbors directly influences the runtime of each optimization step. In each step, every data point exerts an attractive force on each of its neighbors in the low-dimensional embedding. Therefore, the larger the number of neighbors considered, the longer the runtime. Modern implementations of the t-SNE algorithm construct a KNNG with $3 \cdot u$ nearest neighbors where $u$ is the desired perplexity. By default, \opentsne (v1.0.0) uses a perplexity value of 30, meaning that 90 nearest neighbors need to be found and considered for each data point. In contrast, the \pkg{umap-learn} package (v0.5.3) constructs a KNNG using only 15 neighbors by default, greatly reducing the time spent on nearest neighbor search and point interactions compared to t-SNE.
+\DIFadd{The primary factor dictating the runtime of both methods is the number of nearest neighbors used when constructing the KNNG. Apart from the runtime required to find the $k$-nearest neighbors, the number of neighbors directly influences the runtime of each optimization step. In each step, every data point exerts an attractive force on each of its neighbors in the low-dimensional embedding. Therefore, the larger the number of neighbors considered, the longer the runtime. Modern implementations of the t-SNE algorithm construct a KNNG with $3 \cdot u$ nearest neighbors where $u$ is the desired perplexity. By default, }\opentsne \DIFadd{(v1.0.0) uses a perplexity value of 30, meaning that 90 nearest neighbors need to be found and considered for each data point. In contrast, the }\pkg{umap-learn} \DIFadd{package (v0.5.3) constructs a KNNG using only 15 neighbors by default, greatly reducing the time spent on nearest neighbor search and point interactions compared to t-SNE.
+}
 
-Alternatively, empirical evidence indicates that replacing the standard perplexity-based Gaussian affinity model in t-SNE with a uniform affinity model produces markedly similar embeddings to that of standard t-SNE. For instance, running standard t-SNE with perplexity $u=30$ constructs a KNNG with $3 \cdot u = 90$ neighbors. However, when using the equivalent uniform affinity model, only $u$ neighbors are needed. This makes the uniform affinity model an attractive option for the visualization of large data sets.
+\DIFadd{Alternatively, empirical evidence indicates that replacing the standard perplexity-based Gaussian affinity model in t-SNE with a uniform affinity model produces markedly similar embeddings to that of standard t-SNE. For instance, running standard t-SNE with perplexity $u=30$ constructs a KNNG with $3 \cdot u = 90$ neighbors. However, when using the equivalent uniform affinity model, only $u$ neighbors are needed. This makes the uniform affinity model an attractive option for the visualization of large data sets.
+}
 
-In Fig.~\ref{fig:benchmarks_umap}, we include benchmarks of the standard perplexity-based t-SNE algorithm, its uniform affinity model variant, and UMAP. Differently from the previous benchmarks which were run using older parameter settings to accomodate different t-SNE implementations, we now run both libraries using their default parameter settings to measure the runtime of typical, real-world use-cases.
-\begin{figure*}[ht]
+\DIFadd{In Fig.~\ref{fig:benchmarks_umap}, we include benchmarks of the standard perplexity-based t-SNE algorithm, its uniform affinity model variant, and UMAP. Differently from the previous benchmarks which were run using older parameter settings to accomodate different t-SNE implementations, we now run both libraries using their default parameter settings to measure the runtime of typical, real-world use-cases.
+}\begin{figure*}[ht]
   \centering
   \includegraphics[width=0.75\textwidth]{benchmarks_umap}
-  \caption{\label{fig:benchmarks_umap} We benchmark \opentsne (v1.0.0) against \pkg{umap-learn} (v0.5.3), the official \textsf{Python} implementation of the UMAP algorithm. Notice that the standard single-threaded perplexity-based variant of t-SNE runs slower than UMAP but outperforms UMAP in the multi-threaded case. We also benchmark the uniform affinity model variant of t-SNE, which outperforms both standard t-SNE and UMAP.}
+  \caption{\label{fig:benchmarks_umap} \DIFaddFL{We benchmark }\opentsne \DIFaddFL{(v1.0.0) against }\pkg{umap-learn} \DIFaddFL{(v0.5.3), the official }\textsf{\DIFaddFL{Python}} \DIFaddFL{implementation of the UMAP algorithm. Notice that the standard single-threaded perplexity-based variant of t-SNE runs slower than UMAP but outperforms UMAP in the multi-threaded case. We also benchmark the uniform affinity model variant of t-SNE, which outperforms both standard t-SNE and UMAP.}}
 \end{figure*}
 
-Given that, by default, UMAP considers six times fewer neighbors than standard t-SNE, it is unsurprising that the single-threaded variant of UMAP outperforms the single-threaded implementation of standard t-SNE. Suprisingly, however, the single-threaded uniform affinity variant of t-SNE outperforms not only than the single-threaded variant of UMAP, but also its multi-threaded variant, despite dealing with half as many neighbors. This result likely stems from the fact that UMAP is written in pure \textsf{Python}, but uses \pkg{numba}~\citep{lam2015numba} to accelerate computation. On the other hand, critical elements of the \opentsne library are written in \pkg{cython}~\citep{behnel2011cython}, which is subsequently transpiled into \textsf{C++}, which may be able to be more aggresively optimized by the \textsf{C++} compiler. Another contributing factor may be the efficiency of the approximation schemes. While both the UMAP and FIt-SNE algorithms are asymptotically linear in the number of samples, their real-world runtimes may differ significantly.
+\DIFadd{Given that, by default, UMAP considers six times fewer neighbors than standard t-SNE, it is unsurprising that the single-threaded variant of UMAP outperforms the single-threaded implementation of standard t-SNE. Suprisingly, however, the single-threaded uniform affinity variant of t-SNE outperforms not only than the single-threaded variant of UMAP, but also its multi-threaded variant, despite dealing with half as many neighbors. This result likely stems from the fact that UMAP is written in pure }\textsf{\DIFadd{Python}}\DIFadd{, but uses }\pkg{numba}\DIFadd{~\mbox{%DIFAUXCMD
+\citep{lam2015numba} }\hskip0pt%DIFAUXCMD
+to accelerate computation. On the other hand, critical elements of the }\opentsne \DIFadd{library are written in }\pkg{cython}\DIFadd{~\mbox{%DIFAUXCMD
+\citep{behnel2011cython}}\hskip0pt%DIFAUXCMD
+, which is subsequently transpiled into }\textsf{\DIFadd{C++}}\DIFadd{, which may be able to be more aggresively optimized by the }\textsf{\DIFadd{C++}} \DIFadd{compiler. Another contributing factor may be the efficiency of the approximation schemes. While both the UMAP and FIt-SNE algorithms are asymptotically linear in the number of samples, their real-world runtimes may differ significantly.
+}
 
-The multi-threaded benchmarks show that \opentsne outperforms UMAP in both its standard and uniform variants. The reason for this likely lies in the different optimization procedures used by the two algorithms. At each step of the optimization, \opentsne computes all pairwise interactions between data points in the embedding. While a direct calculation of these interactions would result in quadratic time complexity, \opentsne implements efficient approximation schemes that reduce this to linear time complexity (see Sec.~\ref{sec:meth.approx}). Importantly, these approximation schemes are very amenable to parallelization. This is clearly demonstrated by the runtime differences between the single-core and multi-core performance of \opentsne. On the other hand, UMAP bypasses the need to compute all pairwise interactions between data points using negative sampling. This allows UMAP to scale linearly in the number of samples without the need for additional approximation schemes. However, negative sampling is less amenable to paralellization and does not benefit from the availability of additional cores as much as t-SNE.
+\DIFadd{The multi-threaded benchmarks show that }\opentsne \DIFadd{outperforms UMAP in both its standard and uniform variants. The reason for this likely lies in the different optimization procedures used by the two algorithms. At each step of the optimization, }\opentsne \DIFadd{computes all pairwise interactions between data points in the embedding. While a direct calculation of these interactions would result in quadratic time complexity, }\opentsne \DIFadd{implements efficient approximation schemes that reduce this to linear time complexity (see Sec.~\ref{sec:meth.approx}). Importantly, these approximation schemes are very amenable to parallelization. This is clearly demonstrated by the runtime differences between the single-core and multi-core performance of }\opentsne\DIFadd{. On the other hand, UMAP bypasses the need to compute all pairwise interactions between data points using negative sampling. This allows UMAP to scale linearly in the number of samples without the need for additional approximation schemes. However, negative sampling is less amenable to paralellization and does not benefit from the availability of additional cores as much as t-SNE.
+}
 
-Lastly, we turn our attention to an often overlooked runtime metric -- the runtime per optimization step. Both t-SNE and UMAP comprise two steps. First, both methods construct a KNNG, which runtime is dominated by $k$-nearest neighbor search. In the second step, a low-dimensional embedding is found via optimization. By default, \opentsne runs optimization for 750 iterations. UMAP, on the other hand, uses a heuristic based on the data set size to determine the number of iterations. For data sets containing fewer than 10,000 data points, UMAP opts for 500 iterations. For larger data sets, however, this is reduced to 200 iterations. Fig.~\ref{fig:benchmarks_umap} indicates that even in the single-threaded scenario, the perplexity-based variant of \opentsne requires significantly less time per iteration compared to \pkg{umap-learn}, as each \opentsne benchmark runs $3.75$ times more iterations than \pkg{umap-learn} despite considering more neighbors at each optimization step.
+\DIFadd{Lastly, we turn our attention to an often overlooked runtime metric -- the runtime per optimization step. Both t-SNE and UMAP comprise two steps. First, both methods construct a KNNG, which runtime is dominated by $k$-nearest neighbor search. In the second step, a low-dimensional embedding is found via optimization. By default, }\opentsne \DIFadd{runs optimization for 750 iterations. UMAP, on the other hand, uses a heuristic based on the data set size to determine the number of iterations. For data sets containing fewer than 10,000 data points, UMAP opts for 500 iterations. For larger data sets, however, this is reduced to 200 iterations. Fig.~\ref{fig:benchmarks_umap} indicates that even in the single-threaded scenario, the perplexity-based variant of }\opentsne \DIFadd{requires significantly less time per iteration compared to }\pkg{umap-learn}\DIFadd{, as each }\opentsne \DIFadd{benchmark runs $3.75$ times more iterations than }\pkg{umap-learn} \DIFadd{despite considering more neighbors at each optimization step.
+}
 
-\subsection{Ease of use}
+\DIFaddend \subsection{Ease of use}
 
 Intuitive access and simple installation procedures typically correlate with the widespread adoption of novel computational techniques. While the t-SNE implementation from \pkg{scikit-learn} fits this requirement, its implementation is prohibitively slow for even moderately-sized data sets that span tens of thousands of data records. Other \proglang{C++} implementations such as \pkg{MulticoreTSNE} and \pkg{FIt-SNE} exhibit better scaling in more massive data sets, but the packages do not provide precompiled binaries and require users to compile the software themselves. This problem is critical, for instance, for users of the Windows operating system, where the \proglang{C++} compiler does not come with the system, making the correct configuration of current t-SNE implementations cumbersome.
 
@@ -746,8 +829,11 @@ We designed \opentsne to be accessible to a broader audience. We provide precomp
 
 \toprule
 \textbf{Ease of installation} \\
-\pkg{PyPI} package & \checkmark & \checkmark & \checkmark & \checkmark & & \\
-\pkg{conda} package & \checkmark & & \checkmark & \checkmark & & \\
+\DIFdelbeginFL \DIFdelFL{Native }%DIFDELCMD < \proglang{Python} %%%
+\DIFdelFL{installation }%DIFDELCMD < & \checkmark & & & \checkmark & & \\
+%DIFDELCMD < %%%
+\DIFdelendFL \pkg{PyPI} package & \checkmark & \checkmark & \DIFaddbeginFL \checkmark \DIFaddendFL & \checkmark & & \\
+\pkg{conda} package & \checkmark & & \DIFaddbeginFL \checkmark \DIFaddendFL & \checkmark & & \\
 
 \hline
 \textbf{Approximation schemes} \\
@@ -757,6 +843,7 @@ FIt-SNE ($\mathcal{O}(N)$) & & & \checkmark & \checkmark & & \\
 
 \hline
 \textbf{Advanced features and extensions} \\
+%DIF < Multiscale Gaussian kernels & & & & \checkmark & \checkmark & & \\
 Extensible affinity models & & & & \checkmark & & \\
 Variable degrees of freedom & & & \checkmark & \checkmark & & \\
 Variable exaggeration & & & \checkmark & \checkmark & & \\
@@ -778,7 +865,7 @@ API reference & \checkmark & & & \checkmark & \checkmark &  \\
 \end{center}
 
 \caption{\label{tab:features}
-  We compare the features of \opentsne~(v1.0.0) to \pkg{scikit-learn}~(v1.0.1),
+  We compare the features of \opentsne~(\DIFdelbeginFL \DIFdelFL{v0.6.2}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{v1.0.0}\DIFaddendFL ) to \pkg{scikit-learn}~(v1.0.1),
   \pkg{BHTSNE}~(master), \pkg{MulticoreTSNE}~(v0.1), and
   \pkg{FIt-SNE}~(v1.1.0), as well as the major implementations in \proglang{R}
   and \proglang{Julia}, \pkg{Rtsne}~(v0.15), \pkg{Tsne.jl}~(v1.3.0). Active
@@ -805,7 +892,7 @@ End-to-end usage examples, documentation, and API reference are all available at
 \section*{Reproducibility}
 
 The results in this paper were obtained using \proglang{Python}~3.10.2 with the
-\pkg{openTSNE}~v1.0.0 package. All results and figures can be reproduced using
+\pkg{openTSNE}~\DIFdelbegin \DIFdel{v0.6.2 }\DIFdelend \DIFaddbegin \DIFadd{v1.0.0 }\DIFaddend package. All results and figures can be reproduced using
 the scripts found in the accompanying GitHub repository
 \url{https://github.com/pavlin-policar/opentsne-paper}.
 Detailed instructions are provided showing how to reproduce all materials and results shown in this manuscript.
@@ -832,6 +919,7 @@ Research Agency (P2-0209, L2-3170).
 %% - DOIs should be included where available.
 
 \bibliography{references}
+\DIFaddbegin 
 
 \newpage
 
@@ -839,16 +927,39 @@ Research Agency (P2-0209, L2-3170).
 
 \section{Single-cell RNA-seq Data Preprocessing}
 
-We here describe the preprocessing steps applied to the single-cell RNA-seq data sets used in Fig.~\ref{fig:macosko}~\citep{macosko2015highly}, Fig.~\ref{fig:tasic}~\citep{tasic2018shared}, Fig.~\ref{fig:cao}~\citep{cao2019single}, and Fig.~\ref{fig:transform}~\citep{hochgerner2018conserved}. The standard single-cell preprocessing pipeline consists of gene filtering, gene selection, data normalization, and dimensionality reduction.
+\DIFadd{We here describe the preprocessing steps applied to the single-cell RNA-seq data sets used in Fig.~\ref{fig:macosko}~\mbox{%DIFAUXCMD
+\citep{macosko2015highly}}\hskip0pt%DIFAUXCMD
+, Fig.~\ref{fig:tasic}~\mbox{%DIFAUXCMD
+\citep{tasic2018shared}}\hskip0pt%DIFAUXCMD
+, Fig.~\ref{fig:cao}~\mbox{%DIFAUXCMD
+\citep{cao2019single}}\hskip0pt%DIFAUXCMD
+, and Fig.~\ref{fig:transform}~\mbox{%DIFAUXCMD
+\citep{hochgerner2018conserved}}\hskip0pt%DIFAUXCMD
+. The standard single-cell preprocessing pipeline consists of gene filtering, gene selection, data normalization, and dimensionality reduction.
+}
 
-First, we discard genes detected fewer than ten times, then select the 3,000 most highly-variable genes following the gene-selection procedure from \citet{kobak2019art}. We then perform counts-per-median library-size normalization followed by log normalization and standardization without zero-centering. Finally, we extract the top 50 principal components, which are then used to construct subsequent t-SNE embeddings. This pipeline is applied to all the aforementioned data sets with the following exceptions, which serve to better illustrate our points:
-\begin{itemize}
-  \item In \citet{macosko2015highly}, we perform library-size normalization by computing counts-per-million and apply centering during standardization.
-  \item In \citet{hochgerner2018conserved}, we select the 1,000 most variable genes.
-\end{itemize}
+\DIFadd{First, we discard genes detected fewer than ten times, then select the 3,000 most highly-variable genes following the gene-selection procedure from \mbox{%DIFAUXCMD
+\citet{kobak2019art}}\hskip0pt%DIFAUXCMD
+. We then perform counts-per-median library-size normalization followed by log normalization and standardization without zero-centering. Finally, we extract the top 50 principal components, which are then used to construct subsequent t-SNE embeddings. This pipeline is applied to all the aforementioned data sets with the following exceptions, which serve to better illustrate our points:
+}\begin{itemize}
+  \item \DIFadd{In \mbox{%DIFAUXCMD
+\citet{macosko2015highly}}\hskip0pt%DIFAUXCMD
+, we perform library-size normalization by computing counts-per-million and apply centering during standardization.
+  }\item \DIFadd{In \mbox{%DIFAUXCMD
+\citet{hochgerner2018conserved}}\hskip0pt%DIFAUXCMD
+, we select the 1,000 most variable genes.
+}\end{itemize}
 
-When embedding additional data points into the existing embedding in Figs.~\ref{fig:macosko}.c and \ref{fig:transform}, we follow the procedure from \citet{policar2021embedding}. Therefore, no preprocessing is applied to the data sets from \citet{shekhar2016comprehensive} and \citet{harris2018classes}, and the similarities between the reference data set and the new data set are computed on the raw counts.
+\DIFadd{When embedding additional data points into the existing embedding in Figs.~\ref{fig:macosko}.c and \ref{fig:transform}, we follow the procedure from \mbox{%DIFAUXCMD
+\citet{policar2021embedding}}\hskip0pt%DIFAUXCMD
+. Therefore, no preprocessing is applied to the data sets from \mbox{%DIFAUXCMD
+\citet{shekhar2016comprehensive} }\hskip0pt%DIFAUXCMD
+and \mbox{%DIFAUXCMD
+\citet{harris2018classes}}\hskip0pt%DIFAUXCMD
+, and the similarities between the reference data set and the new data set are computed on the raw counts.
+}
 
 \end{appendix}
+\DIFaddend 
 
 \end{document}

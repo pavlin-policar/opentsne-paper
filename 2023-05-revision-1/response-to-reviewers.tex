@@ -128,7 +128,7 @@ We now mention this option in the corresponding paragraph on page 8 and have als
 \reviewc{r2q5}{It would be interesting to add UMAP to the runtime benchmark. UMAP is a very popular alternative to t-SNE, and is often thought to be much faster, which is not actually the case for openTNSE. Perhaps a separate benchmark figure could focus on openTSNE vs UMAP (depending on the sample size)? This may depend on the used affinity model, as uniform affinity with 15 neighbors should be much faster than the standard affinity model (with 90 neighbors) for large sample sizes. If so, it may be of interest to show both and discuss.}
 
 \answer{
-TODO bla
+Initially, we decided to omit a comparison to UMAP, as it is a different algorithm and a one-to-one comparison is difficult and not the focal point of the manuscript. However, given the popularity of both algorithms, we agree it makes sense to include a benchmark comparison between their implementations. However, given the often misunderstood differences between the two algorithms, we feel it is necessary to provide a throughout discussion on their benchmark results. We have added a subsection in Section 5.2, comparing the performance of the \texttt{openTSNE} and \texttt{umap-learn} libraries. The uniform affinity model is also an interesting and useful addition in the openTSNE framework, and we have added a comparison to that as well, as it could also be used in real-world scenarios when embedding massive data sets.
 }
 
 
