@@ -113,6 +113,12 @@ implementations = [
     Spec("openTSNE BH", log_name="openTSNEBH", cores=1, lang="Python", parser=parse_opentsne),
     Spec("openTSNE BH", log_name="openTSNEBH", cores=8, lang="Python", parser=parse_opentsne),
 
+    # Modern openTSNE
+    Spec("openTSNE FFT (modern)", log_name="openTSNE_standard", cores=1, lang="Python", parser=parse_opentsne),
+    Spec("openTSNE FFT (modern)", log_name="openTSNE_standard", cores=8, lang="Python", parser=parse_opentsne),
+    Spec("openTSNE FFT (uniform)", log_name="openTSNE_uniform30", cores=1, lang="Python", parser=parse_opentsne),
+    Spec("openTSNE FFT (uniform)", log_name="openTSNE_uniform30", cores=8, lang="Python", parser=parse_opentsne),
+
     # FIt-SNE
     Spec("FIt-SNE", log_name="FItSNE", cores=1, lang="Python", parser=parse_fitsne),
     Spec("FIt-SNE", log_name="FItSNE", cores=8, lang="Python", parser=parse_fitsne),
@@ -126,8 +132,8 @@ implementations = [
     Spec("scikit-learn", log_name="sklearn", cores=8, lang="Python", parser=parse_sklearn),
 
     # UMAP
-    Spec("UMAP", log_name="UMAP", cores=1, lang="Python", parser=parse_umap),
-    Spec("UMAP", log_name="UMAP", cores=8, lang="Python", parser=parse_umap),
+    Spec("UMAP", log_name="UMAP_standard", cores=1, lang="Python", parser=parse_umap),
+    Spec("UMAP", log_name="UMAP_standard", cores=8, lang="Python", parser=parse_umap),
 
     # Rtsne
     Spec("Rtsne", log_name="Rtsne", cores=1, lang="R", parser=parse_rtsne),
@@ -145,7 +151,7 @@ for impl in implementations:
 data = pd.DataFrame(data)
 
 
-def generate_benchmark_plot(colors, title, fname):
+def generate_benchmark_plot(colors, title, fname, ylim=130):
     fig, ax = plt.subplots(figsize=(8, 6))
     sns.despine(offset=20)
 
@@ -197,8 +203,8 @@ def generate_benchmark_plot(colors, title, fname):
     if data["Benchmark"].unique()[0] == "macosko_2015":  # small benchmark
         ax.set_ylim(0, 10)
     else:
-        ax.set_ylim(0, 130)
-        ax.set_yticks(range(0, 130, 15))
+        ax.set_ylim(0, ylim)
+        ax.set_yticks(range(0, ylim, 15))
 
     ax.get_xaxis().set_major_formatter(matplotlib.ticker.FuncFormatter(
         lambda x, p: format(int(x), ",").replace(",", "."))
@@ -269,5 +275,21 @@ generate_benchmark_plot(
     colors,
     title="Comparison with other programming languages",
     fname=os.path.join("..", "paper", "benchmarks_langs.pdf"),
+)
+plt.show()
+
+
+# UMAP COMPARISON
+colors = {
+    "openTSNE FFT (modern)": "#4C72B0",
+    "openTSNE FFT (uniform)": "#DD8452",
+    "UMAP": "#55A868",
+    # "MulticoreTSNE": "#C44E52",
+}
+generate_benchmark_plot(
+    colors,
+    title="Comparison with UMAP",
+    fname=os.path.join("..", "paper", "benchmarks_umap.pdf"),
+    ylim=65,
 )
 plt.show()
