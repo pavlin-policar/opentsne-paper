@@ -674,7 +674,7 @@ Fig.~\ref{fig:benchmarks_py} benchmarks four popular \proglang{Python}~\citep{va
 
 \begin{figure*}[ht]
   \centering
-  \includegraphics[width=0.75\textwidth]{benchmarks_python-final}
+  \includegraphics{benchmarks_python-final}
   \caption{\label{fig:benchmarks_py}
   We benchmark \opentsne (v1.0.0) against three popular open-source
   implementations from \pkg{scikit-learn}~\citep{pedregosa2011scikit}
@@ -697,7 +697,7 @@ In other programming languages, the selection of fast, open-source implementatio
 
 \begin{figure*}[ht]
   \centering
-  \includegraphics[width=0.75\textwidth]{benchmarks_langs-final}
+  \includegraphics{benchmarks_langs-final}
   %\includegraphics[width=\textwidth]{benchmarks-combined}
   \caption{\label{fig:benchmarks_lang}
   We select the fastest available, open-source implementations of the t-SNE algorithm from the \proglang{Python}, \proglang{R}, and \proglang{Julia} programming languages. We choose \opentsne (v1.0.0) for \proglang{Python}, \pkg{Rtsne}~\citep{krijthe2015rtsne} (v0.15) for \proglang{R}, and \pkg{TSne.jl}~\citep{julia_tsne} (v1.3.0) for \proglang{Julia}. The benchmarks reflect the time complexity of the implemented approximation schemes. For instance, \pkg{TSne.jl} implements a naive $\mathcal{O}(N^2)$ algorithm, making it prohibitively expensive for all but the smallest of data sets. \pkg{Rtsne} scales similarly to \pkg{MulticoreTSNE} in \proglang{Python}, as it implements the $\mathcal{O}(N \log N)$ Barnes-Hut approximation scheme. Interestingly, the multi-threaded implementation version of \pkg{Rtsne} crashes on benchmark data sets containing over 500,000 data points due to a lack of stack memory. We found these crashes to be inconsistent and somewhat random. \opentsne is the only library implementing the more recent FIt-SNE approximation scheme, which makes it suitable for larger data sets. }
@@ -718,7 +718,7 @@ Alternatively, empirical evidence indicates that replacing the standard perplexi
 In Fig.~\ref{fig:benchmarks_umap}, we include benchmarks of the standard perplexity-based t-SNE algorithm, its uniform affinity model variant, and UMAP. Differently from the previous benchmarks which were run using older parameter settings to accomodate different t-SNE implementations, we now run both libraries using their default parameter settings to measure the runtime of typical, real-world use-cases.
 \begin{figure*}[ht]
   \centering
-  \includegraphics[width=0.75\textwidth]{benchmarks_umap}
+  \includegraphics{benchmarks_umap-final}
   \caption{\label{fig:benchmarks_umap} We benchmark \opentsne (v1.0.0) against \pkg{umap-learn} (v0.5.3), the official \textsf{Python} implementation of the UMAP algorithm. Notice that the standard single-threaded perplexity-based variant of t-SNE runs slower than UMAP but outperforms UMAP in the multi-threaded case. We also benchmark the uniform affinity model variant of t-SNE, which outperforms both standard t-SNE and UMAP.}
 \end{figure*}
 
