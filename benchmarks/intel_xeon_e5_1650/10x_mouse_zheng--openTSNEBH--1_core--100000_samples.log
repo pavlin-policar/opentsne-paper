@@ -1,212 +1,212 @@
 Full data set dimensions: (1306127, 50)
 Benchmark data set dimensions: (100000, 50)
 --------------------------------------------------------------------------------
-openTSNE v0.6.2
+openTSNE v1.0.0
 Random state 0
 --------------------------------------------------------------------------------
 ===> Finding 90 nearest neighbors using Annoy approximate search using euclidean distance...
-   --> Time elapsed: 42.90 seconds
+   --> Time elapsed: 43.46 seconds
 ===> Calculating affinity matrix...
    --> Time elapsed: 2.91 seconds
-openTSNE: NN search 49.13790965080261
+openTSNE: NN search 49.719417333602905
 ===> Running optimization with exaggeration=12.00, lr=200.00 for 250 iterations...
-Iteration   50, KL divergence 7.2849, 50 iterations in 37.6944 sec
-Iteration  100, KL divergence 7.5679, 50 iterations in 35.6735 sec
-Iteration  150, KL divergence 7.7658, 50 iterations in 59.3442 sec
-Iteration  200, KL divergence 7.2362, 50 iterations in 72.4069 sec
-Iteration  250, KL divergence 6.6656, 50 iterations in 63.5454 sec
-   --> Time elapsed: 268.66 seconds
+Iteration   50, KL divergence 7.1806, 50 iterations in 38.1750 sec
+Iteration  100, KL divergence 7.5823, 50 iterations in 38.2153 sec
+Iteration  150, KL divergence 7.7665, 50 iterations in 66.9369 sec
+Iteration  200, KL divergence 7.1364, 50 iterations in 76.4212 sec
+Iteration  250, KL divergence 6.4821, 50 iterations in 65.6401 sec
+   --> Time elapsed: 285.39 seconds
 ===> Running optimization with exaggeration=1.00, lr=200.00 for 750 iterations...
-Iteration   50, KL divergence 6.1514, 50 iterations in 59.5557 sec
-Iteration  100, KL divergence 5.8038, 50 iterations in 57.4728 sec
-Iteration  150, KL divergence 5.5482, 50 iterations in 56.4297 sec
-Iteration  200, KL divergence 5.3514, 50 iterations in 56.4913 sec
-Iteration  250, KL divergence 5.1916, 50 iterations in 56.3086 sec
-Iteration  300, KL divergence 5.0570, 50 iterations in 56.4649 sec
-Iteration  350, KL divergence 4.9410, 50 iterations in 56.3792 sec
-Iteration  400, KL divergence 4.8393, 50 iterations in 56.3416 sec
-Iteration  450, KL divergence 4.7494, 50 iterations in 56.0405 sec
-Iteration  500, KL divergence 4.6694, 50 iterations in 55.9097 sec
-Iteration  550, KL divergence 4.5975, 50 iterations in 55.8871 sec
-Iteration  600, KL divergence 4.5327, 50 iterations in 55.8722 sec
-Iteration  650, KL divergence 4.4734, 50 iterations in 56.0080 sec
-Iteration  700, KL divergence 4.4191, 50 iterations in 55.6487 sec
-Iteration  750, KL divergence 4.3693, 50 iterations in 55.7290 sec
-   --> Time elapsed: 846.54 seconds
-openTSNE: Optimization 1118.040681362152
-openTSNE: Full 1167.1837515830994
+Iteration   50, KL divergence 6.0202, 50 iterations in 61.6963 sec
+Iteration  100, KL divergence 5.6988, 50 iterations in 59.5157 sec
+Iteration  150, KL divergence 5.4581, 50 iterations in 58.2672 sec
+Iteration  200, KL divergence 5.2678, 50 iterations in 57.4368 sec
+Iteration  250, KL divergence 5.1122, 50 iterations in 56.9689 sec
+Iteration  300, KL divergence 4.9817, 50 iterations in 56.8792 sec
+Iteration  350, KL divergence 4.8701, 50 iterations in 56.8817 sec
+Iteration  400, KL divergence 4.7726, 50 iterations in 56.7685 sec
+Iteration  450, KL divergence 4.6862, 50 iterations in 56.5930 sec
+Iteration  500, KL divergence 4.6089, 50 iterations in 56.5926 sec
+Iteration  550, KL divergence 4.5392, 50 iterations in 56.7016 sec
+Iteration  600, KL divergence 4.4757, 50 iterations in 56.5916 sec
+Iteration  650, KL divergence 4.4181, 50 iterations in 56.5932 sec
+Iteration  700, KL divergence 4.3655, 50 iterations in 56.4437 sec
+Iteration  750, KL divergence 4.3173, 50 iterations in 56.5236 sec
+   --> Time elapsed: 860.45 seconds
+openTSNE: Optimization 1148.7419612407684
+openTSNE: Full 1198.4663138389587
 --------------------------------------------------------------------------------
-openTSNE v0.6.2
+openTSNE v1.0.0
 Random state 1
 --------------------------------------------------------------------------------
 ===> Finding 90 nearest neighbors using Annoy approximate search using euclidean distance...
-   --> Time elapsed: 43.24 seconds
+   --> Time elapsed: 43.46 seconds
 ===> Calculating affinity matrix...
    --> Time elapsed: 2.91 seconds
-openTSNE: NN search 46.14654350280762
+openTSNE: NN search 46.37649965286255
 ===> Running optimization with exaggeration=12.00, lr=200.00 for 250 iterations...
-Iteration   50, KL divergence 7.2674, 50 iterations in 37.3973 sec
-Iteration  100, KL divergence 7.6657, 50 iterations in 35.8473 sec
-Iteration  150, KL divergence 7.7661, 50 iterations in 59.5145 sec
-Iteration  200, KL divergence 7.1370, 50 iterations in 68.4752 sec
-Iteration  250, KL divergence 6.5518, 50 iterations in 61.3814 sec
-   --> Time elapsed: 262.62 seconds
+Iteration   50, KL divergence 7.2039, 50 iterations in 38.0518 sec
+Iteration  100, KL divergence 7.5778, 50 iterations in 37.4853 sec
+Iteration  150, KL divergence 7.7626, 50 iterations in 65.1275 sec
+Iteration  200, KL divergence 7.3628, 50 iterations in 75.4499 sec
+Iteration  250, KL divergence 6.5793, 50 iterations in 65.1976 sec
+   --> Time elapsed: 281.31 seconds
 ===> Running optimization with exaggeration=1.00, lr=200.00 for 750 iterations...
-Iteration   50, KL divergence 6.0731, 50 iterations in 59.6408 sec
-Iteration  100, KL divergence 5.7375, 50 iterations in 57.2738 sec
-Iteration  150, KL divergence 5.4927, 50 iterations in 56.2763 sec
-Iteration  200, KL divergence 5.3029, 50 iterations in 56.1546 sec
-Iteration  250, KL divergence 5.1481, 50 iterations in 56.0646 sec
-Iteration  300, KL divergence 5.0178, 50 iterations in 56.1929 sec
-Iteration  350, KL divergence 4.9058, 50 iterations in 56.5357 sec
-Iteration  400, KL divergence 4.8075, 50 iterations in 56.4905 sec
-Iteration  450, KL divergence 4.7203, 50 iterations in 56.4335 sec
-Iteration  500, KL divergence 4.6429, 50 iterations in 56.3319 sec
-Iteration  550, KL divergence 4.5733, 50 iterations in 56.1600 sec
-Iteration  600, KL divergence 4.5100, 50 iterations in 55.8538 sec
-Iteration  650, KL divergence 4.4524, 50 iterations in 55.8361 sec
-Iteration  700, KL divergence 4.4000, 50 iterations in 56.1775 sec
-Iteration  750, KL divergence 4.3516, 50 iterations in 55.9159 sec
-   --> Time elapsed: 847.34 seconds
-openTSNE: Optimization 1112.7910895347595
-openTSNE: Full 1158.9427313804626
+Iteration   50, KL divergence 6.1124, 50 iterations in 61.4231 sec
+Iteration  100, KL divergence 5.7762, 50 iterations in 59.1387 sec
+Iteration  150, KL divergence 5.5252, 50 iterations in 57.8040 sec
+Iteration  200, KL divergence 5.3297, 50 iterations in 57.3592 sec
+Iteration  250, KL divergence 5.1697, 50 iterations in 56.8674 sec
+Iteration  300, KL divergence 5.0353, 50 iterations in 56.6338 sec
+Iteration  350, KL divergence 4.9199, 50 iterations in 56.5302 sec
+Iteration  400, KL divergence 4.8196, 50 iterations in 56.5345 sec
+Iteration  450, KL divergence 4.7314, 50 iterations in 56.5221 sec
+Iteration  500, KL divergence 4.6528, 50 iterations in 56.4999 sec
+Iteration  550, KL divergence 4.5822, 50 iterations in 56.4002 sec
+Iteration  600, KL divergence 4.5179, 50 iterations in 56.3040 sec
+Iteration  650, KL divergence 4.4590, 50 iterations in 56.3074 sec
+Iteration  700, KL divergence 4.4052, 50 iterations in 56.3084 sec
+Iteration  750, KL divergence 4.3557, 50 iterations in 56.2050 sec
+   --> Time elapsed: 856.84 seconds
+openTSNE: Optimization 1141.0364456176758
+openTSNE: Full 1187.4178624153137
 --------------------------------------------------------------------------------
-openTSNE v0.6.2
+openTSNE v1.0.0
 Random state 2
 --------------------------------------------------------------------------------
 ===> Finding 90 nearest neighbors using Annoy approximate search using euclidean distance...
-   --> Time elapsed: 43.20 seconds
+   --> Time elapsed: 43.41 seconds
 ===> Calculating affinity matrix...
    --> Time elapsed: 2.91 seconds
-openTSNE: NN search 46.11663460731506
+openTSNE: NN search 46.32316780090332
 ===> Running optimization with exaggeration=12.00, lr=200.00 for 250 iterations...
-Iteration   50, KL divergence 7.1332, 50 iterations in 37.5787 sec
-Iteration  100, KL divergence 7.5374, 50 iterations in 38.3687 sec
-Iteration  150, KL divergence 7.7636, 50 iterations in 64.8663 sec
-Iteration  200, KL divergence 7.2495, 50 iterations in 74.8774 sec
-Iteration  250, KL divergence 6.5114, 50 iterations in 63.2033 sec
-   --> Time elapsed: 278.89 seconds
+Iteration   50, KL divergence 7.2121, 50 iterations in 38.3646 sec
+Iteration  100, KL divergence 7.6042, 50 iterations in 37.7048 sec
+Iteration  150, KL divergence 7.7666, 50 iterations in 64.8204 sec
+Iteration  200, KL divergence 7.2844, 50 iterations in 75.2777 sec
+Iteration  250, KL divergence 6.5033, 50 iterations in 63.5614 sec
+   --> Time elapsed: 279.73 seconds
 ===> Running optimization with exaggeration=1.00, lr=200.00 for 750 iterations...
-Iteration   50, KL divergence 6.0559, 50 iterations in 60.2068 sec
-Iteration  100, KL divergence 5.7169, 50 iterations in 58.0841 sec
-Iteration  150, KL divergence 5.4703, 50 iterations in 56.9235 sec
-Iteration  200, KL divergence 5.2767, 50 iterations in 56.5939 sec
-Iteration  250, KL divergence 5.1181, 50 iterations in 56.3041 sec
-Iteration  300, KL divergence 4.9851, 50 iterations in 56.2516 sec
-Iteration  350, KL divergence 4.8713, 50 iterations in 56.0869 sec
-Iteration  400, KL divergence 4.7723, 50 iterations in 55.9094 sec
-Iteration  450, KL divergence 4.6851, 50 iterations in 55.9950 sec
-Iteration  500, KL divergence 4.6073, 50 iterations in 55.9469 sec
-Iteration  550, KL divergence 4.5371, 50 iterations in 55.9922 sec
-Iteration  600, KL divergence 4.4736, 50 iterations in 55.9540 sec
-Iteration  650, KL divergence 4.4158, 50 iterations in 55.8646 sec
-Iteration  700, KL divergence 4.3627, 50 iterations in 55.8301 sec
-Iteration  750, KL divergence 4.3139, 50 iterations in 55.7757 sec
-   --> Time elapsed: 847.72 seconds
-openTSNE: Optimization 1129.4605779647827
-openTSNE: Full 1175.5822517871857
+Iteration   50, KL divergence 6.0288, 50 iterations in 61.2945 sec
+Iteration  100, KL divergence 5.7131, 50 iterations in 59.3073 sec
+Iteration  150, KL divergence 5.4808, 50 iterations in 57.8724 sec
+Iteration  200, KL divergence 5.2989, 50 iterations in 57.3535 sec
+Iteration  250, KL divergence 5.1498, 50 iterations in 56.9755 sec
+Iteration  300, KL divergence 5.0236, 50 iterations in 56.9592 sec
+Iteration  350, KL divergence 4.9146, 50 iterations in 56.8961 sec
+Iteration  400, KL divergence 4.8188, 50 iterations in 56.8711 sec
+Iteration  450, KL divergence 4.7339, 50 iterations in 56.9175 sec
+Iteration  500, KL divergence 4.6577, 50 iterations in 56.8011 sec
+Iteration  550, KL divergence 4.5887, 50 iterations in 56.6461 sec
+Iteration  600, KL divergence 4.5258, 50 iterations in 56.3938 sec
+Iteration  650, KL divergence 4.4681, 50 iterations in 56.4237 sec
+Iteration  700, KL divergence 4.4152, 50 iterations in 56.4487 sec
+Iteration  750, KL divergence 4.3663, 50 iterations in 56.4482 sec
+   --> Time elapsed: 859.61 seconds
+openTSNE: Optimization 1142.2171411514282
+openTSNE: Full 1188.54523229599
 --------------------------------------------------------------------------------
-openTSNE v0.6.2
+openTSNE v1.0.0
 Random state 3
 --------------------------------------------------------------------------------
 ===> Finding 90 nearest neighbors using Annoy approximate search using euclidean distance...
-   --> Time elapsed: 43.19 seconds
+   --> Time elapsed: 43.42 seconds
 ===> Calculating affinity matrix...
-   --> Time elapsed: 2.92 seconds
-openTSNE: NN search 46.10955548286438
+   --> Time elapsed: 2.91 seconds
+openTSNE: NN search 46.33406066894531
 ===> Running optimization with exaggeration=12.00, lr=200.00 for 250 iterations...
-Iteration   50, KL divergence 7.1816, 50 iterations in 38.2368 sec
-Iteration  100, KL divergence 7.5244, 50 iterations in 37.1211 sec
-Iteration  150, KL divergence 7.7635, 50 iterations in 63.8854 sec
-Iteration  200, KL divergence 7.3059, 50 iterations in 75.1407 sec
-Iteration  250, KL divergence 6.6627, 50 iterations in 65.6687 sec
-   --> Time elapsed: 280.05 seconds
+Iteration   50, KL divergence 7.2261, 50 iterations in 37.8638 sec
+Iteration  100, KL divergence 7.5609, 50 iterations in 37.4556 sec
+Iteration  150, KL divergence 7.7678, 50 iterations in 63.8338 sec
+Iteration  200, KL divergence 7.1652, 50 iterations in 71.2175 sec
+Iteration  250, KL divergence 6.3779, 50 iterations in 59.6772 sec
+   --> Time elapsed: 270.05 seconds
 ===> Running optimization with exaggeration=1.00, lr=200.00 for 750 iterations...
-Iteration   50, KL divergence 6.2092, 50 iterations in 61.5409 sec
-Iteration  100, KL divergence 5.8313, 50 iterations in 58.5086 sec
-Iteration  150, KL divergence 5.5602, 50 iterations in 56.8994 sec
-Iteration  200, KL divergence 5.3548, 50 iterations in 56.4026 sec
-Iteration  250, KL divergence 5.1899, 50 iterations in 56.3653 sec
-Iteration  300, KL divergence 5.0525, 50 iterations in 56.3164 sec
-Iteration  350, KL divergence 4.9352, 50 iterations in 56.2073 sec
-Iteration  400, KL divergence 4.8336, 50 iterations in 56.1802 sec
-Iteration  450, KL divergence 4.7438, 50 iterations in 56.1685 sec
-Iteration  500, KL divergence 4.6638, 50 iterations in 56.1608 sec
-Iteration  550, KL divergence 4.5920, 50 iterations in 56.0668 sec
-Iteration  600, KL divergence 4.5271, 50 iterations in 56.0717 sec
-Iteration  650, KL divergence 4.4681, 50 iterations in 55.9570 sec
-Iteration  700, KL divergence 4.4143, 50 iterations in 55.9719 sec
-Iteration  750, KL divergence 4.3649, 50 iterations in 55.9844 sec
-   --> Time elapsed: 850.80 seconds
-openTSNE: Optimization 1133.7430787086487
-openTSNE: Full 1179.857666015625
+Iteration   50, KL divergence 5.9169, 50 iterations in 58.9159 sec
+Iteration  100, KL divergence 5.6239, 50 iterations in 57.8616 sec
+Iteration  150, KL divergence 5.4019, 50 iterations in 57.5688 sec
+Iteration  200, KL divergence 5.2246, 50 iterations in 57.1894 sec
+Iteration  250, KL divergence 5.0785, 50 iterations in 56.9766 sec
+Iteration  300, KL divergence 4.9548, 50 iterations in 56.8707 sec
+Iteration  350, KL divergence 4.8478, 50 iterations in 56.8360 sec
+Iteration  400, KL divergence 4.7537, 50 iterations in 56.8832 sec
+Iteration  450, KL divergence 4.6699, 50 iterations in 56.8862 sec
+Iteration  500, KL divergence 4.5945, 50 iterations in 56.7873 sec
+Iteration  550, KL divergence 4.5269, 50 iterations in 56.8289 sec
+Iteration  600, KL divergence 4.4656, 50 iterations in 56.9263 sec
+Iteration  650, KL divergence 4.4099, 50 iterations in 56.8420 sec
+Iteration  700, KL divergence 4.3588, 50 iterations in 56.8561 sec
+Iteration  750, KL divergence 4.3117, 50 iterations in 56.8074 sec
+   --> Time elapsed: 857.04 seconds
+openTSNE: Optimization 1129.9197566509247
+openTSNE: Full 1176.2587049007416
 --------------------------------------------------------------------------------
-openTSNE v0.6.2
+openTSNE v1.0.0
 Random state 4
 --------------------------------------------------------------------------------
 ===> Finding 90 nearest neighbors using Annoy approximate search using euclidean distance...
-   --> Time elapsed: 43.19 seconds
+   --> Time elapsed: 43.41 seconds
 ===> Calculating affinity matrix...
    --> Time elapsed: 2.91 seconds
-openTSNE: NN search 46.10295343399048
+openTSNE: NN search 46.326550245285034
 ===> Running optimization with exaggeration=12.00, lr=200.00 for 250 iterations...
-Iteration   50, KL divergence 7.1609, 50 iterations in 38.0718 sec
-Iteration  100, KL divergence 7.4827, 50 iterations in 37.9056 sec
-Iteration  150, KL divergence 7.7642, 50 iterations in 64.8324 sec
-Iteration  200, KL divergence 7.3618, 50 iterations in 76.9692 sec
-Iteration  250, KL divergence 6.6615, 50 iterations in 63.0635 sec
-   --> Time elapsed: 280.84 seconds
+Iteration   50, KL divergence 7.2317, 50 iterations in 38.1474 sec
+Iteration  100, KL divergence 7.5535, 50 iterations in 38.5793 sec
+Iteration  150, KL divergence 7.7661, 50 iterations in 66.6803 sec
+Iteration  200, KL divergence 7.2557, 50 iterations in 78.8561 sec
+Iteration  250, KL divergence 6.5085, 50 iterations in 65.5485 sec
+   --> Time elapsed: 287.81 seconds
 ===> Running optimization with exaggeration=1.00, lr=200.00 for 750 iterations...
-Iteration   50, KL divergence 6.1374, 50 iterations in 58.7320 sec
-Iteration  100, KL divergence 5.7845, 50 iterations in 57.0778 sec
-Iteration  150, KL divergence 5.5310, 50 iterations in 56.3071 sec
-Iteration  200, KL divergence 5.3325, 50 iterations in 55.9963 sec
-Iteration  250, KL divergence 5.1706, 50 iterations in 55.6965 sec
-Iteration  300, KL divergence 5.0349, 50 iterations in 55.5694 sec
-Iteration  350, KL divergence 4.9190, 50 iterations in 55.5958 sec
-Iteration  400, KL divergence 4.8181, 50 iterations in 55.6357 sec
-Iteration  450, KL divergence 4.7291, 50 iterations in 55.6119 sec
-Iteration  500, KL divergence 4.6500, 50 iterations in 55.5552 sec
-Iteration  550, KL divergence 4.5791, 50 iterations in 55.4635 sec
-Iteration  600, KL divergence 4.5150, 50 iterations in 55.3768 sec
-Iteration  650, KL divergence 4.4566, 50 iterations in 55.2701 sec
-Iteration  700, KL divergence 4.4030, 50 iterations in 55.3822 sec
-Iteration  750, KL divergence 4.3534, 50 iterations in 55.3342 sec
-   --> Time elapsed: 838.60 seconds
-openTSNE: Optimization 1122.2624895572662
-openTSNE: Full 1168.3705315589905
+Iteration   50, KL divergence 6.0613, 50 iterations in 61.7687 sec
+Iteration  100, KL divergence 5.7275, 50 iterations in 59.0372 sec
+Iteration  150, KL divergence 5.4844, 50 iterations in 57.9727 sec
+Iteration  200, KL divergence 5.2933, 50 iterations in 57.4349 sec
+Iteration  250, KL divergence 5.1371, 50 iterations in 57.0609 sec
+Iteration  300, KL divergence 5.0061, 50 iterations in 56.7402 sec
+Iteration  350, KL divergence 4.8933, 50 iterations in 56.6843 sec
+Iteration  400, KL divergence 4.7946, 50 iterations in 56.4676 sec
+Iteration  450, KL divergence 4.7072, 50 iterations in 56.5118 sec
+Iteration  500, KL divergence 4.6291, 50 iterations in 56.4309 sec
+Iteration  550, KL divergence 4.5587, 50 iterations in 56.2911 sec
+Iteration  600, KL divergence 4.4952, 50 iterations in 56.2520 sec
+Iteration  650, KL divergence 4.4374, 50 iterations in 56.1989 sec
+Iteration  700, KL divergence 4.3846, 50 iterations in 56.1709 sec
+Iteration  750, KL divergence 4.3359, 50 iterations in 56.1333 sec
+   --> Time elapsed: 857.16 seconds
+openTSNE: Optimization 1147.8630998134613
+openTSNE: Full 1194.1945717334747
 --------------------------------------------------------------------------------
-openTSNE v0.6.2
+openTSNE v1.0.0
 Random state 5
 --------------------------------------------------------------------------------
 ===> Finding 90 nearest neighbors using Annoy approximate search using euclidean distance...
-   --> Time elapsed: 43.20 seconds
+   --> Time elapsed: 43.39 seconds
 ===> Calculating affinity matrix...
    --> Time elapsed: 2.91 seconds
-openTSNE: NN search 46.11522054672241
+openTSNE: NN search 46.30220341682434
 ===> Running optimization with exaggeration=12.00, lr=200.00 for 250 iterations...
-Iteration   50, KL divergence 7.1874, 50 iterations in 38.0356 sec
-Iteration  100, KL divergence 7.5328, 50 iterations in 37.6783 sec
-Iteration  150, KL divergence 7.7594, 50 iterations in 64.3119 sec
-Iteration  200, KL divergence 7.2075, 50 iterations in 71.3239 sec
-Iteration  250, KL divergence 6.4233, 50 iterations in 60.4048 sec
-   --> Time elapsed: 271.75 seconds
+Iteration   50, KL divergence 7.3137, 50 iterations in 37.5977 sec
+Iteration  100, KL divergence 7.6417, 50 iterations in 35.9572 sec
+Iteration  150, KL divergence 7.7682, 50 iterations in 60.0122 sec
+Iteration  200, KL divergence 7.1629, 50 iterations in 71.4123 sec
+Iteration  250, KL divergence 6.3903, 50 iterations in 61.7650 sec
+   --> Time elapsed: 266.74 seconds
 ===> Running optimization with exaggeration=1.00, lr=200.00 for 750 iterations...
-Iteration   50, KL divergence 5.9814, 50 iterations in 58.6684 sec
-Iteration  100, KL divergence 5.6752, 50 iterations in 57.2296 sec
-Iteration  150, KL divergence 5.4419, 50 iterations in 56.5351 sec
-Iteration  200, KL divergence 5.2558, 50 iterations in 56.0338 sec
-Iteration  250, KL divergence 5.1026, 50 iterations in 55.8306 sec
-Iteration  300, KL divergence 4.9737, 50 iterations in 55.7529 sec
-Iteration  350, KL divergence 4.8630, 50 iterations in 55.7655 sec
-Iteration  400, KL divergence 4.7660, 50 iterations in 55.8257 sec
-Iteration  450, KL divergence 4.6798, 50 iterations in 55.7148 sec
-Iteration  500, KL divergence 4.6026, 50 iterations in 55.6022 sec
-Iteration  550, KL divergence 4.5333, 50 iterations in 55.6561 sec
-Iteration  600, KL divergence 4.4706, 50 iterations in 55.4277 sec
-Iteration  650, KL divergence 4.4134, 50 iterations in 55.3709 sec
-Iteration  700, KL divergence 4.3610, 50 iterations in 55.4888 sec
-Iteration  750, KL divergence 4.3128, 50 iterations in 55.2506 sec
-   --> Time elapsed: 840.15 seconds
-openTSNE: Optimization 1114.7069206237793
-openTSNE: Full 1160.8271930217743
+Iteration   50, KL divergence 5.9101, 50 iterations in 59.5196 sec
+Iteration  100, KL divergence 5.6084, 50 iterations in 57.9156 sec
+Iteration  150, KL divergence 5.3870, 50 iterations in 57.2994 sec
+Iteration  200, KL divergence 5.2133, 50 iterations in 56.9151 sec
+Iteration  250, KL divergence 5.0709, 50 iterations in 56.6864 sec
+Iteration  300, KL divergence 4.9506, 50 iterations in 56.6359 sec
+Iteration  350, KL divergence 4.8468, 50 iterations in 56.5474 sec
+Iteration  400, KL divergence 4.7555, 50 iterations in 56.5672 sec
+Iteration  450, KL divergence 4.6740, 50 iterations in 56.4705 sec
+Iteration  500, KL divergence 4.6007, 50 iterations in 56.3729 sec
+Iteration  550, KL divergence 4.5341, 50 iterations in 56.3989 sec
+Iteration  600, KL divergence 4.4735, 50 iterations in 56.3365 sec
+Iteration  650, KL divergence 4.4181, 50 iterations in 56.3407 sec
+Iteration  700, KL divergence 4.3672, 50 iterations in 56.2576 sec
+Iteration  750, KL divergence 4.3199, 50 iterations in 56.3175 sec
+   --> Time elapsed: 852.58 seconds
+openTSNE: Optimization 1122.1734504699707
+openTSNE: Full 1168.480586051941

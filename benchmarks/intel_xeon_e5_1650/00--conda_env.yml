@@ -143,17 +143,27 @@ dependencies:
   - pip:
     - cffi==1.15.1
     - cmake==3.18.4
+    - contourpy==1.0.5
+    - cycler==0.11.0
     - distro==1.7.0
     - fire==0.4.0
+    - fonttools==4.38.0
+    - kiwisolver==1.4.4
     - llvmlite==0.39.1
+    - matplotlib==3.6.0
     - multicoretsne==0.1
     - numba==0.56.2
-    - opentsne==0.6.2
+    - opentsne==1.0.0
     - packaging==21.3
+    - pandas==1.5.1
+    - pillow==9.2.0
     - pycparser==2.21
     - pynndescent==0.5.7
     - pyparsing==3.0.9
+    - python-dateutil==2.8.2
+    - pytz==2022.5
     - scikit-build==0.15.0
+    - seaborn==0.12.1
     - setuptools==59.8.0
     - six==1.16.0
     - termcolor==2.0.1

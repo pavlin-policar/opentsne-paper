@@ -290,6 +290,6 @@ generate_benchmark_plot(
     colors,
     title="Comparison with UMAP",
     fname=os.path.join("..", "paper", "benchmarks_umap.pdf"),
-    ylim=65,
+    ylim=50,
 )
 plt.show()

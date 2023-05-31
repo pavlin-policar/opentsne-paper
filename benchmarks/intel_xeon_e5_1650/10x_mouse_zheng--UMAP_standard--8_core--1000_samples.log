@@ -1,0 +1,68 @@
+Full data set dimensions: (1306127, 50)
+Benchmark data set dimensions: (1000, 50)
+--------------------------------------------------------------------------------
+Random state 0
+--------------------------------------------------------------------------------
+UMAP(random_state=0, verbose=5)
+Thu May 25 15:41:39 2023 Construct fuzzy simplicial set
+Thu May 25 15:41:39 2023 Finding Nearest Neighbors
+Thu May 25 15:41:42 2023 Finished Nearest Neighbor Search
+Thu May 25 15:41:44 2023 Construct embedding
+Epochs completed:   0%|            0/500 [00:00]Epochs completed:   0%|            1/500 [00:00]Epochs completed:   9%| ▉          47/500 [00:00]Epochs completed:  18%| █▊         91/500 [00:00]Epochs completed:  27%| ██▋        135/500 [00:00]Epochs completed:  36%| ███▌       179/500 [00:01]Epochs completed:  45%| ████▍      223/500 [00:01]Epochs completed:  53%| █████▎     267/500 [00:01]Epochs completed:  62%| ██████▏    311/500 [00:01]Epochs completed:  71%| ███████    355/500 [00:01]Epochs completed:  80%| ███████▉   399/500 [00:01]Epochs completed:  89%| ████████▊  443/500 [00:01]Epochs completed:  97%| █████████▋ 487/500 [00:01]Epochs completed: 100%| ██████████ 500/500 [00:01]
+Thu May 25 15:41:45 2023 Finished embedding
+UMAP: 6.556244134902954
+--------------------------------------------------------------------------------
+Random state 1
+--------------------------------------------------------------------------------
+UMAP(random_state=1, verbose=5)
+Thu May 25 15:41:45 2023 Construct fuzzy simplicial set
+Thu May 25 15:41:46 2023 Finding Nearest Neighbors
+Thu May 25 15:41:46 2023 Finished Nearest Neighbor Search
+Thu May 25 15:41:46 2023 Construct embedding
+Epochs completed:   0%|            0/500 [00:00]Epochs completed:   0%|            1/500 [00:00]Epochs completed:   9%| ▉          47/500 [00:00]Epochs completed:  18%| █▊         91/500 [00:00]Epochs completed:  27%| ██▋        135/500 [00:00]Epochs completed:  36%| ███▌       179/500 [00:00]Epochs completed:  45%| ████▍      223/500 [00:01]Epochs completed:  53%| █████▎     267/500 [00:01]Epochs completed:  62%| ██████▏    311/500 [00:01]Epochs completed:  71%| ███████    355/500 [00:01]Epochs completed:  80%| ███████▉   399/500 [00:01]Epochs completed:  89%| ████████▊  443/500 [00:01]Epochs completed:  97%| █████████▋ 487/500 [00:01]Epochs completed: 100%| ██████████ 500/500 [00:01]
+Thu May 25 15:41:48 2023 Finished embedding
+UMAP: 2.0869224071502686
+--------------------------------------------------------------------------------
+Random state 2
+--------------------------------------------------------------------------------
+UMAP(random_state=2, verbose=5)
+Thu May 25 15:41:48 2023 Construct fuzzy simplicial set
+Thu May 25 15:41:48 2023 Finding Nearest Neighbors
+Thu May 25 15:41:48 2023 Finished Nearest Neighbor Search
+Thu May 25 15:41:48 2023 Construct embedding
+Epochs completed:   0%|            0/500 [00:00]Epochs completed:   0%|            1/500 [00:00]Epochs completed:   9%| ▉          47/500 [00:00]Epochs completed:  18%| █▊         91/500 [00:00]Epochs completed:  27%| ██▋        135/500 [00:00]Epochs completed:  36%| ███▌       179/500 [00:01]Epochs completed:  45%| ████▍      223/500 [00:01]Epochs completed:  53%| █████▎     267/500 [00:01]Epochs completed:  62%| ██████▏    311/500 [00:01]Epochs completed:  71%| ███████    355/500 [00:01]Epochs completed:  80%| ███████▉   399/500 [00:01]Epochs completed:  89%| ████████▊  443/500 [00:01]Epochs completed:  97%| █████████▋ 487/500 [00:01]Epochs completed: 100%| ██████████ 500/500 [00:01]
+Thu May 25 15:41:50 2023 Finished embedding
+UMAP: 2.1837003231048584
+--------------------------------------------------------------------------------
+Random state 3
+--------------------------------------------------------------------------------
+UMAP(random_state=3, verbose=5)
+Thu May 25 15:41:50 2023 Construct fuzzy simplicial set
+Thu May 25 15:41:50 2023 Finding Nearest Neighbors
+Thu May 25 15:41:50 2023 Finished Nearest Neighbor Search
+Thu May 25 15:41:50 2023 Construct embedding
+Epochs completed:   0%|            0/500 [00:00]Epochs completed:   0%|            1/500 [00:00]Epochs completed:   9%| ▉          47/500 [00:00]Epochs completed:  18%| █▊         91/500 [00:00]Epochs completed:  27%| ██▋        135/500 [00:00]Epochs completed:  36%| ███▌       179/500 [00:00]Epochs completed:  45%| ████▍      223/500 [00:01]Epochs completed:  53%| █████▎     267/500 [00:01]Epochs completed:  62%| ██████▏    311/500 [00:01]Epochs completed:  71%| ███████    355/500 [00:01]Epochs completed:  80%| ███████▉   399/500 [00:01]Epochs completed:  89%| ████████▊  443/500 [00:01]Epochs completed:  97%| █████████▋ 487/500 [00:01]Epochs completed: 100%| ██████████ 500/500 [00:01]
+Thu May 25 15:41:52 2023 Finished embedding
+UMAP: 2.0932676792144775
+--------------------------------------------------------------------------------
+Random state 4
+--------------------------------------------------------------------------------
+UMAP(random_state=4, verbose=5)
+Thu May 25 15:41:52 2023 Construct fuzzy simplicial set
+Thu May 25 15:41:52 2023 Finding Nearest Neighbors
+Thu May 25 15:41:52 2023 Finished Nearest Neighbor Search
+Thu May 25 15:41:52 2023 Construct embedding
+Epochs completed:   0%|            0/500 [00:00]Epochs completed:   0%|            1/500 [00:00]Epochs completed:   9%| ▉          47/500 [00:00]Epochs completed:  18%| █▊         91/500 [00:00]Epochs completed:  27%| ██▋        135/500 [00:00]Epochs completed:  36%| ███▌       179/500 [00:01]Epochs completed:  45%| ████▍      223/500 [00:01]Epochs completed:  53%| █████▎     267/500 [00:01]Epochs completed:  62%| ██████▏    311/500 [00:01]Epochs completed:  71%| ███████    355/500 [00:01]Epochs completed:  80%| ███████▉   399/500 [00:01]Epochs completed:  89%| ████████▊  443/500 [00:01]Epochs completed:  97%| █████████▋ 487/500 [00:01]Epochs completed: 100%| ██████████ 500/500 [00:01]
+Thu May 25 15:41:54 2023 Finished embedding
+UMAP: 2.1802704334259033
+--------------------------------------------------------------------------------
+Random state 5
+--------------------------------------------------------------------------------
+UMAP(random_state=5, verbose=5)
+Thu May 25 15:41:54 2023 Construct fuzzy simplicial set
+Thu May 25 15:41:54 2023 Finding Nearest Neighbors
+Thu May 25 15:41:54 2023 Finished Nearest Neighbor Search
+Thu May 25 15:41:54 2023 Construct embedding
+Epochs completed:   0%|            0/500 [00:00]Epochs completed:   0%|            1/500 [00:00]Epochs completed:   9%| ▉          47/500 [00:00]Epochs completed:  18%| █▊         91/500 [00:00]Epochs completed:  27%| ██▋        135/500 [00:00]Epochs completed:  36%| ███▌       179/500 [00:00]Epochs completed:  45%| ████▍      223/500 [00:01]Epochs completed:  53%| █████▎     267/500 [00:01]Epochs completed:  62%| ██████▏    311/500 [00:01]Epochs completed:  71%| ███████    355/500 [00:01]Epochs completed:  80%| ███████▉   399/500 [00:01]Epochs completed:  89%| ████████▊  443/500 [00:01]Epochs completed:  97%| █████████▋ 487/500 [00:01]Epochs completed: 100%| ██████████ 500/500 [00:01]
+Thu May 25 15:41:56 2023 Finished embedding
+UMAP: 2.0929269790649414
