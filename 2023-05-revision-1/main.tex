@@ -839,7 +839,7 @@ Research Agency (P2-0209, L2-3170).
 
 \section{Single-cell RNA-seq Data Preprocessing}
 
-We here describe the preprocessing steps applied to the single-cell RNA-seq data sets used in Fig.~\ref{fig:macosko}~\citep{macosko2015highly}, Fig.~\ref{fig:tasic}~\citep{tasic2018shared}, Fig.~\ref{fig:cao}~\citep{cao2019single}, and Fig.~\ref{fig:transform}~\citep{hochgerner2018conserved}. The standard single-cell preprocessing pipeline consists of gene filtering, gene selection, data normalization, and dimensionality reduction.
+We here describe the preprocessing steps applied to the single-cell RNA-seq data sets used in Fig.~\ref{fig:macosko}~\citep{macosko2015highly}, Fig.~\ref{fig:tasic}~\citep{tasic2018shared}, Fig.~\ref{fig:cao}~\citep{cao2019single}, and Fig.~\ref{fig:transform}~\citep{hochgerner2018conserved}. The standard single-cell preprocessing pipeline that have used consists of gene filtering, gene selection, data normalization, and dimensionality reduction.
 
 First, we discard genes detected fewer than ten times, then select the 3,000 most highly-variable genes following the gene-selection procedure from \citet{kobak2019art}. We then perform counts-per-median library-size normalization followed by log normalization and standardization without zero-centering. Finally, we extract the top 50 principal components, which are then used to construct subsequent t-SNE embeddings. This pipeline is applied to all the aforementioned data sets with the following exceptions, which serve to better illustrate our points:
 \begin{itemize}
