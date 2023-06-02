@@ -89,13 +89,13 @@ Bla\v{z} Zupan \\
 \reviewc{r1q1}{I just have a few minor comments regarding the text. Firstly, the authors claim that FIt-SNE is not a PyPI/conda package in table 1, and that is just not the case. There is a similar comment in the introduction at the bottom of page 2 that needs to be remedied in this regard. "However, FIt-SNE is difficult to install and distribute, and provides and API largely inconsistent with the Python data science ecosystem".  I also find it fairly the comment fairly vague in the context of being inconsistent with Python data-science ecosystem, as the functional approach with most of the parameters being set by default is also a commonly used API for software.}
 
 \answer{
-We apologize for this oversight and would like to thank the reviewer for pointing out the availability of PyPI/conda packages for FIt-SNE. We have updated the text and Table 1 to reflect this.
+We apologize for this oversight and would like to thank the reviewer for pointing out the availability of PyPI/conda packages for FIt-SNE. We have updated the text and the respective content of Table 1.
 }
 
 
 \reviewc{r1q2}{Finally, this is one of the only works that switches between the Barnes-Hut approach to the FIt-SNE algorithm and the authors mention that they have a heuristic for doing so. This is an extremely useful feature as well, as it chooses the best of both worlds, and it would be wonderful if the authors could provide a brief description for the heuristic they use in their code. }
 
-\answer{We have now included a sentence in Section 3 on page 8 that describes our heuristic.}
+\answer{We have now included a sentence in Section 3 on page 8 that describes our heuristics.}
 
 
 \subsection*{Reviewer C}
@@ -115,7 +115,7 @@ We agree with the reviewer and have released version 1.0 of the software. We hav
 \reviewc{r2q3}{page 7: "one can speed up the overall computation by choosing a uniform kernel" -- this sounds cryptic as the uniform kernel was not explained anywhere. It could make sense to elaborate on it somewhere: what exactly is it? how to use it?}
 
 \answer{
-We have reworded the paragraph so that the uniform affinity kernel is now briefly described.
+We have reworded the paragraph to describe the uniform affinity kernel.
 }
 
 \reviewc{r2q4}{page 7: initialization paragraph only mentions PCA, would it make sense to mention that openTSNE also supports Laplacian eigenmaps as initialization?}
@@ -128,13 +128,13 @@ We now mention this option in the corresponding paragraph on page 8 and have als
 \reviewc{r2q5}{It would be interesting to add UMAP to the runtime benchmark. UMAP is a very popular alternative to t-SNE, and is often thought to be much faster, which is not actually the case for openTNSE. Perhaps a separate benchmark figure could focus on openTSNE vs UMAP (depending on the sample size)? This may depend on the used affinity model, as uniform affinity with 15 neighbors should be much faster than the standard affinity model (with 90 neighbors) for large sample sizes. If so, it may be of interest to show both and discuss.}
 
 \answer{
-Initially, we decided to omit a comparison to UMAP, as it is a different algorithm and a one-to-one comparison is difficult and not the focal point of the manuscript. However, given the popularity of both algorithms, we agree it makes sense to include a benchmark comparison between their implementations. However, given the often misunderstood differences between the two algorithms, we feel it is necessary to provide a throughout discussion on their benchmark results. We have added a subsection in Section 5.2, comparing the performance of the \texttt{openTSNE} and \texttt{umap-learn} libraries. The uniform affinity model is also an interesting and useful addition in the openTSNE framework, and we have added a comparison to that as well, as it could also be used in real-world scenarios when embedding massive data sets.
+Initially, we decided to omit a comparison to UMAP, as it is a different algorithm, and a one-to-one comparison is difficult and not the focal point of the manuscript. However, given the popularity of both algorithms, it makes sense to include a benchmark comparison between their implementations. Given the often misunderstood differences between the two algorithms, it is necessary to provide a throughout discussion of their benchmark results. We have added a subsection in Section 5.2, comparing the performance of the \texttt{openTSNE} and \texttt{umap-learn} libraries. The uniform affinity model is also an interesting and valuable addition to the openTSNE framework, and we have added a comparison to that as well, as it could also be used in real-world scenarios when embedding massive data sets.
 }
 
 
 \reviewc{r2q6}{top of page 5: you talk about attractive forces but they have not been introduced yet. It may make sense to move the equation from secton 2.2 into 2.1 after Eq (5).}
 
-\answer{We would like to thank the reviewer for the suggestion, and we have now moved the equation from section 2.2 to the end of section 2.1, and updated the text accordingly.}
+\answer{We would like to thank the reviewer for the suggestion. We have now moved the equation from section 2.2 to the end of section 2.1, and updated the text accordingly.}
 
 
 \reviewc{r2q7}{page 6: "Special care must be taken to tune the learning rate during optimization" -- the details are missing here. So what values are used in openTSNE?}
@@ -144,12 +144,12 @@ Initially, we decided to omit a comparison to UMAP, as it is a different algorit
 
 \reviewc{r2q8}{page 13: it is unclear what embedding.prepare\_partial() does here -- how are the new samples initialized, before you are running optimize()? Same for the prepare\_partial call on page 17.}
 
-\answer{We agree that this is somewhat crpytic and have added a sentence below the code snippet describing what each of the function calls does.}
+\answer{We agree and have added a sentence below the code snippet describing what each of the function calls does.}
 
 
 \reviewc{r2q9}{Figure 7 -- "Data points representing cells are colored according to cell types assigned in the original publication; see the legend from Fig. 5 to map colors to cell type." The last part ("see the legend from Fig. 5 to map colors to cell type") is unclear as Figure 5 shows different dataset. Does this study use the same colormap? This is confusing.}
 
-\answer{We agree that this sentence is confusing and have reworded it to be more clear.}
+\answer{We have reworded this section of text accordingly.}
 
 
 \reviewc{r2q10}{References: Boehm et al is published.}
