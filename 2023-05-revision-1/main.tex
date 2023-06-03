@@ -187,7 +187,7 @@ The objective is to find embeddings $\mathbf{Y}$ that minimize the KL divergence
 \end{equation}
 where $w_{ij} = \left ( 1 + || \mathbf{y}_i - \mathbf{y}_j || ^2 \right )^{-1}$
 and represents the unnormalized $q_{ij}$.
-We can rewrite this gradient to
+We can rewrite this gradient as
 \begin{equation}
 \frac{\partial C}{\partial \mathbf{y}_i} = 4 \Bigg [
 \underbrace{\sum_{j \neq i} p_{ij} q_{ij} Z \left ( \mathbf{y}_i - \mathbf{y}_j \right )}_{\text{attractive forces}}  -
@@ -713,7 +713,7 @@ Both t-SNE and UMAP are force-directed layout algorithms in which each data poin
 
 The primary factor dictating the runtime of both methods is the number of nearest neighbors used when constructing the KNNG. Apart from the runtime required to find the $k$-nearest neighbors, the number of neighbors directly influences the runtime of each optimization step. In each step, every data point exerts an attractive force on each neighbor in the low-dimensional embedding. Therefore, the larger the number of neighbors considered, the longer the runtime. Modern implementations of the t-SNE algorithm construct a KNNG with $3 \cdot u$ nearest neighbors where $u$ is the desired perplexity. By default, \opentsne (v1.0.0) uses a perplexity value of 30, meaning that 90 nearest neighbors must be found and considered for each data point. In contrast, the \pkg{umap-learn} package (v0.5.3) constructs a KNNG using only 15 neighbors by default, substantially reducing the time spent on nearest neighbor search and point interactions compared to t-SNE.
 
-Alternatively, empirical evidence indicates that replacing the standard perplexity-based Gaussian affinity model in t-SNE with a uniform affinity model produces markedly similar embeddings to that of standard t-SNE. For instance, running standard t-SNE with the perplexity of $u=30$ constructs a KNNG with $3 \cdot u = 90$ neighbors. However, when using the equivalent uniform affinity model, only $u$ neighbors are needed, making the uniform affinity model attractive for visualizing large data sets.
+Alternatively, empirical evidence indicates that replacing the standard perplexity-based Gaussian affinity model in t-SNE with a uniform affinity model produces markedly similar embeddings to that of standard t-SNE. For instance, running standard t-SNE with a perplexity of $u=30$ constructs a KNNG with $3 \cdot u = 90$ neighbors. However, when using the equivalent uniform affinity model, only $u$ neighbors are needed, making the uniform affinity model attractive for visualizing large data sets.
 
 In Fig.~\ref{fig:benchmarks_umap}, we include benchmarks of the standard perplexity-based t-SNE algorithm, its uniform affinity model variant, and UMAP. Differently from the previous benchmarks, which were run using older parameter settings to accommodate different t-SNE implementations, we now run both libraries using their default parameter settings to measure the runtime of typical, real-world use cases.
 \begin{figure*}[ht]
