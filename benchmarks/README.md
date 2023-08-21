@@ -24,7 +24,7 @@ The benchmark output will be saved to the `logs/` directory. We also include exa
 conda env create -f logs/00--conda_env.yml
 ```
 
-Please note that **Julia is not available via conda on OSX systems**. To replicate the environment on an OSX system, please modify `logs/00--conda_env.yml` and remove the `julia` package from the `environment` section. The Julia benchmarks will not be run, but the Python and R benchmarks will be unaffected.
+**WARNING**: Please note that Julia is not available via conda on OSX systems. To replicate the environment on an OSX system, please modify `logs/00--conda_env.yml` and remove the `julia` package from the `environment` section. The Julia benchmarks will not be run, but the Python and R benchmarks will be unaffected.
 
 ## Generating figures
 
