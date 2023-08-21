@@ -24,6 +24,8 @@ The benchmark output will be saved to the `logs/` directory. We also include exa
 conda env create -f logs/00--conda_env.yml
 ```
 
+Please note that Julia is not available via conda on OSX systems, and the benchmarks will not be run. Please run these benchmarks on a Linux system instead.
+
 ## Generating figures
 
 Because running the benchmarks can take a long time, we provide the output of our own benchmarks in the `logs/` directory. These benchmarks were run on an Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz processor with 128GB of memory, and we include the output of these benchmarks in the `intel_xeon_e5_1650` folder. We also include the exact `conda` environment and installed package versions.
