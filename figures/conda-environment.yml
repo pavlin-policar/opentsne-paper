@@ -3,7 +3,7 @@ channels:
   - defaults
 dependencies:
   - pip=21.2.4
-  - python=3.10.2
+  - python=3.10
   - hdf5=1.12.1
   - pip:
       - anndata==0.8.0
