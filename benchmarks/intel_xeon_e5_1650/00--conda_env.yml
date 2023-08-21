@@ -5,6 +5,7 @@ channels:
 dependencies:
   - fftw=3.3.10
   - git=2.38.0
+  - julia=1.8.2
   - make=4.3
   - numpy=1.23.3
   - pip=22.2.2
