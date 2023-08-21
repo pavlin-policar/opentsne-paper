@@ -25,22 +25,26 @@ install_fitsne() {
 }
 
 install_python_dependencies() {
-  conda install python numpy scikit-learn -y
+  conda install python pip=22.2.2 numpy scikit-learn -y
 
   pip install opentsne --no-binary opentsne
   pip install -r requirements-benchmarks.txt
+}
 
-  install_fitsne
+install_r () {
+  conda install -c r -c conda-forge r -y
 }
 
 install_r_dependencies() {
-  conda install -c r -c conda-forge r -y
-  Rscript -e 'install.packages("Rtsne", repos="https://cloud.r-project.org")'
-  Rscript -e 'install.packages("optparse", repos="https://cloud.r-project.org")'
+  Rscript -e 'if (!require("Rtsne")) install.packages("Rtsne", repos="https://cloud.r-project.org")'
+  Rscript -e 'if (!require("optparse")) install.packages("optparse", repos="https://cloud.r-project.org")'
+}
+
+install_julia () {
+  conda install -c conda-forge julia -y
 }
 
 install_julia_dependencies() {
-  conda install -c conda-forge julia -y
   julia -e 'using Pkg; Pkg.add("ArgParse")'
   julia -e 'using Pkg; Pkg.add("CSV")'
   julia -e 'using Pkg; Pkg.add("DataFrames")'
@@ -97,7 +101,7 @@ if $small; then
   echo "Running small benchmark suite."
 
   dataset_name="macosko_2015"
-  sample_sizes=(1000 2000)
+  sample_sizes=(1000 2000 5000)
   repetitions=3;
 
 else
@@ -119,11 +123,19 @@ if ! conda env list | grep "\s*$CONDA_ENVIRONMENT_NAME\s*" >/dev/null 2>&1; then
   conda create --name "$CONDA_ENVIRONMENT_NAME" -y
   activate_environment "$CONDA_ENVIRONMENT_NAME"
   install_python_dependencies
-  install_r_dependencies
-  install_julia_dependencies || true  # allowed to fail on mac
+  install_r
+  install_julia || true # allowed to fail on mac
 else
   activate_environment "$CONDA_ENVIRONMENT_NAME"
 fi
+
+# Install FIt-SNE, R, and Julia dependencies separately, since replicating
+# the conda environment doesn't install these packages
+if [ ! -d "FIt-SNE" ]; then
+  install_fitsne
+fi
+install_r_dependencies
+is_installed julia && install_julia_dependencies
 
 download_datasets $dataset_name
 
@@ -259,29 +271,29 @@ run_julia_benchmarks() {
 
 
 if is_installed python; then
+  # Benchmark t-SNE implementations using the old standard parameter settings
+  methods=(openTSNEBH openTSNEFFT MulticoreTSNE FItSNE sklearn);
+  cores=1 run_python_benchmarks;
+  cores=8 run_python_benchmarks;
+
   # Run comparison with UMAP and openTSNE default parameters
   cores=1 run_python_umap_opentsne_benchmarks;
   cores=8 run_python_umap_opentsne_benchmarks;
-  
-  # Benchmark t-SNE implementations using the old standard parameter settings
-  #methods=(openTSNEBH openTSNEFFT MulticoreTSNE FItSNE sklearn);
-  methods=(openTSNEBH openTSNEFFT);
-  cores=1 run_python_benchmarks;
-  cores=8 run_python_benchmarks;
+
 else
   echo -e "The \`python\` command was not found. Skipping."
 fi
 
-#if is_installed Rscript; then
-#  cores=1 run_r_benchmarks;
-#  cores=8 run_r_benchmarks;
-#else
-#  echo -e "The \`Rscript\` command was not found. Skipping."
-#fi
+if is_installed Rscript; then
+  cores=1 run_r_benchmarks;
+  cores=8 run_r_benchmarks;
+else
+  echo -e "The \`Rscript\` command was not found. Skipping."
+fi
 
-#if is_installed julia; then
-#  sample_sizes=(1000 5000 10000 20000 50000)
-#  cores=1 run_julia_benchmarks;
-#else
-#  echo -e "The \`julia\` command was not found. Skipping."
-#fi
+if is_installed julia; then
+  sample_sizes=(1000 5000 10000 20000 50000)
+  cores=1 run_julia_benchmarks;
+else
+  echo -e "The \`julia\` command was not found. Skipping."
+fi
