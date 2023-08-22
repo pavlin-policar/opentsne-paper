@@ -1,0 +1,160 @@
+\documentclass{article}
+
+
+\usepackage[T1]{fontenc}
+\usepackage{natbib}
+\usepackage{todonotes}
+\usepackage{gensymb}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage[top=1in,bottom=1in,left=1in,right=1in]{geometry}
+\usepackage{alltt}
+\usepackage{framed}
+\usepackage{xcolor}
+\usepackage{comment}
+\usepackage{graphicx}
+
+\usepackage{xr}[]
+\externaldocument{main}
+\usepackage{url}
+
+\renewcommand{\thetable}{\Alph{table}}
+\renewcommand{\thefigure}{\Alph{figure}}
+
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\beqs}{\begin{equation}}
+\newcommand{\eeqs}{\end{equation}}
+\newcommand{\mx}[1]{\ensuremath{\boldsymbol{\mathrm{{#1}}}}}   % Simple matrix format.
+
+
+% \newcommand{\review}[1]{\noindent{{\textbf{\textit{#1}}}}\vspace{3mm}}
+% \definecolor{colframe}{rgb}{0.01,0.199,0.1}
+
+\newcounter{rtaskno}
+\newcommand{\rtask}[1]{\refstepcounter{rtaskno}\label{#1}}
+
+\newcommand{\reviewc}[2]{\begin{leftbar}\noindent\rtask{#1}\ref{#1}. #2\end{leftbar}}
+\newcommand{\review}[1]{\begin{leftbar}\noindent #1\end{leftbar}}
+\newcommand{\answer}[1]{\noindent #1\\[0mm]}
+\newcommand{\copyquote}[1]{\vspace{2mm} {\color{blue} #1}\vspace{2mm}}
+
+\newlength{\leftbarwidth}
+\setlength{\leftbarwidth}{3pt}
+\newlength{\leftbarsep}
+\setlength{\leftbarsep}{10pt}
+\renewenvironment{leftbar}{%
+    \def\FrameCommand{{\color{black}{\vrule width \leftbarwidth\relax\hspace {\leftbarsep}}}}%
+    \MakeFramed {\advance \hsize -\width \FrameRestore }%
+}{\endMakeFramed}
+
+
+% \usepackage[colorlinks=True,citecolor=black]{hyperref}
+
+\begin{document}
+
+
+\noindent{\bf Poli\v{c}ar, Stra\v{z}ar, and Zupan: 
+\\
+openTSNE: A Modular Python Library for t-SNE Dimensionality Reduction and Embedding}
+
+\vspace{5mm}
+\noindent {\bf RESPONSE TO THE REVIEWERS}
+
+\vspace{5mm}
+
+
+\noindent Dear Editor and the Reviewers, \\
+ 
+\vspace{3mm}
+
+\noindent Thank you for your valuable feedback through which we have been able to greatly improve our manuscript. Below, we provide detailed, point-by-point responses to the Editor's and Reviewer's comments and concerns. To facilitate the review process, we also include a version of the manuscript with the highlighted changes from the previous revision.
+
+\vspace{3mm}
+
+\noindent Kind regards,
+\vspace{3mm}
+
+\noindent Pavlin Poli\v{c}ar, 
+Martin Stra\v{z}ar, 
+Bla\v{z} Zupan \\ 
+\noindent Ljubljana, August 21, 2023
+
+\vspace{10mm}
+
+
+% Editor
+\subsection*{Editor}
+
+\noindent\textbf{Manuscript style comments}
+\reviewc{r1q1}{Code should have enough spaces to facilitate reading.  Please include spaces before and after operators and after commas (unless spaces have syntactical meaning).}
+
+\answer{As previously stated, when formatting the code used in the manuscript, we followed the standard Python code-style guidelines specified in PEP 8 (https://peps.python.org/pep-0008/). The style guide specifies that spaces should sometimes be omitted around operators, particularily when specifying parameter values. This is different from some other popular programming languages, such as R, but is considered standard practice in the Python community.}
+
+
+\reviewc{r1q2}{As a reminder, please make sure that \textbackslash proglang,  \textbackslash pkg and \textbackslash code have been used for highlighting throughout the paper (including titles and references), except where explicitly escaped.}
+
+\answer{We have reviewed the manuscript and have ensured that all package names, programming language references, and code snippets are surrounded by the appropriate Latex tags.}
+
+
+\noindent\textbf{References}
+\reviewc{r1q3}{Please make sure that all software packages are \textbackslash cite\{\}'d properly.}
+
+\answer{We have ensured that all software packages are cited properly. Where the software package has been published in a journal or at a conference, we have provided the paper citation. Where such a publication is not available, we have followed the guidelines from the online JSS style guide (https://www.jstatsoft.org/style\#how-to-cite-software).}
+
+
+\reviewc{r1q4}{All references should be in title style.}
+
+\answer{We have reviewed the manuscript and ensured that the capitalization of the title and reference titles matches the title style. We have also ensured that the section titles and figure annotations match the sentence style.}
+
+
+\noindent\textbf{Code}
+\reviewc{r1q5}{As a reminder, please make sure that the files needed to replicate all code/examples within the manuscript are included in a standalone replication script.}
+
+\answer{
+We have carefully prepared the replication material so that they may be run as easily as possible and include them in the submission. The replication materials include several scripts that can be run to reproduce both the figures and the benchmark results presented in this manuscript. The benchmarking script can take days or weeks to complete, so we include a smaller, illustratory benchmark run. We also include exact conda environment specifications so that the results can be reproduced exactly. Detailed instructions on each script and reproduction steps are available in the reproducibility materials attached, as well as the accompanying Github repository (https://github.com/pavlin-policar/openTSNE-paper).
+}
+
+
+% Reviewer A
+\subsection*{Reviewer A}
+
+\reviewc{r2q1}{Was unable to run the benchmarks on either a linux box or an intel Mac with python 3.7/3.9, but was able to reproduce all the figures. However, I also couldn't resolve the conda environment in the figures directory either.}
+
+\answer{
+We would like to thank the reviewer for alerting us that our environment-replication files were Linux-specific. We have now remedied this and have tested the environment-replication script on an OSX system.
+}
+
+
+% Reviewer B
+\subsection*{Reviewer B}
+
+\reviewc{r3q1}{Page 5 mentions that Belkina et al suggest learning rate N/12. However, I checked the defaults in openTSNE 1.0 and the default learning rate seems to be N. Would be good to comment on that.}
+
+\answer{
+We have added a clarifying sentence to Page 5, and describe the default behaviour of openTSNE in the Implementation section in point 3 on page 8.
+}
+
+
+\reviewc{r3q2}{Page 21 says you used scikit-learn 1.1 for the benchmark, page 27 gives version 1.0. Also, given that there is version 1.2 out and there were some differences to t-SNE implementation in it, I wonder if it makes sense to use 1.2 for benchmarking (not sure if anything is going to change or not).}
+
+\answer{
+Thank you for pointing out this oversight, we have corrected the scikit-learn version to 1.1.2 in the caption of Table 1. We have also run a short benchmark comparing the performance of scikit-learn v1.1 vs v1.2 and the newest v1.3. We found no discernible differences in runtime, therefore, we feel that updating the manuscript in any large way is unnecessary. We have, however, added a corresponding footnote on page 20.
+}
+
+\reviewc{r3q3}{Page 23 explains that tSNE results with perplexity 30 are similar to the results with uniform affinity with 30 neighbors. It says "empirical evidence indicates" but gives no evidence (there is no figure) and no citations. One possible citation would be Boehm et al. JMLR 2022: https://jmlr.org/papers/v23/21-0055.html, see Figure 2 in there, but they use uniform affinity with 15 neighbors, not 30. By the way, this is the same values as in UMAP. Anyway, I think the authors should either give a reference (and then use the same values as in the reference) or alternatively provide some evidence themselves.
+}
+
+\answer{We have added the citation to the text.}
+
+
+\reviewc{r3q4}{What is not mentioned in the paper, is the library useed for KNNG construction. openTSNE allows several libraries, so it may be good to mention it somewhere, give relevant citations (to Annoy, HNSW, etc.), and also explain that different libraries support different metrics and/or sparsity. And this can affect the runtime. Maybe this can be mentioned in the benchmarking section, or in the comparison to UMAP section, or elsewhere.}
+
+\answer{
+We have added a paragraph to the Implementation section in point 1 describing the different avialable nearest neighbor search methods included in openTSNE.
+}
+
+
+
+\end{document}
