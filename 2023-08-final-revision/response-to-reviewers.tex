@@ -69,7 +69,7 @@ openTSNE: A Modular Python Library for t-SNE Dimensionality Reduction and Embedd
  
 \vspace{3mm}
 
-\noindent Thank you for your valuable feedback through which we have been able to greatly improve our manuscript. Below, we provide detailed, point-by-point responses to the Editor's and Reviewer's comments and concerns. To facilitate the review process, we also include a version of the manuscript with the highlighted changes from the previous revision.
+\noindent Thank you for your valuable feedback for the final version of the manuscript. Below, we provide detailed, point-by-point responses to minor comments and change requests. To facilitate the review process, we also include a version of the manuscript with the highlighted changes from the previous revision.
 
 \vspace{3mm}
 
@@ -95,7 +95,7 @@ Bla\v{z} Zupan \\
 
 \reviewc{r1q2}{As a reminder, please make sure that \textbackslash proglang,  \textbackslash pkg and \textbackslash code have been used for highlighting throughout the paper (including titles and references), except where explicitly escaped.}
 
-\answer{We have reviewed the manuscript and have ensured that all package names, programming language references, and code snippets are surrounded by the appropriate Latex tags.}
+\answer{We have inspected the manuscript to make sure that all package names, programming language references, and code snippets are surrounded by the appropriate Latex tags.}
 
 
 \noindent\textbf{References}
@@ -140,7 +140,7 @@ We have added a clarifying sentence to Page 5, and describe the default behaviou
 \reviewc{r3q2}{Page 21 says you used scikit-learn 1.1 for the benchmark, page 27 gives version 1.0. Also, given that there is version 1.2 out and there were some differences to t-SNE implementation in it, I wonder if it makes sense to use 1.2 for benchmarking (not sure if anything is going to change or not).}
 
 \answer{
-Thank you for pointing out this oversight, we have corrected the scikit-learn version to 1.1.2 in the caption of Table 1. We have also run a short benchmark comparing the performance of scikit-learn v1.1 vs v1.2 and the newest v1.3. We found no discernible differences in runtime, therefore, we feel that updating the manuscript in any large way is unnecessary. We have, however, added a corresponding footnote on page 20.
+Thank you for pointing out this oversight, we have corrected the scikit-learn version to 1.1.2 in the caption of Table 1. We have also run several benchmarks comparing the performance of scikit-learn v1.1 vs v1.2 and the newest v1.3. We found no discernible differences in runtime, therefore, we feel that updating the manuscript in any large way is unnecessary. We have, however, added a corresponding footnote on page 20.
 }
 
 \reviewc{r3q3}{Page 23 explains that tSNE results with perplexity 30 are similar to the results with uniform affinity with 30 neighbors. It says "empirical evidence indicates" but gives no evidence (there is no figure) and no citations. One possible citation would be Boehm et al. JMLR 2022: https://jmlr.org/papers/v23/21-0055.html, see Figure 2 in there, but they use uniform affinity with 15 neighbors, not 30. By the way, this is the same values as in UMAP. Anyway, I think the authors should either give a reference (and then use the same values as in the reference) or alternatively provide some evidence themselves.
